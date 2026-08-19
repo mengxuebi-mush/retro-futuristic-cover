@@ -11,7 +11,7 @@ Build a calm, gradient-first retro-futuristic cover rather than a retro newspape
 - Add fine monochromatic grain or a subtle frosted texture without muddying the title.
 - Keep colors luminous, airy, and softened by haze and grain. Do not make them muddy, gray, beige-only, or generically desaturated.
 - Reserve a large uninterrupted quiet field before placing the title.
-- Build the decoration from one primary form, zero to two hairline structures, and one micro-accent family with 1–3 instances. Choose the primary and hairline structures from an edge-cropped translucent orb, flowing blob, arch, portal, perspective grid, thin orbit curve, or hairline frame.
+- Build the decoration from one primary form, one editorial alignment system, zero to two total hairline structures, and one micro-accent family with 1–3 instances. Choose the primary form from a misted arch, soft portal, flowing chromatic shape, curved translucent surface, faint perspective plane, or flattened edge-cropped orb.
 - Keep motifs abstract. Do not let them contain labels, numbers, glyphs, interface copy, or text-like marks.
 - Let the elements share axes, overlap, or visually connect so the cover feels composed and futuristic rather than sparsely decorated.
 - Favor generous margins, clean editorial geometry, one clear focal point, and enough visual structure that the cover feels full without becoming busy.
@@ -30,7 +30,9 @@ The gradient must pass all of these checks:
 ## Typography
 
 - Render exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE` once each and no other text.
-- Use one clean grotesk, neo-grotesk, geometric sans, or restrained editorial serif.
+- Select exactly one direction: **restrained editorial serif**, **clean sans**, or **neutral grotesk**. Rotate the direction across recent outputs rather than defaulting to a serif.
+- A restrained editorial serif uses moderate contrast and sturdy strokes. Never use an oversized ultra-high-contrast Didone that makes the cover resemble a fashion or fragrance advertisement.
+- A clean sans uses open proportions and quiet geometry. A neutral grotesk uses practical, slightly compact proportions without becoming condensed poster type.
 - For Chinese, use a modern CJK sans or restrained Song/Ming-style editorial face with sturdy readable strokes.
 - Use one family, one dominant scale, and no more than two weights.
 - Keep line breaks natural. Avoid condensed poster type, novelty fonts, outlines, multiple text boxes, cramped tracking, stretched glyphs, and excessive italics.
@@ -39,6 +41,14 @@ The gradient must pass all of these checks:
 - Set `MICRO_SUBTITLE` in tiny sans, approximately 8–14% of the title cap height, using one or two short lines at most. Place it below the title or near the lower margin.
 - Keep both support elements legible but quiet; they must not compete with or visually enlarge the text footprint of the title.
 - Use black/near-black text on light fields and warm-white text on indigo fields. Micro-accents follow the same contrast rule.
+
+## Title footprint gate
+
+- Use 1–3 title lines on portrait and square covers; use 1–2 on X landscape and banner covers.
+- Aim for a title block occupying roughly 25–35% of the canvas rather than half or more of the page.
+- Keep the title block within roughly 55–62% of the canvas width on portrait covers unless the primary form is deliberately absent from that zone.
+- Preserve a calm buffer of roughly 4% of the canvas width between the title and the brightest or highest-contrast edge of the primary form.
+- Reject a title that becomes a near-full-page fashion billboard, collides with the primary form, or loses contrast over a bright edge.
 
 ## Editorial detail recipe
 
@@ -49,23 +59,31 @@ Every cover must include:
 3. One micro-accent family chosen from four-point stars, equilateral or right triangles, diamonds/rhombi, tiny dots, thin rings, or minimal corner brackets.
 4. Between one and three instances of that micro-accent family, placed where the composition benefits rather than at a fixed corner.
 5. One primary abstract form integrated into the gradient.
-6. Zero to two hairline accents such as an orbit curve, short rule, corner crop, pill outline, perspective grid, or portal outline.
+6. One category-label treatment chosen from a plain aligned label with a short rule, a thin outlined pill, or a minimal corner alignment.
+7. Zero to two total hairline structures such as a curve, short rule, corner crop, pill outline, perspective grid, portal outline, or partial frame. Count the category rule or pill outline toward this limit.
 
 Keep each micro-accent no larger than roughly 3% of the short canvas edge and keep their combined footprint below roughly 1.5% of the canvas. Use flat fills or thin outlines only: no bevels, 3D depth, heavy shadows, or glow. A cluster of three should read as one quiet punctuation mark, not three competing focal points.
 
-Distribute details around the perimeter and title rather than clustering every element together. They should make the cover feel authored and polished while preserving generous space. Randomize the accent family, count, placement, and orientation across outputs while keeping the visual DNA consistent.
+Create a visible editorial relationship rather than scattering decorations. Align at least two of the category label, title block, primary form, structural line, and micro-accents to a shared edge, axis, tangent, or baseline. Distribute the remaining details around the perimeter and title. Randomize the label treatment, accent family, count, placement, and orientation across outputs while keeping the visual DNA consistent.
 
-## Composition families
+## Primary-form and composition families
 
 Randomly choose one family and adapt it to the title. Do not announce the choice.
 
-1. **Diffuse horizon** — continuous edge-to-edge gradient atmosphere, a low blended horizon, one large cropped arc, and one to three tiny geometric marks.
-2. **Orbital calm** — one translucent edge-cropped orb integrated into the gradient, a thin orbit curve, and one quiet micro-accent family.
-3. **Type and light** — dominant title over a broad diagonal color flow, grain, one soft geometric blob, and one to three tiny punctuation shapes.
-4. **Quiet signal** — continuous gradient field, an extremely faint perspective grid or flowing signal line, one outlined portal, and a small marker.
-5. **Soft portal** — a large blurred arch or portal grown from the gradient, one hairline curve, and one to three minimal accent marks.
+1. **Misted arch** — a large blurred arch grown from the gradient, one quiet structural line, and a small geometric punctuation family.
+2. **Soft portal** — an offset portal fragment with no hard glow, a shared tangent or baseline, and sparse flat accents.
+3. **Flowing chromatic shape** — one broad asymmetric color ribbon or blob crossing an edge, paired with a short rule or partial frame.
+4. **Perspective plane** — an extremely faint perspective grid or folded plane used as the primary structure, balanced by one small marker family.
+5. **Curved translucent surface** — one edge-cropped abstract membrane or arc with low-contrast depth, aligned to the title without resembling a planet.
+6. **Flattened orb** — a translucent, heavily cropped orb integrated into the gradient with no rim glow or specular highlight. Pair it with brackets, dots, rings, triangles, or rhombi; never pair it with orbit lines or starbursts.
 
-Vary the chosen composition, approved palette family, title placement, and type category while preserving this restrained visual family.
+Vary the primary form, approved palette family, title placement, typography direction, label treatment, and accent family. When recent output is visible, do not repeat both its primary-form family and typography direction.
+
+## Anti-cliché combination gate
+
+Reject the complete combination of oversized high-contrast Didone, glowing 3D planet, orbit line, and sparkle. It reads as a generic AI space poster rather than an editorial system. If two or more of those traits appear, replace enough decisions that the composition no longer reads as a cosmic-poster template.
+
+Do not use literal space imagery as shorthand for “future.” Futurism must come from proportion, alignment, cropped geometry, color flow, and restrained structural detail.
 
 ## Locked palette system
 
@@ -134,6 +152,9 @@ Never produce:
 - palettes outside the locked families, black/charcoal-dominant backgrounds, muddy brown transitions, gray corporate gradients, or neon cyberpunk color.
 - three or more isolated radial halos, repeated spotlight dots, disconnected gradient circles, or a large white-centered color ring.
 - a nearly empty background with only one orbit line and one micro-accent; include a primary abstract form and the full editorial detail recipe.
+- a glowing 3D planet, luminous rim, specular sphere, or literal cosmic scene;
+- oversized high-contrast fashion Didone paired with space imagery;
+- decorative shapes scattered without a shared alignment, tangent, baseline, or structural relationship;
 
 ## Reject and regenerate when
 
@@ -146,4 +167,8 @@ Never produce:
 - the gradient reads as separate halos instead of one seamless field;
 - the primary abstract form or the 1–3 instance micro-accent family is missing;
 - micro-accents are oversized, visually dominant, three-dimensional, heavily shadowed, or exceed the allowed footprint;
+- the title uses too many lines, occupies roughly half the page, collides with the primary form, or crosses its brightest edge;
+- the primary form, typography direction, and micro-accent family repeat the most recent visible output without reason;
+- the layout triggers the anti-cliché combination gate or lacks a coherent editorial alignment system;
+- the grain reads as a coarse uniform filter or softens text edges at thumbnail size;
 - the composition ignores the requested platform ratio.

@@ -12,8 +12,11 @@ The Skill extracts one core idea, aggressively condenses it into a short headlin
 - One dominant, highly readable headline
 - Minimal category label and micro-subtitle
 - Small randomized stars, triangles, rhombi, dots, rings, or corner brackets
-- Subtle orbs, curves, portals, grids, and hairline structures
+- Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
+- An editorial alignment system connecting labels, type, structural lines, and micro-accents
+- Typography that rotates between restrained editorial serif, clean sans, and neutral grotesk
 - No cyberpunk neon, dense collage, experimental type, or text-heavy layouts
+- No generic “high-contrast Didone + glowing planet + orbit + sparkle” AI-poster combination
 
 ## Platform presets
 
