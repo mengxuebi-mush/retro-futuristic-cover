@@ -25,7 +25,8 @@ Style feedback does not silently override exact title wording, platform geometry
 
 - the exact three approved strings;
 - the selected platform, aspect ratio, and canvas;
-- the complete palette tuple and color-area intent;
+- the selected palette family, color complexity, active hues, area hierarchy, and topology;
+- the pale-device state, detail roles, and alignment system;
 - the typography direction;
 - every region or relationship that already passes;
 - any user-approved visual decision.
@@ -38,9 +39,10 @@ Mark each item `PASS` or `FAIL` with one observable reason. A single failure pre
 2. **Text inventory** — Transcribe every visible fragment. The image contains exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE`, each once, with no misspelling, repetition, pseudo-text, watermark, logo, date, or number.
 3. **Rendered-title fidelity** — The dominant rendered title exactly matches the approved `FINAL_TITLE` and remains the only dominant message.
 4. **Canvas** — The file has the requested format, pixel dimensions, and aspect ratio. Run `scripts/verify_image.py` when a local file is available.
-5. **Color contract** — The actual pixels follow the locked tonal regime, harmony recipe, coral role, area hierarchy, and black-area limit.
-6. **Typography contract** — The actual type direction, line count, weight, leading, footprint, contrast, and readability follow the selected typography and platform rules. For a 5–10-word X landscape title, verify that a balanced three-line option was considered and reject a caption-like block that uses less than roughly 40% of canvas height despite ample clear space.
-7. **Negative constraints** — No forbidden layout, literal scene, cliché combination, disconnected halo field, dense information design, or competing ornament is present.
+5. **Color contract** — The actual pixels use only the locked active hues and their derivatives, follow the selected color complexity, tonal regime, area hierarchy, saturation focus, coral role, and black-area limit, and do not activate every available palette color by habit.
+6. **Typography contract** — The actual type direction, line count, weight, leading, footprint, contrast, and readability follow the selected typography and platform rules. For Chinese, verify that the rendered stroke character visibly matches `CJK_EDITORIAL_SONG` or `CJK_NEO_GROTESK`; reject generic heavy system Heiti and every prohibited CJK fallback. For a 5–10-word X landscape title, verify that a balanced three-line option was considered and reject a caption-like block that uses less than roughly 40% of canvas height despite ample clear space.
+7. **Recipe contract** — The actual gradient follows the locked topology; the primary form, optional pale device, panel text role, anchor/bridge/echo grammar, and alignment system are visibly present and compatible.
+8. **Negative constraints** — No forbidden layout, literal scene, cliché combination, disconnected halo field, dense information design, floating UI card, inactive palette color, or competing ornament is present.
 
 If semantic fidelity fails, return to title selection and replace `FINAL_TITLE` before generating again. If rendered text, ratio, composition, color, typography, or a forbidden visual element fails, discard the version and use `REGENERATE`. Do not ask an image edit to repair incorrect text. A file-format mismatch or exact-size-only mismatch may be normalized deterministically only when the aspect ratio and composition are already correct; reverify after normalization.
 
@@ -60,13 +62,16 @@ Run this gate only after hard compliance passes. Judge the cover as a designed w
 2. **Title–form relationship** — The title and primary form share at least one legible structural relationship: edge, axis, baseline, tangent, overlap, counter-shape, or continuous color flow.
 3. **Defined negative space** — Quiet space is shaped by color movement, cropping, alignment, or geometric tension. It does not read as an unfinished empty region.
 4. **Visual balance** — The title, brightest transition, primary form, and small details create a deliberate center of gravity without dead corners or one-sided weight.
-5. **Structural decoration** — Labels, rules, accents, and grids attach to an alignment, edge, curve, focal point, or primary form. They do not float randomly.
+5. **Structural decoration** — The anchor establishes one quiet secondary focus, the optional bridge connects major regions, and the one or two echoes repeat the anchor language along a shared alignment. They do not float randomly.
 6. **Thumbnail clarity** — At approximately 25%, the title is immediately readable, remains dominant, and does not merge with a bright edge or noisy texture.
 7. **Template-resistance** — The cover avoids generic AI-poster shorthand such as a planet, orbit, sparkle, centered slogan, or three radial blooms assembled without a content-specific relationship.
 8. **Background structure test** — Mentally hide the three text elements. The remaining color field and geometry must still show intentional direction, balance, and spatial structure. They need not work as standalone art, but they cannot collapse into unrelated light spots, a stock gradient, or an empty canvas.
 9. **Reference-family fit** — The result shares the reference's seamless atmosphere, editorial restraint, grain character, and abstract futuristic fullness without copying one card literally.
+10. **Recipe fidelity** — The actual palette family, active hue count, area hierarchy, gradient topology, primary form, title zone, type mode, pale-device state, and detail roles form the one selected recipe. The result differs from recent covers in coordinated composition, not only in hue.
+11. **Pale-device quality** — When selected, the panel reads as an atmospheric editorial plane rather than a floating UI card, uses an active-hue tint, contains only its locked support-text role, and shapes negative space. When not selected, no accidental card appears.
+12. **Color-count discipline** — `SINGLE_FAMILY` reads as one hue family with depth; `DUAL_FIELD` has a clear 70/30-like dominance; `SOFT_TRIAD` has clear 55/30/15-like hierarchy; `SPECTRAL_BLEND` reads as a continuous field rather than four separate blobs.
 
-Treat items 1, 2, 6, 7, and 8 as critical. Any critical failure makes the aesthetic verdict `FAIL` regardless of other strengths. Do not use a vague total score or accept a result merely because most ingredients are present.
+Treat items 1, 2, 6, 7, 8, 10, and 12 as critical. Any critical failure makes the aesthetic verdict `FAIL` regardless of other strengths. Do not use a vague total score or accept a result merely because most ingredients are present.
 
 ## Repair-mode decision
 

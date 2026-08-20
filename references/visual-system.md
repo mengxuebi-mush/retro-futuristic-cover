@@ -1,127 +1,55 @@
 # Minimal retro-futuristic editorial cover system
 
-Use this reference when composing the image-generation request. Inspect and attach `../assets/visual-reference.png` as the style reference. The controlled three-element text contract in `SKILL.md` is absolute; use the reference's hierarchy but do not copy its literal wording.
+Inspect and attach `../assets/visual-reference.png` as a style-only reference. Use its atmosphere, hierarchy, grain, geometry, and restraint; never copy its words, numbers, or multi-card grid. Read `design-recipes.md` and execute the selector before composing the generation request.
 
 ## Contents
 
 - [Visual DNA](#visual-dna)
-- [Gradient continuity gate](#gradient-continuity-gate)
+- [Gradient and color gates](#gradient-and-color-gates)
 - [Typography](#typography)
-- [Title footprint gate](#title-footprint-gate)
-- [Editorial detail recipe](#editorial-detail-recipe)
-- [Primary-form and composition families](#primary-form-and-composition-families)
-- [Anti-cliché combination gate](#anti-cliché-combination-gate)
-- [Adaptive palette system](#adaptive-palette-system)
+- [Title footprint](#title-footprint)
+- [Composition layers](#composition-layers)
+- [Pale editorial device](#pale-editorial-device)
+- [Detail-role grammar](#detail-role-grammar)
+- [Compatibility gate](#compatibility-gate)
 - [Platform composition](#platform-composition)
-- [Hard negative list](#hard-negative-list)
-- [Reject and regenerate when](#reject-and-regenerate-when)
+- [Hard negatives](#hard-negatives)
 
 ## Visual DNA
 
-Build a calm, gradient-first retro-futuristic cover rather than a retro newspaper or cyberpunk poster.
+Build a calm, gradient-first retro-futuristic editorial cover rather than a retro newspaper, cyberpunk poster, or generic gradient background.
 
-- Build one continuous chromatic atmosphere across the entire canvas. Blend all colors into a single spatial field rather than placing separate halos.
-- Form the field from two to four oversized, heavily overlapping gradient masses whose transitions cross broad areas of the canvas. Let some color centers sit beyond the canvas edge so no gradient reads as a self-contained circle.
-- Add fine monochromatic grain or a subtle frosted texture without muddying the title.
-- Keep colors luminous, airy, and softened by haze and grain. Do not make them muddy, gray, beige-only, or generically desaturated.
-- Reserve a large uninterrupted quiet field before placing the title.
-- Build the decoration from one primary form, one editorial alignment system, zero to two total hairline structures, and one micro-accent family with 1–3 instances. Choose the primary form from a misted arch, soft portal, flowing chromatic shape, curved translucent surface, faint perspective plane, or flattened edge-cropped orb.
-- Keep motifs abstract. Do not let them contain labels, numbers, glyphs, interface copy, or text-like marks.
-- Let the elements share axes, overlap, or visually connect so the cover feels composed and futuristic rather than sparsely decorated.
-- Favor generous margins, clean editorial geometry, one clear focal point, and enough visual structure that the cover feels full without becoming busy.
+- Create one continuous chromatic atmosphere with broad transitions and intermediate mixed hues.
+- Keep color luminous, softened by diffuse light, pale veils, and fine frosted grain.
+- Preserve generous negative space, but shape it through color movement, cropping, alignment, or geometric tension.
+- Use one dominant title, one primary abstract form, one alignment system, an optional pale editorial device, and one restrained detail language.
+- Make title, color field, geometry, and decoration behave as one poster. Removing the text must still reveal a directed and balanced background composition.
+- Prefer asymmetry, edge cropping, shared tangents, long diagonals, partial frames, and quiet perspective over centered cosmic symbolism.
 
-## Gradient continuity gate
+## Gradient and color gates
 
-The gradient must pass all of these checks:
+Use the selector's `PALETTE_FAMILY` as an allowed color relationship and `ACTIVE_HUES` as the actual inventory. Never fill every available palette color by default.
 
-- Read as one uninterrupted field when squinting or viewing the cover small.
-- Show broad color-to-color transitions with intermediate mixed hues, not abrupt separation.
-- Carry a subtle color undertone through nominally light or ivory areas so they do not become blank white gaps.
-- Use asymmetrical, edge-crossing color movement rather than three evenly spaced radial spots.
-- Avoid visible circular boundaries, repeated equal-size blooms, white-centered glow rings, spotlight dots, isolated halos, and donut-shaped gradients.
-- Reject and regenerate if the colors can be counted as separate blobs or if removing the title makes the background feel like three disconnected lights.
+- Follow the locked `COLOR_COMPLEXITY`: one, two, three, or controlled spectral blend.
+- Count independent hue families, not derived light and dark tones.
+- Follow `AREA_HIERARCHY`; never distribute active hues evenly.
+- Allow only one saturation focus. Render other hues as pale fields, haze, intermediate blends, or translucent layers.
+- Derive near-white from an active hue rather than using pure white.
+- Build the selected `GRADIENT_TOPOLOGY` across broad canvas regions. Let some centers sit beyond the canvas edge.
+- Keep a subtle undertone through nominally pale regions so they do not become blank white holes.
+- Add fine monochromatic grain without softening text edges.
 
-## Typography
+Reject the gradient when:
 
-- Render exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE` once each and no other text.
-- Select exactly one direction: **restrained editorial serif**, **clean sans**, or **neutral grotesk**. Rotate the direction across recent outputs rather than defaulting to a serif.
-- A restrained editorial serif uses moderate contrast and sturdy strokes. Never use an oversized ultra-high-contrast Didone that makes the cover resemble a fashion or fragrance advertisement.
-- A clean sans uses open proportions and quiet geometry. A neutral grotesk uses practical, slightly compact proportions without becoming condensed poster type.
-- For Chinese, use a modern CJK sans or restrained Song/Ming-style editorial face with sturdy readable strokes.
-- Use one family, one dominant scale, and no more than two weights. Default the title to semibold or medium-bold; use bold only when its counters remain open and its visual density stays comfortable.
-- Keep line breaks natural. Set multi-line display leading to approximately 1.05–1.15 times the type size, with visible but cohesive separation between lines. Avoid extra-black faces, condensed poster type, novelty fonts, outlines, multiple text boxes, cramped tracking, stretched glyphs, and excessive italics.
-- Keep `FINAL_TITLE` as the only obvious information layer.
-- Set `CATEGORY_LABEL` in tiny uppercase sans, approximately 8–12% of the title cap height, near a top corner. It may sit inside one thin rounded pill or beside one short hairline.
-- Set `MICRO_SUBTITLE` in tiny sans, approximately 8–14% of the title cap height, using one or two short lines at most. Place it below the title or near the lower margin.
-- Keep both support elements legible but quiet; they must not compete with or visually enlarge the text footprint of the title.
-- Use black/near-black text on light fields and warm-white text on indigo fields. Micro-accents follow the same contrast rule.
-
-## Title footprint gate
-
-- Use 1–4 title lines on portrait and square covers, 1–3 on X landscape, and 1–2 on an X banner.
-- Measure the title footprint primarily by the height of its complete line stack. On X landscape, let a 5–10-word title occupy approximately 45–54% of canvas height; prefer three balanced lines when two lines would force small type or an excessively long measure. On portrait or square covers, target approximately 38–52% of canvas height. Short titles may use a smaller block when they remain unquestionably dominant.
-- Preserve the approved wording before optimizing line count. Reflow a semantically faithful title rather than shrinking it into a caption or replacing it with an abstract slogan.
-- Keep the title block within roughly 55–62% of the canvas width on portrait covers unless the primary form is deliberately absent from that zone.
-- Preserve a calm buffer of roughly 4% of the canvas width between the title and the brightest or highest-contrast edge of the primary form.
-- Reject a title that crowds out the category label and micro-subtitle, collides with the primary form, or loses contrast over a bright edge. Do not reject it merely because its height approaches half the canvas.
-
-## Editorial detail recipe
-
-Every cover must include:
-
-1. One whitelisted top `CATEGORY_LABEL`.
-2. One `MICRO_SUBTITLE` with no more than five English words or roughly eight Han characters.
-3. One micro-accent family chosen from four-point stars, equilateral or right triangles, diamonds/rhombi, tiny dots, thin rings, or minimal corner brackets.
-4. Between one and three instances of that micro-accent family, placed where the composition benefits rather than at a fixed corner.
-5. One primary abstract form integrated into the gradient.
-6. One category-label treatment chosen from a plain aligned label with a short rule, a thin outlined pill, or a minimal corner alignment.
-7. Zero to two total hairline structures such as a curve, short rule, corner crop, pill outline, perspective grid, portal outline, or partial frame. Count the category rule or pill outline toward this limit.
-
-Keep each micro-accent no larger than roughly 3% of the short canvas edge and keep their combined footprint below roughly 1.5% of the canvas. Use flat fills or thin outlines only: no bevels, 3D depth, heavy shadows, or glow. A cluster of three should read as one quiet punctuation mark, not three competing focal points.
-
-Create a visible editorial relationship rather than scattering decorations. Align at least two of the category label, title block, primary form, structural line, and micro-accents to a shared edge, axis, tangent, or baseline. Distribute the remaining details around the perimeter and title. Randomize the label treatment, accent family, count, placement, and orientation across outputs while keeping the visual DNA consistent.
-
-## Primary-form and composition families
-
-Randomly choose one family and adapt it to the title. Do not announce the choice.
-
-1. **Misted arch** — a large blurred arch grown from the gradient, one quiet structural line, and a small geometric punctuation family.
-2. **Soft portal** — an offset portal fragment with no hard glow, a shared tangent or baseline, and sparse flat accents.
-3. **Flowing chromatic shape** — one broad asymmetric color ribbon or blob crossing an edge, paired with a short rule or partial frame.
-4. **Perspective plane** — an extremely faint perspective grid or folded plane used as the primary structure, balanced by one small marker family.
-5. **Curved translucent surface** — one edge-cropped abstract membrane or arc with low-contrast depth, aligned to the title without resembling a planet.
-6. **Flattened orb** — a translucent, heavily cropped orb integrated into the gradient with no rim glow or specular highlight. Pair it with brackets, dots, rings, triangles, or rhombi; never pair it with orbit lines or starbursts.
-
-Vary the primary form, tonal regime, harmony mode, primary hue, coral role, title placement, typography direction, label treatment, and accent family. When recent output is visible, do not repeat both its primary-form family and typography direction or its complete color tuple.
-
-## Anti-cliché combination gate
-
-Reject the complete combination of oversized high-contrast Didone, glowing 3D planet, orbit line, and sparkle. It reads as a generic AI space poster rather than an editorial system. If two or more of those traits appear, replace enough decisions that the composition no longer reads as a cosmic-poster template.
-
-Do not use literal space imagery as shorthand for “future.” Futurism must come from proportion, alignment, cropped geometry, color flow, and restrained structural detail.
-
-## Adaptive palette system
-
-Create controlled variety through two independent axes: tonal regime and harmony mode. The percentages below are target distribution weights across a series, not a promise that a short run will match them exactly.
-
-### Tonal regime
-
-1. **`HIGH_KEY_AIRY` — target 55%**: let a pale or tinted derivative of the primary hue occupy 55–70%, a secondary field 20–30%, and the fuller-strength anchor or deeper accent 5–15%. Do not cover the canvas with an unsoftened saturated anchor. Use near-black type.
-2. **`MID_TONE_EDITORIAL` — target 25%**: let a softened mid-tone field occupy 45–60%, a lighter veil 20–30%, and a controlled accent 10–20%. Choose near-black or warm-white type from actual contrast.
-3. **`DEEP_VELVET` — target 20%**: let a visibly colored indigo, periwinkle, violet, mineral blue, or deep derived monochrome occupy 50–65%, a mid-tone glow 25–35%, and a bright accent 5–12%. Use warm-white type. Never approach black.
-
-Do not use `DEEP_VELVET` twice in a row when recent output is visible and another regime is valid.
-
-### Harmony mode
-
-1. **`MONOCHROMATIC` — target 25%**: choose one hue anchor and derive three or four visibly related tones by varying lightness and chroma while holding hue nearly constant. A monochromatic cover must still have spatial depth; it must not be a flat fill. Do not add an unrelated warm accent.
-2. **`ANALOGOUS` — target 25%**: choose one approved adjacent chain and use two or three neighboring hues plus a tinted near-neutral.
-3. **`WARM_COOL_DUOTONE` — target 30%**: choose one approved cool/warm pair plus a tinted near-neutral. One hue dominates and the other remains a controlled counterpoint.
-4. **`EDITORIAL_TRIAD` — target 20%**: choose exactly one approved three-hue recipe. Do not introduce a fourth visible hue beyond a tinted near-neutral.
+- its color regions can be counted as separate circular blobs;
+- it contains repeated equal-size blooms, white-centered glow rings, isolated halos, donut gradients, or spotlight dots;
+- a `SINGLE_FAMILY` recipe introduces an unrelated accent hue;
+- a `DUAL_FIELD` recipe becomes 50/50 or adds a third independent hue;
+- a triad or spectral blend has no clear dominant color;
+- transitions collapse into gray, brown, beige, or muddy neutral;
+- the selected topology is not visible when the text is mentally hidden.
 
 ### Approved hue anchors
-
-Treat these hex values as perceptual anchors. Stay close to their hue character while adapting lightness and chroma to the selected regime.
 
 - Warm ivory `#F4EBDD`
 - Powder sky `#A8CAE5`
@@ -137,134 +65,108 @@ Treat these hex values as perceptual anchors. Stay close to their hue character 
 - Pale pistachio `#DCE2AA`
 - Soft sage `#B7C6A2`
 
-Use tinted near-white derived from the selected hue family rather than pure white. Reduce chroma as a color approaches very high or very low lightness so pale tones stay powdery and deep tones stay velvety rather than neon.
+Treat these as perceptual anchors. Reduce chroma near very high or low lightness so pale tones remain powdery and deep tones remain velvety. Use near-black `#17191B` only for text and small details on light fields, below 3% of image area. Use warm white `#F8F2E8` on deep fields.
 
-### Approved harmony recipes
+## Typography
 
-For `MONOCHROMATIC`, choose one of: powder sky, mineral blue, indigo, periwinkle, lavender, violet, blush, coral, apricot, pistachio, or sage. Build a pale tint, a main mid-tone, a soft deep tone, and optionally one diffuse highlight from that same hue.
+- Render exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE`, once each.
+- Use the selector's type mode. For English, map Song to restrained editorial serif and neo-grotesk to clean sans or neutral grotesk.
+- Use one family and no more than two weights. Default to medium or semibold with open counters and sturdy strokes.
+- Use approximately `1.05–1.15` display leading for English and `1.08–1.18` for Chinese.
+- Set the category label in tiny uppercase sans, approximately 8–12% of title cap height.
+- Set the micro-subtitle in tiny sans, approximately 8–14% of title cap height and no more than two short lines.
+- Use crisp text edges. Reject thin fashion Didone, default heavy system Heiti, extra-black, condensed poster type, novelty fonts, outlines, stretched glyphs, or multiple unrelated text boxes.
 
-For `ANALOGOUS`, choose one chain:
+## Title footprint
 
-- powder sky → mineral blue → periwinkle;
-- periwinkle → soft lavender → soft violet;
-- blush → coral → apricot;
-- apricot → muted amber → blush;
-- pale pistachio → soft sage → warm ivory.
+- Use 1–4 title lines on portrait and square covers, 1–3 on landscape posts, and 1–2 on a shallow banner.
+- On landscape, let a 5–10-word title occupy roughly 45–54% of canvas height when three lines are appropriate. On portrait or square, target roughly 38–52%.
+- Keep the title within roughly 55–62% of portrait width unless the form is absent from that zone.
+- Preserve roughly 4% of canvas width between the title and the brightest or highest-contrast edge of the primary form.
+- Preserve semantically approved wording before reducing type. Reflow first; reduce decoration second; reduce title size last.
 
-For `WARM_COOL_DUOTONE`, choose one pair:
+## Composition layers
 
-- powder sky + coral;
-- mineral blue + apricot;
-- periwinkle + coral;
-- soft lavender + apricot;
-- soft sage + blush;
-- pale pistachio + soft violet.
+Build in this order:
 
-For `EDITORIAL_TRIAD`, choose one recipe:
+1. Continuous atmospheric field following the selected topology.
+2. One selected primary form integrated into that field.
+3. Optional pale editorial device.
+4. Title and two support-text elements on the locked alignment system.
+5. One anchor/echo accent language and zero or one bridge.
+6. Fine grain applied behind crisp text.
 
-- warm ivory + apricot + pale pistachio;
-- powder sky + blush + coral;
-- mineral blue + soft lavender + blush;
-- periwinkle + apricot + soft sage;
-- diffused indigo + coral + muted amber.
+Align at least three of title, primary form, pale device, label, bridge, and accents to a shared edge, axis, tangent, baseline, or curvature. The title and primary form must have a legible structural relationship rather than merely occupying opposite sides.
 
-### Coral role
+## Pale editorial device
 
-Select `CORAL_ROLE` independently using these target weights:
+When selected, create exactly one pale inset as part of the atmosphere:
 
-- **`PRIMARY` — target 20%**: the coral hue family may dominate only in coral monochrome, the blush/coral/apricot analogous chain, or the sky/blush/coral triad. `PRIMARY` means the family leads, not that saturated `#F27462` fills most of the canvas. Under `HIGH_KEY_AIRY`, use a pale coral/blush-derived field for 45–60%, a warm-ivory or blush veil for 20–30%, and full-strength coral for only 10–20%. Under `MID_TONE_EDITORIAL`, use softened coral for 35–50% with lighter and deeper related tones. Do not combine coral `PRIMARY` with `DEEP_VELVET`, and do not choose `PRIMARY` in consecutive visible outputs.
-- **`ACCENT` — target 35%**: keep coral to roughly 5–15% of visual weight. It must not become the automatic focal area.
-- **`ABSENT` — target 45%**: use no coral or substitute orange-red. Apricot, amber, blush, and sage remain available only when allowed by the selected recipe.
+- Occupy 15–35% of the canvas.
+- Make it 8–18% lighter than the surrounding field using a tint of an active hue; never use pure white.
+- Use the locked edge-cropped rectangle, arched inset, curved cutout, or translucent side plane.
+- Place only `PANEL_TEXT_ROLE` inside it and add no copy.
+- Use no drop shadow, glassmorphism, heavy border, floating-card depth, or dashboard styling.
+- Let it crop at an edge or align to the title, form, or bridge so it shapes negative space.
+- Do not combine it with an outlined category pill.
 
-If the selected harmony recipe conflicts with the selected coral role, reselect the recipe or role before generation. Do not silently force coral into a recipe.
+## Detail-role grammar
 
-### Recent-history variation
+Use the selected accent family consistently:
 
-When recent covers are visible:
+- `ANCHOR`: exactly one focal instance, about 3–8% of the short edge.
+- `BRIDGE`: zero or one hairline curve, rule, frame, portal outline, or perspective system.
+- `ECHO`: one or two instances of the anchor family at about 1–3% of the short edge.
 
-- do not repeat the exact tuple `TONAL_REGIME + HARMONY_MODE + primary hue + CORAL_ROLE` from the last three outputs;
-- avoid the same harmony mode twice in a row when another valid mode exists;
-- avoid repeating the same primary hue twice in a row;
-- never repeat coral as `PRIMARY` consecutively.
+Keep combined accents under 2% of the canvas. Keep hairlines around 0.08–0.18% of the short edge at 12–30% opacity. Use flat fills or thin outlines without bevel, 3D depth, shadow, or glow.
 
-Content may exclude an emotionally incompatible tonal regime, but must not determine the hue literally. Do not equate `FUTURE` with blue/purple, `BUILD` with coral/orange, or `GROWTH` with green.
+Place anchor and echoes along the same edge, axis, tangent, curvature, or baseline. A bridge must connect at least two major regions. A perspective grid counts as one bridge system. Do not use a fixed favorite corner.
 
-### Color construction gate
+## Compatibility gate
 
-- Build transitions as broad airbrushed color flow, hazy diagonal fields, blurred horizon light, and large overlapping translucent shapes.
-- Preserve recognizable hues while rendering many intermediate blends; do not collapse the field into gray or brown.
-- In monochromatic mode, every visible color mass must read as a tone of the same hue family.
-- In duotone and triad modes, preserve one dominant hue; do not distribute all hues evenly.
-- In `HIGH_KEY_AIRY`, reject a dominant field that uses an unsoftened saturated anchor instead of a pale derivative. Full-strength coral must never exceed 20% in this regime.
-- Use near-black `#17191B` only for the three approved text elements, micro-accents, or hairline motifs on light backgrounds. Keep black below roughly 3% of the image area.
-- Use warm white `#F8F2E8` for headline type on deep colored fields.
-
-Never substitute black, charcoal backgrounds, sepia, tan, dark brown, olive, khaki, teal, corporate navy, primary red, acid green, or electric cyan. Avoid black-and-orange newsprint, rainbow gradients, neon-on-black, harsh complementary clashes, and any palette dominated by beige or gray.
+- Never pair a flattened orb with starbursts or orbit lines. Remove rim glow and specular highlights.
+- Never pair a perspective grid with a second complex line system.
+- Never pair a pale panel with an outlined category pill.
+- When a large four-point star is the anchor, render its echoes much smaller and add no second star language.
+- When the title is long, remove the bridge or one echo before reducing title size.
+- Allow one visual surprise only: pale panel, perspective structure, large star, portal, or unusual chromatic surface. Keep other layers quiet.
+- Reject oversized high-contrast serif + glowing planet + orbit + sparkle. Replace at least two decisions.
+- Never use literal space imagery as shorthand for futurism.
 
 ## Platform composition
 
 ### Xiaohongshu 3:4
 
-- Design for phone-feed scanning.
-- Use 1–3 title lines in roughly the upper or middle half.
-- Keep the title inside an approximate 8% perimeter safe margin.
-- Let negative space occupy at least one third of the cover.
+- Design for phone-feed scanning with an approximate 8% safe margin.
+- Use the upper or middle half for the title and leave at least one third as shaped negative space.
+- Let pale devices and primary forms crop decisively at edges rather than becoming centered cards.
 
-### X post landscape — 1200 × 675
+### X post landscape 16:9
 
-- Use a clear left or right title zone.
-- Use 1–3 title lines. For a 5–10-word article headline, prefer a three-line stack that occupies approximately 45–54% of canvas height; use one or two lines only when the wording remains large, natural, and comfortably measured.
-- Prefer a polished semibold or medium-bold editorial serif, clean sans, or neutral grotesk over an extra-black condensed display face. Keep multi-line leading around 1.05–1.15 times the type size.
-- Keep the title inside an approximate 7% perimeter safe margin.
-- Let the wider gradient field carry the atmosphere instead of adding more content.
+- Use a clear left or right title zone inside an approximate 7% safe margin.
+- Let the topology carry atmosphere across the width; do not add more content to fill space.
+- Ensure the far side contains a form, color direction, panel edge, or detail echo rather than an unfinished blank region.
 
-### X post square — 1080 × 1080
+### Square 1:1
 
-- Recompose for a balanced square; never crop the landscape design.
-- Use 1–3 title lines with a strong off-center block and an approximate 8% perimeter safe margin.
-- Let the continuous gradient move diagonally or vertically so the square retains depth rather than becoming a centered badge.
-- Balance one primary abstract form against the title. Distribute the category label, micro-subtitle, and small accents across distinct quiet zones.
+- Recompose rather than crop. Use a strong off-center title block and approximate 8% safe margin.
+- Move the gradient diagonally or vertically and balance one primary form against the title.
 
-### X banner — 1500 × 500
+### Banner 3:1
 
-- Recompose for the shallow 3:1 field; never stretch or crop another preset.
-- Prefer 1–2 short title lines in a compact left, center-left, or centered zone. Keep the title materially shorter and smaller than it would be on a post cover.
-- Keep critical text inside an approximate 7% horizontal and 12% vertical safe margin; do not place words at the extreme edges.
-- Let the seamless gradient sweep horizontally across the full width. Use a wide cropped form, long hairline curve, faint grid, or portal fragment to make the banner feel intentional.
-- Preserve all three approved text elements, but keep the category label and micro-subtitle especially restrained so the low-height layout stays airy.
+- Recompose for the shallow field with 7% horizontal and 12% vertical safe margins.
+- Sweep the topology horizontally and use only a wide cropped form or restrained bridge.
+- Keep support text especially quiet.
 
-## Hard negative list
+## Hard negatives
 
 Never produce:
 
-- a newspaper, newsprint page, zine, scrapbook, moodboard, or vintage editorial collage;
-- a listicle, “takeaways” panel, numbered list, body-copy column, timeline, flowchart, annotation, or infographic;
-- multiple headlines, pull quotes, badges, stickers, extra captions, dates, issue numbers, footers, UI panels, or fake data beyond the controlled top label and micro-subtitle;
-- silhouetted people at computers, humanoid robots, magazine cutouts, or literal explanatory scenes unless the user explicitly asks for them;
-- high-density layouts, hard black blocks, distressed poster type, or orange-and-black propaganda-poster styling.
-- color recipes outside the approved hue anchors and harmony constructions, black/charcoal-dominant backgrounds, muddy brown transitions, gray corporate gradients, or neon cyberpunk color;
-- three or more isolated radial halos, repeated spotlight dots, disconnected gradient circles, or a large white-centered color ring.
-- a nearly empty background with only one orbit line and one micro-accent; include a primary abstract form and the full editorial detail recipe.
-- a glowing 3D planet, luminous rim, specular sphere, or literal cosmic scene;
-- oversized high-contrast fashion Didone paired with space imagery;
-- decorative shapes scattered without a shared alignment, tangent, baseline, or structural relationship;
-
-## Reject and regenerate when
-
-- visible text does not equal exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE` once each;
-- the title exceeds the title gate or is unreadable at thumbnail size;
-- the design resembles a magazine page, explainer graphic, poster collage, or newsprint layout;
-- ornaments or imagery compete with the title;
-- saturation, contrast, or detail density feels aggressive rather than calm;
-- any of `TONAL_REGIME`, `HARMONY_MODE`, `CORAL_ROLE`, or `PALETTE_RECIPE` is missing or internally inconsistent;
-- the hues fall outside the approved anchors, the harmony construction is invalid, the coral role is violated, or the black-area limit is exceeded;
-- a monochromatic recipe introduces an unrelated hue or a coral-absent recipe introduces coral/orange-red;
-- the exact color tuple repeats one of the last three visible outputs without an explicit user request;
-- the gradient reads as separate halos instead of one seamless field;
-- the primary abstract form or the 1–3 instance micro-accent family is missing;
-- micro-accents are oversized, visually dominant, three-dimensional, heavily shadowed, or exceed the allowed footprint;
-- the title violates its platform line-count range, is undersized for the available space, uses cramped or disconnected leading, crowds out the support text, collides with the primary form, or crosses its brightest edge;
-- the primary form, typography direction, and micro-accent family repeat the most recent visible output without reason;
-- the layout triggers the anti-cliché combination gate or lacks a coherent editorial alignment system;
-- the grain reads as a coarse uniform filter or softens text edges at thumbnail size;
-- the composition ignores the requested platform ratio.
+- newspapers, zines, listicles, infographics, dashboards, moodboards, collages, or dense magazine pages;
+- extra captions, dates, numbers, badges, stickers, logos, UI panels, fake data, or pseudo-text;
+- silhouetted workers, robots, literal computers, or explanatory scenes unless explicitly requested;
+- neon cyberpunk, black-dominant backgrounds, sepia, tan, dark brown, olive, khaki, teal, corporate navy, primary red, acid green, or electric cyan;
+- disconnected radial halos, stock-gradient emptiness, glowing planets, specular spheres, or cosmic scenes;
+- scattered ornaments without a structural relationship;
+- a pale device that reads as a floating UI card;
+- a background that becomes directionless or unfinished when the text is hidden.
