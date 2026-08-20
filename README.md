@@ -16,6 +16,10 @@ The Skill extracts one core idea, aggressively condenses it into a short headlin
 - Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
 - An editorial alignment system connecting labels, type, structural lines, and micro-accents
 - Typography that rotates between restrained editorial serif, clean sans, and neutral grotesk
+- A hard-compliance gate followed by a poster-integration critique of the actual rendered pixels
+- Targeted local editing for isolated flaws and fresh regeneration for structural failures
+- At most three private versions, with only the final passing cover shown
+- Deterministic verification of output format, dimensions, and aspect ratio
 - No cyberpunk neon, dense collage, experimental type, or text-heavy layouts
 - No generic “high-contrast Didone + glowing planet + orbit + sparkle” AI-poster combination
 
@@ -48,4 +52,4 @@ Provide an article, topic, draft, or sentence and ask for a social-media cover. 
 Use Retro Editorial Cover to turn this article into an X post cover.
 ```
 
-The Skill generates one final cover by default and does not expose the intermediate image prompt.
+The Skill generates one final cover by default. It privately critiques and improves the result, and does not expose intermediate images, prompts, or internal verdicts unless requested.
