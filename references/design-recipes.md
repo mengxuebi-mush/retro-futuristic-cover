@@ -69,12 +69,15 @@ Never scatter decoration. Use no more than one accent language plus one hairline
 
 ## Typography modes
 
-For Chinese, use exactly one:
+For Chinese, use exactly one sans-serif direction:
 
-- `CJK_EDITORIAL_SONG` — contemporary editorial Song/Ming with moderate contrast, sturdy medium or semibold strokes, open counters, and crisp terminals.
-- `CJK_NEO_GROTESK` — contemporary neo-grotesk CJK sans with optically even strokes, open counters, calm squared terminals, and medium weight.
+- `CJK_NEO_GROTESK` — default, target roughly 60%. Use optically even strokes, open counters, calm squared terminals, and medium or semibold weight. Prefer it for long titles and whenever another mode would reduce readability.
+- `CJK_SOFT_HUMANIST` — target roughly 25%. Use subtly softened turns, open counters, and restrained humanist modulation without becoming rounded, cute, handwritten, or lifestyle-script-like. Favor high-key, warm, blush, apricot, pistachio, and pale-device compositions.
+- `CJK_STRUCTURAL_SANS` — target roughly 15%. Use slightly compact but uncondensed proportions, crisp horizontal/vertical construction, and a quiet architectural or wayfinding character. Favor perspective planes, folded structures, portals, mid-tone fields, and deep-velvet compositions. Do not use it consecutively when another valid mode exists.
 
-Avoid default system Heiti, extra-bold poster black, cute rounded type, faux-tech stencil type, calligraphic display, and delicate classical Song. For English, map `CJK_EDITORIAL_SONG` to restrained editorial serif and `CJK_NEO_GROTESK` to clean sans or neutral grotesk.
+Use weight 500–600, natural tracking, and approximately `1.08–1.18` leading for multi-line Chinese. Break lines semantically, not by fixed character count. Create futurism through scale, spacing, alignment, color, and geometry rather than altered glyphs.
+
+Avoid every Song/Ming or serif-style Chinese title, default system Heiti, extra-bold poster black, cute rounded type, faux-tech stencil type, calligraphic display, narrow Gothic type, and deliberately sliced or distorted glyphs. For English, map neo-grotesk to clean sans or neutral grotesk, soft humanist to restrained humanist sans, and structural sans to an architectural display sans with readable open forms.
 
 ## Diversity gate
 

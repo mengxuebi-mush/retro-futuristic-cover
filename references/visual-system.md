@@ -70,12 +70,12 @@ Treat these as perceptual anchors. Reduce chroma near very high or low lightness
 ## Typography
 
 - Render exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE`, once each.
-- Use the selector's type mode. For English, map Song to restrained editorial serif and neo-grotesk to clean sans or neutral grotesk.
-- Use one family and no more than two weights. Default to medium or semibold with open counters and sturdy strokes.
+- Use the selector's type mode. For Chinese, use only `CJK_NEO_GROTESK`, `CJK_SOFT_HUMANIST`, or `CJK_STRUCTURAL_SANS`; never use Song/Ming or another serif-style Chinese title. For English, map these modes to clean/neutral grotesk, restrained humanist sans, or architectural display sans.
+- Use one family and no more than two weights. For Chinese, keep title weight around 500–600 with open counters, sturdy strokes, natural tracking, and semantic line breaks.
 - Use approximately `1.05–1.15` display leading for English and `1.08–1.18` for Chinese.
 - Set the category label in tiny uppercase sans, approximately 8–12% of title cap height.
 - Set the micro-subtitle in tiny sans, approximately 8–14% of title cap height and no more than two short lines.
-- Use crisp text edges. Reject thin fashion Didone, default heavy system Heiti, extra-black, condensed poster type, novelty fonts, outlines, stretched glyphs, or multiple unrelated text boxes.
+- Use crisp text edges. Reject Chinese Song/Ming, thin fashion Didone, default heavy system Heiti, extra-black, condensed poster type, cute rounded type, faux-tech stencil, sliced glyphs, novelty fonts, outlines, stretched glyphs, or multiple unrelated text boxes.
 
 ## Title footprint
 

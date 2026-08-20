@@ -103,8 +103,8 @@ If the source is too thin to support a truthful title, use the shortest natural 
 
 - Choose one primary form from: misted arch, soft portal, flowing chromatic shape, curved translucent surface, faint perspective plane, or flattened edge-cropped orb.
 - Treat the orb as one option, not the default. If selected, remove rim glow and 3D specular lighting, integrate it into the gradient, and do not pair it with orbit lines or starbursts.
-- Choose one typography direction from: restrained editorial serif, clean sans, or neutral grotesk. Rotate directions across outputs when recent context exists.
-- For Chinese titles, choose only `CJK_EDITORIAL_SONG` or `CJK_NEO_GROTESK` as defined in `references/design-recipes.md`. Treat generic system Heiti, extra-bold poster black, cute rounded type, faux-tech stencil type, calligraphic display, and thin classical Song as hard failures.
+- For English, choose one typography direction from restrained editorial serif, clean sans, neutral grotesk, humanist sans, or structural display sans. Rotate compatible directions across outputs when recent context exists.
+- For Chinese titles, choose only `CJK_NEO_GROTESK`, `CJK_SOFT_HUMANIST`, or `CJK_STRUCTURAL_SANS` as defined in `references/design-recipes.md`. Never use Song/Ming or another serif-style Chinese title. Treat generic system Heiti, extra-bold poster black, cute rounded type, narrow Gothic, faux-tech stencil, calligraphic display, and sliced or distorted glyphs as hard failures.
 - Use a serif with moderate contrast and sturdy strokes. Reject oversized high-contrast Didone styling that makes the cover resemble a fashion, fragrance, or luxury advertisement.
 - Reject the complete trope of large high-contrast serif + glowing planet + orbit line + sparkle. Replace at least two of those decisions before generating.
 - Create one editorial alignment system. Align at least two of the category label, title block, primary form, structural line, and micro-accents to a shared edge, axis, tangent, or baseline.
@@ -124,7 +124,7 @@ If the source is too thin to support a truthful title, use the shortest natural 
 - If the primary form is an orb, prohibit starbursts and orbit lines. If the bridge is a perspective grid, add no second complex line system. If the title is long, remove the bridge or one echo before reducing title size.
 - Choose one category-label treatment: plain aligned label with a short rule, thin outlined pill, or minimal corner alignment. Place `MICRO_SUBTITLE` quietly near the lower edge, below the title, or beside the structural line. Keep both much smaller than the title.
 - Use only the locked active hues, their derived tints, area hierarchy, tonal regime, harmony mode, and coral role. Do not activate other colors from the palette family or add an unrelated accent.
-- Use the selected restrained editorial serif, clean sans, neutral grotesk, or approved CJK mode. Name the chosen mode and its stroke properties explicitly in the image request; never write only `Chinese font` or `modern Chinese sans`. Keep line breaks natural, strokes robust, and text edges crisp.
+- Use the selected English direction or approved CJK sans mode. Name the chosen mode and its stroke properties explicitly in the image request; never write only `Chinese font` or `modern Chinese sans`. For Chinese, target a 500–600-like weight, natural tracking, and semantic line breaks. Keep strokes robust and text edges crisp.
 - Honor exact user wording, reference images, brand colors, and ratio overrides when compatible with readability and the controlled three-element text budget.
 - Never use high-saturation cyberpunk, newsprint, newspaper layouts, editorial listicles, zines, dense collage, annotated diagrams, complex experimental fonts, fake interfaces, or text-heavy magazine design.
 

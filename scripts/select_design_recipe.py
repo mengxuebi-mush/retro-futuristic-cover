@@ -166,7 +166,11 @@ PALE_DEVICES = [
 ]
 
 ACCENTS = ["four-point stars", "triangles", "diamonds", "tiny dots", "thin rings", "corner brackets"]
-FONT_MODES = ["CJK_EDITORIAL_SONG", "CJK_NEO_GROTESK"]
+FONT_MODE_BASE_WEIGHTS = {
+    "CJK_NEO_GROTESK": 60,
+    "CJK_SOFT_HUMANIST": 25,
+    "CJK_STRUCTURAL_SANS": 15,
+}
 LABEL_TREATMENTS = ["plain label with short rule", "thin outlined pill", "minimal corner alignment"]
 
 
@@ -203,6 +207,26 @@ def weighted_choice(rng: random.Random, values: dict[str, int]) -> str:
 def choose_different(rng: random.Random, values: list[str], recent: set[str]) -> str:
     candidates = [value for value in values if value not in recent] or values
     return rng.choice(candidates)
+
+
+def choose_font_mode(
+    rng: random.Random,
+    recent: set[str],
+    regime: str,
+    primary_form: str,
+    use_pale_panel: bool,
+) -> str:
+    weights = FONT_MODE_BASE_WEIGHTS.copy()
+    if regime == "HIGH_KEY_AIRY" or use_pale_panel:
+        weights["CJK_SOFT_HUMANIST"] += 15
+    else:
+        weights["CJK_SOFT_HUMANIST"] = 10
+    if regime == "DEEP_VELVET" or any(token in primary_form for token in ["perspective", "folded", "portal"]):
+        weights["CJK_STRUCTURAL_SANS"] += 20
+    else:
+        weights["CJK_STRUCTURAL_SANS"] = 10
+    candidates = {mode: weight for mode, weight in weights.items() if mode not in recent} or weights
+    return weighted_choice(rng, candidates)
 
 
 def tonal_regime(palette_id: str, complexity: str, rng: random.Random) -> str:
@@ -287,15 +311,15 @@ def main() -> int:
     anchor_count = 1
     echo_count = rng.choice([1, 1, 2])
 
+    regime = tonal_regime(palette["id"], complexity, rng)
     recent_fonts = {record.get("font_mode", "") for record in history[-1:]}
-    font_mode = choose_different(rng, FONT_MODES, recent_fonts)
+    font_mode = choose_font_mode(rng, recent_fonts, regime, primary_form, use_pale_panel)
     label_choices = LABEL_TREATMENTS[:]
     if use_pale_panel:
         label_choices = [choice for choice in label_choices if choice != "thin outlined pill"]
     label_treatment = rng.choice(label_choices)
     title_zone = rng.choice(composition["title_zones"])
 
-    regime = tonal_regime(palette["id"], complexity, rng)
     signature = ":".join([palette["id"], complexity, composition["id"], primary_form.replace(" ", "_")])
     recipe = {
         "design_signature": signature,
