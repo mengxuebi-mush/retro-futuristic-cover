@@ -2,6 +2,20 @@
 
 Use this reference when composing the image-generation request. Inspect and attach `../assets/visual-reference.png` as the style reference. The controlled three-element text contract in `SKILL.md` is absolute; use the reference's hierarchy but do not copy its literal wording.
 
+## Contents
+
+- [Visual DNA](#visual-dna)
+- [Gradient continuity gate](#gradient-continuity-gate)
+- [Typography](#typography)
+- [Title footprint gate](#title-footprint-gate)
+- [Editorial detail recipe](#editorial-detail-recipe)
+- [Primary-form and composition families](#primary-form-and-composition-families)
+- [Anti-cliché combination gate](#anti-cliché-combination-gate)
+- [Adaptive palette system](#adaptive-palette-system)
+- [Platform composition](#platform-composition)
+- [Hard negative list](#hard-negative-list)
+- [Reject and regenerate when](#reject-and-regenerate-when)
+
 ## Visual DNA
 
 Build a calm, gradient-first retro-futuristic cover rather than a retro newspaper or cyberpunk poster.
@@ -77,7 +91,7 @@ Randomly choose one family and adapt it to the title. Do not announce the choice
 5. **Curved translucent surface** — one edge-cropped abstract membrane or arc with low-contrast depth, aligned to the title without resembling a planet.
 6. **Flattened orb** — a translucent, heavily cropped orb integrated into the gradient with no rim glow or specular highlight. Pair it with brackets, dots, rings, triangles, or rhombi; never pair it with orbit lines or starbursts.
 
-Vary the primary form, approved palette family, title placement, typography direction, label treatment, and accent family. When recent output is visible, do not repeat both its primary-form family and typography direction.
+Vary the primary form, tonal regime, harmony mode, primary hue, coral role, title placement, typography direction, label treatment, and accent family. When recent output is visible, do not repeat both its primary-form family and typography direction or its complete color tuple.
 
 ## Anti-cliché combination gate
 
@@ -85,27 +99,104 @@ Reject the complete combination of oversized high-contrast Didone, glowing 3D pl
 
 Do not use literal space imagery as shorthand for “future.” Futurism must come from proportion, alignment, cropped geometry, color flow, and restrained structural detail.
 
-## Locked palette system
+## Adaptive palette system
 
-The target color identity is warm ivory plus powdery cool tones and glowing coral warmth. Use exactly one family below. Hex values are perceptual anchors: stay close to their hue and lightness even when blending.
+Create controlled variety through two independent axes: tonal regime and harmony mode. The percentages below are target distribution weights across a series, not a promise that a short run will match them exactly.
 
-1. **Sky + coral** — warm ivory `#F4EBDD`, powder blue `#A8CAE5`, luminous coral `#F27462`.
-2. **Blush + coral** — blush pink `#EBA6B6`, warm peach `#F3A172`, coral red `#F06F64`, a small amount of warm ivory `#F5EBDD`.
-3. **Periwinkle + coral** — powder blue `#A7C8E5`, periwinkle `#8C89CB`, soft lavender `#B59BD2`, coral `#F07867`.
-4. **Indigo glow** — diffused indigo `#414486`, violet `#805CAE`, coral `#F1745E`, amber glow `#F0A34E`, with warm white `#F7EFE2` for type. Use the indigo as a velvety color field, never as near-black.
-5. **Ivory + apricot + pistachio** — warm ivory `#F4EAD7`, apricot `#F1B25F`, pale pistachio `#DCE2AA`, optional coral `#F07B66`.
-6. **Sky + blush** — clear powder blue `#93C2E3`, blush pink `#ECA2C0`, coral `#F17A69`, warm ivory `#F4EBDD`.
+### Tonal regime
 
-Apply color by area:
+1. **`HIGH_KEY_AIRY` — target 55%**: let a pale or tinted derivative of the primary hue occupy 55–70%, a secondary field 20–30%, and the fuller-strength anchor or deeper accent 5–15%. Do not cover the canvas with an unsoftened saturated anchor. Use near-black type.
+2. **`MID_TONE_EDITORIAL` — target 25%**: let a softened mid-tone field occupy 45–60%, a lighter veil 20–30%, and a controlled accent 10–20%. Choose near-black or warm-white type from actual contrast.
+3. **`DEEP_VELVET` — target 20%**: let a visibly colored indigo, periwinkle, violet, mineral blue, or deep derived monochrome occupy 50–65%, a mid-tone glow 25–35%, and a bright accent 5–12%. Use warm-white type. Never approach black.
 
-- Let a light or mid-light base occupy roughly 50–70% of the canvas.
-- Let the second gradient color occupy roughly 20–35%.
-- Keep the warm coral, amber, or pink bloom to roughly 10–25% unless using the blush + coral family.
-- In the indigo glow family only, a diffused indigo/violet field may occupy up to 65%; keep it visibly colorful rather than black.
+Do not use `DEEP_VELVET` twice in a row when recent output is visible and another regime is valid.
+
+### Harmony mode
+
+1. **`MONOCHROMATIC` — target 25%**: choose one hue anchor and derive three or four visibly related tones by varying lightness and chroma while holding hue nearly constant. A monochromatic cover must still have spatial depth; it must not be a flat fill. Do not add an unrelated warm accent.
+2. **`ANALOGOUS` — target 25%**: choose one approved adjacent chain and use two or three neighboring hues plus a tinted near-neutral.
+3. **`WARM_COOL_DUOTONE` — target 30%**: choose one approved cool/warm pair plus a tinted near-neutral. One hue dominates and the other remains a controlled counterpoint.
+4. **`EDITORIAL_TRIAD` — target 20%**: choose exactly one approved three-hue recipe. Do not introduce a fourth visible hue beyond a tinted near-neutral.
+
+### Approved hue anchors
+
+Treat these hex values as perceptual anchors. Stay close to their hue character while adapting lightness and chroma to the selected regime.
+
+- Warm ivory `#F4EBDD`
+- Powder sky `#A8CAE5`
+- Mineral blue `#739AC7`
+- Diffused indigo `#414486`
+- Periwinkle `#8C89CB`
+- Soft lavender `#B59BD2`
+- Soft violet `#805CAE`
+- Blush `#EBA6B6`
+- Coral `#F27462`
+- Apricot `#F1B25F`
+- Muted amber `#D69A55`
+- Pale pistachio `#DCE2AA`
+- Soft sage `#B7C6A2`
+
+Use tinted near-white derived from the selected hue family rather than pure white. Reduce chroma as a color approaches very high or very low lightness so pale tones stay powdery and deep tones stay velvety rather than neon.
+
+### Approved harmony recipes
+
+For `MONOCHROMATIC`, choose one of: powder sky, mineral blue, indigo, periwinkle, lavender, violet, blush, coral, apricot, pistachio, or sage. Build a pale tint, a main mid-tone, a soft deep tone, and optionally one diffuse highlight from that same hue.
+
+For `ANALOGOUS`, choose one chain:
+
+- powder sky → mineral blue → periwinkle;
+- periwinkle → soft lavender → soft violet;
+- blush → coral → apricot;
+- apricot → muted amber → blush;
+- pale pistachio → soft sage → warm ivory.
+
+For `WARM_COOL_DUOTONE`, choose one pair:
+
+- powder sky + coral;
+- mineral blue + apricot;
+- periwinkle + coral;
+- soft lavender + apricot;
+- soft sage + blush;
+- pale pistachio + soft violet.
+
+For `EDITORIAL_TRIAD`, choose one recipe:
+
+- warm ivory + apricot + pale pistachio;
+- powder sky + blush + coral;
+- mineral blue + soft lavender + blush;
+- periwinkle + apricot + soft sage;
+- diffused indigo + coral + muted amber.
+
+### Coral role
+
+Select `CORAL_ROLE` independently using these target weights:
+
+- **`PRIMARY` — target 20%**: the coral hue family may dominate only in coral monochrome, the blush/coral/apricot analogous chain, or the sky/blush/coral triad. `PRIMARY` means the family leads, not that saturated `#F27462` fills most of the canvas. Under `HIGH_KEY_AIRY`, use a pale coral/blush-derived field for 45–60%, a warm-ivory or blush veil for 20–30%, and full-strength coral for only 10–20%. Under `MID_TONE_EDITORIAL`, use softened coral for 35–50% with lighter and deeper related tones. Do not combine coral `PRIMARY` with `DEEP_VELVET`, and do not choose `PRIMARY` in consecutive visible outputs.
+- **`ACCENT` — target 35%**: keep coral to roughly 5–15% of visual weight. It must not become the automatic focal area.
+- **`ABSENT` — target 45%**: use no coral or substitute orange-red. Apricot, amber, blush, and sage remain available only when allowed by the selected recipe.
+
+If the selected harmony recipe conflicts with the selected coral role, reselect the recipe or role before generation. Do not silently force coral into a recipe.
+
+### Recent-history variation
+
+When recent covers are visible:
+
+- do not repeat the exact tuple `TONAL_REGIME + HARMONY_MODE + primary hue + CORAL_ROLE` from the last three outputs;
+- avoid the same harmony mode twice in a row when another valid mode exists;
+- avoid repeating the same primary hue twice in a row;
+- never repeat coral as `PRIMARY` consecutively.
+
+Content may exclude an emotionally incompatible tonal regime, but must not determine the hue literally. Do not equate `FUTURE` with blue/purple, `BUILD` with coral/orange, or `GROWTH` with green.
+
+### Color construction gate
+
+- Build transitions as broad airbrushed color flow, hazy diagonal fields, blurred horizon light, and large overlapping translucent shapes.
+- Preserve recognizable hues while rendering many intermediate blends; do not collapse the field into gray or brown.
+- In monochromatic mode, every visible color mass must read as a tone of the same hue family.
+- In duotone and triad modes, preserve one dominant hue; do not distribute all hues evenly.
+- In `HIGH_KEY_AIRY`, reject a dominant field that uses an unsoftened saturated anchor instead of a pale derivative. Full-strength coral must never exceed 20% in this regime.
 - Use near-black `#17191B` only for the three approved text elements, micro-accents, or hairline motifs on light backgrounds. Keep black below roughly 3% of the image area.
-- Use warm white `#F8F2E8` for headline type on indigo/violet fields.
-
-Create transitions as broad airbrushed color flow, hazy diagonal fields, blurred horizon light, and large overlapping translucent shapes. Preserve recognizable hues while rendering many intermediate blends; do not collapse the field into gray or brown.
+- Use warm white `#F8F2E8` for headline type on deep colored fields.
 
 Never substitute black, charcoal backgrounds, sepia, tan, dark brown, olive, khaki, teal, corporate navy, primary red, acid green, or electric cyan. Avoid black-and-orange newsprint, rainbow gradients, neon-on-black, harsh complementary clashes, and any palette dominated by beige or gray.
 
@@ -149,7 +240,7 @@ Never produce:
 - multiple headlines, pull quotes, badges, stickers, extra captions, dates, issue numbers, footers, UI panels, or fake data beyond the controlled top label and micro-subtitle;
 - silhouetted people at computers, humanoid robots, magazine cutouts, or literal explanatory scenes unless the user explicitly asks for them;
 - high-density layouts, hard black blocks, distressed poster type, or orange-and-black propaganda-poster styling.
-- palettes outside the locked families, black/charcoal-dominant backgrounds, muddy brown transitions, gray corporate gradients, or neon cyberpunk color.
+- color recipes outside the approved hue anchors and harmony constructions, black/charcoal-dominant backgrounds, muddy brown transitions, gray corporate gradients, or neon cyberpunk color;
 - three or more isolated radial halos, repeated spotlight dots, disconnected gradient circles, or a large white-centered color ring.
 - a nearly empty background with only one orbit line and one micro-accent; include a primary abstract form and the full editorial detail recipe.
 - a glowing 3D planet, luminous rim, specular sphere, or literal cosmic scene;
@@ -163,7 +254,10 @@ Never produce:
 - the design resembles a magazine page, explainer graphic, poster collage, or newsprint layout;
 - ornaments or imagery compete with the title;
 - saturation, contrast, or detail density feels aggressive rather than calm;
-- the hues do not visibly match one approved palette family or the black-area limit is exceeded;
+- any of `TONAL_REGIME`, `HARMONY_MODE`, `CORAL_ROLE`, or `PALETTE_RECIPE` is missing or internally inconsistent;
+- the hues fall outside the approved anchors, the harmony construction is invalid, the coral role is violated, or the black-area limit is exceeded;
+- a monochromatic recipe introduces an unrelated hue or a coral-absent recipe introduces coral/orange-red;
+- the exact color tuple repeats one of the last three visible outputs without an explicit user request;
 - the gradient reads as separate halos instead of one seamless field;
 - the primary abstract form or the 1–3 instance micro-accent family is missing;
 - micro-accents are oversized, visually dominant, three-dimensional, heavily shadowed, or exceed the allowed footprint;

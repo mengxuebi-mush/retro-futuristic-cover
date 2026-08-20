@@ -1,6 +1,6 @@
 ---
 name: retro-editorial-cover
-description: Turn an article, draft, theme, topic, or sentence into one finished social-media cover with an aggressively condensed headline, one controlled category label, one micro-subtitle, rotating abstract forms and typography, and a polished retro-futuristic editorial system. Use for Xiaohongshu/小红书 covers, X/Twitter post covers, article covers, social post covers, and requests to summarize long content into minimal cover copy before directly generating the image.
+description: Turn an article, draft, theme, topic, or sentence into one finished social-media cover with an aggressively condensed headline, controlled supporting copy, rotating abstract forms and typography, and an adaptive monochromatic-to-multicolor retro-futuristic editorial palette system. Use for Xiaohongshu/小红书 covers, X/Twitter post covers, article covers, social post covers, and requests to summarize long content into minimal cover copy before directly generating the image.
 ---
 
 # Retro Editorial Cover
@@ -40,16 +40,18 @@ Ignore the literal words, numbers, dates, and captions inside the reference. Nev
 
 ## Non-negotiable color contract
 
-Choose exactly one palette family whose name exactly matches this whitelist:
+Read [references/visual-system.md](references/visual-system.md), then privately select and lock exactly one value for each axis:
 
-- `Sky + coral`
-- `Blush + coral`
-- `Periwinkle + coral`
-- `Indigo glow`
-- `Ivory + apricot + pistachio`
-- `Sky + blush`
+- `TONAL_REGIME`: `HIGH_KEY_AIRY`, `MID_TONE_EDITORIAL`, or `DEEP_VELVET`.
+- `HARMONY_MODE`: `MONOCHROMATIC`, `ANALOGOUS`, `WARM_COOL_DUOTONE`, or `EDITORIAL_TRIAD`.
+- `CORAL_ROLE`: `PRIMARY`, `ACCENT`, or `ABSENT`.
+- `PALETTE_RECIPE`: one recipe constructed only from the approved hue anchors and pairings in the reference.
 
-Never invent, rename, combine, or substitute a palette family. In particular, `soft amber + faded violet + charcoal` is invalid. Read the hex anchors and area ratios from [references/visual-system.md](references/visual-system.md). Reject the plan before generation if the chosen family is not on this whitelist, if a named color or hex anchor is missing, or if black/charcoal would cover more than 3% of the image.
+Use the target distributions in the reference as weighted variation across outputs, not as a visible user choice or a rigid semantic mapping. Do not map `FUTURE` automatically to blue/purple or `BUILD` automatically to coral/orange. Content may filter out an emotionally incompatible tonal regime, but hue selection remains constrained-random.
+
+When recent covers are visible, do not repeat the exact tuple of tonal regime, harmony mode, primary hue, and coral role from the last three outputs. Avoid using the same harmony mode twice in a row when another valid mode exists. Never use coral as `PRIMARY` in consecutive outputs.
+
+Reject the plan before generation if any axis is missing, a hue lies outside the approved anchor library, the harmony construction is invalid, the coral role conflicts with the recipe, or black/charcoal would cover more than 3% of the image.
 
 ## Workflow
 
@@ -59,9 +61,9 @@ Never invent, rename, combine, or substitute a palette family. In particular, `s
 4. Enforce the title gate. Then select one whitelisted `CATEGORY_LABEL` and write one compliant `MICRO_SUBTITLE`. Verify the three strings are distinct and discard all other copy candidates.
 5. Infer the platform from the request and conversation. Read [references/platform-specs.md](references/platform-specs.md) and choose its current canvas. If the platform remains unspecified, default to Xiaohongshu 3:4.
 6. Inspect and attach [assets/visual-reference.png](assets/visual-reference.png) as a style reference. Explicitly label it as style-only and forbid copying its text or grid.
-7. Read [references/visual-system.md](references/visual-system.md). Choose one primary-form family, one typography direction, one editorial-structure recipe, one micro-accent family, and exactly one whitelisted palette family. Avoid repeating the most recently used primary form or typography direction when recent output is visible in context.
-8. Run the selection gates before generation: verify the palette and area ratios; verify black/charcoal stays at or below 3%; verify the title block and primary form have clear spatial separation; and reject any cliché combination prohibited by the reference. Never ask the generator to choose colors, type direction, or shapes freely.
-9. Generate exactly one image. Quote all three approved strings verbatim and instruct: `Render exactly these three text elements once each: title "{FINAL_TITLE}"; top label "{CATEGORY_LABEL}"; micro-subtitle "{MICRO_SUBTITLE}". No other letters, words, numbers, pseudo-text, logos, or watermarks anywhere.` Require one seamless continuous gradient field, the selected palette, primary form, typography direction, editorial structure, and micro-accent family. Do not expose the rest of the internal prompt.
+7. Read [references/visual-system.md](references/visual-system.md). Choose one primary-form family, one typography direction, one editorial-structure recipe, one micro-accent family, and one complete color tuple: `TONAL_REGIME`, `HARMONY_MODE`, `CORAL_ROLE`, and `PALETTE_RECIPE`. Avoid repeating recent primary forms, typography directions, or color tuples when that history is visible.
+8. Run the selection gates before generation: verify the harmony construction, hue anchors, coral role, color-area ratios, and recent-history exclusions; verify black/charcoal stays at or below 3%; verify the title block and primary form have clear spatial separation; and reject any cliché combination prohibited by the reference. Never ask the generator to choose colors, type direction, or shapes freely.
+9. Generate exactly one image. Quote all three approved strings verbatim and instruct: `Render exactly these three text elements once each: title "{FINAL_TITLE}"; top label "{CATEGORY_LABEL}"; micro-subtitle "{MICRO_SUBTITLE}". No other letters, words, numbers, pseudo-text, logos, or watermarks anywhere.` Require one seamless continuous gradient field and explicitly name the locked tonal regime, harmony mode, coral role, hue anchors, area ratios, primary form, typography direction, editorial structure, and micro-accent family. Do not expose the rest of the internal prompt.
 10. Inspect at full size and at approximately 25% thumbnail size. Transcribe every visible text fragment; verify exact output dimensions; compare the gradient, primary form, typography, editorial relationships, grain, and dominant colors to the bundled reference. Return the image only when the transcription contains exactly the three approved strings once each, nothing else, and all gates pass. Regenerate otherwise.
 
 ## Title gate
@@ -104,7 +106,7 @@ If the source is too thin to support a truthful title, use the shortest natural 
 - Randomly choose the micro-accent family from four-point stars, triangles, diamonds/rhombi, dots, thin rings, or minimal corner brackets. Use 1–3 instances. Vary the family, count, placement, fill/outline treatment, and scale across outputs; avoid repeating the most recent choice when context is available.
 - Keep every micro-accent simple, flat, and small. Place it near an edge, corner, curve, or geometric focal point as composition requires; do not hardcode a corner. Use near-black on a light field or warm white on an indigo field. Never let the accents compete with the title.
 - Choose one category-label treatment: plain aligned label with a short rule, thin outlined pill, or minimal corner alignment. Place `MICRO_SUBTITLE` quietly near the lower edge, below the title, or beside the structural line. Keep both much smaller than the title.
-- Use only one approved palette family from the visual reference; do not improvise substitute colors.
+- Use the locked tonal regime, harmony mode, coral role, and approved hue anchors. Do not improvise substitute colors or add an unrelated warm accent to a monochromatic or coral-absent recipe.
 - Use the selected restrained editorial serif, clean sans, or neutral grotesk direction. Keep line breaks natural, strokes robust, and text edges crisp.
 - Honor exact user wording, reference images, brand colors, and ratio overrides when compatible with readability and the controlled three-element text budget.
 - Never use high-saturation cyberpunk, newsprint, newspaper layouts, editorial listicles, zines, dense collage, annotated diagrams, complex experimental fonts, fake interfaces, or text-heavy magazine design.

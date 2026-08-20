@@ -8,7 +8,8 @@ The Skill extracts one core idea, aggressively condenses it into a short headlin
 
 - Seamless, continuous soft gradients rather than isolated color halos
 - Diffuse light and fine frosted grain
-- Slightly softened color with controlled palette families
+- Adaptive tonal regimes and monochromatic, analogous, duotone, or tri-color harmony modes
+- Controlled coral roles so warm coral may lead, accent, or disappear across outputs
 - One dominant, highly readable headline
 - Minimal category label and micro-subtitle
 - Small randomized stars, triangles, rhombi, dots, rings, or corner brackets
