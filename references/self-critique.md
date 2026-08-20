@@ -39,7 +39,7 @@ Mark each item `PASS` or `FAIL` with one observable reason. A single failure pre
 3. **Rendered-title fidelity** — The dominant rendered title exactly matches the approved `FINAL_TITLE` and remains the only dominant message.
 4. **Canvas** — The file has the requested format, pixel dimensions, and aspect ratio. Run `scripts/verify_image.py` when a local file is available.
 5. **Color contract** — The actual pixels follow the locked tonal regime, harmony recipe, coral role, area hierarchy, and black-area limit.
-6. **Typography contract** — The actual type direction, line count, footprint, contrast, and readability follow the selected typography and platform rules.
+6. **Typography contract** — The actual type direction, line count, weight, leading, footprint, contrast, and readability follow the selected typography and platform rules. For a 5–10-word X landscape title, verify that a balanced three-line option was considered and reject a caption-like block that uses less than roughly 40% of canvas height despite ample clear space.
 7. **Negative constraints** — No forbidden layout, literal scene, cliché combination, disconnected halo field, dense information design, or competing ornament is present.
 
 If semantic fidelity fails, return to title selection and replace `FINAL_TITLE` before generating again. If rendered text, ratio, composition, color, typography, or a forbidden visual element fails, discard the version and use `REGENERATE`. Do not ask an image edit to repair incorrect text. A file-format mismatch or exact-size-only mismatch may be normalized deterministically only when the aspect ratio and composition are already correct; reverify after normalization.

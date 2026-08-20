@@ -18,6 +18,7 @@ The Skill preserves the semantic identity of an existing article title, rephrase
 - Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
 - An editorial alignment system connecting labels, type, structural lines, and micro-accents
 - Typography that rotates between restrained editorial serif, clean sans, and neutral grotesk
+- Dominant article-cover typography: balanced three-line X headlines, semibold-to-medium-bold weight, relaxed display leading, and a roughly 45–54% canvas-height title block for longer titles
 - A hard-compliance gate followed by a poster-integration critique of the actual rendered pixels
 - Targeted local editing for isolated flaws and fresh regeneration for structural failures
 - At most three private versions, with only the final passing cover shown

@@ -48,8 +48,8 @@ The gradient must pass all of these checks:
 - A restrained editorial serif uses moderate contrast and sturdy strokes. Never use an oversized ultra-high-contrast Didone that makes the cover resemble a fashion or fragrance advertisement.
 - A clean sans uses open proportions and quiet geometry. A neutral grotesk uses practical, slightly compact proportions without becoming condensed poster type.
 - For Chinese, use a modern CJK sans or restrained Song/Ming-style editorial face with sturdy readable strokes.
-- Use one family, one dominant scale, and no more than two weights.
-- Keep line breaks natural. Avoid condensed poster type, novelty fonts, outlines, multiple text boxes, cramped tracking, stretched glyphs, and excessive italics.
+- Use one family, one dominant scale, and no more than two weights. Default the title to semibold or medium-bold; use bold only when its counters remain open and its visual density stays comfortable.
+- Keep line breaks natural. Set multi-line display leading to approximately 1.05–1.15 times the type size, with visible but cohesive separation between lines. Avoid extra-black faces, condensed poster type, novelty fonts, outlines, multiple text boxes, cramped tracking, stretched glyphs, and excessive italics.
 - Keep `FINAL_TITLE` as the only obvious information layer.
 - Set `CATEGORY_LABEL` in tiny uppercase sans, approximately 8–12% of the title cap height, near a top corner. It may sit inside one thin rounded pill or beside one short hairline.
 - Set `MICRO_SUBTITLE` in tiny sans, approximately 8–14% of the title cap height, using one or two short lines at most. Place it below the title or near the lower margin.
@@ -58,11 +58,12 @@ The gradient must pass all of these checks:
 
 ## Title footprint gate
 
-- Use 1–3 title lines on portrait and square covers; use 1–2 on X landscape and banner covers.
-- Aim for a title block occupying roughly 25–35% of the canvas rather than half or more of the page.
+- Use 1–4 title lines on portrait and square covers, 1–3 on X landscape, and 1–2 on an X banner.
+- Measure the title footprint primarily by the height of its complete line stack. On X landscape, let a 5–10-word title occupy approximately 45–54% of canvas height; prefer three balanced lines when two lines would force small type or an excessively long measure. On portrait or square covers, target approximately 38–52% of canvas height. Short titles may use a smaller block when they remain unquestionably dominant.
+- Preserve the approved wording before optimizing line count. Reflow a semantically faithful title rather than shrinking it into a caption or replacing it with an abstract slogan.
 - Keep the title block within roughly 55–62% of the canvas width on portrait covers unless the primary form is deliberately absent from that zone.
 - Preserve a calm buffer of roughly 4% of the canvas width between the title and the brightest or highest-contrast edge of the primary form.
-- Reject a title that becomes a near-full-page fashion billboard, collides with the primary form, or loses contrast over a bright edge.
+- Reject a title that crowds out the category label and micro-subtitle, collides with the primary form, or loses contrast over a bright edge. Do not reject it merely because its height approaches half the canvas.
 
 ## Editorial detail recipe
 
@@ -212,7 +213,8 @@ Never substitute black, charcoal backgrounds, sepia, tan, dark brown, olive, kha
 ### X post landscape — 1200 × 675
 
 - Use a clear left or right title zone.
-- Use 1–2 title lines when possible.
+- Use 1–3 title lines. For a 5–10-word article headline, prefer a three-line stack that occupies approximately 45–54% of canvas height; use one or two lines only when the wording remains large, natural, and comfortably measured.
+- Prefer a polished semibold or medium-bold editorial serif, clean sans, or neutral grotesk over an extra-black condensed display face. Keep multi-line leading around 1.05–1.15 times the type size.
 - Keep the title inside an approximate 7% perimeter safe margin.
 - Let the wider gradient field carry the atmosphere instead of adding more content.
 
@@ -261,7 +263,7 @@ Never produce:
 - the gradient reads as separate halos instead of one seamless field;
 - the primary abstract form or the 1–3 instance micro-accent family is missing;
 - micro-accents are oversized, visually dominant, three-dimensional, heavily shadowed, or exceed the allowed footprint;
-- the title uses too many lines, occupies roughly half the page, collides with the primary form, or crosses its brightest edge;
+- the title violates its platform line-count range, is undersized for the available space, uses cramped or disconnected leading, crowds out the support text, collides with the primary form, or crosses its brightest edge;
 - the primary form, typography direction, and micro-accent family repeat the most recent visible output without reason;
 - the layout triggers the anti-cliché combination gate or lacks a coherent editorial alignment system;
 - the grain reads as a coarse uniform filter or softens text edges at thumbnail size;
