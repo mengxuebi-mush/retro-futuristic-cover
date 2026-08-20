@@ -70,8 +70,9 @@ Run this gate only after hard compliance passes. Judge the cover as a designed w
 10. **Recipe fidelity** — The actual palette family, active hue count, area hierarchy, gradient topology, primary form, title zone, type mode, pale-device state, and detail roles form the one selected recipe. The result differs from recent covers in coordinated composition, not only in hue.
 11. **Pale-device quality** — When selected, the panel reads as an atmospheric editorial plane rather than a floating UI card, uses an active-hue tint, contains only its locked support-text role, and shapes negative space. When not selected, no accidental card appears.
 12. **Color-count discipline** — `SINGLE_FAMILY` reads as one hue family with depth; `DUAL_FIELD` has a clear 70/30-like dominance; `SOFT_TRIAD` has clear 55/30/15-like hierarchy; `SPECTRAL_BLEND` reads as a continuous field rather than four separate blobs.
+13. **Long-form crop resilience** — For a Xiaohongshu long-form cover, inspect the final 3:4 asset with an additional 4% inset preview. If using a 9:16 working master, also inspect its centered 3:4 crop. All three text elements must remain fully legible, the visible letterforms must retain generous left and right breathing room, and the title–form relationship must survive without feeling enlarged or clipped.
 
-Treat items 1, 2, 6, 7, 8, 10, and 12 as critical. Any critical failure makes the aesthetic verdict `FAIL` regardless of other strengths. Do not use a vague total score or accept a result merely because most ingredients are present.
+Treat items 1, 2, 6, 7, 8, 10, 12, and—when applicable—13 as critical. Any critical failure makes the aesthetic verdict `FAIL` regardless of other strengths. Do not use a vague total score or accept a result merely because most ingredients are present.
 
 ## Repair-mode decision
 
@@ -115,6 +116,7 @@ After every edit, regeneration, conversion, or resize:
 - revisit every hard and aesthetic item;
 - compare locked invariants against the preceding approved state;
 - inspect full size and thumbnail size;
+- for Xiaohongshu long-form, inspect the centered 3:4 crop and the additional 4% inset preview;
 - verify the correction did not introduce a seam, text mutation, extra shape, new color, weaker hierarchy, or generic template cue elsewhere.
 
 Never infer that an edit preserved the rest of the image. Verify it from the new pixels.

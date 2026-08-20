@@ -141,6 +141,15 @@ Place anchor and echoes along the same edge, axis, tangent, curvature, or baseli
 - Use the upper or middle half for the title and leave at least one third as shaped negative space.
 - Let pale devices and primary forms crop decisively at edges rather than becoming centered cards.
 
+### Xiaohongshu long-form 3:4
+
+- Deliver exact 3:4 at 1080 x 1440 px, but do not reuse the ordinary image-note title footprint.
+- Use a deep-safe horizontal margin of approximately 10–12% and keep the title block to roughly 72–76% of canvas width. Judge the gap from the visible outermost letterform, not only from the text-box boundary.
+- Prefer a slightly smaller title with more deliberate line breaks over a wide title that merely fits the raw canvas. Preserve the selected type mode, weight, and leading; create safety through scale, line breaks, and placement rather than condensed type.
+- Treat the long-form UI as a potentially inset or lightly recropped container. Keep `FINAL_TITLE`, `CATEGORY_LABEL`, `MICRO_SUBTITLE`, the anchor, and the title-facing part of the bridge inside the deep-safe region. Decorative forms may bleed beyond it.
+- Preferred workflow: design a 9:16 master at 1080 x 1920 px, lock all critical elements inside its centered 3:4 window from y=240 to y=1680, inspect that crop, and export the centered crop as the final 1080 x 1440 cover.
+- If composing directly at 3:4, simulate the same result by previewing a version with an additional 4% inset on every side. Reject any title that becomes cramped, visually touches the container, or loses balance under that preview.
+
 ### X post landscape 16:9
 
 - Use a clear left or right title zone inside an approximate 7% safe margin.
