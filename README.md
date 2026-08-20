@@ -2,7 +2,7 @@
 
 A ChatGPT/Codex Skill that turns an article, draft, topic, or sentence into one finished retro-futuristic editorial social-media cover.
 
-The Skill extracts one core idea, aggressively condenses it into a short headline, and generates a polished cover with seamless soft gradients, diffuse light, fine grain, readable typography, generous negative space, and restrained geometric accents.
+The Skill preserves the semantic identity of an existing article title, rephrases it only when needed for cover readability, and generates a polished cover with seamless soft gradients, diffuse light, fine grain, readable typography, generous negative space, and restrained geometric accents. When no title exists, it derives a faithful title from the source.
 
 ## Visual direction
 
@@ -11,6 +11,8 @@ The Skill extracts one core idea, aggressively condenses it into a short headlin
 - Adaptive tonal regimes and monochromatic, analogous, duotone, or tri-color harmony modes
 - Controlled coral roles so warm coral may lead, accent, or disappear across outputs
 - One dominant, highly readable headline
+- Source-title fidelity with locked subject, use-case, promise, meaningful-count, audience, and proper-noun anchors
+- Content-aware title modes for titled articles, utility/list content, and thesis-led essays
 - Minimal category label and micro-subtitle
 - Small randomized stars, triangles, rhombi, dots, rings, or corner brackets
 - Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
