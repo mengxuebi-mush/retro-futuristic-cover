@@ -4,6 +4,16 @@ A ChatGPT/Codex Skill that turns an article, draft, topic, or sentence into one 
 
 The Skill preserves the semantic identity of an existing article title, rephrases it only when needed for cover readability, and generates a polished cover with seamless soft gradients, diffuse light, fine grain, readable typography, generous negative space, and restrained geometric accents. When no title exists, it derives a faithful title from the source.
 
+## Examples
+
+Generated covers across portrait and landscape formats, Chinese and English typography, and hero-object and atmospheric compositions.
+
+<p align="center">
+  <img src="./examples/portrait-cover-gallery.webp" width="31%" alt="Portrait retro-futuristic cover gallery with Chinese and English examples">
+  <img src="./examples/geometric-cover-gallery.webp" width="31%" alt="Retro-futuristic cover gallery featuring portals, prisms, and geometric forms">
+  <img src="./examples/landscape-cover-gallery.webp" width="31%" alt="Landscape retro-futuristic cover gallery with Chinese and English examples">
+</p>
+
 ## Visual direction
 
 - Seamless, continuous soft gradients rather than isolated color halos
