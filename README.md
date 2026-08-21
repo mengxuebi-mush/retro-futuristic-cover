@@ -39,15 +39,24 @@ The Skill preserves the semantic identity of an existing article title, rephrase
 
 A generic X post request uses the landscape preset. Square and banner layouts are selected only when explicitly requested, and each format is recomposed rather than cropped or stretched.
 
+## Requirements
+
+- **Recommended:** Codex with an image-generation tool enabled.
+- **Alternative:** another agent or image-generation model that can accept a local style-reference image, follow exact text constraints, and save the result as a local image file.
+- Python 3.9 or newer for the bundled recipe selector and image verifier.
+
+Claude Code is not recommended as the default environment for this Skill because it does not provide the image-generation workflow the Skill depends on by itself. Use it only when it is connected to a compatible external image-generation tool that can accept the bundled reference image and preserve the three required text elements.
+
 ## Install
 
-Copy this repository into your personal Skills directory:
+For Codex, clone the repository into your personal Skills directory:
 
-```text
-~/.agents/skills/retro-futuristic-cover
+```bash
+mkdir -p ~/.codex/skills
+git clone https://github.com/mengxuebi-mush/retro-futuristic-cover.git ~/.codex/skills/retro-futuristic-cover
 ```
 
-Start a new task after installation so the updated Skill is loaded.
+For another compatible agent environment, copy or clone the repository into that environment's Skills directory. Start a new task after installation so the Skill is loaded.
 
 ## Use
 
@@ -58,3 +67,7 @@ Use Retro Futuristic Cover to turn this article into an X post cover.
 ```
 
 The Skill generates one final cover by default. It privately critiques and improves the result, and does not expose intermediate images, prompts, or internal verdicts unless requested.
+
+## License
+
+Released under the [MIT License](LICENSE).
