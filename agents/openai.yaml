@@ -1,4 +1,4 @@
 interface:
-  display_name: "Retro Editorial Cover"
+  display_name: "Retro Futuristic Cover"
   short_description: "Create polished retro-futuristic editorial covers"
-  default_prompt: "Use $retro-editorial-cover to reduce this article to a short title and generate a polished cover with one category label and one micro-subtitle."
+  default_prompt: "Use $retro-futuristic-cover to reduce this article to a short title and generate a polished cover with one category label and one micro-subtitle."

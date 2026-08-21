@@ -1,4 +1,4 @@
-# Retro Editorial Cover
+# Retro Futuristic Cover
 
 A ChatGPT/Codex Skill that turns an article, draft, topic, or sentence into one finished retro-futuristic editorial social-media cover.
 
@@ -18,7 +18,9 @@ The Skill preserves the semantic identity of an existing article title, rephrase
 - Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
 - An editorial alignment system connecting labels, type, structural lines, and micro-accents
 - Typography that rotates between restrained editorial serif, clean sans, and neutral grotesk
-- Dominant article-cover typography: balanced three-line X headlines, semibold-to-medium-bold weight, relaxed display leading, and a roughly 45–54% canvas-height title block for longer titles
+- Three controlled CJK sans modes—neo-grotesk, soft humanist, and structural sans—with Song/Ming and generic heavy system Heiti explicitly rejected
+- A persistent coordinated design deck that rotates palettes, gradient flow, focal mode, hero or atmospheric form, type mode, labels, and accents while excluding recent selections
+- Readable article-cover typography: balanced three-line X headlines, regular-to-medium optical weight, relaxed display leading, and a roughly 28–34% tight visible-glyph height for longer landscape titles
 - A hard-compliance gate followed by a poster-integration critique of the actual rendered pixels
 - Targeted local editing for isolated flaws and fresh regeneration for structural failures
 - At most three private versions, with only the final passing cover shown
@@ -42,7 +44,7 @@ A generic X post request uses the landscape preset. Square and banner layouts ar
 Copy this repository into your personal Skills directory:
 
 ```text
-~/.agents/skills/retro-editorial-cover
+~/.agents/skills/retro-futuristic-cover
 ```
 
 Start a new task after installation so the updated Skill is loaded.
@@ -52,7 +54,7 @@ Start a new task after installation so the updated Skill is loaded.
 Provide an article, topic, draft, or sentence and ask for a social-media cover. For example:
 
 ```text
-Use Retro Editorial Cover to turn this article into an X post cover.
+Use Retro Futuristic Cover to turn this article into an X post cover.
 ```
 
 The Skill generates one final cover by default. It privately critiques and improves the result, and does not expose intermediate images, prompts, or internal verdicts unless requested.

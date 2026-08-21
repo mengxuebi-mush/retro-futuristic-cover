@@ -43,6 +43,39 @@ Use the locked topology to define how color moves across the canvas:
 
 Do not replace topology with several separate radial spots. The background must retain visible direction when the text is hidden.
 
+## Focal mode and hero-object deck
+
+Select exactly one focal mode before resolving forms:
+
+- `HERO_OBJECT` — base probability 55%. Render one discrete retro-futuristic focal object with locked geometry, material, lighting, scale, placement, and title relationship.
+- `ATMOSPHERIC_STRUCTURE` — base probability 45%. Render no discrete hero. The gradient topology, primary atmospheric form, spatial bridge, pale device, and alignment system must still create a complete focal structure.
+
+Use history-aware balance rather than independent coin flips. After two consecutive `HERO_OBJECT` covers, select `ATMOSPHERIC_STRUCTURE`; after two consecutive atmospheric covers, select `HERO_OBJECT`. Otherwise use the 55/45 base weights. Never interpret atmospheric mode as permission to place text on an unfinished gradient.
+
+The hero deck contains five rotating families:
+
+| Family | Approved hero objects |
+|---|---|
+| `SCULPTURAL_VOLUME` | matte atmospheric orb, translucent bubble/pod, restrained torus portal |
+| `EARLY_CG_GEOMETRY` | geodesic globe, translucent prism/monolith, wireframe polyhedron |
+| `SPATIAL_STRUCTURE` | folded perspective grid or grid well, nested portal tunnel |
+| `RADIANT_SYMBOL` | luminous four-point star, restrained atomic starburst |
+| `STREAMLINE_BIOMORPHIC` | tapered capsule/teardrop, amoeba or cellular membrane |
+
+Do not repeat a recent hero family or exact hero ID within the last three records when another compatible choice exists. The selector's individual weights make the atmospheric orb and luminous four-point star recurring possibilities without making either a default.
+
+Treat each hero as a complete recipe, not a noun. Follow its returned `geometry`, `material`, `lighting`, `scale`, `placement`, and `title_relationship`. The hero owns the cover's dimensional or glow budget. Keep supporting accents flat, quieter, and below 1% combined canvas area; use no more than one compatible bridge. A controlled luminous halo is allowed only when the selected hero explicitly permits it.
+
+Treat the selector's `primary_form_placement`, `spatial_assignment`, `title_clear_zone`, `primary_form_clearance`, and `collision_resolution` as part of every recipe. In atmospheric mode, a side-weighted form uses the side complementary to the locked title zone by default. Same-side placement requires a visible portal opening, frame, counter-shape, or negative-space relationship; shared alignment alone is insufficient. Centered placement is allowed, including a four-point star near the canvas center, when its solid silhouette, luminous core, and highest-contrast edge stay outside the visible title glyphs plus the specified buffer and the remaining canvas has a defined role. The form may occupy unused negative space beside shorter title lines; do not confuse the overall title-block rectangle with the actual glyph envelope. Keep label outlines and decoration outside the primary form's core contour, highest-contrast region, and visual center. If a collision is predicted, preserve title wording and readable scale, then reflow, translate, or modestly scale the form in that order as appropriate.
+
+### Role-aware four-point stars
+
+Scale and lighting follow role rather than shape name:
+
+- When `H09_RADIANT_FOUR_POINT_STAR` is the `HERO_OBJECT`, use exactly one principal star at 32–46% of the short edge, with roughly 40% as the normal center of the range. Give it a warm-white or active-hue-derived core and one broad, feathered active-hue haze. Blend the haze into the cross-canvas gradient without a visible circle, ring, donut, isolated blob, or lens flare. The hero owns the glow budget.
+- When a four-point star is an `ANCHOR`, keep it at 3–8% of the short edge. When it is an `ECHO`, keep it at 1–3%. Decorative stars use a flat fill or thin outline with no broad halo, dimensional glow, or ownership of the center of gravity.
+- A four-point-star hero may permit one or two tiny flat four-point-star echoes only when they remain within the echo scale and combined accent-area limits. They are subordinate repetitions, not a second radiant system.
+
 ## Pale editorial device
 
 When `EDITORIAL_DEVICE` is not `NONE`, create exactly one pale inset grown from the surrounding atmosphere:
@@ -65,7 +98,7 @@ Use one accent family in three possible roles:
 
 Keep the anchor around 3–8% of the short edge, each echo around 1–3%, and all accent shapes below 2% of total canvas area. Keep hairlines approximately 0.08–0.18% of the short edge at 12–30% opacity. A perspective grid counts as one bridge system, not many separate ornaments.
 
-Never scatter decoration. Use no more than one accent language plus one hairline bridge. If the primary form is a flattened orb, prohibit four-point stars and orbit lines. If a perspective grid is the bridge, add no second complex line system. When the title is long, reduce bridge and echo density before reducing title size.
+Never scatter decoration. Use no more than one accent language plus one hairline bridge. In atmospheric mode, if the primary form is a flattened orb, prohibit four-point stars and orbit lines. In hero mode, use only the returned compatible accents and bridge. If a selected hero already contains a grid, portal, star, or other complex language, do not repeat that language as a bridge or accent, except that `H09_RADIANT_FOUR_POINT_STAR` may use its explicitly allowed tiny flat star echoes. When the title is long, reduce bridge and echo density before reducing title size.
 
 ## Typography modes
 
@@ -75,7 +108,7 @@ For Chinese, use exactly one sans-serif direction:
 - `CJK_SOFT_HUMANIST` — target roughly 25%. Use subtly softened turns, open counters, and restrained humanist modulation without becoming rounded, cute, handwritten, or lifestyle-script-like. Favor high-key, warm, blush, apricot, pistachio, and pale-device compositions.
 - `CJK_STRUCTURAL_SANS` — target roughly 15%. Use slightly compact but uncondensed proportions, crisp horizontal/vertical construction, and a quiet architectural or wayfinding character. Favor perspective planes, folded structures, portals, mid-tone fields, and deep-velvet compositions. Do not use it consecutively when another valid mode exists.
 
-Use weight 500–600, natural tracking, and approximately `1.08–1.18` leading for multi-line Chinese. Break lines semantically, not by fixed character count. Create futurism through scale, spacing, alignment, color, and geometry rather than altered glyphs.
+Use weight 500–600, natural tracking, and approximately `1.08–1.18` leading for multi-line Chinese. For English, default to a regular-to-medium optical weight around 450–500 and increase toward semibold only when contrast or resolution requires it. Break lines semantically, not by fixed character count. Create futurism through scale, spacing, alignment, color, and geometry rather than altered glyphs.
 
 Avoid every Song/Ming or serif-style Chinese title, default system Heiti, extra-bold poster black, cute rounded type, faux-tech stencil type, calligraphic display, narrow Gothic type, and deliberately sliced or distorted glyphs. For English, map neo-grotesk to clean sans or neutral grotesk, soft humanist to restrained humanist sans, and structural sans to an architectural display sans with readable open forms.
 
@@ -84,6 +117,7 @@ Avoid every Song/Ming or serif-style Chinese title, default system Heiti, extra-
 The selector persists the last three design records when runtime state is available. Reject a plan when it:
 
 - repeats a recent palette family or either of the last two gradient topologies while alternatives exist;
+- ignores the focal-mode streak rule or repeats a recent hero family/ID while compatible alternatives exist;
 - changes only hue while repeating title zone, primary form, topology, and details;
 - fills every available palette hue instead of following `COLOR_COMPLEXITY`;
 - uses the same accent or typography mode consecutively without need;
