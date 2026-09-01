@@ -1,0 +1,79 @@
+{
+  "experiment": "image-mask-field-photo-extraction",
+  "objective": "Test whether a supplied photo is stronger when important elements are extracted and recomposed into the cover instead of being used as a full rectangular image field.",
+  "theme": "Digital Media Gallery",
+  "source_asset": {
+    "filename": "IMG_3769.jpeg",
+    "role": "user-supplied photo",
+    "preserved_identity_anchors": [
+      "main woman and recognizable face",
+      "long dark hair, white floral dress, and pose",
+      "dense green leaves and palm fronds",
+      "warm lantern/venue atmosphere"
+    ],
+    "original_modified": false
+  },
+  "comparison": {
+    "previous_proof": "examples/v3-tests/composition-isolation/image-mask-field.png",
+    "improved_proof": "examples/v3-tests/composition-isolation/image-mask-field-extracted.png",
+    "changed_method": [
+      "full-photo field → extracted person and selected leaf silhouettes",
+      "plain text over photo → title shares halftone/overprint and contour structure with extracted elements",
+      "photo-only background → skill gradient-first background with photo-derived subject layers"
+    ]
+  },
+  "locked_recipe": {
+    "carrier": "PHOTO_COVER",
+    "layout_family": "IMAGE_MASK_FIELD",
+    "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + IMAGE_MASK + NEGATIVE_SPACE_CUT + RELEASE_ZONE + SHARED_ALIGNMENT",
+    "source_asset_mode": "FAITHFUL_IMAGE",
+    "subject_assembly": "SINGLE_OBJECT",
+    "focal_event": "NEGATIVE_SPACE_CUT",
+    "palette": "P03_PISTACHIO_FUTURE",
+    "active_hues": ["warm ivory", "pale pistachio", "apricot"],
+    "gradient_topology": "HORIZON_HAZE",
+    "render_treatment": "FAITHFUL_RETAINED",
+    "type_mode": "CJK_NEO_GROTESK"
+  },
+  "text_inventory": [
+    "DIGITAL MEDIA GALLERY",
+    "DESIGN",
+    "ART AFTER THE SCREEN"
+  ],
+  "hard_checks": {
+    "file_exists": true,
+    "format": "PNG",
+    "dimensions": [1080, 1440],
+    "ratio": "3:4",
+    "opaque": true,
+    "exact_designed_text_once": true,
+    "extra_designed_copy": false,
+    "background_corners_and_perimeter": "PASS",
+    "identity_anchors_preserved": "PASS"
+  },
+  "visual_checks": {
+    "photo_extraction": "PASS — person and selected foliage become separate graphic subject layers; the full rectangular photo is not used",
+    "title_image_fusion": "PASS — title shares color separation, halftone texture, and contour relationships with the extracted figure and leaves",
+    "title_first": "PASS — title is first at full size and approximately 25% thumbnail",
+    "mask_behavior": "PASS — one shaped low-detail cut releases the title without covering the face or torso",
+    "gradient_background": "PASS — continuous warm-ivory/pistachio/apricot atmospheric field remains visible behind the extracted subject",
+    "photographic_identity": "PASS — face, pose, dress, and green-leaf context remain recognizable",
+    "layout_failure_signals": "NONE_OBSERVED"
+  },
+  "observed_evidence": [
+    "The woman is a recognizable halftone/duotone figure rather than a full photo rectangle.",
+    "Large palm fronds are retained as deliberate green graphic silhouettes and partially overlap the title field.",
+    "The title is visually printed into the same image system through overprint and shared texture, not placed in a plain text box.",
+    "The background gradient fills the entire canvas and remains an active compositional layer.",
+    "The title, figure, foliage, and mask form one subject-image system at thumbnail scale."
+  ],
+  "interpretation": "This proof supports an extraction-first source-asset workflow for IMAGE_MASK_FIELD. It is materially stronger than the previous full-photo-plus-overlay proof, but one image does not establish reliability across supplied photos.",
+  "candidate_skill_rules": [
+    "Before choosing composition, decompose every supplied photo into 2–4 identity anchors and selected subject layers.",
+    "Use the extracted layers as the subject mass; do not default to the full rectangular photo as the background.",
+    "Require title and image layers to share an edge, contour, color plate, halftone, or overprint relationship; reject plain overlay treatment.",
+    "Rebuild the continuous skill gradient behind and between extracted layers so source imagery does not replace the gradient system.",
+    "Keep identity anchors protected while allowing nonessential background detail to be discarded or abstracted."
+  ],
+  "next_step": "Run repeated IMAGE_MASK_FIELD tests across portrait, scene, and low-contrast supplied photos before centralizing these rules in SKILL.md."
+}
