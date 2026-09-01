@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retro-futuristic-cover/v3/generation-brief",
+  "title": "Compiled image-generation brief",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "brief_version",
+    "canvas",
+    "carrier_contract",
+    "text_contract",
+    "designed_text_inventory",
+    "designed_text_count",
+    "composition",
+    "subject",
+    "palette",
+    "background",
+    "negative_constraints",
+    "generator_instruction"
+  ],
+  "properties": {
+    "brief_version": {"const": 1},
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height", "ratio"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "ratio": {"type": "string"}
+      }
+    },
+    "carrier_contract": {"type": "object"},
+    "text_contract": {"enum": ["THREE_ELEMENT_COVER", "EDITORIAL_POSTER_5_TO_7"]},
+    "designed_text_inventory": {"type": "array", "minItems": 3},
+    "designed_text_count": {"type": "integer", "minimum": 3, "maximum": 7},
+    "composition": {"type": "object"},
+    "subject": {"type": "object"},
+    "palette": {"type": "object"},
+    "background": {"type": "object"},
+    "negative_constraints": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "generator_instruction": {"type": "string", "minLength": 1}
+  }
+}

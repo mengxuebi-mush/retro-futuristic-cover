@@ -1,0 +1,13 @@
+{
+  "canvas": {"width": 1200, "height": 675, "ratio": "16:9", "platform": "X post landscape"},
+  "text_contract": "THREE_ELEMENT_COVER",
+  "final_title": "Mobility Without the Commute",
+  "category_label": "FUTURE",
+  "micro_subtitle": "MOVE WITH LESS",
+  "speculative_function": "A shared short-range ground-gliding pod for quiet neighborhood trips.",
+  "purpose_bearing_parts": [
+    "oversized bubble canopy for shared visibility",
+    "integrated hover keel for low-speed gliding",
+    "continuous body seam for maintenance access"
+  ]
+}
