@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "selection_rule": "Resolve one morphology only for SPECULATIVE_OBJECT, after the hypothetical function and object family are known. Begin from a retro-future geometric archetype, then integrate the function into that volume. Never begin from a present-day product and merely round its corners.",
+  "global_contract": {
+    "form_ancestry": "Streamline Moderne, postwar coachbuilding, mid-century space-age illustration, bubble canopies, molded fiberglass, and optimistic world-fair futurism—not contemporary EV, smartphone, appliance, or cold minimal-product language.",
+    "construction_order": [
+      "choose one dominant geometric body: sphere, ovoid, teardrop, inflated spindle, or softly rising monolith",
+      "exaggerate one proportion so the silhouette is memorable before small details appear",
+      "integrate one transparent canopy, aperture, or observation opening into the dominant volume",
+      "add only 1–3 function-bearing seams, supports, fins, docking bands, wheel shrouds, or sensor openings that follow the same curvature"
+    ],
+    "required_character": [
+      "continuous convex curves and generous radii dominate the outer silhouette",
+      "the object feels rounded, buoyant, aerodynamic, and slightly theatrical rather than optimized by current industrial-design convention",
+      "glazing is volumetric bubble glass or a rounded portal, never a flat black screen slab",
+      "materials feel warm and tactile: colored enamel, molded fiberglass, creamy lacquer, translucent resin, warm chrome trim, amber or smoke-tinted glass, and optional upholstered interior",
+      "rendering may be sculptural, illustrated, model-like, or softly surreal; realism is subordinate to silhouette clarity, warmth, and imaginative exaggeration",
+      "one or two seams may explain opening, docking, suspension, or maintenance; decorative control noise is absent"
+    ],
+    "hard_failures": [
+      "a current car, appliance, laptop, speaker, robot, or phone with rounded corners",
+      "faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance",
+      "black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism",
+      "generic matte ceramic blob with no silhouette exaggeration, canopy, aperture, or functional construction logic",
+      "photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light"
+    ]
+  },
+  "morphologies": [
+    {
+      "id": "BUBBLE_CAPSULE",
+      "name": "Bubble capsule",
+      "idea": "An inhabited or instrumented sphere/ovoid whose transparent dome is a major part of the silhouette.",
+      "silhouette": "one near-spherical or egg-shaped body with a large convex glass canopy or rounded portal occupying roughly one-third to two-thirds of the visible front or upper volume",
+      "exaggeration": "make the canopy unusually generous and the lower shell compact, swollen, or suspended",
+      "aperture_rule": "use one continuous bubble canopy or deep rounded portal with a warm trim ring; no flat windshield or black glass band",
+      "construction_cues": ["one opening or docking seam following the sphere", "one integrated cradle, keel, or suspension point", "optional upholstered inner shell visible through the canopy"],
+      "material_direction": "colored fiberglass or creamy lacquer body, clear or softly tinted bubble glass, restrained warm chrome or brushed metal ring, tactile upholstered interior when inhabited",
+      "compatible_object_families": ["RETRO_SIGNAL_INSTRUMENT", "FUTURE_UTILITY_DEVICE", "TRANSIT_ARCHITECTURE_FRAGMENT", "SYNTHETIC_BOTANICAL", "OPTICAL_NAVIGATION_OBJECT", "FUTURE_MOBILITY_POD", "FUTURE_HABITAT_CAPSULE"]
+    },
+    {
+      "id": "STREAMLINE_POD",
+      "name": "Streamline pod",
+      "idea": "A motion object designed from a water droplet, seed, or airfoil rather than from an existing vehicle category.",
+      "silhouette": "one swelling rounded nose flowing into an elongated teardrop, torpedo, or tadpole tail with uninterrupted aerodynamic curvature",
+      "exaggeration": "stretch the body length, taper the tail, and reduce wheels, supports, or propulsion parts to subordinate integrated forms",
+      "aperture_rule": "embed one bubble canopy, low rounded cockpit opening, or convex observation band into the main volume",
+      "construction_cues": ["one continuous body seam", "shrouded wheel, hover keel, or integrated runner", "one tail fin, vent, or lamp grown from the body curvature"],
+      "material_direction": "optimistic colored enamel or molded composite, soft glass canopy, small warm-metal edge details, cream or caramel cabin accents",
+      "compatible_object_families": ["FUTURE_UTILITY_DEVICE", "KINETIC_MECHANISM", "TRANSIT_ARCHITECTURE_FRAGMENT", "OPTICAL_NAVIGATION_OBJECT", "FUTURE_MOBILITY_POD"]
+    },
+    {
+      "id": "BIOMORPHIC_APPARATUS",
+      "name": "Biomorphic apparatus",
+      "idea": "A functional device that feels grown, inflated, or softly molded while retaining one readable purpose.",
+      "silhouette": "one asymmetrical inflated body, joined lobes, or soft shell whose convex surfaces flow continuously around a contained core",
+      "exaggeration": "enlarge one lobe, aperture, handle loop, or contained core until it becomes the memorable silhouette event",
+      "aperture_rule": "use one rounded lens, translucent core, recessed mouth, or convex window integrated into the soft body",
+      "construction_cues": ["one flowing seam or vein", "one integrated grip, cradle, or mount", "one aperture or contained core that visibly supports the function"],
+      "material_direction": "colored resin, lacquered composite, translucent membrane, soft metal edge, or tactile rubberized detail; never anonymous all-white ceramic",
+      "compatible_object_families": ["RETRO_SIGNAL_INSTRUMENT", "FUTURE_UTILITY_DEVICE", "KINETIC_MECHANISM", "SYNTHETIC_BOTANICAL", "OPTICAL_NAVIGATION_OBJECT", "FUTURE_HABITAT_CAPSULE"]
+    },
+    {
+      "id": "SOFT_VERTICAL_INFRASTRUCTURE",
+      "name": "Soft vertical infrastructure",
+      "idea": "Architecture or transit equipment expressed as elongated rounded fins, arches, and pod-like thresholds rather than glass-box modernism.",
+      "silhouette": "one or more tall softly tapered monoliths, rounded fins, inflated arches, or pod thresholds sharing the same continuous radius language",
+      "exaggeration": "make vertical elements unusually slender and rounded, or enlarge one arch/opening into the dominant spatial event",
+      "aperture_rule": "openings are tall ovals, bubble windows, or deep rounded slots with no rectilinear curtain-wall grid",
+      "construction_cues": ["one shared plinth or docking line", "one repeated rounded opening family", "one integrated signal, canopy, or transit edge"],
+      "material_direction": "warm pale concrete, mint or cream enamel, translucent glass, subtle polished trim, and soft daylight; avoid sterile white render architecture",
+      "compatible_object_families": ["TRANSIT_ARCHITECTURE_FRAGMENT", "FUTURE_HABITAT_CAPSULE"]
+    }
+  ]
+}

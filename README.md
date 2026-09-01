@@ -2,6 +2,8 @@
 
 A ChatGPT/Codex Skill that turns an article, draft, topic, or sentence into one finished retro-futuristic editorial social-media cover.
 
+> **V2 alpha status:** `main` remains the stable V1 release. The `next` branch contains the carrier-aware V2 visual system and is intentionally pre-release while its composition grammar is being validated across controlled visual regression batches. Do not treat `next` as production-ready yet.
+
 The Skill preserves the semantic identity of an existing article title, rephrases it only when needed for cover readability, and generates a polished cover with seamless soft gradients, diffuse light, fine grain, readable typography, generous negative space, and restrained geometric accents. When no title exists, it derives a faithful title from the source.
 
 ## Examples
@@ -38,6 +40,20 @@ Generated covers across portrait and landscape formats, Chinese and English typo
 - No cyberpunk neon, dense collage, experimental type, or text-heavy layouts
 - No generic “high-contrast Didone + glowing planet + orbit + sparkle” AI-poster combination
 
+## V2 alpha architecture
+
+The `next` branch expands the Skill from a cover recipe into a catalog-first visual system:
+
+- 5 carrier contracts and carrier-specific text inventories
+- 8 Composition Contracts with explicit title zones, object slots, collision rules, crop behavior, release zones, and thumbnail tests
+- 4 subject assemblies and 18 composition operators
+- 3 subject origins: abstract form, archive artifact, and speculative object
+- 13 object families and 4 retro-future speculative morphologies
+- conditional archive-computer screen states
+- machine-readable compatibility rules, manifest schema, selector evals, and proof-image validation
+
+The current V2 readiness work is visual rather than catalog expansion: controlled composition isolation, assembly and morphology coverage, gradient-topology stress testing, and a representative golden regression set.
+
 ## Platform presets
 
 | Platform | Canvas |
@@ -67,6 +83,24 @@ git clone https://github.com/mengxuebi-mush/retro-futuristic-cover.git ~/.codex/
 ```
 
 For another compatible agent environment, copy or clone the repository into that environment's Skills directory. Start a new task after installation so the Skill is loaded.
+
+To inspect the V2 alpha explicitly, clone the `next` branch into a separate test location rather than replacing a stable V1 installation:
+
+```bash
+git clone --branch next https://github.com/mengxuebi-mush/retro-futuristic-cover.git retro-futuristic-cover-v2-alpha
+```
+
+## Development and validation
+
+Use `next` for V2 alpha work and keep `main` releasable. Run the complete dependency-free validation set before committing:
+
+```bash
+python3 scripts/validate_catalog_v2.py
+python3 scripts/validate_evals_v2.py
+python3 scripts/verify_examples.py
+```
+
+The same checks run in GitHub Actions. Visual proofs still require pixel-level review for exact text inventory, title-first hierarchy, Composition Contract fidelity, subject identity or function, and thumbnail behavior.
 
 ## Use
 

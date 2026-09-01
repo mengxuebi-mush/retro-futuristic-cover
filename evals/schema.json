@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retro-futuristic-cover/v3/evals",
+  "type": "object",
+  "required": ["schema_version", "skill_name", "evals"],
+  "properties": {
+    "schema_version": {"type": "integer"},
+    "skill_name": {"const": "retro-futuristic-cover"},
+    "evals": {"type": "array", "minItems": 1}
+  }
+}

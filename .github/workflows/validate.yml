@@ -1,0 +1,31 @@
+name: Validate skill
+
+on:
+  push:
+    branches: [main, next]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate design-system catalogs
+        run: python3 scripts/validate_catalog_v2.py
+
+      - name: Validate selector evals
+        run: python3 scripts/validate_evals_v2.py
+
+      - name: Verify proof images
+        run: python3 scripts/verify_examples.py

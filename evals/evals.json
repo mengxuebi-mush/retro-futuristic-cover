@@ -1,0 +1,126 @@
+{
+  "schema_version": 5,
+  "skill_name": "retro-futuristic-cover",
+  "evals": [
+    {
+      "id": "social-abstract-form",
+      "args": ["--carrier", "SOCIAL_COVER", "--subject-origin-mode", "ABSTRACT_FORM"],
+      "expected": {"carrier_id": "SOCIAL_COVER", "subject_origin_mode": "ABSTRACT_FORM", "render_treatment": "PALETTE_ASSIMILATED", "object_family_id": "NONE", "text_contract": "THREE_ELEMENT_COVER"}
+    },
+    {
+      "id": "poster-monumental-archive-computer",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--render-treatment", "ENVIRONMENT_GRADED", "--scale-role", "MONUMENTAL_FRAGMENT", "--focal-event", "DECISIVE_EDGE_CROP"],
+      "expected": {"carrier_id": "EDITORIAL_POSTER", "layout_family_id": "ASYMMETRIC_COUNTERWEIGHT", "subject_origin_mode": "ARCHIVE_ARTIFACT", "render_treatment": "ENVIRONMENT_GRADED", "scale_role": "MONUMENTAL_FRAGMENT", "focal_event_id": "DECISIVE_EDGE_CROP", "object_family_id": "ARCHIVE_COMPUTING_DEVICE", "text_contract": "EDITORIAL_POSTER_5_TO_7"}
+    },
+    {
+      "id": "poster-specimen-archive-computer",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "TYPE_DOMINANT_FIELD", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--render-treatment", "FAITHFUL_RETAINED", "--scale-role", "SPECIMEN_ANCHOR"],
+      "expected": {"layout_family_id": "TYPE_DOMINANT_FIELD", "subject_origin_mode": "ARCHIVE_ARTIFACT", "render_treatment": "FAITHFUL_RETAINED", "scale_role": "SPECIMEN_ANCHOR", "object_family_id": "ARCHIVE_COMPUTING_DEVICE"}
+    },
+    {
+      "id": "social-speculative-navigation-object",
+      "args": ["--carrier", "SOCIAL_COVER", "--subject-origin-mode", "SPECULATIVE_OBJECT", "--object-family", "OPTICAL_NAVIGATION_OBJECT", "--render-treatment", "PALETTE_ASSIMILATED"],
+      "expected": {"subject_origin_mode": "SPECULATIVE_OBJECT", "render_treatment": "PALETTE_ASSIMILATED", "object_family_id": "OPTICAL_NAVIGATION_OBJECT", "object_family_not": "NONE"}
+    },
+    {
+      "id": "photo-faithful-source-override",
+      "args": ["--carrier", "PHOTO_COVER", "--layout-family", "IMAGE_MASK_FIELD", "--source-asset-mode", "FAITHFUL_IMAGE"],
+      "expected": {"carrier_id": "PHOTO_COVER", "subject_origin_mode": "NOT_APPLICABLE_SUPPLIED_IMAGE", "source_asset_mode": "FAITHFUL_IMAGE", "image_role": "HERO_PHOTOGRAPH", "primary_form_role": "IMAGE_FIELD", "hero_object_id": "SUPPLIED_IMAGE_FIELD", "object_family_id": "NONE"}
+    },
+    {
+      "id": "packaging-repeated-speculative",
+      "args": ["--carrier", "PACKAGING_FACE", "--subject-origin-mode", "SPECULATIVE_OBJECT", "--layout-family", "RHYTHMIC_FIELD", "--scale-role", "REPEATED_FIELD", "--focal-event", "REPEATED_RHYTHM"],
+      "expected": {"carrier_id": "PACKAGING_FACE", "layout_family_id": "RHYTHMIC_FIELD", "subject_origin_mode": "SPECULATIVE_OBJECT", "subject_assembly": "REPEATED_FAMILY", "scale_role": "REPEATED_FIELD", "image_role": "REPEATED_SPECIMEN", "focal_event_id": "REPEATED_RHYTHM", "object_family_not": "NONE"}
+    },
+    {
+      "id": "legacy-atmospheric-compatibility",
+      "args": ["--carrier", "SOCIAL_COVER", "--layout-family", "FRAME_THRESHOLD", "--subject-mode", "ATMOSPHERIC_STRUCTURE", "--object-family", "NONE"],
+      "expected": {"carrier_id": "SOCIAL_COVER", "subject_origin_mode": "ABSTRACT_FORM", "focal_mode": "ATMOSPHERIC_STRUCTURE", "render_treatment": "PALETTE_ASSIMILATED", "object_family_id": "NONE"}
+    },
+    {
+      "id": "legacy-concrete-object-compatibility",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "PERSPECTIVE_VECTOR", "--subject-mode", "CONCRETE_OBJECT", "--object-family", "KINETIC_MECHANISM"],
+      "expected": {"carrier_id": "EDITORIAL_POSTER", "subject_origin_mode": "SPECULATIVE_OBJECT", "object_family_id": "KINETIC_MECHANISM"}
+    },
+    {
+      "id": "social-centered-archive-anchor",
+      "args": ["--carrier", "SOCIAL_COVER", "--layout-family", "CENTERED_ANCHOR", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMMUNICATION_DEVICE", "--scale-role", "SPECIMEN_ANCHOR"],
+      "expected": {"layout_family_id": "CENTERED_ANCHOR", "subject_origin_mode": "ARCHIVE_ARTIFACT", "scale_role": "SPECIMEN_ANCHOR", "object_family_id": "ARCHIVE_COMMUNICATION_DEVICE"}
+    },
+    {
+      "id": "poster-information-axis",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "INFORMATION_AXIS", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--scale-role", "SPECIMEN_ANCHOR", "--focal-event", "TITLE_CONTOUR_TENSION"],
+      "expected": {"carrier_id": "EDITORIAL_POSTER", "layout_family_id": "INFORMATION_AXIS", "text_contract": "EDITORIAL_POSTER_5_TO_7", "object_family_id": "ARCHIVE_COMPUTING_DEVICE", "focal_event_id": "TITLE_CONTOUR_TENSION"}
+    },
+    {
+      "id": "archive-cannot-palette-assimilate",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--render-treatment", "PALETTE_ASSIMILATED"],
+      "expect_failure": true
+    },
+    {
+      "id": "poster-compound-archive-workstation",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--subject-assembly", "COMPOUND_SET", "--scale-role", "CENTERPIECE_ARTIFACT"],
+      "expected": {"layout_family_id": "ASYMMETRIC_COUNTERWEIGHT", "subject_assembly": "COMPOUND_SET", "scale_role": "CENTERPIECE_ARTIFACT", "object_family_id": "ARCHIVE_COMPUTING_DEVICE"},
+      "expected_contains": {"composition_sentence": "COMPOUND_SET + COUNTERBALANCE", "primary_form_placement": "authoritative layout object slot"}
+    },
+    {
+      "id": "centered-monumental-archive-object",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "CENTERED_ANCHOR", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMMUNICATION_DEVICE", "--subject-assembly", "SINGLE_OBJECT", "--scale-role", "MONUMENTAL_FRAGMENT", "--focal-event", "SINGLE_SCALE_ANOMALY"],
+      "expected": {"layout_family_id": "CENTERED_ANCHOR", "subject_assembly": "SINGLE_OBJECT", "scale_role": "MONUMENTAL_FRAGMENT", "focal_event_id": "SINGLE_SCALE_ANOMALY"},
+      "expected_contains": {"primary_form_placement": "one intact or selectively cropped subject centered"}
+    },
+    {
+      "id": "type-field-rejects-compound-set",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "TYPE_DOMINANT_FIELD", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--subject-assembly", "COMPOUND_SET"],
+      "expect_failure": true
+    },
+    {
+      "id": "archive-computer-screen-signal",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--screen-state", "SIGNAL"],
+      "expected": {"screen_state": "SIGNAL", "screen_content_role": "NONVERBAL_SIGNAL", "screen_content_source": "GENERATED_NONVERBAL", "screen_display_language": "PHOSPHOR_SIGNAL", "screen_copy_element": "NONE"},
+      "expected_contains": {"screen_text_rule": "No readable letters", "screen_attention_rule": "never becomes a second hero"}
+    },
+    {
+      "id": "archive-computer-auto-defaults-to-signal",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE"],
+      "expected": {"screen_state": "SIGNAL", "screen_content_role": "NONVERBAL_SIGNAL", "screen_copy_element": "NONE"}
+    },
+    {
+      "id": "archive-computer-screen-carrier",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "INFORMATION_AXIS", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--screen-state", "CARRIER", "--screen-copy-element", "RSVP · BUILDERS-SD.EXAMPLE"],
+      "expected": {"screen_state": "CARRIER", "screen_content_role": "SUPPORT_ELEMENT", "screen_content_source": "LOCKED_DESIGNED_COPY", "screen_display_language": "LOW_RES_TERMINAL", "screen_copy_element": "RSVP · BUILDERS-SD.EXAMPLE"},
+      "expected_contains": {"screen_text_rule": "appears once inside the screen", "screen_attention_rule": "support tier"}
+    },
+    {
+      "id": "archive-computer-auto-copy-selects-carrier",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "INFORMATION_AXIS", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--screen-copy-element", "RSVP · BUILDERS-SD.EXAMPLE"],
+      "expected": {"screen_state": "CARRIER", "screen_content_role": "SUPPORT_ELEMENT", "screen_copy_element": "RSVP · BUILDERS-SD.EXAMPLE"}
+    },
+    {
+      "id": "screen-carrier-requires-copy",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--screen-state", "CARRIER"],
+      "expect_failure": true
+    },
+    {
+      "id": "screen-carrier-rejects-compact-carrier",
+      "args": ["--carrier", "SOCIAL_COVER", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--screen-state", "CARRIER", "--screen-copy-element", "RSVP · BUILDERS-SD.EXAMPLE"],
+      "expect_failure": true
+    },
+    {
+      "id": "screen-signal-rejects-readable-copy",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--screen-state", "SIGNAL", "--screen-copy-element", "HELLO"],
+      "expect_failure": true
+    },
+    {
+      "id": "non-screen-object-rejects-signal",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMMUNICATION_DEVICE", "--screen-state", "SIGNAL"],
+      "expect_failure": true
+    },
+    {
+      "id": "repeated-computer-activates-primary-screen-only",
+      "args": ["--carrier", "EDITORIAL_POSTER", "--layout-family", "RHYTHMIC_FIELD", "--subject-origin-mode", "ARCHIVE_ARTIFACT", "--object-family", "ARCHIVE_COMPUTING_DEVICE", "--subject-assembly", "REPEATED_FAMILY", "--scale-role", "REPEATED_FIELD", "--screen-state", "SIGNAL"],
+      "expected": {"subject_assembly": "REPEATED_FAMILY", "screen_state": "SIGNAL"},
+      "expected_contains": {"screen_instance_rule": "only the largest or compositionally primary instance is active"}
+    }
+  ]
+}

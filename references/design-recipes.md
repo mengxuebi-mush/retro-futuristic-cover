@@ -2,6 +2,54 @@
 
 Run `scripts/select_design_recipe.py` after title and platform selection. Treat its JSON as a locked visual recipe. Do not average several outputs, fill omitted palette colors, or let the image generator replace the recipe with a familiar blue-purple planet composition.
 
+## V4 manifest axes
+
+The selector now resolves the visual grammar before the atmospheric recipe. Read the catalog files in `../design-system/` and preserve these independent axes in the returned manifest:
+
+`CARRIER → INFORMATION_STRUCTURE → COMPOSITION_CONTRACT → SUBJECT_ASSEMBLY / COMPOSITION_OPERATORS → FOCAL_EVENT / RELEASE_ZONE → SUBJECT_RESOLUTION → SPECULATIVE_MORPHOLOGY WHEN APPLICABLE → RENDER_TREATMENT / SCALE_ROLE → SCREEN_STATE WHEN SUPPORTED → PALETTE / TOPOLOGY → TYPE / MATERIAL / DETAILS`
+
+`CARRIER` describes output context and information density. `LAYOUT_FAMILY` identifies one content-driven Composition Contract that locks title hierarchy, object slot, collision, support anchors, crop, release area, failure signals, and thumbnail behavior before subject selection. `SUBJECT_ASSEMBLY` then resolves the visible subjects as `SINGLE_OBJECT`, `COMPOUND_SET`, `PRIMARY_SATELLITES`, or `REPEATED_FAMILY`; every mode must read as one `SUBJECT_MASS`. `COMPOSITION_OPERATORS` state the primary spatial relation, focal operation, and support alignment. `SUBJECT_ORIGIN_MODE` then states whether the replaceable payload is non-referential, historically real, or speculatively invented. `SPECULATIVE_MORPHOLOGY` resolves shape ancestry only for an invented object. `RENDER_TREATMENT` controls color and material assimilation; `SCALE_ROLE` controls size independently; `SCREEN_STATE` is resolved only for a family with explicit display support; `FOCAL_EVENT` describes the memorable disruption; and `RELEASE_ZONE` remains deliberately quiet. `GRADIENT_TOPOLOGY` is atmospheric and must not stand in for composition.
+
+Object footprint and perceptual attention are independent. A monumental fragment may occupy more literal canvas area than the title, but the title must remain the first reading event. For multiple objects, pass `--subject-assembly COMPOUND_SET`, `PRIMARY_SATELLITES`, or `REPEATED_FAMILY` only when the content requires that relationship; otherwise keep the default `SINGLE_OBJECT`. Do not invent extra objects merely for visual variety.
+
+Use exactly one visual subject origin: `ABSTRACT_FORM`, `ARCHIVE_ARTIFACT`, or `SPECULATIVE_OBJECT`. Abstract forms lock shape and spatial behavior but never fake product controls. Archive artifacts preserve real historical proportions, materials, and 2–4 identity anchors, using only `FAITHFUL_RETAINED` or `ENVIRONMENT_GRADED`. Speculative objects state one hypothetical function, resolve one compatible morphology from `speculative-morphologies.json`, preserve 2–4 purpose-bearing parts, and use `PALETTE_ASSIMILATED` or `ENVIRONMENT_GRADED`. A supplied image is a source override, not a fourth visual style.
+
+### Speculative morphology
+
+Use `--speculative-morphology AUTO` unless the content or user explicitly implies one of these shape ancestors:
+
+- `BUBBLE_CAPSULE`: sphere or ovoid with a generous convex canopy or rounded portal.
+- `STREAMLINE_POD`: swelling nose and tapered teardrop/torpedo tail, with running gear or propulsion absorbed into the body.
+- `BIOMORPHIC_APPARATUS`: inflated or joined-lobe device with one enlarged aperture, core, grip, or contained function.
+- `SOFT_VERTICAL_INFRASTRUCTURE`: elongated rounded fins, arches, and pod thresholds rather than glass-box architecture.
+
+The selector returns exact silhouette, exaggeration, aperture, construction, material, and hard-failure fields. Include them in generation. Start with the chosen volume and integrate function into it; do not start with a present-day object and soften the corners. Restrained warm chrome trim and retro lacquer gloss are allowed. Full mirror-chrome bodies, contemporary concept-car light, black glass bands, full-width LED strips, and cold gray-white minimalism remain failures.
+
+### Screen states
+
+Use `--screen-state` only when the resolved object family declares support:
+
+- `DORMANT` keeps the display materially present but generates no content.
+- `SIGNAL` is the default active state and adds one nonverbal low-resolution phosphor system without changing the copy inventory.
+- `CARRIER` requires `EDITORIAL_POSTER` plus `--screen-copy-element "EXACT LOCKED SUPPORT STRING"`. The returned string remains designed copy, appears exactly once inside the screen, and must be removed from its external anchor.
+
+For every other object family, the selector returns `NOT_APPLICABLE`. In repeated families, only the primary instance may be active.
+
+### Render treatments and scale roles
+
+- `FAITHFUL_RETAINED`: keep local color and material evidence; the palette surrounds the object.
+- `ENVIRONMENT_GRADED`: apply one global cast, grain, and print surface while preserving identity and material transitions.
+- `PALETTE_ASSIMILATED`: derive body, light, shadow, haze, and gradient from active hues; use only for abstract or speculative subjects.
+
+Scale is independent from provenance:
+
+- `FIELD_STRUCTURE`: full or near-full-canvas abstract atmosphere.
+- `MONUMENTAL_FRAGMENT`: 55–120% of the short edge with decisive architectural crop.
+- `INTEGRATED_HERO`: 28–55%, sharing primary attention with the title.
+- `CENTERPIECE_ARTIFACT`: 32–62%, complete or nearly complete and framed by title/support copy.
+- `SPECIMEN_ANCHOR`: 12–26%, intact and visibly grounded by baseline, horizon, tangent, or contact shadow.
+- `REPEATED_FIELD`: 2–5 same-family instances with one focal scale and one quiet release zone.
+
 ## Variable color complexity
 
 A palette family defines compatible color relationships, not a checklist of colors that must all appear. `COLOR_COMPLEXITY` determines how many independently readable hue families activate in this cover:
@@ -43,14 +91,14 @@ Use the locked topology to define how color moves across the canvas:
 
 Do not replace topology with several separate radial spots. The background must retain visible direction when the text is hidden.
 
-## Focal mode and hero-object deck
+## Abstract-form focal mode and hero deck
 
-Select exactly one focal mode before resolving forms:
+Only `ABSTRACT_FORM` branches between these focal modes:
 
 - `HERO_OBJECT` — base probability 55%. Render one discrete retro-futuristic focal object with locked geometry, material, lighting, scale, placement, and title relationship.
 - `ATMOSPHERIC_STRUCTURE` — base probability 45%. Render no discrete hero. The gradient topology, primary atmospheric form, spatial bridge, pale device, and alignment system must still create a complete focal structure.
 
-Use history-aware balance rather than independent coin flips. After two consecutive `HERO_OBJECT` covers, select `ATMOSPHERIC_STRUCTURE`; after two consecutive atmospheric covers, select `HERO_OBJECT`. Otherwise use the 55/45 base weights. Never interpret atmospheric mode as permission to place text on an unfinished gradient.
+Use history-aware balance inside the abstract branch. `ARCHIVE_ARTIFACT` and `SPECULATIVE_OBJECT` always use one selected object family; their variation comes from treatment, scale role, layout, and focal event. Never interpret atmospheric mode as permission to place text on an unfinished gradient.
 
 The hero deck contains five rotating families:
 

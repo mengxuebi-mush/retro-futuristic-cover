@@ -1,0 +1,69 @@
+{
+  "schema_version": 6,
+  "global_invariants": [
+    "Choose carrier and content-driven composition before subject origin mode. Resolve exactly one SUBJECT_ASSEMBLY into the composition's object slot, then choose render treatment and scale role.",
+    "Resolve all visible objects into one SUBJECT_MASS. A compound set uses one compact silhouette, primary satellites use an explicit primary-subordinate hierarchy, and a repeated family follows one path with one focal instance.",
+    "Object footprint and perceptual attention are independent: a monumental object may occupy more canvas area while the title remains the first reading event.",
+    "Choose exactly one SUBJECT_ORIGIN_MODE from ABSTRACT_FORM, ARCHIVE_ARTIFACT, or SPECULATIVE_OBJECT unless a supplied-image source override is active.",
+    "Choose exactly one focal event and one release zone.",
+    "Object families do not select or forbid Composition Contracts. Every object family can enter every contract by adapting crop, scale, orientation, repetition, or fragmentation to the locked object slot while preserving identity anchors.",
+    "An ARCHIVE_ARTIFACT or SPECULATIVE_OBJECT must expose 2–4 identity anchors; do not use an abstract blob as a substitute for either.",
+    "A SPECULATIVE_OBJECT must have one named hypothetical function and a coherent relationship between its purpose-bearing parts.",
+    "A SPECULATIVE_OBJECT must resolve exactly one compatible SPECULATIVE_MORPHOLOGY. Begin from its sphere, ovoid, teardrop, inflated spindle, biomorphic shell, or soft-monolith archetype and integrate the function into that volume; never begin from a present-day product and merely round its corners.",
+    "A SPECULATIVE_OBJECT must exaggerate one silhouette proportion, integrate one rounded canopy or aperture, and keep secondary parts subordinate to the dominant curvature.",
+    "Warm retro-future material character is required for SPECULATIVE_OBJECT: colored enamel, molded fiberglass, creamy lacquer, translucent resin, bubble glass, warm metal trim, or upholstery. Cold gray-white minimal-product language is forbidden.",
+    "An ARCHIVE_ARTIFACT must preserve historical provenance, local material differences, and authentic proportions after crop, grade, and grain.",
+    "Designed copy follows the carrier text contract. INTRINSIC_ARTIFACT_TEXT is identity evidence, not poster copy, and must never be replaced with invented legible labels.",
+    "Resolve SCREEN_STATE only for object families with explicit screen-state support. Generated screen content is not INTRINSIC_ARTIFACT_TEXT.",
+    "SIGNAL uses one nonverbal low-resolution system. CARRIER relocates exactly one locked editorial support element into the screen without duplication or copy-budget expansion.",
+    "In a REPEATED_FAMILY, only the primary or largest screen may be active; subordinate screens remain DORMANT.",
+    "Do not introduce invented packaging facts, brands, logos, URLs, QR codes, dates, or pseudo-text.",
+    "The primary form, title clear zone, and support details must pass the current collision and thumbnail gates."
+  ],
+  "allowed_render_treatments": {
+    "ABSTRACT_FORM": ["PALETTE_ASSIMILATED"],
+    "ARCHIVE_ARTIFACT": ["FAITHFUL_RETAINED", "ENVIRONMENT_GRADED"],
+    "SPECULATIVE_OBJECT": ["PALETTE_ASSIMILATED", "ENVIRONMENT_GRADED"]
+  },
+  "allowed_scale_roles": {
+    "ABSTRACT_FORM": ["FIELD_STRUCTURE", "MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "REPEATED_FIELD"],
+    "ARCHIVE_ARTIFACT": ["MONUMENTAL_FRAGMENT", "CENTERPIECE_ARTIFACT", "SPECIMEN_ANCHOR", "REPEATED_FIELD"],
+    "SPECULATIVE_OBJECT": ["MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "CENTERPIECE_ARTIFACT", "SPECIMEN_ANCHOR", "REPEATED_FIELD"]
+  },
+  "forbidden_pairs": [
+    {"left": "ARCHIVE_ARTIFACT", "right": "PALETTE_ASSIMILATED", "reason": "Full palette assimilation erases historical color and material evidence."},
+    {"left": "ABSTRACT_FORM", "right": "FAITHFUL_RETAINED", "reason": "A non-referential form has no original product color or provenance to preserve."},
+    {"left": "SPECIMEN_ANCHOR", "right": "ungrounded floating placement", "reason": "A small intact object needs a baseline, horizon, tangent, contact shadow, or other explicit grounding cue."},
+    {"left": "MONUMENTAL_FRAGMENT", "right": "centered complete product render", "reason": "A monumental fragment requires decisive crop and architectural use of the object mass."},
+    {"left": "RHYTHMIC_FIELD", "right": "SINGLE_SCALE_ANOMALY", "reason": "A repeated field needs one rhythm event; do not add a second unrelated scale event."},
+    {"left": "PERSPECTIVE_VECTOR", "right": "PORTAL_ENTRY", "reason": "Do not combine a full perspective field with a second portal system."},
+    {"left": "INFORMATION_AXIS", "right": "invented pseudo-data", "reason": "Every support element must be supplied by the user or grounded in the source."},
+    {"left": "TYPE_DOMINANT_FIELD", "right": "COMPOUND_SET", "reason": "Type-dominant work allows only one subordinate subject interruption, not a competing multi-object ensemble."},
+    {"left": "PRIMARY_SATELLITES", "right": "equal object weights", "reason": "The primary object must remain at least twice the perceptual weight of each satellite."},
+    {"left": "COMPOUND_SET", "right": "unrelated object families", "reason": "Two or three objects must form one semantically and spatially coherent subject mass."},
+    {"left": "TRANSIT_ARCHITECTURE_FRAGMENT", "right": "glowing planet", "reason": "Concrete spatial objects must not collapse into cosmic cliché."},
+    {"left": "OPTICAL_NAVIGATION_OBJECT", "right": "orbit line", "reason": "Directional objects use an axis or tangent, not an orbit system."},
+    {"left": "SPECULATIVE_OBJECT", "right": "present-day product with rounded corners", "reason": "Speculative form must start from a retro-future geometric archetype rather than cosmetically smoothing a current product."},
+    {"left": "SPECULATIVE_OBJECT", "right": "black glass band or full-width LED strip", "reason": "Contemporary EV and appliance signals override the intended streamline-era future language."},
+    {"left": "BUBBLE_CAPSULE", "right": "flat windshield or screen slab", "reason": "The canopy or aperture must be a volumetric convex part of the silhouette."},
+    {"left": "PACKAGING_FACE", "right": "invented factual copy", "reason": "Packaging must not invent specifications, certifications, ingredients, brands, or legal information."},
+    {"left": "SIGNAL", "right": "readable screen text", "reason": "A signal state is nonverbal and cannot contain letters, numbers, code, menus, or pseudo-text."},
+    {"left": "CARRIER", "right": "non-editorial carrier", "reason": "The validated carrier state relocates one factual support element from an EDITORIAL_POSTER only."},
+    {"left": "CARRIER", "right": "duplicated support element", "reason": "Screen copy counts toward the 5–7 element budget and must be removed from every external location."},
+    {"left": "CARRIER", "right": "INTRINSIC_ARTIFACT_TEXT", "reason": "Generated screen copy is designed copy, never authentic source-borne artifact text."},
+    {"left": "REPEATED_FAMILY", "right": "multiple active screens", "reason": "Only the compositionally primary instance may use SIGNAL or CARRIER."}
+  ],
+  "screen_state_requirements": {
+    "NOT_APPLICABLE": ["no generated display behavior", "no invented controls"],
+    "DORMANT": ["deep active-hue glass", "no generated screen content", "material separation remains visible"],
+    "SIGNAL": ["one nonverbal low-resolution signal family", "active-hue-derived phosphor", "title-first thumbnail hierarchy"],
+    "CARRIER": ["EDITORIAL_POSTER", "one exact locked support element", "support element appears once", "no surrounding UI", "full-size text verification"]
+  },
+  "carrier_requirements": {
+    "SOCIAL_COVER": ["screen-native crop", "one immediate title tier", "THREE_ELEMENT_COVER"],
+    "EDITORIAL_POSTER": ["flat front-facing page", "title-dominant asymmetric hierarchy", "EDITORIAL_POSTER_5_TO_7"],
+    "PHOTO_COVER": ["recognizable subject", "2–4 identity anchors", "THREE_ELEMENT_COVER"],
+    "PACKAGING_FACE": ["seam, fold, label boundary, or die-cut implication", "THREE_ELEMENT_COVER"],
+    "RECORD_SLEEVE": ["square sleeve geometry", "one strong image or typographic event", "THREE_ELEMENT_COVER"]
+  }
+}
