@@ -1,0 +1,30 @@
+{
+  "manifest_version": 1,
+  "proof_id": "photo-treatment-cool-structural-plate",
+  "treatment_direction": "COOL_STRUCTURAL_PLATE",
+  "proof_path": "evals/visual/photo-treatment/proofs/cool-structural-plate.png",
+  "proof_sha256": "4753ea7833a8dd89efe261a2a2da06d8be50090d3098d5f471b753bb8e5cbb9e",
+  "fixture": {
+    "external_path": "/private/tmp/digital-media-gallery-source.png",
+    "sha256": "2e01a4a1f42c00f2ae55903bab26e25133801aad3c1a12cf38be85dc0e145285"
+  },
+  "fixed": {
+    "carrier": "PHOTO_COVER",
+    "canvas": "1080x1440 PNG",
+    "layout_family": "IMAGE_MASK_FIELD",
+    "subject_assembly": "SINGLE_OBJECT",
+    "scale_role": "MONUMENTAL_FRAGMENT",
+    "gradient_topology": "DIAGONAL_DRIFT",
+    "palette": ["warm ivory", "blush", "coral"],
+    "title_zone": "upper-left",
+    "copy": ["DIGITAL MEDIA GALLERY", "ARCHIVE / SIGNAL / IMAGE CULTURE", "FIELD NOTE 03"],
+    "identity_anchors": ["face", "dark hair", "hands-on-hips pose", "light floral dress", "selected green palm foliage"]
+  },
+  "changed": {
+    "person_surface": "editorial local color with limited cyan shadow cast",
+    "foliage_surface": "selected palm fragments crossing a cyan structural plate",
+    "title_relationship": "cyan overprint edge shared by title and image plate"
+  },
+  "renderer": "deterministic local SVG/CSS rasterization",
+  "selection_status": "SELECTED_AS_FAILURE_EVIDENCE"
+}
