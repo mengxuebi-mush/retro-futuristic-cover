@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "version": "V1",
+  "proof": {
+    "path": "examples/screen-carrier-proof.png",
+    "manifest_path": "evals/visual/fixtures/placeholder-manifest.json",
+    "carrier": "EDITORIAL_POSTER",
+    "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+    "layout_family": "INFORMATION_AXIS"
+  },
+  "subject_assembly": "SINGLE_OBJECT",
+  "screen_state": "CARRIER",
+  "machine_checks": {
+    "file_exists": true,
+    "format": {"expected": "PNG", "actual": "PNG", "pass": true},
+    "dimensions": {"expected": {"width": 1080, "height": 1440}, "actual": {"width": 1080, "height": 1440}, "pass": true},
+    "ratio": {"expected": "3:4", "actual": "1080:1440", "pass": true},
+    "opacity": {"opaque": true, "has_alpha": false, "pass": true}
+  },
+  "copy": {
+    "contract": "EDITORIAL_POSTER_5_TO_7",
+    "locked": [
+      {"role": "FINAL_TITLE", "text": "BUILD FOR CHANGE", "location": "external"},
+      {"role": "CATEGORY_LABEL", "text": "BUILD", "location": "external"},
+      {"role": "MICRO_SUBTITLE", "text": "IDEAS NEED ACTION", "location": "external"},
+      {"role": "SUPPORT_ELEMENT", "text": "1954 / LONDON", "location": "screen"},
+      {"role": "SUPPORT_ELEMENT", "text": "ARCHIVE SIGNAL", "location": "external"}
+    ],
+    "observed": [
+      {"text": "BUILD FOR CHANGE", "role": "FINAL_TITLE", "count": 1, "locations": ["external"]},
+      {"text": "BUILD", "role": "CATEGORY_LABEL", "count": 1, "locations": ["external"]},
+      {"text": "IDEAS NEED ACTION", "role": "MICRO_SUBTITLE", "count": 1, "locations": ["external"]},
+      {"text": "1954 / LONDON", "role": "SUPPORT_ELEMENT", "count": 2, "locations": ["screen", "external"]},
+      {"text": "ARCHIVE SIGNAL", "role": "SUPPORT_ELEMENT", "count": 1, "locations": ["external"]}
+    ],
+    "intrinsic_artifact_text": [],
+    "duplicates": ["1954 / LONDON"],
+    "extra": []
+  },
+  "visual_review": {
+    "full_size": {"status": "PASS", "evidence": "All poster strings are legible at full size."},
+    "thumbnail_25_percent": {"status": "PASS", "evidence": "The title remains first at 25%."},
+    "background_coverage": {"status": "PASS", "corners": {"top_left": "PASS", "top_right": "PASS", "bottom_left": "PASS", "bottom_right": "PASS"}, "perimeter": "PASS", "evidence": "The field covers all corners and the perimeter."},
+    "first_reading_event": {"value": "TITLE", "evidence": "The title is the first reading event."},
+    "hierarchy": {"title": "PASS", "subject": "PASS", "support": "PASS", "evidence": "Title, subject, and support are otherwise ordered."},
+    "subject_origin_recognition": {"status": "PASS", "evidence": "The archive subject remains recognizable."},
+    "subject_mass_unity": {"status": "PASS", "evidence": "The single object reads as one mass."},
+    "release_zone_visibility": {"status": "PASS", "evidence": "The release zone remains visible."},
+    "support_copy_structural_attachment": {"status": "PASS", "evidence": "Support elements follow the information axis."},
+    "screen_state_compliance": {"status": "FAIL", "state": "CARRIER", "evidence": "The locked screen support string is repeated externally."},
+    "layout_failure_signals": {"observed": [], "evidence": "No other layout failure signal is observed."}
+  },
+  "hard_verdict": "FAIL",
+  "repair_mode": "REGENERATE",
+  "verdict": "REGENERATE",
+  "root_cause_class": "SCREEN_DUPLICATION",
+  "aesthetic_preference": {"rating": "PREFERRED", "evidence": "The poster is preferred aesthetically, independently of the duplication failure."}
+}
