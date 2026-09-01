@@ -1,0 +1,205 @@
+{
+  "manifest_version": 4,
+  "text_contract": "THREE_ELEMENT_COVER",
+  "design_signature": "PHOTO_COVER:IMAGE_MASK_FIELD:NOT_APPLICABLE_SUPPLIED_IMAGE:FAITHFUL_RETAINED:INTEGRATED_HERO:SINGLE_OBJECT:one_supplied_image_field_or_cropped_image_fragment_preserving_the_subject's_identity_anchors:NOT_APPLICABLE:NOT_APPLICABLE:NEGATIVE_SPACE_CUT:P03_PISTACHIO_FUTURE:SOFT_TRIAD:C03_HORIZON_HAZE:HERO_OBJECT",
+  "carrier_id": "PHOTO_COVER",
+  "carrier": "Photo-led cover",
+  "carrier_signals": [
+    "recognizable subject",
+    "screened or transformed image treatment",
+    "crop that preserves identity anchors"
+  ],
+  "layout_family_id": "IMAGE_MASK_FIELD",
+  "layout_family": "Image Mask Field",
+  "layout_select_when": "A supplied portrait, scene, photograph, or image-derived fragment must remain recognizable while supporting a title-dominant cover.",
+  "layout_dominant_mass": "title first; one image field provides the narrative surface",
+  "layout_attention_contract": {
+    "title_percent": [
+      54,
+      66
+    ],
+    "subject_percent": [
+      26,
+      38
+    ],
+    "support_percent": [
+      6,
+      10
+    ]
+  },
+  "layout_allowed_subject_assemblies": [
+    "SINGLE_OBJECT",
+    "COMPOUND_SET"
+  ],
+  "layout_allowed_scale_roles": [
+    "FIELD_STRUCTURE",
+    "MONUMENTAL_FRAGMENT",
+    "INTEGRATED_HERO",
+    "CENTERPIECE_ARTIFACT"
+  ],
+  "layout_required_operators": [
+    "IMAGE_MASK",
+    "SHARED_ALIGNMENT"
+  ],
+  "layout_optional_operators": [
+    "EDGE_CROP",
+    "NEGATIVE_SPACE_CUT",
+    "CONTOUR_LOCK",
+    "SCALE_CONTRAST"
+  ],
+  "layout_forbidden_relationships": [
+    "several detached image windows",
+    "identity anchors divided across unrelated focal zones",
+    "mask used as a UI card"
+  ],
+  "layout_subject_area_percent": [
+    42,
+    72
+  ],
+  "layout_release_area_percent": [
+    18,
+    36
+  ],
+  "layout_title_zone": "one exposed, faded, or low-detail cut inside or beside the image field",
+  "layout_object_slot": "one recognizable image field, portrait fragment, or scene crop preserving 2–4 identity anchors",
+  "layout_collision_rule": "title overlaps a low-detail image region or occupies a shaped mask; never cover the primary identity anchor",
+  "layout_support_zones": [
+    "mask edge",
+    "image perimeter",
+    "protected title axis"
+  ],
+  "layout_crop_rule": "crop decisively for title hierarchy while retaining 2–4 identity anchors; intrinsic text is preserved when identity-bearing and subordinate",
+  "layout_required_structure": [
+    "one image field or fragment",
+    "2–4 identity anchors",
+    "one protected title cut",
+    "paper or atmosphere entering the image"
+  ],
+  "layout_failure_signals": [
+    "complete photo with detached headline",
+    "identity anchor covered",
+    "uniform color wash",
+    "mask resembles a UI card"
+  ],
+  "layout_thumbnail_test": "title reads first and the supplied subject remains identifiable without the caption",
+  "composition_primitives": [
+    "TITLE_MASS",
+    "SUBJECT_MASS",
+    "SUPPORT_SYSTEM",
+    "RELEASE_ZONE"
+  ],
+  "subject_assembly": "SINGLE_OBJECT",
+  "subject_assembly_count": "one coherent subject, object, image field, or abstract field",
+  "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+  "composition_operators": [
+    {
+      "id": "IMAGE_MASK",
+      "category": "PRIMARY_RELATION",
+      "definition": "Use one recognizable image field and one protected mask or low-detail cut for the title."
+    },
+    {
+      "id": "SHARED_ALIGNMENT",
+      "category": "SUPPORT_ALIGNMENT",
+      "definition": "Attach at least three major or support elements to one shared edge, axis, baseline, or curvature."
+    },
+    {
+      "id": "NEGATIVE_SPACE_CUT",
+      "category": "FOCAL_OPERATION",
+      "definition": "Cut one shaped quiet field into the subject or atmospheric mass."
+    }
+  ],
+  "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + IMAGE_MASK + NEGATIVE_SPACE_CUT + RELEASE_ZONE + SHARED_ALIGNMENT",
+  "subject_origin_mode": "NOT_APPLICABLE_SUPPLIED_IMAGE",
+  "subject_origin_definition": "supplied image source override",
+  "subject_identity_contract": "preserve 2–4 source-specific identity anchors",
+  "render_treatment": "FAITHFUL_RETAINED",
+  "render_treatment_definition": "Preserve local object color, material evidence, and product separation; let the palette surround and support the subject.",
+  "render_color_rule": "Original local colors remain identifiable. Environmental color may appear in shadows and highlights but cannot become the object's new base color.",
+  "scale_role": "INTEGRATED_HERO",
+  "scale_role_scale": "28–55% of the short edge",
+  "scale_role_behavior": "The subject and title share primary attention through counter-space, tangent, or one common axis.",
+  "source_asset_mode": "FAITHFUL_IMAGE",
+  "image_role": "HERO_PHOTOGRAPH",
+  "object_family_id": "NONE",
+  "object_family": "NONE",
+  "speculative_morphology": "NOT_APPLICABLE",
+  "speculative_morphology_definition": "NOT_APPLICABLE",
+  "speculative_morphology_silhouette": "NOT_APPLICABLE",
+  "speculative_morphology_exaggeration": "NOT_APPLICABLE",
+  "speculative_morphology_aperture_rule": "NOT_APPLICABLE",
+  "speculative_morphology_construction_cues": "NOT_APPLICABLE",
+  "speculative_morphology_material_direction": "NOT_APPLICABLE",
+  "speculative_global_form_ancestry": "NOT_APPLICABLE",
+  "speculative_global_construction_order": "NOT_APPLICABLE",
+  "speculative_global_required_character": "NOT_APPLICABLE",
+  "speculative_global_hard_failures": "NOT_APPLICABLE",
+  "screen_state": "NOT_APPLICABLE",
+  "screen_state_definition": "The selected subject has no generated screen behavior.",
+  "screen_content_role": "NONE",
+  "screen_content_source": "NONE",
+  "screen_display_language": "NOT_APPLICABLE",
+  "screen_copy_element": "NONE",
+  "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+  "screen_text_rule": "No screen copy.",
+  "screen_attention_rule": "No screen attention tier.",
+  "screen_instance_rule": "no generated screen behavior",
+  "intrinsic_artifact_text_policy": "It is not designed poster copy and is not automatically cropped. Preserve it when identity-bearing and safe; keep it subordinate and never replace it with invented legible text. Hide or soften it only when it competes with the title, contains sensitive or unsuitable information, or cannot be rendered faithfully. Generated SCREEN_CARRIER copy is explicitly excluded: it remains designed copy and counts toward the carrier text budget.",
+  "focal_event_id": "NEGATIVE_SPACE_CUT",
+  "focal_event": "A pale panel, atmospheric cutout, or exposed field enters the primary mass and creates a shaped quiet zone.",
+  "release_zone": "the cut itself or the field it opens",
+  "focal_event_thumbnail_test": "the quiet shape is visible when the text is mentally removed",
+  "palette": "Pistachio Future",
+  "palette_id": "P03_PISTACHIO_FUTURE",
+  "palette_family": "Pistachio Future",
+  "color_complexity": "SOFT_TRIAD",
+  "active_hues": [
+    "warm ivory",
+    "pale pistachio",
+    "apricot"
+  ],
+  "derived_tints": "derive pale, mid, and soft-deep tones only from the active hues",
+  "area_hierarchy": "dominant hue 50–60%; secondary 25–35%; accent 10–15%",
+  "saturation_rule": "allow only one saturation focus; render all other hues as softened fields, haze, or translucent layers",
+  "tonal_regime": "HIGH_KEY_AIRY",
+  "harmony_mode": "EDITORIAL_TRIAD",
+  "coral_role": "ABSENT",
+  "composition_id": "C03_HORIZON_HAZE",
+  "focal_mode": "HERO_OBJECT",
+  "gradient_topology": "HORIZON_HAZE",
+  "gradient_direction": "diffuse light spreads along an asymmetric soft horizon",
+  "primary_form_role": "IMAGE_FIELD",
+  "primary_form": "one supplied image field or cropped image fragment preserving the subject's identity anchors",
+  "primary_form_placement": "authoritative layout object slot: one recognizable image field, portrait fragment, or scene crop preserving 2–4 identity anchors; use the side complementary to the lower-left title zone only when that heuristic remains compatible with the slot; preserve the supplied subject's 2–4 identity anchors; apply crop rule: crop decisively for title hierarchy while retaining 2–4 identity anchors; intrinsic text is preserved when identity-bearing and subordinate; apply scale role INTEGRATED_HERO: The subject and title share primary attention through counter-space, tangent, or one common axis.; resolve SUBJECT_ASSEMBLY SINGLE_OBJECT: Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+  "hero_object": {
+    "id": "SUPPLIED_IMAGE_FIELD",
+    "family": "SUPPLIED_IMAGE",
+    "geometry": "one supplied image field or cropped image fragment preserving the subject's identity anchors",
+    "material": "selected supplied-image treatment with exposed atmosphere and crisp title edges; Plastic, glass, metal, rubber, screen, and paper remain visibly distinct.",
+    "lighting": "preserve the supplied subject's defining light and expression; do not add a competing hero light",
+    "scale": "28–55% of the short edge",
+    "placement": "authoritative layout object slot: one recognizable image field, portrait fragment, or scene crop preserving 2–4 identity anchors; use the side complementary to the lower-left title zone only when that heuristic remains compatible with the slot; preserve the supplied subject's 2–4 identity anchors; apply crop rule: crop decisively for title hierarchy while retaining 2–4 identity anchors; intrinsic text is preserved when identity-bearing and subordinate; apply scale role INTEGRATED_HERO: The subject and title share primary attention through counter-space, tangent, or one common axis.; resolve SUBJECT_ASSEMBLY SINGLE_OBJECT: Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+    "title_relationship": "title locks tightly to the image field while preserving 2–4 identity anchors",
+    "identity_anchors": "preserve 2–4 subject-specific identity anchors from the supplied image",
+    "role_scale_rule": "The subject and title share primary attention through counter-space, tangent, or one common axis. The supplied image owns the focal attention; do not add a discrete abstract hero.",
+    "subject_assembly": "SINGLE_OBJECT",
+    "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract."
+  },
+  "title_zone": "lower-left",
+  "spatial_assignment": "obey the layout collision rule: title overlaps a low-detail image region or occupies a shaped mask; never cover the primary identity anchor Place the title and supplied image field or atmospheric primary form in the returned relationship; same-side placement is allowed only for a clear portal opening, counter-shape, framing, or negative-space relationship that preserves both forms",
+  "title_clear_zone": "the union of visible title glyph silhouettes plus a calm buffer of about 4% of canvas width; the primary form's solid silhouette, luminous core, and highest-contrast edge must stay outside it; soft low-contrast atmosphere may pass behind only when glyph edges and thumbnail readability remain crisp",
+  "primary_form_clearance": "CATEGORY_LABEL outlines, ANCHOR, ECHO, and decorative lines must not cross the primary form's core contour, highest-contrast region, or visual center; place them along an outer edge, tangent, or extended axis instead",
+  "collision_resolution": "preserve approved wording and readable title scale; use balanced reflow when suitable, otherwise translate or modestly scale the primary form; never preserve centered placement at the cost of glyph clearance",
+  "editorial_device": "pale arched inset",
+  "panel_text_role": "CATEGORY_LABEL",
+  "detail_roles": {
+    "anchor": "1 focal thin rings instance",
+    "bridge": "one faint perspective grid",
+    "echo": "2 much smaller thin rings echo instance(s)"
+  },
+  "detail_limits": "one accent language plus at most one hairline bridge; accents under 2% combined canvas area",
+  "type_mode": "CJK_NEO_GROTESK",
+  "detail_grammar": "one ANCHOR, zero or one BRIDGE, and one or two ECHO instances using one returned accent language",
+  "font_mode": "CJK_NEO_GROTESK",
+  "label_treatment": "minimal corner alignment",
+  "alignment_system": "first distribute visual weight across complementary regions, then align at least three of title, hero or atmospheric form, panel, label, bridge, and accents through a shared edge, axis, tangent, baseline, or curvature; the relationship may span the canvas and must not stack all high-information elements in one region"
+}

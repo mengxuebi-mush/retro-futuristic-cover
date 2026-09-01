@@ -1,0 +1,170 @@
+{
+  "experiment": "composition-isolation",
+  "objective": "Determine whether four Composition Contracts produce meaningfully different poster structures while all other selected variables remain fixed.",
+  "carrier": {
+    "id": "EDITORIAL_POSTER",
+    "ratio": "3:4",
+    "canvas": [1080, 1440],
+    "text_contract": "EDITORIAL_POSTER_5_TO_7"
+  },
+  "content": {
+    "title": "VIBE CODING WORKSHOP",
+    "category": "BUILD",
+    "deck": "PROMPT. PROTOTYPE. SHIP.",
+    "support": [
+      "SAT • OCT 24 • 10 AM–1 PM",
+      "SIGNAL GARAGE • BARRIO LOGAN",
+      "HANDS-ON • LAPTOP REQUIRED",
+      "FREE • RSVP REQUIRED"
+    ]
+  },
+  "fixed_variables": {
+    "subject_origin": "SPECULATIVE_OBJECT",
+    "hypothetical_function": "a friendly airborne workspace carrier for small-group prototyping",
+    "object_family": "FUTURE_HABITAT_CAPSULE",
+    "speculative_morphology": "BUBBLE_CAPSULE",
+    "subject_assembly": "SINGLE_OBJECT",
+    "render_treatment": "PALETTE_ASSIMILATED",
+    "scale_role": "INTEGRATED_HERO",
+    "focal_event": "SINGLE_SCALE_ANOMALY",
+    "palette": "P05_APRICOT_STRUCTURE",
+    "active_hues": ["warm ivory", "apricot", "muted amber"],
+    "color_complexity": "SOFT_TRIAD",
+    "gradient_topology": "EDGE_BLOOM",
+    "type_mode": "CJK_SOFT_HUMANIST",
+    "screen_state": "NOT_APPLICABLE",
+    "purpose_bearing_parts": [
+      "generous convex bubble canopy",
+      "curved docking seam",
+      "suspended cradle or keel",
+      "warm upholstered two-seat interior"
+    ]
+  },
+  "changed_variable": "layout_family",
+  "generation_policy": {
+    "initial_generation_per_case": 1,
+    "retries_per_case": 0,
+    "style_reference": "assets/visual-reference.png used as style-only reference"
+  },
+  "cases": [
+    {
+      "id": "ASYMMETRIC_COUNTERWEIGHT",
+      "proof": "examples/v3-tests/composition-isolation/asymmetric-counterweight.png",
+      "manifest": "evals/visual/composition-isolation/asymmetric-counterweight.manifest.json",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + COUNTERBALANCE + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — all 7 locked strings observed once; no extra designed copy visible",
+        "first_reading_event": "PASS — title is the first reading event at full size and thumbnail",
+        "object_slot": "PASS — one large right-side capsule counterweights the lower-left title mass",
+        "release_zone": "PASS — broad low-information field remains around the lower title-side scale contrast",
+        "support_attachment": "PASS — support lines attach to the title axis and shared curve",
+        "thumbnail_verdict": "PASS — unequal title/object relationship survives at approximately 25%",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "The capsule occupies the upper-right and is cropped by the right edge; the title, category, deck, and support copy form a dense lower-left system connected by one curved rule.",
+      "interpretation": "The contract is legible as a counterweight rather than a simple left-text/right-object split because the crop, shared curve, and unequal mass are visible together."
+    },
+    {
+      "id": "CENTERED_ANCHOR",
+      "proof": "examples/v3-tests/composition-isolation/centered-anchor.png",
+      "manifest": "evals/visual/composition-isolation/centered-anchor.manifest.json",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + CENTER_ON_AXIS + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — all 7 locked strings observed once; no extra designed copy visible",
+        "first_reading_event": "PASS — title is the first reading event at full size and thumbnail",
+        "object_slot": "PASS — one centered capsule is grounded on a clear horizontal baseline",
+        "release_zone": "PASS — quiet upper field surrounds the scale anomaly",
+        "support_attachment": "PASS — support copy is attached to the baseline and lower title axis",
+        "thumbnail_verdict": "PASS — title remains dominant while the centered anchor stays unmistakable",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "The capsule sits centered on a long horizontal rule beneath the title; the title is large and left-weighted rather than split evenly around the object.",
+      "interpretation": "The baseline and asymmetrical title treatment keep the centered contract from becoming an undifferentiated centered product template in this run."
+    },
+    {
+      "id": "PERSPECTIVE_VECTOR",
+      "proof": "examples/v3-tests/composition-isolation/perspective-vector.png",
+      "manifest": "evals/visual/composition-isolation/perspective-vector.manifest.json",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + FOLLOW_VECTOR + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — all 7 locked strings observed once; no extra designed copy visible",
+        "first_reading_event": "PASS — title is the first reading event at full size and thumbnail",
+        "object_slot": "PASS — one capsule emerges from the lower-left to upper-right diagonal",
+        "release_zone": "PASS — pale upper-right field remains comparatively quiet",
+        "support_attachment": "PASS — support copy follows the same diagonal rule as the title",
+        "thumbnail_verdict": "PASS — diagonal thrust and title block remain visible at approximately 25%",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "Title, deck, and support lines share a strong diagonal slope; the capsule sits on the same directional track and the open upper-right field provides release.",
+      "interpretation": "The diagonal is a structural vector rather than decorative perspective because the copy and subject use the same rule. The support text is the least thumbnail-readable of the four cases."
+    },
+    {
+      "id": "TYPE_DOMINANT_FIELD",
+      "proof": "examples/v3-tests/composition-isolation/type-dominant-field.png",
+      "manifest": "evals/visual/composition-isolation/type-dominant-field.manifest.json",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + TYPE_OWNS_FIELD + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — all 7 locked strings observed once; no extra designed copy visible",
+        "first_reading_event": "PASS — title clearly owns the field at full size and thumbnail",
+        "object_slot": "PASS — one small lower-right capsule acts as a subordinate counterweight",
+        "release_zone": "PASS — broad low-detail field remains to the right of the title",
+        "support_attachment": "PASS — deck and support copy align to the title edge and baseline",
+        "thumbnail_verdict": "PASS — title dominance and small object counterweight survive at approximately 25%",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "The title fills most of the left field in three oversized lines; the capsule is visibly smaller and isolated at lower-right, with a clean quiet field around it.",
+      "interpretation": "The contract produces the clearest title-first hierarchy, but the subject's functional richness contributes less to the overall poster read than in the other three layouts."
+    }
+  ],
+  "summary": {
+    "all_four_proofs_selected": true,
+    "all_four_machine_delivery_checks_passed": true,
+    "all_four_thumbnail_verdicts_passed": true,
+    "repeated_failure_classes": [],
+    "generator_variance_notes": [
+      "Typography weight and line breaking varied across generations despite the locked type mode.",
+      "The same palette and morphology produced different atmospheric emphasis, but the layout relationships remained recognizable.",
+      "Support-copy legibility was weakest on the diagonal vector case, without becoming a hard failure."
+    ]
+  }
+}
