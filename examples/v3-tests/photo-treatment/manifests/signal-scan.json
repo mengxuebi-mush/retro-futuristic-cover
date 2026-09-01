@@ -1,0 +1,30 @@
+{
+  "manifest_version": 1,
+  "proof_id": "photo-treatment-signal-scan",
+  "treatment_direction": "SIGNAL_SCAN",
+  "proof_path": "evals/visual/photo-treatment/proofs/signal-scan.png",
+  "proof_sha256": "7b87f86199c1e2d624fb401724160c953d8b93823a242f2159edc69280677e71",
+  "fixture": {
+    "external_path": "/private/tmp/digital-media-gallery-source.png",
+    "sha256": "2e01a4a1f42c00f2ae55903bab26e25133801aad3c1a12cf38be85dc0e145285"
+  },
+  "fixed": {
+    "carrier": "PHOTO_COVER",
+    "canvas": "1080x1440 PNG",
+    "layout_family": "IMAGE_MASK_FIELD",
+    "subject_assembly": "SINGLE_OBJECT",
+    "scale_role": "MONUMENTAL_FRAGMENT",
+    "gradient_topology": "DIAGONAL_DRIFT",
+    "palette": ["warm ivory", "blush", "coral"],
+    "title_zone": "upper-left",
+    "copy": ["DIGITAL MEDIA GALLERY", "ARCHIVE / SIGNAL / IMAGE CULTURE", "FIELD NOTE 03"],
+    "identity_anchors": ["face", "dark hair", "hands-on-hips pose", "light floral dress", "selected green palm foliage"]
+  },
+  "changed": {
+    "person_surface": "restrained horizontal scanlines with red/cyan registration offsets",
+    "foliage_surface": "selected full-local-color palm fragments",
+    "title_relationship": "matching scanline fill and one silhouette-following trace"
+  },
+  "renderer": "deterministic local SVG/CSS rasterization",
+  "selection_status": "SELECTED_AS_FAILURE_EVIDENCE"
+}

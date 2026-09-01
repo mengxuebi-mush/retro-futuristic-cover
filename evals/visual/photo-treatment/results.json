@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "experiment": "photo-treatment-initial-controlled-comparison",
+  "stop_condition": {
+    "initial_proofs_rendered": 4,
+    "review_passes_completed": 1,
+    "additional_regenerations": 0,
+    "stopped": true
+  },
+  "fixed_variables": {
+    "fixture_sha256": "2e01a4a1f42c00f2ae55903bab26e25133801aad3c1a12cf38be85dc0e145285",
+    "carrier": "PHOTO_COVER",
+    "format": "PNG",
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4",
+    "copy": ["DIGITAL MEDIA GALLERY", "ARCHIVE / SIGNAL / IMAGE CULTURE", "FIELD NOTE 03"],
+    "layout_family": "IMAGE_MASK_FIELD",
+    "title_zone": "upper-left",
+    "gradient_topology": "DIAGONAL_DRIFT",
+    "palette": ["warm ivory", "blush", "coral"],
+    "subject_assembly": "SINGLE_OBJECT",
+    "scale_role": "MONUMENTAL_FRAGMENT"
+  },
+  "shared_review_observation": "The rasterized source is rotated 90 degrees relative to the portrait mask coordinate system in all four proofs.",
+  "results": [
+    {
+      "treatment_direction": "EXTRACTION_SCREENPRINT",
+      "proof": "proofs/extraction-screenprint.png",
+      "changed_variable": "duotone screenprint extraction with shared halftone title field",
+      "checks": {
+        "file_delivery": "PASS",
+        "continuous_gradient": "PASS",
+        "exact_copy": "PASS",
+        "full_rectangular_photo_removed": "PASS",
+        "face_hair_dress_visible": "PASS",
+        "pose_fidelity": "FAIL",
+        "foliage_intentional": "PARTIAL",
+        "title_image_treatment_relationship": "PASS",
+        "overall": "FAIL"
+      },
+      "thumbnail_verdict": "FAIL — title remains dominant and readable, but the rotated portrait prevents reliable identity and pose recognition."
+    },
+    {
+      "treatment_direction": "SIGNAL_SCAN",
+      "proof": "proofs/signal-scan.png",
+      "changed_variable": "restrained scanlines, registration offsets, and one silhouette trace",
+      "checks": {
+        "file_delivery": "PASS",
+        "continuous_gradient": "PASS",
+        "exact_copy": "PASS",
+        "full_rectangular_photo_removed": "PASS",
+        "face_hair_dress_visible": "PASS",
+        "pose_fidelity": "FAIL",
+        "foliage_intentional": "PARTIAL",
+        "title_image_treatment_relationship": "PASS",
+        "overall": "FAIL"
+      },
+      "thumbnail_verdict": "FAIL — title hierarchy survives, but scan structure cannot compensate for the shared orientation mismatch."
+    },
+    {
+      "treatment_direction": "COOL_STRUCTURAL_PLATE",
+      "proof": "proofs/cool-structural-plate.png",
+      "changed_variable": "limited cyan plate and optical grid behind the retained subject",
+      "checks": {
+        "file_delivery": "PASS",
+        "continuous_gradient": "PASS",
+        "exact_copy": "PASS",
+        "full_rectangular_photo_removed": "PASS",
+        "face_hair_dress_visible": "PASS",
+        "pose_fidelity": "FAIL",
+        "foliage_intentional": "PARTIAL",
+        "title_image_treatment_relationship": "PASS",
+        "overall": "FAIL"
+      },
+      "thumbnail_verdict": "FAIL — the cyan plate reads as a structural system, but the portrait remains incorrectly rotated."
+    },
+    {
+      "treatment_direction": "FUTURIST_GLASSES",
+      "proof": "proofs/futurist-glasses.png",
+      "changed_variable": "transparent cyan-tinted face-attached glasses candidate",
+      "checks": {
+        "file_delivery": "PASS",
+        "continuous_gradient": "PASS",
+        "exact_copy": "PASS",
+        "full_rectangular_photo_removed": "PASS",
+        "face_hair_dress_visible": "PASS",
+        "pose_fidelity": "FAIL",
+        "transparent_or_translucent_lenses": "PASS",
+        "generic_visor_avoided": "PASS",
+        "glasses_face_attached": "FAIL",
+        "title_image_treatment_relationship": "PARTIAL",
+        "overall": "FAIL"
+      },
+      "thumbnail_verdict": "FAIL — the title survives, but the lenses float over foliage because face and overlay coordinates diverge."
+    }
+  ]
+}
