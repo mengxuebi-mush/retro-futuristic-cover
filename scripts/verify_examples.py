@@ -12,13 +12,14 @@ VERIFY = ROOT / "scripts" / "verify_image.py"
 
 
 def main() -> int:
-    examples = sorted((ROOT / "examples").glob("*.png"))
-    if not examples:
+    images = sorted((ROOT / "examples").rglob("*.png"))
+    images.extend(sorted((ROOT / "evals" / "visual").glob("*/proofs/*.png")))
+    if not images:
         print("FAIL: no example PNGs found")
         return 1
 
     failures: list[str] = []
-    for image in examples:
+    for image in images:
         result = subprocess.run(
             [
                 "python3",
@@ -44,7 +45,7 @@ def main() -> int:
         print("FAIL: example image verification")
         print("\n".join(failures))
         return 1
-    print(f"PASS: {len(examples)} example images at 1080x1440 PNG")
+    print(f"PASS: {len(images)} example and visual-proof images at 1080x1440 PNG")
     return 0
 
 

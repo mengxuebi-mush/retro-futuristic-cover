@@ -94,6 +94,14 @@ Choose exactly one visual origin before appearance:
 
 Then choose an independent scale role. A real computer may be a `MONUMENTAL_FRAGMENT`, `CENTERPIECE_ARTIFACT`, `SPECIMEN_ANCHOR`, or `REPEATED_FIELD`; provenance does not determine size. A supplied image is an input-source override, not a fourth visual style.
 
+### Supplied-image preflight
+
+Before cropping, masking, extracting, recoloring, or adding a face- or object-attached element, normalize the source's orientation metadata into its actual pixel matrix and save or use that normalized asset consistently. Inspect those pixels upright before defining 2–4 identity anchors.
+
+Every later mask, crop, landmark, overlay, accessory, and preview must use the same normalized coordinate system. Run a simple registration check before applying the visual treatment: confirm that face or object landmarks, silhouette boundaries, pose, and the locked identity anchors still align in the actual renderer. If they do not, stop and repair the transform before judging treatment quality. A recognizable but rotated person, displaced accessory, or mismatched mask is a source-transform failure, not evidence for or against a treatment direction.
+
+Extraction, halftone, scan structure, localized color plates, and attached optical elements remain optional treatment candidates rather than universal defaults. Choose them only when they integrate the supplied subject with the selected Composition Contract while preserving identity and title priority.
+
 ### Focal event and release zone
 
 Select exactly one `focal_event` from the layout's allowed events. The event is the one thing a viewer should remember at thumbnail size: a decisive crop, title/contour tension, scale anomaly, repeated rhythm, portal entry, or negative-space cut. Every other element either supports that event or creates the `release_zone`; it must not become a second focal point.

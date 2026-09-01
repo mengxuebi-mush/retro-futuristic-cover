@@ -27,5 +27,11 @@ jobs:
       - name: Validate selector evals
         run: python3 scripts/validate_evals_v2.py
 
+      - name: Test generation brief compiler
+        run: python3 evals/generation-brief/test_generation_brief.py
+
+      - name: Test visual verdict harness
+        run: python3 evals/visual/test_validate_visual_verdicts.py
+
       - name: Verify proof images
         run: python3 scripts/verify_examples.py
