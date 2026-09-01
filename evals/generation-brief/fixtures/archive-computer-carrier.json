@@ -1,0 +1,17 @@
+{
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4", "platform": "editorial wall poster"},
+  "text_contract": "EDITORIAL_POSTER_5_TO_7",
+  "final_title": "The Interface Before the Interface",
+  "category_label": "DESIGN",
+  "micro_subtitle": "HISTORY IN THE MACHINE",
+  "poster_support_elements": [
+    {"text": "RSVP · BUILDERS-SD.EXAMPLE", "role": "event support", "anchor": "screen carrier", "factual": true},
+    {"text": "ARCHIVE COMPUTER / 1978", "role": "classification", "anchor": "object tangent", "factual": true}
+  ],
+  "screen_carrier_element": "RSVP · BUILDERS-SD.EXAMPLE",
+  "archive_identity_anchors": [
+    "period-correct monitor or terminal silhouette",
+    "keyboard, drive, cable, or pointing-device relationship",
+    "one authentic port, slot, key field, or chassis seam"
+  ]
+}
