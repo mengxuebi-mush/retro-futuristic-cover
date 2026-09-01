@@ -1,0 +1,256 @@
+{
+  "manifest_version": 4,
+  "text_contract": "THREE_ELEMENT_COVER",
+  "design_signature": "SOCIAL_COVER:RHYTHMIC_FIELD:SPECULATIVE_OBJECT:PALETTE_ASSIMILATED:REPEATED_FIELD:REPEATED_FAMILY:RETRO_SIGNAL_INSTRUMENT:BUBBLE_CAPSULE:NOT_APPLICABLE:REPEATED_RHYTHM:P07_VELVET_ENERGY:SOFT_TRIAD:C03_HORIZON_HAZE:HERO_OBJECT",
+  "carrier_id": "SOCIAL_COVER",
+  "carrier": "Social cover",
+  "carrier_signals": [
+    "screen-native crop",
+    "one immediate title tier",
+    "thumbnail-readable focal event"
+  ],
+  "layout_family_id": "RHYTHMIC_FIELD",
+  "layout_family": "Rhythmic Field",
+  "layout_select_when": "One subject family must read as a collection, sequence, repeated signal, inventory, or packaging rhythm.",
+  "layout_dominant_mass": "title plus one repeated family; one instance owns the focal scale",
+  "layout_attention_contract": {
+    "title_percent": [
+      52,
+      64
+    ],
+    "subject_percent": [
+      28,
+      40
+    ],
+    "support_percent": [
+      6,
+      10
+    ]
+  },
+  "layout_allowed_subject_assemblies": [
+    "REPEATED_FAMILY"
+  ],
+  "layout_allowed_scale_roles": [
+    "REPEATED_FIELD"
+  ],
+  "layout_required_operators": [
+    "REPEAT_ON_PATH",
+    "OPEN_TITLE_BAND",
+    "SHARED_ALIGNMENT"
+  ],
+  "layout_optional_operators": [
+    "RHYTHM_VARIATION",
+    "EDGE_CROP"
+  ],
+  "layout_forbidden_relationships": [
+    "unrelated object families",
+    "even wallpaper repetition",
+    "several equal focal instances"
+  ],
+  "layout_subject_area_percent": [
+    34,
+    58
+  ],
+  "layout_release_area_percent": [
+    20,
+    38
+  ],
+  "layout_title_zone": "one protected band, gap, or corner left open by the repetition",
+  "layout_object_slot": "2–5 instances from one subject family with varied scale, crop, or angle",
+  "layout_collision_rule": "title touches at most one contour; repeated instances establish rhythm rather than surrounding every line",
+  "layout_support_zones": [
+    "open title band",
+    "rhythm baseline",
+    "quiet perimeter"
+  ],
+  "layout_crop_rule": "at least one instance may crop at an edge; one largest instance remains the visual anchor",
+  "layout_required_structure": [
+    "one repeated subject family",
+    "one focal instance",
+    "one open title zone",
+    "one coherent path or grid rhythm"
+  ],
+  "layout_failure_signals": [
+    "even wallpaper pattern",
+    "several unrelated objects",
+    "no focal instance",
+    "title squeezed between copies"
+  ],
+  "layout_thumbnail_test": "the field reads as one family with one dominant instance, not decorative wallpaper",
+  "composition_primitives": [
+    "TITLE_MASS",
+    "SUBJECT_MASS",
+    "SUPPORT_SYSTEM",
+    "RELEASE_ZONE"
+  ],
+  "subject_assembly": "REPEATED_FAMILY",
+  "subject_assembly_count": "two to five instances from one subject family",
+  "subject_mass_rule": "Repeat one family only; vary scale, crop, angle, or spacing while one instance owns the focal scale and the group follows one coherent path.",
+  "composition_operators": [
+    {
+      "id": "REPEAT_ON_PATH",
+      "category": "PRIMARY_RELATION",
+      "definition": "Arrange one repeated family along one readable path or controlled grid rhythm."
+    },
+    {
+      "id": "OPEN_TITLE_BAND",
+      "category": "SUPPORT_ALIGNMENT",
+      "definition": "Protect one open band or corner from subjects so title and facts remain readable."
+    },
+    {
+      "id": "SHARED_ALIGNMENT",
+      "category": "SUPPORT_ALIGNMENT",
+      "definition": "Attach at least three major or support elements to one shared edge, axis, baseline, or curvature."
+    },
+    {
+      "id": "RHYTHM_VARIATION",
+      "category": "FOCAL_OPERATION",
+      "definition": "Create one memorable scale, crop, angle, or spacing variation inside an otherwise coherent repeated path."
+    }
+  ],
+  "composition_sentence": "TITLE_MASS + REPEATED_FAMILY + REPEAT_ON_PATH + RHYTHM_VARIATION + RELEASE_ZONE + OPEN_TITLE_BAND",
+  "subject_origin_mode": "SPECULATIVE_OBJECT",
+  "subject_origin_definition": "An invented, apparently functional object imagined through optimistic streamline-era futurism: a rounded, exaggerated volume with coherent construction logic and a small set of purpose-bearing parts.",
+  "subject_identity_contract": [
+    "name one hypothetical function before defining the form",
+    "resolve one SPECULATIVE_MORPHOLOGY before detailing: BUBBLE_CAPSULE, STREAMLINE_POD, BIOMORPHIC_APPARATUS, or SOFT_VERTICAL_INFRASTRUCTURE",
+    "build from one dominant sphere, ovoid, teardrop, inflated spindle, or soft monolith; exaggerate one proportion before adding details",
+    "lock 2–4 purpose-bearing parts such as bubble canopy, rounded aperture, docking seam, integrated support, shrouded wheel, keel, grip, mount, sensor, or status window",
+    "make every secondary part follow the dominant curvature; use no scattered controls or decorative technology noise",
+    "prefer colored enamel, molded fiberglass, creamy lacquer, translucent resin, bubble glass, warm metal trim, and optional upholstery over cold gray-white minimalism",
+    "do not use fake brands, invented readable labels, present-day product baselines, faceted EV styling, black glass bands, full-width LED strips, or generic AI product-render details"
+  ],
+  "render_treatment": "PALETTE_ASSIMILATED",
+  "render_treatment_definition": "Build the form or invented device from the active palette so its body, light, shadow, haze, and gradient read as one continuous color system.",
+  "render_color_rule": "Object color derives from ACTIVE_HUES and their tints; no unrelated local product color is introduced.",
+  "scale_role": "REPEATED_FIELD",
+  "scale_role_scale": "2–5 instances with one focal scale and at least two subordinate scales or crops",
+  "scale_role_behavior": "Repeat one family only; preserve one dominant rhythm and one quiet release zone.",
+  "source_asset_mode": "NONE",
+  "image_role": "REPEATED_SPECIMEN",
+  "object_family_id": "RETRO_SIGNAL_INSTRUMENT",
+  "object_family": "Retro signal instrument",
+  "speculative_morphology": "BUBBLE_CAPSULE",
+  "speculative_morphology_definition": "An inhabited or instrumented sphere/ovoid whose transparent dome is a major part of the silhouette.",
+  "speculative_morphology_silhouette": "one near-spherical or egg-shaped body with a large convex glass canopy or rounded portal occupying roughly one-third to two-thirds of the visible front or upper volume",
+  "speculative_morphology_exaggeration": "make the canopy unusually generous and the lower shell compact, swollen, or suspended",
+  "speculative_morphology_aperture_rule": "use one continuous bubble canopy or deep rounded portal with a warm trim ring; no flat windshield or black glass band",
+  "speculative_morphology_construction_cues": [
+    "one opening or docking seam following the sphere",
+    "one integrated cradle, keel, or suspension point",
+    "optional upholstered inner shell visible through the canopy"
+  ],
+  "speculative_morphology_material_direction": "colored fiberglass or creamy lacquer body, clear or softly tinted bubble glass, restrained warm chrome or brushed metal ring, tactile upholstered interior when inhabited",
+  "speculative_global_form_ancestry": "Streamline Moderne, postwar coachbuilding, mid-century space-age illustration, bubble canopies, molded fiberglass, and optimistic world-fair futurism—not contemporary EV, smartphone, appliance, or cold minimal-product language.",
+  "speculative_global_construction_order": [
+    "choose one dominant geometric body: sphere, ovoid, teardrop, inflated spindle, or softly rising monolith",
+    "exaggerate one proportion so the silhouette is memorable before small details appear",
+    "integrate one transparent canopy, aperture, or observation opening into the dominant volume",
+    "add only 1–3 function-bearing seams, supports, fins, docking bands, wheel shrouds, or sensor openings that follow the same curvature"
+  ],
+  "speculative_global_required_character": [
+    "continuous convex curves and generous radii dominate the outer silhouette",
+    "the object feels rounded, buoyant, aerodynamic, and slightly theatrical rather than optimized by current industrial-design convention",
+    "glazing is volumetric bubble glass or a rounded portal, never a flat black screen slab",
+    "materials feel warm and tactile: colored enamel, molded fiberglass, creamy lacquer, translucent resin, warm chrome trim, amber or smoke-tinted glass, and optional upholstered interior",
+    "rendering may be sculptural, illustrated, model-like, or softly surreal; realism is subordinate to silhouette clarity, warmth, and imaginative exaggeration",
+    "one or two seams may explain opening, docking, suspension, or maintenance; decorative control noise is absent"
+  ],
+  "speculative_global_hard_failures": [
+    "a current car, appliance, laptop, speaker, robot, or phone with rounded corners",
+    "faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance",
+    "black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism",
+    "generic matte ceramic blob with no silhouette exaggeration, canopy, aperture, or functional construction logic",
+    "photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light"
+  ],
+  "screen_state": "NOT_APPLICABLE",
+  "screen_state_definition": "The selected subject has no generated screen behavior.",
+  "screen_content_role": "NONE",
+  "screen_content_source": "NONE",
+  "screen_display_language": "NOT_APPLICABLE",
+  "screen_copy_element": "NONE",
+  "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+  "screen_text_rule": "No screen copy.",
+  "screen_attention_rule": "No screen attention tier.",
+  "screen_instance_rule": "no generated screen behavior",
+  "intrinsic_artifact_text_policy": "NOT_APPLICABLE",
+  "focal_event_id": "REPEATED_RHYTHM",
+  "focal_event": "One object family repeats at varied scale, crop, or angle while one instance owns the focal scale.",
+  "release_zone": "a visibly quieter band with no extra copies or pseudo-data",
+  "focal_event_thumbnail_test": "the image reads as one family, not a decorative pattern",
+  "palette": "Velvet Energy",
+  "palette_id": "P07_VELVET_ENERGY",
+  "palette_family": "Velvet Energy",
+  "color_complexity": "SOFT_TRIAD",
+  "active_hues": [
+    "diffused indigo",
+    "soft violet",
+    "coral"
+  ],
+  "derived_tints": "derive pale, mid, and soft-deep tones only from the active hues",
+  "area_hierarchy": "dominant hue 50–60%; secondary 25–35%; accent 10–15%",
+  "saturation_rule": "allow only one saturation focus; render all other hues as softened fields, haze, or translucent layers",
+  "tonal_regime": "MID_TONE_EDITORIAL",
+  "harmony_mode": "EDITORIAL_TRIAD",
+  "coral_role": "ACCENT",
+  "composition_id": "C03_HORIZON_HAZE",
+  "focal_mode": "HERO_OBJECT",
+  "gradient_topology": "HORIZON_HAZE",
+  "gradient_direction": "diffuse light spreads along an asymmetric soft horizon",
+  "primary_form_role": "HERO_OBJECT",
+  "primary_form": "one compact inflated or pod-like instrument body with a convex aperture or dial and one integrated antenna, cable, or flowing side seam; resolve the entire silhouette through one near-spherical or egg-shaped body with a large convex glass canopy or rounded portal occupying roughly one-third to two-thirds of the visible front or upper volume",
+  "primary_form_placement": "authoritative layout object slot: 2–5 instances from one subject family with varied scale, crop, or angle; adapt the object's preferred placement cue (aligned to the title baseline) inside that slot rather than replacing it; use the locked title relationship: title tracks the outer contour; apply crop rule: at least one instance may crop at an edge; one largest instance remains the visual anchor; apply scale role REPEATED_FIELD: Repeat one family only; preserve one dominant rhythm and one quiet release zone.; resolve SUBJECT_ASSEMBLY REPEATED_FAMILY: Repeat one family only; vary scale, crop, angle, or spacing while one instance owns the focal scale and the group follows one coherent path.",
+  "hero_object": {
+    "id": "RETRO_SIGNAL_INSTRUMENT",
+    "family": "SPECULATIVE_OBJECT",
+    "geometry": "one compact inflated or pod-like instrument body with a convex aperture or dial and one integrated antenna, cable, or flowing side seam",
+    "material": "colored molded shell, translucent indicator or convex glass dial, and one restrained warm-metal trim ring; render treatment PALETTE_ASSIMILATED: Colored enamel, molded fiberglass, creamy lacquer, translucent resin or shell, warm metal trim, and diffused optical material may soften boundaries while required identity anchors stay visible. Frosted ceramic is optional, never the automatic speculative-object default.",
+    "lighting": "soft side light with readable tonal rolloff; no specular product highlight or black space",
+    "scale": "2–5 instances with one focal scale and at least two subordinate scales or crops",
+    "placement": "authoritative layout object slot: 2–5 instances from one subject family with varied scale, crop, or angle; adapt the object's preferred placement cue (aligned to the title baseline) inside that slot rather than replacing it; use the locked title relationship: title tracks the outer contour; apply crop rule: at least one instance may crop at an edge; one largest instance remains the visual anchor; apply scale role REPEATED_FIELD: Repeat one family only; preserve one dominant rhythm and one quiet release zone.; resolve SUBJECT_ASSEMBLY REPEATED_FAMILY: Repeat one family only; vary scale, crop, angle, or spacing while one instance owns the focal scale and the group follows one coherent path.",
+    "title_relationship": "use the object's selected placement and keep its identity anchors outside the title clear zone",
+    "identity_anchors": [
+      "one control surface",
+      "one signal aperture or dial",
+      "one antenna, cable, or side seam"
+    ],
+    "visual_behavior": "front-facing or three-quarter crop; one readable interface-like form without invented text",
+    "function_requirement": "state one signal-reading, receiving, tuning, or monitoring function before rendering",
+    "speculative_morphology": "BUBBLE_CAPSULE",
+    "morphology_idea": "An inhabited or instrumented sphere/ovoid whose transparent dome is a major part of the silhouette.",
+    "morphology_silhouette": "one near-spherical or egg-shaped body with a large convex glass canopy or rounded portal occupying roughly one-third to two-thirds of the visible front or upper volume",
+    "morphology_exaggeration": "make the canopy unusually generous and the lower shell compact, swollen, or suspended",
+    "morphology_aperture_rule": "use one continuous bubble canopy or deep rounded portal with a warm trim ring; no flat windshield or black glass band",
+    "morphology_construction_cues": [
+      "one opening or docking seam following the sphere",
+      "one integrated cradle, keel, or suspension point",
+      "optional upholstered inner shell visible through the canopy"
+    ],
+    "morphology_material_direction": "colored fiberglass or creamy lacquer body, clear or softly tinted bubble glass, restrained warm chrome or brushed metal ring, tactile upholstered interior when inhabited",
+    "screen_state": "NOT_APPLICABLE",
+    "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+    "screen_text_rule": "No screen copy.",
+    "screen_instance_rule": "no generated screen behavior",
+    "role_scale_rule": "Repeat one family only; preserve one dominant rhythm and one quiet release zone. The object owns the focal scale; supporting accents remain flat and subordinate.",
+    "subject_assembly": "REPEATED_FAMILY",
+    "subject_mass_rule": "Repeat one family only; vary scale, crop, angle, or spacing while one instance owns the focal scale and the group follows one coherent path."
+  },
+  "title_zone": "upper-left",
+  "spatial_assignment": "obey the layout collision rule: title touches at most one contour; repeated instances establish rhythm rather than surrounding every line Distribute visual weight before establishing alignment; do not concentrate the title, hero, and decorative axis on one side unless the opposite region has a clear compositional role",
+  "title_clear_zone": "the union of visible title glyph silhouettes plus a calm buffer of about 4% of canvas width; the primary form's solid silhouette, luminous core, and highest-contrast edge must stay outside it; soft low-contrast atmosphere may pass behind only when glyph edges and thumbnail readability remain crisp",
+  "primary_form_clearance": "CATEGORY_LABEL outlines, ANCHOR, ECHO, and decorative lines must not cross the primary form's core contour, highest-contrast region, or visual center; place them along an outer edge, tangent, or extended axis instead",
+  "collision_resolution": "preserve approved wording and readable title scale; use balanced reflow when suitable, otherwise translate or modestly scale the primary form; never preserve centered placement at the cost of glyph clearance",
+  "editorial_device": "NONE",
+  "panel_text_role": "NONE",
+  "detail_roles": {
+    "anchor": "1 focal triangles instance",
+    "bridge": "one faint perspective grid",
+    "echo": "2 much smaller triangles echo instance(s)"
+  },
+  "detail_limits": "one accent language plus at most one hairline bridge; accents under 2% combined canvas area",
+  "type_mode": "CJK_STRUCTURAL_SANS",
+  "detail_grammar": "one ANCHOR, zero or one BRIDGE, and one or two ECHO instances using one returned accent language",
+  "font_mode": "CJK_STRUCTURAL_SANS",
+  "label_treatment": "minimal corner alignment",
+  "alignment_system": "first distribute visual weight across complementary regions, then align at least three of title, hero or atmospheric form, panel, label, bridge, and accents through a shared edge, axis, tangent, baseline, or curvature; the relationship may span the canvas and must not stack all high-information elements in one region"
+}

@@ -1,0 +1,229 @@
+{
+  "manifest_version": 4,
+  "text_contract": "THREE_ELEMENT_COVER",
+  "design_signature": "SOCIAL_COVER:FRAME_THRESHOLD:ARCHIVE_ARTIFACT:ENVIRONMENT_GRADED:CENTERPIECE_ARTIFACT:SINGLE_OBJECT:ARCHIVE_MEDIA_DEVICE:NOT_APPLICABLE:NOT_APPLICABLE:PORTAL_ENTRY:P07_VELVET_ENERGY:SOFT_TRIAD:C05_CENTER_OF_GRAVITY:HERO_OBJECT",
+  "carrier_id": "SOCIAL_COVER",
+  "carrier": "Social cover",
+  "carrier_signals": [
+    "screen-native crop",
+    "one immediate title tier",
+    "thumbnail-readable focal event"
+  ],
+  "layout_family_id": "FRAME_THRESHOLD",
+  "layout_family": "Frame Threshold",
+  "layout_select_when": "The concept depends on entry, enclosure, aperture, portal, screen, hatch, or an architectural boundary.",
+  "layout_dominant_mass": "title and frame form the primary system; subject occupies or approaches the opening",
+  "layout_attention_contract": {
+    "title_percent": [
+      54,
+      68
+    ],
+    "subject_percent": [
+      22,
+      34
+    ],
+    "support_percent": [
+      8,
+      12
+    ]
+  },
+  "layout_allowed_subject_assemblies": [
+    "SINGLE_OBJECT",
+    "COMPOUND_SET",
+    "PRIMARY_SATELLITES"
+  ],
+  "layout_allowed_scale_roles": [
+    "FIELD_STRUCTURE",
+    "INTEGRATED_HERO",
+    "CENTERPIECE_ARTIFACT",
+    "SPECIMEN_ANCHOR"
+  ],
+  "layout_required_operators": [
+    "FRAME_THRESHOLD",
+    "SHARED_ALIGNMENT"
+  ],
+  "layout_optional_operators": [
+    "THRESHOLD_ENTRY",
+    "CONTOUR_LOCK",
+    "NEGATIVE_SPACE_CUT",
+    "PERIMETER_LOCK"
+  ],
+  "layout_forbidden_relationships": [
+    "multiple competing portals",
+    "objects scattered outside the threshold system",
+    "frame used as an unrelated decorative card"
+  ],
+  "layout_subject_area_percent": [
+    20,
+    42
+  ],
+  "layout_release_area_percent": [
+    22,
+    42
+  ],
+  "layout_title_zone": "beside, across, or partially inside one low-detail opening",
+  "layout_object_slot": "one subject at the threshold, inside the frame, or cropped by the boundary",
+  "layout_collision_rule": "title approaches or enters one opening while readable glyph silhouettes stay clear",
+  "layout_support_zones": [
+    "frame edge",
+    "threshold baseline",
+    "outer perimeter"
+  ],
+  "layout_crop_rule": "the frame may leave the canvas on one or two sides; do not show a complete decorative portal floating in the center",
+  "layout_required_structure": [
+    "one opening or frame",
+    "one directional threshold",
+    "title tied to the opening",
+    "no second portal or orbit system"
+  ],
+  "layout_failure_signals": [
+    "glowing tunnel cliché",
+    "multiple rings or portals",
+    "frame used as a UI card",
+    "title detached from threshold"
+  ],
+  "layout_thumbnail_test": "one opening and one entry direction remain obvious after details disappear",
+  "composition_primitives": [
+    "TITLE_MASS",
+    "SUBJECT_MASS",
+    "SUPPORT_SYSTEM",
+    "RELEASE_ZONE"
+  ],
+  "subject_assembly": "SINGLE_OBJECT",
+  "subject_assembly_count": "one coherent subject, object, image field, or abstract field",
+  "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+  "composition_operators": [
+    {
+      "id": "FRAME_THRESHOLD",
+      "category": "PRIMARY_RELATION",
+      "definition": "Use one opening, boundary, or threshold to organize entry, enclosure, and title placement."
+    },
+    {
+      "id": "SHARED_ALIGNMENT",
+      "category": "SUPPORT_ALIGNMENT",
+      "definition": "Attach at least three major or support elements to one shared edge, axis, baseline, or curvature."
+    },
+    {
+      "id": "THRESHOLD_ENTRY",
+      "category": "FOCAL_OPERATION",
+      "definition": "Draw the title or subject toward, through, or across the contract's single opening without adding another portal system."
+    }
+  ],
+  "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + FRAME_THRESHOLD + THRESHOLD_ENTRY + RELEASE_ZONE + SHARED_ALIGNMENT",
+  "subject_origin_mode": "ARCHIVE_ARTIFACT",
+  "subject_origin_definition": "A recognizable object from the real technological past, treated as historical evidence rather than redesigned as a generic future prop.",
+  "subject_identity_contract": [
+    "preserve original proportions and 2–4 category-defining parts",
+    "retain readable distinctions between materials such as aged plastic, glass, metal, rubber, paper, and screen",
+    "allow environmental tint and print grain, but do not recolor or smooth the artifact until its historical provenance disappears",
+    "preserve authentic labels or interface text when identity-bearing and non-dominant; never invent replacement labels"
+  ],
+  "render_treatment": "ENVIRONMENT_GRADED",
+  "render_treatment_definition": "Unify the subject and poster through one global grade, atmosphere, and print surface while retaining identity anchors and material transitions.",
+  "render_color_rule": "A broad palette cast may affect the object, but local value and material differences must remain readable.",
+  "scale_role": "CENTERPIECE_ARTIFACT",
+  "scale_role_scale": "32–62% of the short edge",
+  "scale_role_behavior": "Show the object complete or nearly complete as a central product or archival exhibit; use title and support copy to frame it.",
+  "source_asset_mode": "NONE",
+  "image_role": "NONE",
+  "object_family_id": "ARCHIVE_MEDIA_DEVICE",
+  "object_family": "Archive media device",
+  "speculative_morphology": "NOT_APPLICABLE",
+  "speculative_morphology_definition": "NOT_APPLICABLE",
+  "speculative_morphology_silhouette": "NOT_APPLICABLE",
+  "speculative_morphology_exaggeration": "NOT_APPLICABLE",
+  "speculative_morphology_aperture_rule": "NOT_APPLICABLE",
+  "speculative_morphology_construction_cues": "NOT_APPLICABLE",
+  "speculative_morphology_material_direction": "NOT_APPLICABLE",
+  "speculative_global_form_ancestry": "NOT_APPLICABLE",
+  "speculative_global_construction_order": "NOT_APPLICABLE",
+  "speculative_global_required_character": "NOT_APPLICABLE",
+  "speculative_global_hard_failures": "NOT_APPLICABLE",
+  "screen_state": "NOT_APPLICABLE",
+  "screen_state_definition": "The selected subject has no generated screen behavior.",
+  "screen_content_role": "NONE",
+  "screen_content_source": "NONE",
+  "screen_display_language": "NOT_APPLICABLE",
+  "screen_copy_element": "NONE",
+  "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+  "screen_text_rule": "No screen copy.",
+  "screen_attention_rule": "No screen attention tier.",
+  "screen_instance_rule": "no generated screen behavior",
+  "intrinsic_artifact_text_policy": "It is not designed poster copy and is not automatically cropped. Preserve it when identity-bearing and safe; keep it subordinate and never replace it with invented legible text. Hide or soften it only when it competes with the title, contains sensitive or unsuitable information, or cannot be rendered faithfully. Generated SCREEN_CARRIER copy is explicitly excluded: it remains designed copy and counts toward the carrier text budget.",
+  "focal_event_id": "PORTAL_ENTRY",
+  "focal_event": "A title or object is visually drawn toward one opening, threshold, or framed counter-shape.",
+  "release_zone": "inside or beside the opening, kept soft behind the text",
+  "focal_event_thumbnail_test": "the opening reads as a directional relationship, not a glowing tunnel",
+  "palette": "Velvet Energy",
+  "palette_id": "P07_VELVET_ENERGY",
+  "palette_family": "Velvet Energy",
+  "color_complexity": "SOFT_TRIAD",
+  "active_hues": [
+    "diffused indigo",
+    "soft violet",
+    "coral"
+  ],
+  "derived_tints": "derive pale, mid, and soft-deep tones only from the active hues",
+  "area_hierarchy": "dominant hue 50–60%; secondary 25–35%; accent 10–15%",
+  "saturation_rule": "allow only one saturation focus; render all other hues as softened fields, haze, or translucent layers",
+  "tonal_regime": "MID_TONE_EDITORIAL",
+  "harmony_mode": "EDITORIAL_TRIAD",
+  "coral_role": "ACCENT",
+  "composition_id": "C05_CENTER_OF_GRAVITY",
+  "focal_mode": "HERO_OBJECT",
+  "gradient_topology": "CENTER_OF_GRAVITY",
+  "gradient_direction": "one offset chromatic mass dissolves outward without a visible circular boundary",
+  "primary_form_role": "HERO_OBJECT",
+  "primary_form": "one coherent media component, media stack, or object-plus-medium relationship with historically plausible proportions",
+  "primary_form_placement": "authoritative layout object slot: one subject at the threshold, inside the frame, or cropped by the boundary; adapt the object's preferred placement cue (large centered advertising hero) inside that slot rather than replacing it; use the locked title relationship: rainbow or rule bridges title and device; apply crop rule: the frame may leave the canvas on one or two sides; do not show a complete decorative portal floating in the center; apply scale role CENTERPIECE_ARTIFACT: Show the object complete or nearly complete as a central product or archival exhibit; use title and support copy to frame it.; resolve SUBJECT_ASSEMBLY SINGLE_OBJECT: Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+  "hero_object": {
+    "id": "ARCHIVE_MEDIA_DEVICE",
+    "family": "ARCHIVE_ARTIFACT",
+    "geometry": "one coherent media component, media stack, or object-plus-medium relationship with historically plausible proportions",
+    "material": "retain real plastic, brushed metal, glass, printed controls, cassette windows, paper labels, and wear without inventing legible copy; render treatment ENVIRONMENT_GRADED: Grain, halftone, and atmosphere may unify the surface but cannot erase required identity anchors or material transitions.",
+    "lighting": "warm catalog light, flat print-ad lighting, or softly graded archival photography",
+    "scale": "32–62% of the short edge",
+    "placement": "authoritative layout object slot: one subject at the threshold, inside the frame, or cropped by the boundary; adapt the object's preferred placement cue (large centered advertising hero) inside that slot rather than replacing it; use the locked title relationship: rainbow or rule bridges title and device; apply crop rule: the frame may leave the canvas on one or two sides; do not show a complete decorative portal floating in the center; apply scale role CENTERPIECE_ARTIFACT: Show the object complete or nearly complete as a central product or archival exhibit; use title and support copy to frame it.; resolve SUBJECT_ASSEMBLY SINGLE_OBJECT: Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+    "title_relationship": "use the object's selected placement and keep its identity anchors outside the title clear zone",
+    "identity_anchors": [
+      "period-correct screen, tape door, disc tray, or disk shell",
+      "recognizable transport controls, knobs, or meter field",
+      "stacked component proportions or one clear media slot",
+      "aged plastic, brushed metal, glass, and cable separation"
+    ],
+    "visual_behavior": "treat controls and media slots as material evidence, not decorative interface noise",
+    "function_requirement": "preserve the object's real historical function and provenance",
+    "speculative_morphology": "NOT_APPLICABLE",
+    "morphology_idea": "NOT_APPLICABLE",
+    "morphology_silhouette": "NOT_APPLICABLE",
+    "morphology_exaggeration": "NOT_APPLICABLE",
+    "morphology_aperture_rule": "NOT_APPLICABLE",
+    "morphology_construction_cues": "NOT_APPLICABLE",
+    "morphology_material_direction": "NOT_APPLICABLE",
+    "screen_state": "NOT_APPLICABLE",
+    "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+    "screen_text_rule": "No screen copy.",
+    "screen_instance_rule": "no generated screen behavior",
+    "role_scale_rule": "Show the object complete or nearly complete as a central product or archival exhibit; use title and support copy to frame it. The object owns the focal scale; supporting accents remain flat and subordinate.",
+    "subject_assembly": "SINGLE_OBJECT",
+    "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract."
+  },
+  "title_zone": "upper-left",
+  "spatial_assignment": "obey the layout collision rule: title approaches or enters one opening while readable glyph silhouettes stay clear Distribute visual weight before establishing alignment; do not concentrate the title, hero, and decorative axis on one side unless the opposite region has a clear compositional role",
+  "title_clear_zone": "the union of visible title glyph silhouettes plus a calm buffer of about 4% of canvas width; the primary form's solid silhouette, luminous core, and highest-contrast edge must stay outside it; soft low-contrast atmosphere may pass behind only when glyph edges and thumbnail readability remain crisp",
+  "primary_form_clearance": "CATEGORY_LABEL outlines, ANCHOR, ECHO, and decorative lines must not cross the primary form's core contour, highest-contrast region, or visual center; place them along an outer edge, tangent, or extended axis instead",
+  "collision_resolution": "preserve approved wording and readable title scale; use balanced reflow when suitable, otherwise translate or modestly scale the primary form; never preserve centered placement at the cost of glyph clearance",
+  "editorial_device": "NONE",
+  "panel_text_role": "NONE",
+  "detail_roles": {
+    "anchor": "1 focal triangles instance",
+    "bridge": "one short aligned rule",
+    "echo": "2 much smaller triangles echo instance(s)"
+  },
+  "detail_limits": "one accent language plus at most one hairline bridge; accents under 2% combined canvas area",
+  "type_mode": "CJK_SOFT_HUMANIST",
+  "detail_grammar": "one ANCHOR, zero or one BRIDGE, and one or two ECHO instances using one returned accent language",
+  "font_mode": "CJK_SOFT_HUMANIST",
+  "label_treatment": "minimal corner alignment",
+  "alignment_system": "first distribute visual weight across complementary regions, then align at least three of title, hero or atmospheric form, panel, label, bridge, and accents through a shared edge, axis, tangent, baseline, or curvature; the relationship may span the canvas and must not stack all high-information elements in one region"
+}
