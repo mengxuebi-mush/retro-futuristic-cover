@@ -82,6 +82,10 @@ Choose exactly one subject assembly:
 
 Multiple objects are allowed only when they resolve into one perceptually unified `SUBJECT_MASS`. Do not create several unrelated hero objects or assign equal visual weight to a primary and its satellites. Object footprint is not perceptual attention: a `MONUMENTAL_FRAGMENT` may occupy more literal canvas area than the title while the title remains the first reading event at thumbnail size.
 
+For every multi-object assembly, write a content-derived `assembly_plan` before generation. A member is a complete, independently countable object—not an opening, cabin, appendage, control, or other internal part. Name each member with a semantic role and visible form cue; then state the relation that binds the members and the rule by which they remain observable at full size and 25%. `COMPOUND_SET` plans 2–3 distinct members. `PRIMARY_SATELLITES` plans one primary plus 1–2 satellites and keeps the primary at least twice each satellite's visual weight. `REPEATED_FAMILY` plans one family unit repeated 2–5 times along one named path with one focal instance. These are assembly constraints, not morphology presets: derive the actual forms from content, function, provenance, or explicit user direction.
+
+The two opposite assembly failures are equally invalid: **competition**, where several objects become unrelated heroes, and **over-fusion**, where planned complete members collapse into one object whose internal parts merely imply multiplicity. The compiled generator instruction must carry the assembly ID, expected count, mass rule, complete member plan, shared relation, and observability rule.
+
 Use the contract's required operators plus the one focal operator mapped from `FOCAL_EVENT`. Support copy must attach to the returned edge, axis, tangent, perimeter, title band, vector, mask, rhythm path, or information rule. Do not improvise a second spatial system.
 
 ### Subject-origin rule

@@ -61,7 +61,7 @@ Use `JPEG` only when the user explicitly requests JPEG output.
 
 Run this gate only after hard compliance passes. Judge the cover as a designed whole rather than as separate ingredients.
 
-1. **Unified composition** — The result reads as one poster, not typography placed over a generic gradient background. A multi-object result reads first as one compact set, one primary with subordinate satellites, or one repeated family—not as several unrelated hero objects.
+1. **Unified composition** — The result reads as one poster, not typography placed over a generic gradient background. A multi-object result reads first as one compact set, one primary with subordinate satellites, or one repeated family—not as several unrelated hero objects. Compare the result against the compiled `assembly_plan`: every planned complete member remains independently countable at full size and 25%, internal parts are not miscounted as members, and no member disappears through over-fusion.
 2. **Title–form relationship** — The title and primary form share at least one legible structural relationship: edge, axis, baseline, tangent, glyph-safe background overlap, counter-shape, or continuous color flow.
 3. **Defined negative space** — Quiet space is shaped by color movement, cropping, alignment, or geometric tension. It does not read as an unfinished empty region.
 4. **Visual balance** — The title, brightest transition, primary form, and small details create a deliberate center of gravity without dead corners or one-sided weight.

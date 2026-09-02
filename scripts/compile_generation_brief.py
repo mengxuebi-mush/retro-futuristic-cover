@@ -87,6 +87,7 @@ def _composition(manifest: dict[str, Any]) -> dict[str, Any]:
         "attention_contract": manifest["layout_attention_contract"],
         "composition_sentence": manifest["composition_sentence"],
         "subject_assembly": manifest["subject_assembly"],
+        "subject_assembly_count": manifest["subject_assembly_count"],
         "subject_mass_rule": manifest["subject_mass_rule"],
         "operators": manifest["composition_operators"],
         "focal_event": {
@@ -124,6 +125,7 @@ def _subject(content: dict[str, Any], manifest: dict[str, Any]) -> dict[str, Any
         "origin_definition": manifest.get("subject_origin_definition", ""),
         "assembly": manifest["subject_assembly"],
         "mass_rule": manifest["subject_mass_rule"],
+        **({"assembly_plan": content["assembly_plan"]} if "assembly_plan" in content else {}),
         "render_treatment": manifest["render_treatment"],
         "render_definition": manifest.get("render_treatment_definition", ""),
         "color_rule": manifest.get("render_color_rule", ""),
@@ -202,7 +204,7 @@ def _negative_constraints(manifest: dict[str, Any], subject: dict[str, Any], car
         *manifest["layout_failure_signals"],
         "No designed letters, words, numbers, logos, watermarks, pseudo-text, or copy outside the locked inventory.",
         "Keep the title first at thumbnail size and preserve the title glyph clear zone.",
-        "Resolve all visible objects as one perceptually unified subject mass; do not create equal-weight hero objects.",
+        "Unify visible objects through the planned spatial relation while preserving the required assembly count; do not create unrelated equal-weight hero objects.",
     ]
     if subject["origin_mode"] == "ABSTRACT_FORM":
         constraints.append("Keep the abstract form non-referential; no fake controls, interface, product seams, or invented labels.")
@@ -220,11 +222,34 @@ def _negative_constraints(manifest: dict[str, Any], subject: dict[str, Any], car
         constraints.append(subject["screen_text_rule"] or "No readable screen content; use one nonverbal low-resolution signal only.")
     if subject["screen_state"] == "CARRIER":
         constraints.append("The screen carries exactly one locked support string and that string must not appear in any external location.")
+    if subject["assembly"] == "COMPOUND_SET":
+        constraints.append("Do not fuse the listed complete members into one object; internal parts, openings, and attached components do not count as members.")
+    if subject["assembly"] == "PRIMARY_SATELLITES":
+        constraints.append("Do not lose the satellites inside the primary and do not promote a satellite into an equal-weight hero.")
+    if subject["assembly"] == "REPEATED_FAMILY":
+        constraints.append("Do not collapse the repeated family into one object or vary instances into unrelated object types.")
     return list(dict.fromkeys(item for item in constraints if isinstance(item, str) and item.strip()))
 
 
 def _quote(value: str) -> str:
     return json.dumps(value, ensure_ascii=False)
+
+
+def _assembly_instruction(subject: dict[str, Any], composition: dict[str, Any]) -> str:
+    assembly = subject["assembly"]
+    count = composition["subject_assembly_count"]
+    mass_rule = subject["mass_rule"]
+    if assembly == "SINGLE_OBJECT":
+        return f"Assembly: SINGLE_OBJECT; expected count {count}; mass rule {mass_rule}."
+    plan = subject["assembly_plan"]
+    serialized = json.dumps(plan, ensure_ascii=False, separators=(",", ":"))
+    if assembly == "COMPOUND_SET":
+        observability = "Each listed member must remain a complete, independently countable object at full size and 25%; internal parts do not count."
+    elif assembly == "PRIMARY_SATELLITES":
+        observability = "The primary and every satellite must remain traceable at full size and 25%, while the primary preserves the specified weight ratio."
+    else:
+        observability = "Show the specified instance count of one recognizable family along the named path, with exactly one focal instance."
+    return f"Assembly: {assembly}; expected count {count}; mass rule {mass_rule}; member plan {serialized}. {observability}"
 
 
 def _generator_instruction(brief: dict[str, Any]) -> str:
@@ -242,6 +267,7 @@ def _generator_instruction(brief: dict[str, Any]) -> str:
         f'Carrier {brief["carrier_contract"]["id"]}; canvas {brief["canvas"]["width"]}x{brief["canvas"]["height"]} ({brief["canvas"]["ratio"]}); text contract {brief["text_contract"]}.',
         "Render exactly these designed text elements once each: " + "; ".join(text_lines) + ". No other designed copy.",
         f'Composition: {composition["composition_sentence"]}; focal event {composition["focal_event"]["id"]}: {composition["focal_event"]["definition"]}; title zone {composition["title_zone"]}; object slot {composition["object_slot"]}; support zones {", ".join(composition["support_zones"])}; collision rule {composition["collision_rule"]}; crop rule {composition["crop_rule"]}; release zone {composition["release_zone"]}.',
+        _assembly_instruction(subject, composition),
         f'Subject: {subject["origin_mode"]}, assembly {subject["assembly"]}, object family {subject["object_family_id"]}, treatment {subject["render_treatment"]}, scale {subject["scale_role"]}; function {subject["function"] or "not applicable"}; archive anchors {", ".join(subject["archive_identity_anchors"]) or "not applicable"}; intrinsic artifact text policy {subject["intrinsic_artifact_text_policy"]}; morphology {json.dumps(subject["morphology"], ensure_ascii=False)}.',
         f'Screen: {subject["screen_state"]}; {subject["screen_rendering_rule"] or subject["screen_text_rule"] or "no generated screen behavior"}',
         f'Palette: {palette["family"]} / {palette["color_complexity"]}; active hues {", ".join(palette["active_hues"]) or "locked manifest hues"}; area hierarchy {palette["area_hierarchy"]}; topology {palette["gradient_topology"]}; type mode {palette["type_mode"]}; focal mode {palette["focal_mode"]}; details {json.dumps(palette["detail_roles"], ensure_ascii=False)}.',
@@ -258,6 +284,15 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
         raise ValidationError("manifest.screen_state: CARRIER requires EDITORIAL_POSTER")
     if manifest["screen_state"] == "CARRIER" and "screen_carrier_element" not in content:
         raise ValidationError("content.screen_carrier_element: required for manifest CARRIER")
+    assembly = manifest["subject_assembly"]
+    plan = content.get("assembly_plan")
+    if assembly == "SINGLE_OBJECT" and plan is not None:
+        raise ValidationError("content.assembly_plan: must be omitted for SINGLE_OBJECT")
+    if assembly != "SINGLE_OBJECT":
+        if plan is None:
+            raise ValidationError(f"content.assembly_plan: required for {assembly}")
+        if plan["mode"] != assembly:
+            raise ValidationError("content.assembly_plan.mode: must match manifest.subject_assembly")
 
     carrier = _carrier_contract(manifest)
     inventory = _text_inventory(content, manifest)

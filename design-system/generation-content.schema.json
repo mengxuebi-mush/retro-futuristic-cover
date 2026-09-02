@@ -63,6 +63,63 @@
       "items": {"type": "string", "minLength": 1}
     },
     "intrinsic_artifact_text_policy": {"type": "string", "minLength": 1},
-    "screen_carrier_element": {"type": "string", "minLength": 1}
+    "screen_carrier_element": {"type": "string", "minLength": 1},
+    "assembly_plan": {
+      "oneOf": [
+        {"$ref": "#/$defs/compoundSetPlan"},
+        {"$ref": "#/$defs/primarySatellitesPlan"},
+        {"$ref": "#/$defs/repeatedFamilyPlan"}
+      ]
+    }
+  },
+  "$defs": {
+    "assemblyMember": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "form_cue"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "form_cue": {"type": "string", "minLength": 1},
+        "function": {"type": "string", "minLength": 1}
+      }
+    },
+    "compoundSetPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "members", "shared_relation", "observability_rule"],
+      "properties": {
+        "mode": {"const": "COMPOUND_SET"},
+        "members": {"type": "array", "minItems": 2, "maxItems": 3, "items": {"$ref": "#/$defs/assemblyMember"}},
+        "shared_relation": {"type": "string", "minLength": 1},
+        "observability_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "primarySatellitesPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "primary", "satellites", "shared_relation", "min_visual_weight_ratio", "observability_rule"],
+      "properties": {
+        "mode": {"const": "PRIMARY_SATELLITES"},
+        "primary": {"$ref": "#/$defs/assemblyMember"},
+        "satellites": {"type": "array", "minItems": 1, "maxItems": 2, "items": {"$ref": "#/$defs/assemblyMember"}},
+        "shared_relation": {"type": "string", "minLength": 1},
+        "min_visual_weight_ratio": {"type": "number", "minimum": 2},
+        "observability_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "repeatedFamilyPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "family_unit", "instance_count", "path", "focal_instance_rule", "shared_relation", "observability_rule"],
+      "properties": {
+        "mode": {"const": "REPEATED_FAMILY"},
+        "family_unit": {"$ref": "#/$defs/assemblyMember"},
+        "instance_count": {"type": "integer", "minimum": 2, "maximum": 5},
+        "path": {"type": "string", "minLength": 1},
+        "focal_instance_rule": {"type": "string", "minLength": 1},
+        "shared_relation": {"type": "string", "minLength": 1},
+        "observability_rule": {"type": "string", "minLength": 1}
+      }
+    }
   }
 }

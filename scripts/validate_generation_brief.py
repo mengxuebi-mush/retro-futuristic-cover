@@ -24,6 +24,7 @@ CATEGORY_LABELS = {
 }
 TEXT_CONTRACTS = {"THREE_ELEMENT_COVER", "EDITORIAL_POSTER_5_TO_7"}
 SUBJECT_ASSEMBLIES = {"SINGLE_OBJECT", "COMPOUND_SET", "PRIMARY_SATELLITES", "REPEATED_FAMILY"}
+MULTI_OBJECT_ASSEMBLIES = SUBJECT_ASSEMBLIES - {"SINGLE_OBJECT"}
 SUBJECT_ORIGINS = {"ABSTRACT_FORM", "ARCHIVE_ARTIFACT", "SPECULATIVE_OBJECT", "NOT_APPLICABLE_SUPPLIED_IMAGE"}
 TREATMENTS = {"FAITHFUL_RETAINED", "ENVIRONMENT_GRADED", "PALETTE_ASSIMILATED"}
 SCREEN_STATES = {"NOT_APPLICABLE", "DORMANT", "SIGNAL", "CARRIER"}
@@ -110,6 +111,62 @@ def _support_element(value: Any, path: str) -> dict[str, Any]:
     return result
 
 
+def _assembly_member(value: Any, path: str) -> dict[str, str]:
+    if not isinstance(value, dict):
+        _fail(path, "must be an object")
+    result = {
+        "role": _string(value.get("role"), f"{path}.role"),
+        "form_cue": _string(value.get("form_cue"), f"{path}.form_cue"),
+    }
+    if "function" in value:
+        result["function"] = _string(value["function"], f"{path}.function")
+    return result
+
+
+def validate_assembly_plan(value: Any, path: str = "content.assembly_plan") -> dict[str, Any]:
+    """Validate a mode-aware plan without prescribing concrete object morphology."""
+    if not isinstance(value, dict):
+        _fail(path, "must be an object")
+    mode = _string(value.get("mode"), f"{path}.mode")
+    if mode not in MULTI_OBJECT_ASSEMBLIES:
+        _fail(f"{path}.mode", f"must be one of {sorted(MULTI_OBJECT_ASSEMBLIES)}")
+    result: dict[str, Any] = {
+        "mode": mode,
+        "shared_relation": _string(value.get("shared_relation"), f"{path}.shared_relation"),
+        "observability_rule": _string(value.get("observability_rule"), f"{path}.observability_rule"),
+    }
+    if mode == "COMPOUND_SET":
+        values = _list(value.get("members"), f"{path}.members")
+        if not 2 <= len(values) <= 3:
+            _fail(f"{path}.members", "COMPOUND_SET requires 2–3 complete members")
+        members = [_assembly_member(item, f"{path}.members[{index}]") for index, item in enumerate(values)]
+        _assert_unique([item["role"] for item in members], f"{path}.members")
+        result["members"] = members
+    elif mode == "PRIMARY_SATELLITES":
+        primary = _assembly_member(value.get("primary"), f"{path}.primary")
+        values = _list(value.get("satellites"), f"{path}.satellites")
+        if not 1 <= len(values) <= 2:
+            _fail(f"{path}.satellites", "PRIMARY_SATELLITES requires 1–2 satellites")
+        satellites = [_assembly_member(item, f"{path}.satellites[{index}]") for index, item in enumerate(values)]
+        _assert_unique([primary["role"], *[item["role"] for item in satellites]], f"{path}.roles")
+        ratio = value.get("min_visual_weight_ratio")
+        if isinstance(ratio, bool) or not isinstance(ratio, (int, float)) or ratio < 2:
+            _fail(f"{path}.min_visual_weight_ratio", "must be a number greater than or equal to 2")
+        result.update({"primary": primary, "satellites": satellites, "min_visual_weight_ratio": ratio})
+    else:
+        unit = _assembly_member(value.get("family_unit"), f"{path}.family_unit")
+        count = value.get("instance_count")
+        if isinstance(count, bool) or not isinstance(count, int) or not 2 <= count <= 5:
+            _fail(f"{path}.instance_count", "REPEATED_FAMILY requires 2–5 instances")
+        result.update({
+            "family_unit": unit,
+            "instance_count": count,
+            "path": _string(value.get("path"), f"{path}.path"),
+            "focal_instance_rule": _string(value.get("focal_instance_rule"), f"{path}.focal_instance_rule"),
+        })
+    return result
+
+
 def validate_content(content: Any) -> dict[str, Any]:
     """Validate and normalize content.json without inventing any copy."""
     if not isinstance(content, dict):
@@ -165,6 +222,8 @@ def validate_content(content: Any) -> dict[str, Any]:
             if not 2 <= len(values) <= 4:
                 _fail(f"content.{key}", "must contain 2–4 strings")
             result[key] = [_string(value, f"content.{key}[{index}]") for index, value in enumerate(values)]
+    if "assembly_plan" in content:
+        result["assembly_plan"] = validate_assembly_plan(content["assembly_plan"])
     if carrier_copy is not None:
         result["screen_carrier_element"] = carrier_copy
     return result
@@ -189,7 +248,7 @@ def validate_manifest(manifest: Any) -> dict[str, Any]:
         _require(manifest, key, "manifest")
     string_fields = {
         "carrier", "layout_family", "layout_family_id", "layout_title_zone", "layout_object_slot",
-        "layout_collision_rule", "layout_crop_rule", "layout_thumbnail_test", "subject_assembly",
+        "layout_collision_rule", "layout_crop_rule", "layout_thumbnail_test", "subject_assembly", "subject_assembly_count",
         "subject_mass_rule", "composition_sentence", "subject_origin_mode", "render_treatment",
         "scale_role", "screen_state", "screen_content_role", "screen_content_source",
         "screen_display_language", "screen_copy_element", "focal_event", "release_zone", "palette",
@@ -323,6 +382,22 @@ def validate_brief(brief: Any) -> dict[str, Any]:
     for key, value in (("composition", composition), ("subject", subject), ("palette", palette)):
         if not isinstance(value, dict):
             _fail(f"brief.{key}", "must be an object")
+    assembly = subject.get("assembly")
+    if assembly not in SUBJECT_ASSEMBLIES:
+        _fail("brief.subject.assembly", "is not a known subject assembly")
+    if composition.get("subject_assembly") != assembly:
+        _fail("brief.composition.subject_assembly", "must match brief.subject.assembly")
+    _string(composition.get("subject_assembly_count"), "brief.composition.subject_assembly_count")
+    if composition.get("subject_mass_rule") != subject.get("mass_rule"):
+        _fail("brief.composition.subject_mass_rule", "must match brief.subject.mass_rule")
+    plan = subject.get("assembly_plan")
+    if assembly == "SINGLE_OBJECT":
+        if plan is not None:
+            _fail("brief.subject.assembly_plan", "must be omitted for SINGLE_OBJECT")
+    else:
+        normalized_plan = validate_assembly_plan(plan, "brief.subject.assembly_plan")
+        if normalized_plan["mode"] != assembly:
+            _fail("brief.subject.assembly_plan.mode", "must match brief.subject.assembly")
     if subject.get("origin_mode") == "SPECULATIVE_OBJECT":
         if not isinstance(subject.get("function"), str) or not subject["function"].strip():
             _fail("brief.subject.function", "is required for SPECULATIVE_OBJECT")

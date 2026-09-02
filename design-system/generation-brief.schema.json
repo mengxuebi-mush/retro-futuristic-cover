@@ -34,7 +34,21 @@
     "designed_text_inventory": {"type": "array", "minItems": 3},
     "designed_text_count": {"type": "integer", "minimum": 3, "maximum": 7},
     "composition": {"type": "object"},
-    "subject": {"type": "object"},
+    "subject": {
+      "type": "object",
+      "required": ["assembly", "mass_rule"],
+      "properties": {
+        "assembly": {"enum": ["SINGLE_OBJECT", "COMPOUND_SET", "PRIMARY_SATELLITES", "REPEATED_FAMILY"]},
+        "mass_rule": {"type": "string", "minLength": 1},
+        "assembly_plan": {
+          "oneOf": [
+            {"$ref": "generation-content.schema.json#/$defs/compoundSetPlan"},
+            {"$ref": "generation-content.schema.json#/$defs/primarySatellitesPlan"},
+            {"$ref": "generation-content.schema.json#/$defs/repeatedFamilyPlan"}
+          ]
+        }
+      }
+    },
     "palette": {"type": "object"},
     "background": {"type": "object"},
     "negative_constraints": {"type": "array", "minItems": 1, "items": {"type": "string"}},
