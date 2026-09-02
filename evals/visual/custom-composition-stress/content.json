@@ -1,0 +1,49 @@
+{
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4",
+    "platform": "EDITORIAL_POSTER"
+  },
+  "text_contract": "EDITORIAL_POSTER_5_TO_7",
+  "final_title": "VIBE CODING WORKSHOP",
+  "category_label": "BUILD",
+  "micro_subtitle": "PROMPT. PROTOTYPE. SHIP.",
+  "poster_support_elements": [
+    {
+      "text": "SAT • OCT 24 • 10 AM–1 PM",
+      "role": "event date and time",
+      "anchor": "title axis",
+      "source": "user-provided event details",
+      "factual": true
+    },
+    {
+      "text": "SIGNAL GARAGE • BARRIO LOGAN",
+      "role": "event location",
+      "anchor": "object tangent",
+      "source": "user-provided event details",
+      "factual": true
+    },
+    {
+      "text": "HANDS-ON • LAPTOP REQUIRED",
+      "role": "participation requirement",
+      "anchor": "opposite perimeter",
+      "source": "user-provided event details",
+      "factual": true
+    },
+    {
+      "text": "FREE • RSVP REQUIRED",
+      "role": "access and registration",
+      "anchor": "opposite perimeter",
+      "source": "user-provided event details",
+      "factual": true
+    }
+  ],
+  "speculative_function": "Two builders prototype together around a suspended shared worktable.",
+  "purpose_bearing_parts": [
+    "suspended shared worktable inside the cabin",
+    "two warm docking bridges holding the cabin in the loop",
+    "continuous maintenance seam following the ribbon curvature",
+    "soft underside lift cavity"
+  ]
+}
