@@ -21,6 +21,7 @@ from validate_generation_brief import (
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN_SYSTEM = ROOT / "design-system"
+STYLE_REFERENCE = ROOT / "assets" / "visual-reference.png"
 
 
 def _load_catalog(filename: str, key: str) -> list[dict[str, Any]]:
@@ -54,10 +55,13 @@ def _carrier_contract(manifest: dict[str, Any]) -> dict[str, Any]:
 
 
 def _text_inventory(content: dict[str, Any], manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    support_role = content["supporting_copy_role"]
+    support_placement = "MICRO_ZONE" if support_role == "MICRO_SUBTITLE" else "DECK_ZONE"
+    support_role_name = "quiet micro-subtitle" if support_role == "MICRO_SUBTITLE" else "readable supporting deck"
     inventory = [
         {"id": "FINAL_TITLE", "text": content["final_title"], "role": "dominant title", "placement": "TITLE_ZONE"},
         {"id": "CATEGORY_LABEL", "text": content["category_label"], "role": "top category label", "placement": "CATEGORY_ZONE"},
-        {"id": "MICRO_SUBTITLE", "text": content["micro_subtitle"], "role": "quiet micro-subtitle", "placement": "MICRO_ZONE"},
+        {"id": support_role, "text": content["supporting_copy"], "role": support_role_name, "placement": support_placement},
     ]
     support_zones = manifest["layout_support_zones"]
     carrier_copy = content.get("screen_carrier_element")
@@ -78,6 +82,69 @@ def _text_inventory(content: dict[str, Any], manifest: dict[str, Any]) -> list[d
     elif carrier_copy is not None:
         raise ValidationError("content.screen_carrier_element: manifest does not resolve CARRIER")
     return inventory
+
+
+def _typography_contract(content: dict[str, Any], manifest: dict[str, Any]) -> dict[str, Any]:
+    catalog = json.loads((DESIGN_SYSTEM / "typography-contracts.json").read_text(encoding="utf-8"))
+    glyph_count = len("".join(content["final_title"].split()))
+    if glyph_count <= catalog["short_title_max_visible_glyphs"]:
+        mode = "SHORT_TITLE_EXPANDED"
+    elif glyph_count <= catalog["standard_title_max_visible_glyphs"]:
+        mode = "STANDARD_TITLE_BLOCK"
+    else:
+        mode = "LONG_TITLE_STACK"
+    title = dict(catalog["title_modes"][mode])
+    if mode == "SHORT_TITLE_EXPANDED" and manifest["layout_family_id"] == "TYPE_DOMINANT_FIELD":
+        title["width_percent"] = title.pop("type_dominant_width_percent")
+    else:
+        title.pop("type_dominant_width_percent", None)
+    title.update({
+        "visible_glyph_count": glyph_count,
+        "zone": manifest["title_zone"],
+        "type_mode": manifest["type_mode"],
+        "attention_percent": manifest["layout_attention_contract"]["title_percent"],
+        "contrast_target": catalog["global"]["title_contrast_target"],
+    })
+    supporting_copy = dict(catalog["support_modes"][content["supporting_copy_role"]])
+    supporting_copy.update({
+        "role": content["supporting_copy_role"],
+        "text": content["supporting_copy"],
+        "contrast_target": catalog["global"]["support_contrast_target"],
+    })
+    category = dict(catalog["category_label"])
+    category.update({
+        "text": content["category_label"],
+        "contrast_target": catalog["global"]["support_contrast_target"],
+    })
+    return {
+        "mode": mode,
+        "title": title,
+        "category_label": category,
+        "supporting_copy": supporting_copy,
+        "cluster": {
+            "alignment_system": manifest.get("alignment_system", ""),
+            "support_zones": manifest["layout_support_zones"],
+            "rule": catalog["global"]["cluster_rule"],
+        },
+        "thumbnail_rule": catalog["global"]["thumbnail_rule"],
+    }
+
+
+def _generation_call(content: dict[str, Any], manifest: dict[str, Any]) -> dict[str, Any]:
+    source_assets = content.get("source_asset_paths", [])
+    if manifest.get("source_asset_mode", "NONE") != "NONE" and not source_assets:
+        raise ValidationError("content.source_asset_paths: supplied-image mode requires at least one source asset path")
+    paths = list(dict.fromkeys([str(STYLE_REFERENCE), *source_assets]))
+    return {
+        "style_reference_path": str(STYLE_REFERENCE),
+        "source_asset_paths": source_assets,
+        "referenced_image_paths": paths,
+        "reference_instruction": (
+            "Attach every referenced_image_path to the image-generation call. Treat visual-reference.png as style-only: "
+            "use its hierarchy, spacing, atmosphere, grain, and geometric restraint, but never copy its literal text, numbers, or card grid. "
+            "Treat source_asset_paths as content assets whose locked identity anchors must be preserved."
+        ),
+    }
 
 
 def _composition(manifest: dict[str, Any]) -> dict[str, Any]:
@@ -262,15 +329,30 @@ def _generator_instruction(brief: dict[str, Any]) -> str:
     subject = brief["subject"]
     palette = brief["palette"]
     background = brief["background"]
+    typography = brief["typography_contract"]
+    title = typography["title"]
+    category = typography["category_label"]
+    supporting = typography["supporting_copy"]
+    cluster = typography["cluster"]
     lines = [
         background["requirement"],
         f'Carrier {brief["carrier_contract"]["id"]}; canvas {brief["canvas"]["width"]}x{brief["canvas"]["height"]} ({brief["canvas"]["ratio"]}); text contract {brief["text_contract"]}.',
         "Render exactly these designed text elements once each: " + "; ".join(text_lines) + ". No other designed copy.",
+        (
+            f'Typography: {typography["mode"]}; FINAL_TITLE has {title["visible_glyph_count"]} visible glyphs and must form the first visual mass in {title["zone"]}; '
+            f'target {title["width_percent"][0]}–{title["width_percent"][1]}% of canvas width and {title["height_percent"][0]}–{title["height_percent"][1]}% of canvas height across {title["line_count"][0]}–{title["line_count"][1]} line(s); '
+            f'weight {title["weight"]}; tracking {title["tracking"]}; {title["contrast_target"]}; {title["rule"]} '
+            f'CATEGORY_LABEL: full-size x-height at least {category["full_size_min_x_height_percent"]}% of canvas height and {category["title_cap_height_ratio"][0]}–{category["title_cap_height_ratio"][1]} of title cap height; {category["rule"]} '
+            f'Supporting copy {supporting["role"]}: {supporting["rule"]} Use {supporting["line_count"][0]}–{supporting["line_count"][1]} line(s), '
+            f'full-size x-height at least {supporting["full_size_min_x_height_percent"]}% of canvas height, and {supporting["title_cap_height_ratio"][0]}–{supporting["title_cap_height_ratio"][1]} of title cap height. '
+            f'{cluster["rule"]} {typography["thumbnail_rule"]}'
+        ),
         f'Composition: {composition["composition_sentence"]}; focal event {composition["focal_event"]["id"]}: {composition["focal_event"]["definition"]}; title zone {composition["title_zone"]}; object slot {composition["object_slot"]}; support zones {", ".join(composition["support_zones"])}; collision rule {composition["collision_rule"]}; crop rule {composition["crop_rule"]}; release zone {composition["release_zone"]}.',
         _assembly_instruction(subject, composition),
         f'Subject: {subject["origin_mode"]}, assembly {subject["assembly"]}, object family {subject["object_family_id"]}, treatment {subject["render_treatment"]}, scale {subject["scale_role"]}; function {subject["function"] or "not applicable"}; archive anchors {", ".join(subject["archive_identity_anchors"]) or "not applicable"}; intrinsic artifact text policy {subject["intrinsic_artifact_text_policy"]}; morphology {json.dumps(subject["morphology"], ensure_ascii=False)}.',
         f'Screen: {subject["screen_state"]}; {subject["screen_rendering_rule"] or subject["screen_text_rule"] or "no generated screen behavior"}',
         f'Palette: {palette["family"]} / {palette["color_complexity"]}; active hues {", ".join(palette["active_hues"]) or "locked manifest hues"}; area hierarchy {palette["area_hierarchy"]}; topology {palette["gradient_topology"]}; type mode {palette["type_mode"]}; focal mode {palette["focal_mode"]}; details {json.dumps(palette["detail_roles"], ensure_ascii=False)}.',
+        brief["generation_call"]["reference_instruction"],
     ]
     return "\n".join(lines)
 
@@ -297,6 +379,8 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
     carrier = _carrier_contract(manifest)
     inventory = _text_inventory(content, manifest)
     subject = _subject(content, manifest)
+    typography = _typography_contract(content, manifest)
+    generation_call = _generation_call(content, manifest)
     brief: dict[str, Any] = {
         "brief_version": 1,
         "canvas": content["canvas"],
@@ -304,6 +388,7 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
         "text_contract": content["text_contract"],
         "designed_text_inventory": inventory,
         "designed_text_count": len(inventory),
+        "typography_contract": typography,
         "composition": _composition(manifest),
         "subject": subject,
         "palette": _palette(manifest),
@@ -313,6 +398,7 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
             "requirement": BACKGROUND_REQUIREMENT,
             "coverage": "100% of the canvas behind every element and every cropped edge",
         },
+        "generation_call": generation_call,
         "negative_constraints": [],
         "opaque_full_bleed_background_requirement": BACKGROUND_REQUIREMENT,
     }

@@ -54,6 +54,8 @@ Scale does not follow provenance. An archive computer may be monumental or tiny;
 
 - Social, photo, packaging, and record carriers use `THREE_ELEMENT_COVER`.
 - Editorial posters use `EDITORIAL_POSTER_5_TO_7`: three core elements plus 2–4 factual support elements attached to real composition structure.
+- Every carrier uses `FINAL_TITLE`, `CATEGORY_LABEL`, and exactly one supporting-copy role: short `MICRO_SUBTITLE` or readable one- to two-line `SUPPORTING_DECK` for longer exact wording.
+- The compiler selects `SHORT_TITLE_EXPANDED`, `STANDARD_TITLE_BLOCK`, or `LONG_TITLE_STACK` and emits measurable footprint, weight, contrast, and cluster requirements before generation.
 - `INTRINSIC_ARTIFACT_TEXT` is source-borne identity evidence, not designed copy. Preserve it when safe, faithful, and subordinate; never invent replacements.
 
 ## Conditional screen states

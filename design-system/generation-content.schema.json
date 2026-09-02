@@ -29,6 +29,12 @@
     "category_label": {"type": "string", "minLength": 1},
     "micro_subtitle": {"type": "string", "minLength": 1},
     "deck": {"type": "string", "minLength": 1},
+    "source_asset_paths": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {"type": "string", "minLength": 1}
+    },
     "poster_support_elements": {
       "type": "array",
       "items": {
@@ -72,6 +78,10 @@
       ]
     }
   },
+  "oneOf": [
+    {"required": ["micro_subtitle"], "not": {"required": ["deck"]}},
+    {"required": ["deck"], "not": {"required": ["micro_subtitle"]}}
+  ],
   "$defs": {
     "assemblyMember": {
       "type": "object",

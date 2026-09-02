@@ -20,7 +20,8 @@ EXIT_INVALID_DOCUMENT = 2
 
 STATUS_VALUES = {"PASS", "FAIL", "NOT_APPLICABLE"}
 VERDICT_VALUES = {"PASS", "EDIT", "REGENERATE", "INVALID_INPUT"}
-CORE_ROLES = {"FINAL_TITLE", "CATEGORY_LABEL", "MICRO_SUBTITLE"}
+BASE_CORE_ROLES = {"FINAL_TITLE", "CATEGORY_LABEL"}
+SUPPORTING_COPY_ROLES = {"MICRO_SUBTITLE", "SUPPORTING_DECK"}
 
 
 def _is_dict(value: Any) -> bool:
@@ -179,12 +180,14 @@ def _copy_checks(document: dict[str, Any], errors: list[str], hard_failures: lis
             locked_roles.append(role)
     if len(locked_texts) != len(set(locked_texts)):
         errors.append("copy.locked: text strings must be unique")
+    role_set = set(locked_roles)
+    has_core_roles = BASE_CORE_ROLES.issubset(role_set) and len(role_set & SUPPORTING_COPY_ROLES) == 1
     if copy.get("contract") == "THREE_ELEMENT_COVER":
-        if not CORE_ROLES.issubset(set(locked_roles)) or len(locked) != 3:
+        if not has_core_roles or len(locked) != 3:
             errors.append("copy.locked: THREE_ELEMENT_COVER requires exactly the three core roles")
     elif copy.get("contract") == "EDITORIAL_POSTER_5_TO_7" and not 5 <= len(locked) <= 7:
         errors.append("copy.locked: EDITORIAL_POSTER_5_TO_7 requires 5–7 locked strings")
-    if copy.get("contract") == "EDITORIAL_POSTER_5_TO_7" and not CORE_ROLES.issubset(set(locked_roles)):
+    if copy.get("contract") == "EDITORIAL_POSTER_5_TO_7" and not has_core_roles:
         errors.append("copy.locked: EDITORIAL_POSTER_5_TO_7 also requires the three core roles")
     screen_locked = {text for text, location in locked_locations.items() if location == "screen"}
     if document.get("screen_state") == "CARRIER" and not screen_locked:
@@ -246,6 +249,8 @@ def _visual_checks(document: dict[str, Any], errors: list[str], hard_failures: l
         "hierarchy", "subject_origin_recognition", "subject_mass_unity", "release_zone_visibility",
         "support_copy_structural_attachment", "screen_state_compliance", "layout_failure_signals",
     )
+    if document.get("schema_version") == 2:
+        required += ("title_footprint", "title_weight_contrast", "support_legibility", "text_cluster_cohesion")
     _required(review, required, "visual_review", errors)
     for key in ("full_size", "thumbnail_25_percent", "subject_origin_recognition", "subject_mass_unity", "release_zone_visibility", "support_copy_structural_attachment"):
         item = review.get(key)
@@ -256,6 +261,16 @@ def _visual_checks(document: dict[str, Any], errors: list[str], hard_failures: l
             if key != "subject_mass_unity" or document.get("subject_assembly") != "SINGLE_OBJECT":
                 suffix = "failed" if item.get("status") == "FAIL" else "was not reviewed"
                 hard_failures.append(f"visual review: {key} {suffix}")
+
+    if document.get("schema_version") == 2:
+        for key in ("title_footprint", "title_weight_contrast", "support_legibility", "text_cluster_cohesion"):
+            item = review.get(key)
+            _evidence(item, f"visual_review.{key}", errors)
+            if _is_dict(item) and item.get("status") not in STATUS_VALUES:
+                errors.append(f"visual_review.{key}.status: invalid status")
+            elif _is_dict(item) and item.get("status") != "PASS":
+                suffix = "failed" if item.get("status") == "FAIL" else "was not reviewed"
+                hard_failures.append(f"typography: {key} {suffix}")
 
     background = review.get("background_coverage")
     if not _is_dict(background):
@@ -340,8 +355,8 @@ def validate_document(document: Any, source: Path) -> tuple[str, list[str]]:
         "document",
         errors,
     )
-    if document.get("schema_version") != 1:
-        errors.append("schema_version: expected integer 1")
+    if document.get("schema_version") not in {1, 2}:
+        errors.append("schema_version: expected integer 1 or 2")
     if document.get("version") not in {"V1", "V2", "V3"}:
         errors.append("version: expected V1, V2, or V3")
     proof = document.get("proof")
@@ -376,7 +391,7 @@ def validate_document(document: Any, source: Path) -> tuple[str, list[str]]:
         errors.append("repair_mode: invalid controlled value")
     if document.get("verdict") not in VERDICT_VALUES:
         errors.append("verdict: invalid controlled value")
-    if document.get("root_cause_class") not in {"NONE", "DELIVERY", "BACKGROUND_COVERAGE", "TEXT_INVENTORY", "TITLE_HIERARCHY", "SCREEN_DUPLICATION", "SUBJECT_MASS", "LAYOUT", "SUBJECT_ORIGIN", "SUPPORT_ATTACHMENT", "OTHER"}:
+    if document.get("root_cause_class") not in {"NONE", "DELIVERY", "BACKGROUND_COVERAGE", "TEXT_INVENTORY", "TITLE_HIERARCHY", "TYPOGRAPHY", "SCREEN_DUPLICATION", "SUBJECT_MASS", "LAYOUT", "SUBJECT_ORIGIN", "SUPPORT_ATTACHMENT", "OTHER"}:
         errors.append("root_cause_class: invalid controlled value")
 
     _machine_checks(document, source, errors, hard_failures)

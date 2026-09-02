@@ -23,9 +23,10 @@ Generated covers across portrait and landscape formats, Chinese and English typo
 - Adaptive tonal regimes and monochromatic, analogous, duotone, or tri-color harmony modes
 - Controlled coral roles so warm coral may lead, accent, or disappear across outputs
 - One dominant, highly readable headline
+- Compiled short-, standard-, and long-title typography contracts with measurable footprint and legibility targets
 - Source-title fidelity with locked subject, use-case, promise, meaningful-count, audience, and proper-noun anchors
 - Content-aware title modes for titled articles, utility/list content, and thesis-led essays
-- Minimal category label and micro-subtitle
+- Minimal category label plus either a short micro-subtitle or a readable one- to two-line supporting deck
 - Small randomized stars, triangles, rhombi, dots, rings, or corner brackets
 - Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
 - An editorial alignment system connecting labels, type, structural lines, and micro-accents
@@ -34,6 +35,7 @@ Generated covers across portrait and landscape formats, Chinese and English typo
 - A persistent coordinated design deck that rotates palettes, gradient flow, focal mode, hero or atmospheric form, type mode, labels, and accents while excluding recent selections
 - Readable article-cover typography: balanced three-line X headlines, regular-to-medium optical weight, relaxed display leading, and a roughly 28–34% tight visible-glyph height for longer landscape titles
 - A hard-compliance gate followed by a poster-integration critique of the actual rendered pixels
+- Mandatory style-reference propagation and schema-version-2 per-image visual verdicts for multi-variant requests
 - Targeted local editing for isolated flaws and fresh regeneration for structural failures
 - At most three private versions, with only the final passing cover shown
 - Deterministic verification of output format, dimensions, and aspect ratio
@@ -46,6 +48,7 @@ The `next` branch expands the Skill from a cover recipe into a catalog-first vis
 
 - 5 carrier contracts and carrier-specific text inventories
 - 8 Composition Contracts with explicit title zones, object slots, collision rules, crop behavior, release zones, and thumbnail tests
+- 3 compiled title modes, 2 supporting-copy modes, and one enforced typographic-cluster contract
 - 4 subject assemblies and 18 composition operators
 - 3 subject origins: abstract form, archive artifact, and speculative object
 - 13 object families, 4 optional retro-future morphology archetypes, and an open `CUSTOM_COMPOSED` path
@@ -97,6 +100,8 @@ Use `next` for V2 alpha work and keep `main` releasable. Run the complete depend
 ```bash
 python3 scripts/validate_catalog_v2.py
 python3 scripts/validate_evals_v2.py
+python3 evals/generation-brief/test_generation_brief.py
+python3 -m unittest evals.visual.test_validate_visual_verdicts
 python3 scripts/verify_examples.py
 ```
 

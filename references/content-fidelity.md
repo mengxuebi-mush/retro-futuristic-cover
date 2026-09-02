@@ -65,7 +65,7 @@ Reject a candidate unless all answers are `YES`:
 5. Is every claim supported by the source?
 6. Is it distinct enough that it could not label several unrelated articles equally well?
 
-If a candidate fails, rewrite the title before generating an image. Never rely on `CATEGORY_LABEL` or `MICRO_SUBTITLE` to restore essential meaning removed from `FINAL_TITLE`.
+If a candidate fails, rewrite the title before generating an image. Never rely on `CATEGORY_LABEL`, `MICRO_SUBTITLE`, or `SUPPORTING_DECK` to restore essential meaning removed from `FINAL_TITLE`.
 
 ## Example
 

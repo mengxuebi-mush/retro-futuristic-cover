@@ -20,7 +20,7 @@
     "aesthetic_preference"
   ],
   "properties": {
-    "schema_version": {"const": 1},
+    "schema_version": {"enum": [1, 2]},
     "version": {"type": "string", "pattern": "^V[1-3]$"},
     "proof": {"$ref": "#/$defs/proof"},
     "subject_assembly": {"$ref": "#/$defs/subjectAssembly"},
@@ -211,6 +211,10 @@
           },
           "additionalProperties": true
         },
+        "title_footprint": {"$ref": "#/$defs/evidence"},
+        "title_weight_contrast": {"$ref": "#/$defs/evidence"},
+        "support_legibility": {"$ref": "#/$defs/evidence"},
+        "text_cluster_cohesion": {"$ref": "#/$defs/evidence"},
         "subject_origin_recognition": {"$ref": "#/$defs/evidence"},
         "subject_mass_unity": {"$ref": "#/$defs/evidence"},
         "release_zone_visibility": {"$ref": "#/$defs/evidence"},
@@ -259,7 +263,7 @@
       "additionalProperties": true
     },
     "rootCause": {
-      "enum": ["NONE", "DELIVERY", "BACKGROUND_COVERAGE", "TEXT_INVENTORY", "TITLE_HIERARCHY", "SCREEN_DUPLICATION", "SUBJECT_MASS", "LAYOUT", "SUBJECT_ORIGIN", "SUPPORT_ATTACHMENT", "OTHER"]
+      "enum": ["NONE", "DELIVERY", "BACKGROUND_COVERAGE", "TEXT_INVENTORY", "TITLE_HIERARCHY", "TYPOGRAPHY", "SCREEN_DUPLICATION", "SUBJECT_MASS", "LAYOUT", "SUBJECT_ORIGIN", "SUPPORT_ATTACHMENT", "OTHER"]
     },
     "aestheticPreference": {
       "type": "object",
@@ -271,5 +275,17 @@
       "additionalProperties": true
     }
   },
+  "allOf": [
+    {
+      "if": {"properties": {"schema_version": {"const": 2}}},
+      "then": {
+        "properties": {
+          "visual_review": {
+            "required": ["title_footprint", "title_weight_contrast", "support_legibility", "text_cluster_cohesion"]
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": true
 }

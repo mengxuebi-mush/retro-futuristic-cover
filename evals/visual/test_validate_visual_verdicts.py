@@ -22,6 +22,18 @@ def load_fixture(name: str) -> dict:
     return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
 
 
+def typography_v2_document() -> dict:
+    document = copy.deepcopy(load_fixture("valid-pass.json"))
+    document["schema_version"] = 2
+    document["visual_review"].update({
+        "title_footprint": {"status": "PASS", "evidence": "The short title occupies the locked canvas envelope."},
+        "title_weight_contrast": {"status": "PASS", "evidence": "The title uses robust strokes and remains first against every crossing field."},
+        "support_legibility": {"status": "PASS", "evidence": "The complete supporting phrase is legible at full size."},
+        "text_cluster_cohesion": {"status": "PASS", "evidence": "Title, category, and support share one left alignment axis."},
+    })
+    return document
+
+
 class VisualVerdictHarnessTests(unittest.TestCase):
     def test_passing_fixture_is_accepted(self) -> None:
         result, messages = validate_document(load_fixture("valid-pass.json"), FIXTURES / "valid-pass.json")
@@ -74,6 +86,31 @@ class VisualVerdictHarnessTests(unittest.TestCase):
         result, messages = validate_document(document, FIXTURES / "preference-only.json")
         self.assertEqual(result, "PASS")
         self.assertEqual(messages, [])
+
+    def test_schema_v2_requires_and_accepts_typography_observations(self) -> None:
+        document = typography_v2_document()
+        result, messages = validate_document(document, FIXTURES / "typography-pass.json")
+        self.assertEqual(result, "PASS")
+        self.assertEqual(messages, [])
+
+        document["visual_review"].pop("title_footprint")
+        result, messages = validate_document(document, FIXTURES / "typography-missing.json")
+        self.assertEqual(result, "INVALID_DOCUMENT")
+        self.assertTrue(any("title_footprint" in message for message in messages))
+
+    def test_schema_v2_typography_failure_forces_regeneration(self) -> None:
+        document = typography_v2_document()
+        document["visual_review"]["support_legibility"] = {
+            "status": "FAIL",
+            "evidence": "The seven-word deck is too small to read at full size.",
+        }
+        document["hard_verdict"] = "FAIL"
+        document["repair_mode"] = "REGENERATE"
+        document["verdict"] = "REGENERATE"
+        document["root_cause_class"] = "TYPOGRAPHY"
+        result, messages = validate_document(document, FIXTURES / "typography-failure.json")
+        self.assertEqual(result, "ARTWORK_FAILURE")
+        self.assertIn("typography: support_legibility failed", messages)
 
     def test_unavailable_proof_can_be_recorded_as_invalid_input(self) -> None:
         document = copy.deepcopy(load_fixture("valid-pass.json"))

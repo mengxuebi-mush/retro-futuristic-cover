@@ -65,6 +65,84 @@ def test_three_element_abstract() -> None:
     assert brief["background"]["full_bleed_opaque"] is True
 
 
+def test_short_title_and_long_exact_subtitle_compile_as_typography_contract() -> None:
+    manifest = select_manifest(
+        "--carrier", "SOCIAL_COVER", "--layout-family", "TYPE_DOMINANT_FIELD",
+        "--subject-origin-mode", "ABSTRACT_FORM", "--subject-assembly", "SINGLE_OBJECT",
+        "--focal-event", "NEGATIVE_SPACE_CUT",
+    )
+    content = json.loads((FIXTURES / "abstract-cover.json").read_text(encoding="utf-8"))
+    content["final_title"] = "/goal"
+    content["deck"] = "Keep Iterating Until the Design Is Done"
+    content.pop("micro_subtitle")
+    brief = json.loads(compile_content(content, manifest).stdout)
+    typography = brief["typography_contract"]
+    assert typography["mode"] == "SHORT_TITLE_EXPANDED"
+    assert typography["title"]["visible_glyph_count"] == 5
+    assert typography["title"]["width_percent"] == [52, 78]
+    assert typography["supporting_copy"]["role"] == "SUPPORTING_DECK"
+    assert {item["id"] for item in brief["designed_text_inventory"]} == {
+        "FINAL_TITLE", "CATEGORY_LABEL", "SUPPORTING_DECK"
+    }
+    instruction = brief["generator_instruction"]
+    assert "SHORT_TITLE_EXPANDED" in instruction
+    assert "target 52–78% of canvas width" in instruction
+    assert "full-size x-height at least 2.0%" in instruction
+
+    speculative_manifest = select_manifest(
+        "--carrier", "SOCIAL_COVER", "--layout-family", "PERSPECTIVE_VECTOR",
+        "--subject-origin-mode", "SPECULATIVE_OBJECT", "--object-family", "FUTURE_MOBILITY_POD",
+        "--speculative-morphology", "STREAMLINE_POD", "--subject-assembly", "SINGLE_OBJECT",
+        "--render-treatment", "PALETTE_ASSIMILATED", "--scale-role", "MONUMENTAL_FRAGMENT",
+        "--screen-state", "NOT_APPLICABLE",
+    )
+    speculative = speculative_content()
+    speculative["final_title"] = "/goal"
+    speculative["deck"] = "Keep Iterating Until the Design Is Done"
+    speculative.pop("micro_subtitle")
+    speculative_brief = json.loads(compile_content(speculative, speculative_manifest).stdout)
+    assert speculative_brief["typography_contract"]["mode"] == "SHORT_TITLE_EXPANDED"
+    assert speculative_brief["typography_contract"]["supporting_copy"]["role"] == "SUPPORTING_DECK"
+
+
+def test_long_copy_is_rejected_when_mislabeled_as_micro_subtitle() -> None:
+    manifest = select_manifest(
+        "--carrier", "SOCIAL_COVER", "--layout-family", "TYPE_DOMINANT_FIELD",
+        "--subject-origin-mode", "ABSTRACT_FORM", "--subject-assembly", "SINGLE_OBJECT",
+    )
+    content = json.loads((FIXTURES / "abstract-cover.json").read_text(encoding="utf-8"))
+    content["micro_subtitle"] = "Keep Iterating Until the Design Is Done"
+    result = compile_content(content, manifest, expect=2)
+    assert "use deck" in result.stderr
+
+
+def test_generation_call_requires_style_and_supplied_image_references() -> None:
+    manifest = select_manifest(
+        "--carrier", "PHOTO_COVER", "--layout-family", "IMAGE_MASK_FIELD",
+        "--source-asset-mode", "FAITHFUL_IMAGE", "--subject-assembly", "SINGLE_OBJECT",
+        "--render-treatment", "ENVIRONMENT_GRADED", "--scale-role", "INTEGRATED_HERO",
+    )
+    content = json.loads((FIXTURES / "abstract-cover.json").read_text(encoding="utf-8"))
+    content["final_title"] = "/goal"
+    content["deck"] = "Keep Iterating Until the Design Is Done"
+    content.pop("micro_subtitle")
+    source_path = str(ROOT / "examples" / "route-a-photo-proof.png")
+    content["source_asset_paths"] = [source_path]
+    brief = json.loads(compile_content(content, manifest).stdout)
+    generation_call = brief["generation_call"]
+    assert generation_call["style_reference_path"].endswith("assets/visual-reference.png")
+    assert generation_call["referenced_image_paths"] == [
+        generation_call["style_reference_path"], source_path
+    ]
+    assert brief["typography_contract"]["mode"] == "SHORT_TITLE_EXPANDED"
+    assert brief["typography_contract"]["supporting_copy"]["role"] == "SUPPORTING_DECK"
+    assert "Attach every referenced_image_path" in brief["generator_instruction"]
+
+    content.pop("source_asset_paths")
+    result = compile_content(content, manifest, expect=2)
+    assert "supplied-image mode requires" in result.stderr
+
+
 def test_archive_signal() -> None:
     manifest = select_manifest(
         "--carrier", "EDITORIAL_POSTER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT",
@@ -280,6 +358,9 @@ def test_invalid_inputs_are_rejected() -> None:
 def main() -> int:
     for test in (
         test_three_element_abstract,
+        test_short_title_and_long_exact_subtitle_compile_as_typography_contract,
+        test_long_copy_is_rejected_when_mislabeled_as_micro_subtitle,
+        test_generation_call_requires_style_and_supplied_image_references,
         test_archive_signal,
         test_archive_carrier_has_no_external_duplicate,
         test_speculative_function_and_morphology,
@@ -290,7 +371,7 @@ def main() -> int:
         test_invalid_inputs_are_rejected,
     ):
         test()
-    print("PASS: 9 generation-brief fixture groups")
+    print("PASS: 12 generation-brief fixture groups")
     return 0
 
 

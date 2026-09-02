@@ -138,7 +138,7 @@ When `EDITORIAL_DEVICE` is not `NONE`, create exactly one pale inset grown from 
 - Use a tint derived from an active hue and make it approximately 8–18% lighter than the local field; never use pure white.
 - Use the selected edge-cropped rectangle, arched inset, curved cutout, or translucent side plane.
 - Use no drop shadow, glassmorphism, heavy border, dashboard styling, or floating-card depth.
-- Place only the selected `PANEL_TEXT_ROLE` inside it: `CATEGORY_LABEL` or `MICRO_SUBTITLE`. Do not add text.
+- Place only the selected `PANEL_TEXT_ROLE` inside it: `CATEGORY_LABEL` or the locked supporting-copy role (`MICRO_SUBTITLE` or `SUPPORTING_DECK`). Do not add text.
 - Align the device with the title, primary form, bridge, or canvas edge so it shapes negative space instead of becoming a pasted-on card.
 - Do not combine a pale device with an outlined category pill.
 

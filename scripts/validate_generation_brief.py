@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -28,6 +29,7 @@ MULTI_OBJECT_ASSEMBLIES = SUBJECT_ASSEMBLIES - {"SINGLE_OBJECT"}
 SUBJECT_ORIGINS = {"ABSTRACT_FORM", "ARCHIVE_ARTIFACT", "SPECULATIVE_OBJECT", "NOT_APPLICABLE_SUPPLIED_IMAGE"}
 TREATMENTS = {"FAITHFUL_RETAINED", "ENVIRONMENT_GRADED", "PALETTE_ASSIMILATED"}
 SCREEN_STATES = {"NOT_APPLICABLE", "DORMANT", "SIGNAL", "CARRIER"}
+SUPPORTING_COPY_ROLES = {"MICRO_SUBTITLE", "SUPPORTING_DECK"}
 
 
 class ValidationError(ValueError):
@@ -69,6 +71,37 @@ def _assert_unique(values: list[str], path: str) -> None:
         if key in seen:
             _fail(path, f"duplicate designed string at indexes {seen[key]} and {index}: {value!r}")
         seen[key] = index
+
+
+def _language_length(value: str) -> tuple[int, int]:
+    english_words = re.findall(r"[A-Za-z0-9]+(?:['’\-][A-Za-z0-9]+)*", value)
+    han_characters = re.findall(r"[\u3400-\u4dbf\u4e00-\u9fff]", value)
+    return len(english_words), len(han_characters)
+
+
+def _validate_supporting_copy(value: str, role: str, path: str) -> None:
+    english_words, han_characters = _language_length(value)
+    if english_words and not han_characters:
+        lower, upper = (2, 5) if role == "MICRO_SUBTITLE" else (2, 14)
+        if not lower <= english_words <= upper:
+            destination = "deck" if role == "MICRO_SUBTITLE" and english_words > upper else role.lower()
+            _fail(path, f"{role} requires {lower}–{upper} English words; use {destination} for this exact copy")
+    elif han_characters and not english_words:
+        lower, upper = (4, 8) if role == "MICRO_SUBTITLE" else (4, 24)
+        if not lower <= han_characters <= upper:
+            destination = "deck" if role == "MICRO_SUBTITLE" and han_characters > upper else role.lower()
+            _fail(path, f"{role} requires {lower}–{upper} Han characters; use {destination} for this exact copy")
+
+
+def _numeric_range(value: Any, path: str, *, minimum: float, maximum: float) -> list[float]:
+    values = _list(value, path)
+    if len(values) != 2:
+        _fail(path, "must contain exactly two ordered numbers")
+    if any(isinstance(item, bool) or not isinstance(item, (int, float)) for item in values):
+        _fail(path, "must contain numbers")
+    if not minimum <= values[0] <= values[1] <= maximum:
+        _fail(path, f"must be ordered within {minimum}–{maximum}")
+    return values
 
 
 def _validate_canvas(canvas: Any, path: str = "canvas") -> dict[str, Any]:
@@ -181,10 +214,13 @@ def validate_content(content: Any) -> dict[str, Any]:
         _fail("content.category_label", f"must be one of {sorted(CATEGORY_LABELS)}")
     if "micro_subtitle" in content and "deck" in content:
         _fail("content", "provide only one of micro_subtitle or deck")
+    supporting_copy_role = "MICRO_SUBTITLE" if "micro_subtitle" in content else "SUPPORTING_DECK"
     subtitle = content.get("micro_subtitle", content.get("deck"))
     if subtitle is None:
         _fail("content", "requires micro_subtitle or deck")
-    subtitle = _string(subtitle, "content.micro_subtitle")
+    supporting_path = "content.micro_subtitle" if supporting_copy_role == "MICRO_SUBTITLE" else "content.deck"
+    subtitle = _string(subtitle, supporting_path)
+    _validate_supporting_copy(subtitle, supporting_copy_role, supporting_path)
 
     support_values = _list(content.get("poster_support_elements", []), "content.poster_support_elements")
     support = [_support_element(value, f"content.poster_support_elements[{index}]") for index, value in enumerate(support_values)]
@@ -210,7 +246,8 @@ def validate_content(content: Any) -> dict[str, Any]:
         "text_contract": contract,
         "final_title": title,
         "category_label": category,
-        "micro_subtitle": subtitle,
+        "supporting_copy": subtitle,
+        "supporting_copy_role": supporting_copy_role,
         "poster_support_elements": support,
     }
     for key in ("speculative_function", "intrinsic_artifact_text_policy"):
@@ -224,6 +261,16 @@ def validate_content(content: Any) -> dict[str, Any]:
             result[key] = [_string(value, f"content.{key}[{index}]") for index, value in enumerate(values)]
     if "assembly_plan" in content:
         result["assembly_plan"] = validate_assembly_plan(content["assembly_plan"])
+    if "source_asset_paths" in content:
+        values = _list(content["source_asset_paths"], "content.source_asset_paths")
+        if not 1 <= len(values) <= 5:
+            _fail("content.source_asset_paths", "must contain 1–5 paths")
+        result["source_asset_paths"] = [
+            _string(value, f"content.source_asset_paths[{index}]") for index, value in enumerate(values)
+        ]
+        for index, value in enumerate(result["source_asset_paths"]):
+            if not Path(value).is_absolute():
+                _fail(f"content.source_asset_paths[{index}]", "must be an absolute local path")
     if carrier_copy is not None:
         result["screen_carrier_element"] = carrier_copy
     return result
@@ -344,6 +391,57 @@ def validate_brief(brief: Any) -> dict[str, Any]:
     if contract == "EDITORIAL_POSTER_5_TO_7" and not 5 <= count <= 7:
         _fail("brief.designed_text_inventory", "EDITORIAL_POSTER_5_TO_7 must contain 5–7 designed strings")
     _assert_unique([item["text"] for item in inventory], "brief.designed_text_inventory")
+    inventory_ids = {item["id"] for item in inventory}
+    if not {"FINAL_TITLE", "CATEGORY_LABEL"}.issubset(inventory_ids):
+        _fail("brief.designed_text_inventory", "requires FINAL_TITLE and CATEGORY_LABEL")
+    support_roles = inventory_ids & SUPPORTING_COPY_ROLES
+    if len(support_roles) != 1:
+        _fail("brief.designed_text_inventory", "requires exactly one of MICRO_SUBTITLE or SUPPORTING_DECK")
+
+    typography = brief["typography_contract"]
+    if not isinstance(typography, dict):
+        _fail("brief.typography_contract", "must be an object")
+    for key in ("mode", "title", "category_label", "supporting_copy", "cluster", "thumbnail_rule"):
+        _require(typography, key, "brief.typography_contract")
+    if typography["mode"] not in {"SHORT_TITLE_EXPANDED", "STANDARD_TITLE_BLOCK", "LONG_TITLE_STACK"}:
+        _fail("brief.typography_contract.mode", "is not a known title mode")
+    for key in ("title", "category_label", "supporting_copy", "cluster"):
+        if not isinstance(typography[key], dict):
+            _fail(f"brief.typography_contract.{key}", "must be an object")
+    title_contract = typography["title"]
+    for key in ("visible_glyph_count", "zone", "type_mode", "attention_percent", "line_count", "width_percent", "height_percent", "weight", "tracking", "contrast_target", "rule"):
+        _require(title_contract, key, "brief.typography_contract.title")
+    title_item = next(item for item in inventory if item["id"] == "FINAL_TITLE")
+    visible_glyph_count = len("".join(title_item["text"].split()))
+    if title_contract["visible_glyph_count"] != visible_glyph_count:
+        _fail("brief.typography_contract.title.visible_glyph_count", "must match FINAL_TITLE")
+    expected_mode = "SHORT_TITLE_EXPANDED" if visible_glyph_count <= 8 else ("STANDARD_TITLE_BLOCK" if visible_glyph_count <= 24 else "LONG_TITLE_STACK")
+    if typography["mode"] != expected_mode:
+        _fail("brief.typography_contract.mode", f"must be {expected_mode} for this title length")
+    _numeric_range(title_contract["attention_percent"], "brief.typography_contract.title.attention_percent", minimum=0, maximum=100)
+    _numeric_range(title_contract["line_count"], "brief.typography_contract.title.line_count", minimum=1, maximum=5)
+    _numeric_range(title_contract["width_percent"], "brief.typography_contract.title.width_percent", minimum=1, maximum=100)
+    _numeric_range(title_contract["height_percent"], "brief.typography_contract.title.height_percent", minimum=1, maximum=100)
+    for key in ("zone", "type_mode", "weight", "tracking", "contrast_target", "rule"):
+        _string(title_contract[key], f"brief.typography_contract.title.{key}")
+    if typography["supporting_copy"].get("role") not in support_roles:
+        _fail("brief.typography_contract.supporting_copy.role", "must match the designed supporting-copy role")
+    for key in ("line_count", "full_size_min_x_height_percent", "title_cap_height_ratio", "rule", "contrast_target"):
+        _require(typography["supporting_copy"], key, "brief.typography_contract.supporting_copy")
+    _numeric_range(typography["supporting_copy"]["line_count"], "brief.typography_contract.supporting_copy.line_count", minimum=1, maximum=2)
+    _numeric_range(typography["supporting_copy"]["title_cap_height_ratio"], "brief.typography_contract.supporting_copy.title_cap_height_ratio", minimum=0, maximum=1)
+    min_x_height = typography["supporting_copy"]["full_size_min_x_height_percent"]
+    if isinstance(min_x_height, bool) or not isinstance(min_x_height, (int, float)) or min_x_height < 1:
+        _fail("brief.typography_contract.supporting_copy.full_size_min_x_height_percent", "must be at least 1%")
+    for key in ("line_count", "full_size_min_x_height_percent", "title_cap_height_ratio", "rule", "contrast_target"):
+        _require(typography["category_label"], key, "brief.typography_contract.category_label")
+    _numeric_range(typography["category_label"]["line_count"], "brief.typography_contract.category_label.line_count", minimum=1, maximum=1)
+    _numeric_range(typography["category_label"]["title_cap_height_ratio"], "brief.typography_contract.category_label.title_cap_height_ratio", minimum=0, maximum=1)
+    category_x_height = typography["category_label"]["full_size_min_x_height_percent"]
+    if isinstance(category_x_height, bool) or not isinstance(category_x_height, (int, float)) or category_x_height < 1:
+        _fail("brief.typography_contract.category_label.full_size_min_x_height_percent", "must be at least 1%")
+    _string(typography["cluster"].get("rule"), "brief.typography_contract.cluster.rule")
+    _string(typography["thumbnail_rule"], "brief.typography_contract.thumbnail_rule")
 
     background = brief["background"]
     if not isinstance(background, dict):
@@ -415,6 +513,30 @@ def validate_brief(brief: Any) -> dict[str, Any]:
             _string(cue, f"brief.subject.morphology.construction_cues[{index}]")
     if subject.get("origin_mode") == "ARCHIVE_ARTIFACT" and subject.get("render_treatment") == "PALETTE_ASSIMILATED":
         _fail("brief.subject.render_treatment", "archive artifacts cannot use PALETTE_ASSIMILATED")
+
+    generation_call = brief["generation_call"]
+    if not isinstance(generation_call, dict):
+        _fail("brief.generation_call", "must be an object")
+    style_reference = _string(generation_call.get("style_reference_path"), "brief.generation_call.style_reference_path")
+    source_assets = _list(generation_call.get("source_asset_paths"), "brief.generation_call.source_asset_paths")
+    referenced = _list(generation_call.get("referenced_image_paths"), "brief.generation_call.referenced_image_paths")
+    for key, values in (("source_asset_paths", source_assets), ("referenced_image_paths", referenced)):
+        for index, value in enumerate(values):
+            _string(value, f"brief.generation_call.{key}[{index}]")
+    if not referenced:
+        _fail("brief.generation_call.referenced_image_paths", "must include the style reference")
+    if style_reference not in referenced:
+        _fail("brief.generation_call.referenced_image_paths", "must include the style reference")
+    if referenced[0] != style_reference:
+        _fail("brief.generation_call.referenced_image_paths", "must place the style reference first")
+    if any(path not in referenced for path in source_assets):
+        _fail("brief.generation_call.referenced_image_paths", "must include every source asset")
+    expected_references = list(dict.fromkeys([style_reference, *source_assets]))
+    if referenced != expected_references:
+        _fail("brief.generation_call.referenced_image_paths", "must exactly equal style reference plus locked source assets")
+    if subject.get("origin_mode") == "NOT_APPLICABLE_SUPPLIED_IMAGE" and not source_assets:
+        _fail("brief.generation_call.source_asset_paths", "supplied-image mode requires at least one source asset")
+    _string(generation_call.get("reference_instruction"), "brief.generation_call.reference_instruction")
     for key in ("composition_sentence", "title_zone", "object_slot", "support_zones", "collision_rule", "crop_rule", "release_zone"):
         if key == "support_zones":
             if not brief["composition"].get(key):

@@ -52,6 +52,8 @@ The carrier changes what counts as a finished composition:
 
 Carrier signals are structural cues, not extra decoration. Never add a phone frame, mockup, fake label panel, artist credit, nutrition facts, QR code, barcode, or platform UI merely to signal a carrier.
 
+Words such as “cover” do not override visible information needs. Event details, a request for more small copy, or a richer metadata system are `EDITORIAL_POSTER` density signals unless a platform constraint explicitly requires a compact three-element carrier.
+
 ### Composition Contracts
 
 Select one content-driven Composition Contract before resolving the subject or background atmosphere. Walk the `selection_flow` in `layouts.json` from top to bottom and use the first compatible match unless the user has explicitly requested a composition. `AUTO` is only a fallback when no content signal distinguishes a contract.
@@ -153,13 +155,14 @@ Treat these as perceptual anchors. Reduce chroma near very high or low lightness
 
 ## Typography
 
-- On `SOCIAL_COVER`, `PHOTO_COVER`, `PACKAGING_FACE`, and `RECORD_SLEEVE`, render exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and `MICRO_SUBTITLE`, once each. On `EDITORIAL_POSTER`, render the three locked core elements plus 2–4 exact factual support strings, for 5–7 designed elements total.
+- On `SOCIAL_COVER`, `PHOTO_COVER`, `PACKAGING_FACE`, and `RECORD_SLEEVE`, render exactly `FINAL_TITLE`, `CATEGORY_LABEL`, and one supporting-copy role—`MICRO_SUBTITLE` or `SUPPORTING_DECK`—once each. On `EDITORIAL_POSTER`, render the three locked core elements plus 2–4 exact factual support strings, for 5–7 designed elements total.
+- Read the compiled `typography_contract` rather than inferring scale from the words “dominant” or “quiet.” It owns the title mode, physical footprint envelope, line range, minimum visual weight, support-copy role, legibility floor, and cluster relationship.
 - Use the selector's type mode. For Chinese, use only `CJK_NEO_GROTESK`, `CJK_SOFT_HUMANIST`, or `CJK_STRUCTURAL_SANS`; never use Song/Ming or another serif-style Chinese title. For English, map these modes to clean/neutral grotesk, restrained humanist sans, or architectural display sans.
 - Use one family and no more than two weights. For Chinese, keep title weight around 500–600 with open counters, sturdy strokes, natural tracking, and semantic line breaks. For English, default to a regular-to-medium optical weight around 450–500; move toward semibold only when local contrast, resolution, or the chosen face requires it.
-- Derive text color from an active hue, normally one or two tonal steps deeper than the local field. Avoid an unrelated navy or near-black that breaks harmony. Target at least 3:1 contrast for the large title and 4.5:1 for the small label and micro-subtitle where feasible; when readability is marginal, combine same-hue deepening with a modest weight increase.
+- Derive text color from an active hue, normally one or two tonal steps deeper than the local field. Avoid an unrelated navy or near-black that breaks harmony. Target at least 3:1 contrast for the large title and 4.5:1 for the category and supporting copy where feasible; when readability is marginal, combine same-hue deepening with a modest weight increase.
 - Use approximately `1.05–1.15` display leading for English and `1.08–1.18` for Chinese.
-- Set the category label in tiny uppercase sans, approximately 8–12% of title cap height.
-- Set the micro-subtitle in tiny sans, approximately 8–14% of title cap height and no more than two short lines.
+- Set the category label according to its compiled ratio and full-size legibility floor. “Tiny” means subordinate, never unreadable.
+- Keep `MICRO_SUBTITLE` to one short line. Set `SUPPORTING_DECK` as a readable one- or two-line deck according to the compiled ratio and legibility floor; never shrink exact long wording into micro-text.
 - Use crisp text edges. Reject Chinese Song/Ming, thin fashion Didone, default heavy system Heiti, extra-black, condensed poster type, cute rounded type, faux-tech stencil, sliced glyphs, novelty fonts, outlines, stretched glyphs, or multiple unrelated text boxes.
 - Treat authentic labels, key legends, screen UI, dial marks, clothing text, and other source-borne markings as `INTRINSIC_ARTIFACT_TEXT`, not designed poster copy. Preserve them when identity-bearing and safe; keep them subordinate and never invent replacements. Generated `SCREEN_CARRIER` text is explicitly excluded and remains budgeted designed copy.
 
@@ -175,6 +178,7 @@ Keep emission local to the glass and preserve the selected palette hierarchy. At
 
 ## Title footprint
 
+- Select the compiled mode from `design-system/typography-contracts.json`. A title with no more than eight visible non-space glyphs uses `SHORT_TITLE_EXPANDED`: enlarge, strengthen, stack, or create a controlled edge interaction so the title becomes a deliberate graphic mass rather than a floating label.
 - Use 1–4 title lines on portrait and square covers, 1–3 on landscape posts, and 1–2 on a shallow banner.
 - On landscape, let a 5–10-word title use a balanced three-line stack whose tight visible-glyph block occupies roughly 28–34% of canvas height; treat 28% as a floor when ample clear space exists. On portrait or square, target roughly 38–52%.
 - Keep the title within roughly 55–62% of portrait width unless the form is absent from that zone.
@@ -193,7 +197,7 @@ Build in this order:
 4. Resolve the subject assembly into the locked object slot. Follow the selected provenance, treatment, scale role, mass rule, and crop rule.
 5. Resolve one supported `SCREEN_STATE` without adding a second focal event; if `CARRIER`, relocate one locked support element.
 6. Optional pale editorial device, only when it supports the release zone and the carrier.
-7. Locked designed copy on the support-alignment operator: three elements for compact carriers or 5–7 for an editorial poster, including any screen-carried element.
+7. Locked designed copy on the support-alignment operator: three elements for compact carriers or 5–7 for an editorial poster, including any screen-carried element. The three core roles form one typographic cluster; do not scatter category, title, and supporting copy into unrelated corners.
 8. One anchor/echo accent language and zero or one bridge.
 9. Fine grain applied behind crisp text.
 
@@ -273,7 +277,7 @@ Place anchor and echoes along the same edge, axis, tangent, curvature, or baseli
 - Deliver exact 3:4 at 1080 x 1440 px, but do not reuse the ordinary image-note title footprint.
 - Use a deep-safe horizontal margin of approximately 10–12% and keep the title block to roughly 72–76% of canvas width. Judge the gap from the visible outermost letterform, not only from the text-box boundary.
 - Prefer a slightly smaller title with more deliberate line breaks over a wide title that merely fits the raw canvas. Preserve the selected type mode, weight, and leading; create safety through scale, line breaks, and placement rather than condensed type.
-- Treat the long-form UI as a potentially inset or lightly recropped container. Keep `FINAL_TITLE`, `CATEGORY_LABEL`, `MICRO_SUBTITLE`, the anchor, and the title-facing part of the bridge inside the deep-safe region. Decorative forms may bleed beyond it.
+- Treat the long-form UI as a potentially inset or lightly recropped container. Keep `FINAL_TITLE`, `CATEGORY_LABEL`, the selected supporting-copy role, the anchor, and the title-facing part of the bridge inside the deep-safe region. Decorative forms may bleed beyond it.
 - Preferred workflow: design a 9:16 master at 1080 x 1920 px, lock all critical elements inside its centered 3:4 window from y=240 to y=1680, inspect that crop, and export the centered crop as the final 1080 x 1440 cover.
 - If composing directly at 3:4, simulate the same result by previewing a version with an additional 4% inset on every side. Reject any title that becomes cramped, visually touches the container, or loses balance under that preview.
 
