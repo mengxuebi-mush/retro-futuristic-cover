@@ -12,16 +12,22 @@ The selector now resolves the visual grammar before the atmospheric recipe. Read
 
 Object footprint and perceptual attention are independent. A monumental fragment may occupy more literal canvas area than the title, but the title must remain the first reading event. For multiple objects, pass `--subject-assembly COMPOUND_SET`, `PRIMARY_SATELLITES`, or `REPEATED_FAMILY` only when the content requires that relationship; otherwise keep the default `SINGLE_OBJECT`. Do not invent extra objects merely for visual variety.
 
-Use exactly one visual subject origin: `ABSTRACT_FORM`, `ARCHIVE_ARTIFACT`, or `SPECULATIVE_OBJECT`. Abstract forms lock shape and spatial behavior but never fake product controls. Archive artifacts preserve real historical proportions, materials, and 2–4 identity anchors, using only `FAITHFUL_RETAINED` or `ENVIRONMENT_GRADED`. Speculative objects state one hypothetical function, resolve one compatible morphology from `speculative-morphologies.json`, preserve 2–4 purpose-bearing parts, and use `PALETTE_ASSIMILATED` or `ENVIRONMENT_GRADED`. A supplied image is a source override, not a fourth visual style.
+Use exactly one visual subject origin: `ABSTRACT_FORM`, `ARCHIVE_ARTIFACT`, or `SPECULATIVE_OBJECT`. Abstract forms lock shape and spatial behavior but never fake product controls. Archive artifacts preserve real historical proportions, materials, and 2–4 identity anchors, using only `FAITHFUL_RETAINED` or `ENVIRONMENT_GRADED`. Speculative objects state one hypothetical function, resolve one complete preset or custom morphology from the open contract in `speculative-morphologies.json`, preserve 2–4 purpose-bearing parts, and use `PALETTE_ASSIMILATED` or `ENVIRONMENT_GRADED`. A supplied image is a source override, not a fourth visual style.
 
 ### Speculative morphology
 
-Use `--speculative-morphology AUTO` unless the content or user explicitly implies one of these shape ancestors:
+Use `--speculative-morphology AUTO` when one of these optional archetypes fits:
 
 - `BUBBLE_CAPSULE`: sphere or ovoid with a generous convex canopy or rounded portal.
 - `STREAMLINE_POD`: swelling nose and tapered teardrop/torpedo tail, with running gear or propulsion absorbed into the body.
 - `BIOMORPHIC_APPARATUS`: inflated or joined-lobe device with one enlarged aperture, core, grip, or contained function.
 - `SOFT_VERTICAL_INFRASTRUCTURE`: elongated rounded fins, arches, and pod thresholds rather than glass-box architecture.
+
+These four entries are not the allowed universe. If the function or source implies another form, create one JSON object conforming to `custom-morphology.schema.json` and run:
+
+`--speculative-morphology CUSTOM_COMPOSED --custom-morphology-file <path>`
+
+Define `shape_ancestry`, one memorable `silhouette`, one `exaggeration`, an integrated `aperture_rule` or function-bearing negative space, 1–4 `construction_cues`, and `material_direction`. Custom forms may use loops, suspended cavities, nested shells, membranes, branching chambers, or other coherent rounded structures. Do not describe them as a current product category plus futuristic styling.
 
 The selector returns exact silhouette, exaggeration, aperture, construction, material, and hard-failure fields. Include them in generation. Start with the chosen volume and integrate function into it; do not start with a present-day object and soften the corners. Restrained warm chrome trim and retro lacquer gloss are allowed. Full mirror-chrome bodies, contemporary concept-car light, black glass bands, full-width LED strips, and cold gray-white minimalism remain failures.
 

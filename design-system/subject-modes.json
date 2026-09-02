@@ -35,12 +35,13 @@
       "id": "SPECULATIVE_OBJECT",
       "name": "Speculative object",
       "definition": "An invented, apparently functional object imagined through optimistic streamline-era futurism: a rounded, exaggerated volume with coherent construction logic and a small set of purpose-bearing parts.",
-      "recognition_test": "The object performs one plausible action and has a memorable sphere, ovoid, teardrop, inflated spindle, biomorphic shell, or soft-monolith silhouette. It cannot be explained as a current product with its corners rounded.",
+      "recognition_test": "The object performs one plausible action and has a memorable, rounded, exaggerated silhouette whose construction grows from that function. Its shape may be invented or composed beyond the catalog archetypes, but it cannot be explained as a current product with its corners rounded.",
       "identity_contract": [
         "name one hypothetical function before defining the form",
-        "resolve one SPECULATIVE_MORPHOLOGY before detailing: BUBBLE_CAPSULE, STREAMLINE_POD, BIOMORPHIC_APPARATUS, or SOFT_VERTICAL_INFRASTRUCTURE",
-        "build from one dominant sphere, ovoid, teardrop, inflated spindle, or soft monolith; exaggerate one proportion before adding details",
-        "lock 2–4 purpose-bearing parts such as bubble canopy, rounded aperture, docking seam, integrated support, shrouded wheel, keel, grip, mount, sensor, or status window",
+        "resolve one complete SPECULATIVE_MORPHOLOGY before detailing: use an optional catalog archetype or a content-derived CUSTOM_COMPOSED specification",
+        "define one memorable continuous silhouette or coherent family of joined volumes; catalog shapes such as bubbles, pods, biomorphic shells, and soft monoliths are examples rather than limits",
+        "exaggerate one proportion or spatial relationship before adding details",
+        "lock 2–4 purpose-bearing parts such as bubble canopy, rounded aperture, lens, cavity, threshold, docking seam, integrated support, shrouded wheel, keel, grip, mount, sensor, or status window",
         "make every secondary part follow the dominant curvature; use no scattered controls or decorative technology noise",
         "prefer colored enamel, molded fiberglass, creamy lacquer, translucent resin, bubble glass, warm metal trim, and optional upholstery over cold gray-white minimalism",
         "do not use fake brands, invented readable labels, present-day product baselines, faceted EV styling, black glass bands, full-width LED strips, or generic AI product-render details"

@@ -48,7 +48,7 @@ The `next` branch expands the Skill from a cover recipe into a catalog-first vis
 - 8 Composition Contracts with explicit title zones, object slots, collision rules, crop behavior, release zones, and thumbnail tests
 - 4 subject assemblies and 18 composition operators
 - 3 subject origins: abstract form, archive artifact, and speculative object
-- 13 object families and 4 retro-future speculative morphologies
+- 13 object families, 4 optional retro-future morphology archetypes, and an open `CUSTOM_COMPOSED` path
 - conditional archive-computer screen states
 - machine-readable compatibility rules, manifest schema, selector evals, and proof-image validation
 
@@ -111,6 +111,8 @@ Use Retro Futuristic Cover to turn this article into an X post cover.
 ```
 
 The Skill generates one final cover by default. It privately critiques and improves the result, and does not expose intermediate images, prompts, or internal verdicts unless requested.
+
+For speculative future objects, the four bundled morphologies are optional starting points. When the content implies a new form, the Skill can write a temporary JSON specification matching `design-system/custom-morphology.schema.json` and select it with `--speculative-morphology CUSTOM_COMPOSED --custom-morphology-file <path>`.
 
 ## License
 

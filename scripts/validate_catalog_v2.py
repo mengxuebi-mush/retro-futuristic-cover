@@ -26,6 +26,8 @@ def main() -> int:
     layouts = load("layouts.json")
     grammar = load("composition-grammar.json")
     objects = load("objects.json")
+    morphologies = load("speculative-morphologies.json")
+    custom_morphology_schema = load("custom-morphology.schema.json")
     subjects = load("subject-modes.json")
     screen_states = load("screen-states.json")
     focal_events = load("focal-events.json")
@@ -35,6 +37,7 @@ def main() -> int:
     carrier_ids = ids(carriers["carriers"])
     layout_ids = ids(layouts["layouts"])
     object_ids = ids(objects["object_families"])
+    morphology_ids = ids(morphologies["morphologies"])
     subject_ids = ids(subjects["subject_origin_modes"])
     treatment_ids = ids(subjects["render_treatments"])
     scale_role_ids = ids(subjects["scale_roles"])
@@ -62,6 +65,20 @@ def main() -> int:
         "IMAGE_MASK_FIELD",
         "INFORMATION_AXIS",
     }
+    assert morphologies["system_mode"] == "OPEN_COMPOSABLE"
+    assert morphologies["custom_contract"]["id"] == "CUSTOM_COMPOSED"
+    required_custom_fields = set(morphologies["custom_contract"]["required_fields"])
+    assert required_custom_fields == set(custom_morphology_schema["required"])
+    assert required_custom_fields == {
+        "name", "idea", "shape_ancestry", "silhouette", "exaggeration",
+        "aperture_rule", "construction_cues", "material_direction",
+    }
+    for morphology in morphologies["morphologies"]:
+        assert morphology["role"] == "OPTIONAL_ARCHETYPE", morphology["id"]
+        assert set(morphology["compatible_object_families"]).issubset(object_ids), morphology["id"]
+        for field in ("idea", "silhouette", "exaggeration", "aperture_rule", "material_direction"):
+            assert morphology[field], (morphology["id"], field)
+        assert 1 <= len(morphology["construction_cues"]) <= 4, morphology["id"]
 
     for carrier in carriers["carriers"]:
         assert carrier["text_contract"] in {"THREE_ELEMENT_COVER", "EDITORIAL_POSTER_5_TO_7"}, carrier["id"]
@@ -127,6 +144,7 @@ def main() -> int:
         assert 2 <= len(object_family["identity_anchors"]) <= 4, object_family["id"]
         if object_family["subject_origin_mode"] == "SPECULATIVE_OBJECT":
             assert object_family["function_requirement"], object_family["id"]
+            assert set(object_family["compatible_morphologies"]).issubset(morphology_ids), object_family["id"]
         supported_screen_states = set(object_family.get("supported_screen_states", []))
         assert supported_screen_states.issubset(screen_state_ids - {"NOT_APPLICABLE"}), object_family["id"]
         if supported_screen_states:
@@ -174,6 +192,7 @@ def main() -> int:
         f"PASS: {len(carrier_ids)} carriers, {len(layout_ids)} layouts, "
         f"{len(assembly_ids)} subject assemblies, {len(operator_ids)} composition operators, "
         f"{len(subject_ids)} subject modes, {len(object_ids)} object families, "
+        f"{len(morphology_ids)} optional morphology archetypes + CUSTOM_COMPOSED, "
         f"{len(screen_state_ids)} screen states, {len(focal_ids)} focal events"
     )
     return 0

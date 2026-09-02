@@ -23,6 +23,17 @@
       "expected": {"subject_origin_mode": "SPECULATIVE_OBJECT", "render_treatment": "PALETTE_ASSIMILATED", "object_family_id": "OPTICAL_NAVIGATION_OBJECT", "object_family_not": "NONE"}
     },
     {
+      "id": "social-custom-composed-future-object",
+      "args": ["--carrier", "SOCIAL_COVER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT", "--subject-origin-mode", "SPECULATIVE_OBJECT", "--object-family", "FUTURE_HABITAT_CAPSULE", "--speculative-morphology", "CUSTOM_COMPOSED", "--custom-morphology-file", "evals/fixtures/custom-composed-morphology.json", "--render-treatment", "PALETTE_ASSIMILATED"],
+      "expected": {"subject_origin_mode": "SPECULATIVE_OBJECT", "object_family_id": "FUTURE_HABITAT_CAPSULE", "speculative_morphology": "CUSTOM_COMPOSED", "speculative_morphology_source": "CUSTOM"},
+      "expected_contains": {"speculative_morphology_shape_ancestry": "toroidal ribbon", "speculative_morphology_silhouette": "hanging cabin"}
+    },
+    {
+      "id": "custom-composed-requires-file",
+      "args": ["--carrier", "SOCIAL_COVER", "--subject-origin-mode", "SPECULATIVE_OBJECT", "--object-family", "FUTURE_HABITAT_CAPSULE", "--speculative-morphology", "CUSTOM_COMPOSED"],
+      "expect_failure": true
+    },
+    {
       "id": "photo-faithful-source-override",
       "args": ["--carrier", "PHOTO_COVER", "--layout-family", "IMAGE_MASK_FIELD", "--source-asset-mode", "FAITHFUL_IMAGE"],
       "expected": {"carrier_id": "PHOTO_COVER", "subject_origin_mode": "NOT_APPLICABLE_SUPPLIED_IMAGE", "source_asset_mode": "FAITHFUL_IMAGE", "image_role": "HERO_PHOTOGRAPH", "primary_form_role": "IMAGE_FIELD", "hero_object_id": "SUPPLIED_IMAGE_FIELD", "object_family_id": "NONE"}

@@ -74,6 +74,54 @@ SPECULATIVE_MORPHOLOGY_BY_ID = {
     morphology["id"]: morphology
     for morphology in SPECULATIVE_MORPHOLOGY_CATALOG["morphologies"]
 }
+CUSTOM_MORPHOLOGY_ID = "CUSTOM_COMPOSED"
+CUSTOM_MORPHOLOGY_REQUIRED_FIELDS = (
+    "name",
+    "idea",
+    "shape_ancestry",
+    "silhouette",
+    "exaggeration",
+    "aperture_rule",
+    "construction_cues",
+    "material_direction",
+)
+
+
+def load_custom_morphology(path: Path) -> dict[str, Any]:
+    """Load one content-derived morphology without turning presets into a whitelist."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ValueError(f"Could not read --custom-morphology-file {path}: {error}") from error
+    if not isinstance(payload, dict):
+        raise ValueError("--custom-morphology-file must contain one JSON object.")
+    for field in CUSTOM_MORPHOLOGY_REQUIRED_FIELDS:
+        if field not in payload:
+            raise ValueError(f"--custom-morphology-file is missing required field {field!r}.")
+    for field in CUSTOM_MORPHOLOGY_REQUIRED_FIELDS:
+        if field == "construction_cues":
+            continue
+        if not isinstance(payload[field], str) or not payload[field].strip():
+            raise ValueError(f"--custom-morphology-file field {field!r} must be a non-empty string.")
+    cues = payload["construction_cues"]
+    if not isinstance(cues, list) or not 1 <= len(cues) <= 4:
+        raise ValueError("--custom-morphology-file construction_cues must contain 1–4 strings.")
+    if any(not isinstance(cue, str) or not cue.strip() for cue in cues):
+        raise ValueError("--custom-morphology-file construction_cues must contain only non-empty strings.")
+    return {
+        "id": CUSTOM_MORPHOLOGY_ID,
+        "source": "CUSTOM",
+        **{field: payload[field] for field in CUSTOM_MORPHOLOGY_REQUIRED_FIELDS},
+    }
+
+
+def preset_morphology(record: dict[str, Any]) -> dict[str, Any]:
+    """Normalize a catalog archetype to the same open morphology contract."""
+    return {
+        **record,
+        "source": "ARCHETYPE_PRESET",
+        "shape_ancestry": record.get("shape_ancestry", record["silhouette"]),
+    }
 
 
 PALETTES: list[dict[str, Any]] = [
@@ -573,31 +621,44 @@ def choose_speculative_morphology(
     history: list[dict[str, str]],
     excluded: set[str],
     requested: str,
+    custom_morphology: dict[str, Any] | None,
 ) -> dict[str, Any] | None:
     if subject_origin_mode != "SPECULATIVE_OBJECT":
-        if requested != "AUTO":
-            raise ValueError("--speculative-morphology applies only to SPECULATIVE_OBJECT.")
+        if requested != "AUTO" or custom_morphology is not None:
+            raise ValueError("Speculative morphology options apply only to SPECULATIVE_OBJECT.")
         return None
     if object_family is None:
         raise ValueError("SPECULATIVE_OBJECT requires an object family before morphology can resolve.")
+    if requested == CUSTOM_MORPHOLOGY_ID:
+        if custom_morphology is None:
+            raise ValueError("CUSTOM_COMPOSED requires --custom-morphology-file.")
+        if CUSTOM_MORPHOLOGY_ID in excluded:
+            raise ValueError("CUSTOM_COMPOSED was excluded.")
+        return custom_morphology
+    if custom_morphology is not None:
+        raise ValueError("--custom-morphology-file requires --speculative-morphology CUSTOM_COMPOSED.")
     allowed_ids = [
         morphology_id for morphology_id in object_family.get("compatible_morphologies", [])
         if morphology_id not in excluded
     ]
     if requested != "AUTO":
+        if requested not in SPECULATIVE_MORPHOLOGY_BY_ID:
+            raise ValueError(
+                f"Unknown speculative morphology {requested}. Use an archetype ID, AUTO, or CUSTOM_COMPOSED."
+            )
         if requested not in allowed_ids:
             raise ValueError(
                 f"Speculative morphology {requested} is incompatible with object family {object_family['id']} or was excluded."
             )
-        return SPECULATIVE_MORPHOLOGY_BY_ID[requested]
+        return preset_morphology(SPECULATIVE_MORPHOLOGY_BY_ID[requested])
     recent = {record.get("speculative_morphology", "") for record in history[-2:]}
     candidates = [
-        SPECULATIVE_MORPHOLOGY_BY_ID[morphology_id]
+        preset_morphology(SPECULATIVE_MORPHOLOGY_BY_ID[morphology_id])
         for morphology_id in allowed_ids
         if morphology_id not in recent
     ]
     candidates = candidates or [
-        SPECULATIVE_MORPHOLOGY_BY_ID[morphology_id]
+        preset_morphology(SPECULATIVE_MORPHOLOGY_BY_ID[morphology_id])
         for morphology_id in allowed_ids
     ]
     if not candidates:
@@ -872,7 +933,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--speculative-morphology",
         default="AUTO",
-        help="Retro-future morphology ID for SPECULATIVE_OBJECT, or AUTO",
+        help="Optional archetype ID, CUSTOM_COMPOSED, or AUTO for SPECULATIVE_OBJECT",
+    )
+    parser.add_argument(
+        "--custom-morphology-file",
+        type=Path,
+        help="JSON morphology specification required with --speculative-morphology CUSTOM_COMPOSED",
     )
     parser.add_argument(
         "--screen-state",
@@ -950,6 +1016,10 @@ def main() -> int:
     concrete_object_requested = subject_origin_mode in {"ARCHIVE_ARTIFACT", "SPECULATIVE_OBJECT"}
     supplied_image_requested = source_asset_mode != "NONE"
     try:
+        custom_morphology = (
+            load_custom_morphology(args.custom_morphology_file)
+            if args.custom_morphology_file else None
+        )
         subject_assembly = choose_subject_assembly(
             layout,
             excluded,
@@ -972,6 +1042,7 @@ def main() -> int:
             history,
             excluded,
             args.speculative_morphology,
+            custom_morphology,
         )
         composition = choose_composition(rng, layout, object_family, history, excluded)
         focal_event = choose_focal_event(rng, layout, history, excluded, args.focal_event)
@@ -1193,6 +1264,9 @@ def main() -> int:
             "visual_behavior": object_family["visual_behavior"],
             "function_requirement": object_family.get("function_requirement", "preserve the object's real historical function and provenance"),
             "speculative_morphology": speculative_morphology["id"] if speculative_morphology else "NOT_APPLICABLE",
+            "morphology_source": speculative_morphology["source"] if speculative_morphology else "NOT_APPLICABLE",
+            "morphology_name": speculative_morphology["name"] if speculative_morphology else "NOT_APPLICABLE",
+            "morphology_shape_ancestry": speculative_morphology["shape_ancestry"] if speculative_morphology else "NOT_APPLICABLE",
             "morphology_idea": speculative_morphology["idea"] if speculative_morphology else "NOT_APPLICABLE",
             "morphology_silhouette": speculative_morphology["silhouette"] if speculative_morphology else "NOT_APPLICABLE",
             "morphology_exaggeration": speculative_morphology["exaggeration"] if speculative_morphology else "NOT_APPLICABLE",
@@ -1297,6 +1371,9 @@ def main() -> int:
         "object_family_id": object_family["id"] if object_family else "NONE",
         "object_family": object_family["name"] if object_family else "NONE",
         "speculative_morphology": morphology_id,
+        "speculative_morphology_source": speculative_morphology["source"] if speculative_morphology else "NOT_APPLICABLE",
+        "speculative_morphology_name": speculative_morphology["name"] if speculative_morphology else "NOT_APPLICABLE",
+        "speculative_morphology_shape_ancestry": speculative_morphology["shape_ancestry"] if speculative_morphology else "NOT_APPLICABLE",
         "speculative_morphology_definition": speculative_morphology["idea"] if speculative_morphology else "NOT_APPLICABLE",
         "speculative_morphology_silhouette": speculative_morphology["silhouette"] if speculative_morphology else "NOT_APPLICABLE",
         "speculative_morphology_exaggeration": speculative_morphology["exaggeration"] if speculative_morphology else "NOT_APPLICABLE",

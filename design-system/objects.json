@@ -1,6 +1,6 @@
 {
   "schema_version": 5,
-  "selection_rule": "Choose SUBJECT_ORIGIN_MODE first. ARCHIVE_ARTIFACT families preserve real historical provenance. SPECULATIVE_OBJECT families require one hypothetical function, one compatible morphology from speculative-morphologies.json, and 2–4 purpose-bearing parts. ABSTRACT_FORM uses the separate abstract-form deck and never selects an object family.",
+  "selection_rule": "Choose SUBJECT_ORIGIN_MODE first. ARCHIVE_ARTIFACT families preserve real historical provenance. SPECULATIVE_OBJECT families require one hypothetical function, one complete morphology specification, and 2–4 purpose-bearing parts. Each compatible_morphologies list recommends catalog archetypes; CUSTOM_COMPOSED remains available to every speculative family when a content-derived form fits better. ABSTRACT_FORM uses the separate abstract-form deck and never selects an object family.",
   "object_families": [
     {
       "id": "RETRO_SIGNAL_INSTRUMENT",

@@ -99,6 +99,24 @@ def test_speculative_function_and_morphology() -> None:
     assert len(brief["subject"]["purpose_bearing_parts"]) == 3
 
 
+def test_custom_composed_morphology() -> None:
+    manifest = select_manifest(
+        "--carrier", "SOCIAL_COVER", "--layout-family", "ASYMMETRIC_COUNTERWEIGHT",
+        "--subject-origin-mode", "SPECULATIVE_OBJECT", "--object-family", "FUTURE_HABITAT_CAPSULE",
+        "--speculative-morphology", "CUSTOM_COMPOSED",
+        "--custom-morphology-file", str(ROOT / "evals" / "fixtures" / "custom-composed-morphology.json"),
+        "--subject-assembly", "SINGLE_OBJECT", "--render-treatment", "PALETTE_ASSIMILATED",
+        "--scale-role", "INTEGRATED_HERO", "--screen-state", "NOT_APPLICABLE",
+    )
+    brief = compile_fixture("speculative-object.json", manifest)
+    morphology = brief["subject"]["morphology"]
+    assert morphology["id"] == "CUSTOM_COMPOSED"
+    assert morphology["source"] == "CUSTOM"
+    assert "toroidal ribbon" in morphology["shape_ancestry"]
+    assert len(morphology["construction_cues"]) == 3
+    assert "Orbit ribbon commons" in brief["generator_instruction"]
+
+
 def test_invalid_inputs_are_rejected() -> None:
     carrier_manifest = select_manifest(
         "--carrier", "EDITORIAL_POSTER", "--layout-family", "INFORMATION_AXIS",
@@ -141,10 +159,11 @@ def main() -> int:
         test_archive_signal,
         test_archive_carrier_has_no_external_duplicate,
         test_speculative_function_and_morphology,
+        test_custom_composed_morphology,
         test_invalid_inputs_are_rejected,
     ):
         test()
-    print("PASS: 5 generation-brief fixture groups")
+    print("PASS: 6 generation-brief fixture groups")
     return 0
 
 

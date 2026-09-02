@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retro-futuristic-cover/v3/custom-morphology",
+  "title": "Content-derived speculative morphology",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "idea",
+    "shape_ancestry",
+    "silhouette",
+    "exaggeration",
+    "aperture_rule",
+    "construction_cues",
+    "material_direction"
+  ],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "idea": {"type": "string", "minLength": 1},
+    "shape_ancestry": {"type": "string", "minLength": 1},
+    "silhouette": {"type": "string", "minLength": 1},
+    "exaggeration": {"type": "string", "minLength": 1},
+    "aperture_rule": {"type": "string", "minLength": 1},
+    "construction_cues": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "material_direction": {"type": "string", "minLength": 1}
+  }
+}

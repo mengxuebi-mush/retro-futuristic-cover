@@ -329,6 +329,15 @@ def validate_brief(brief: Any) -> dict[str, Any]:
         morphology = subject.get("morphology")
         if not isinstance(morphology, dict) or morphology.get("id") in (None, "", "NOT_APPLICABLE"):
             _fail("brief.subject.morphology", "is required for SPECULATIVE_OBJECT")
+        for field in ("name", "source", "shape_ancestry", "definition", "silhouette", "exaggeration", "aperture_rule", "material_direction"):
+            _string(morphology.get(field), f"brief.subject.morphology.{field}")
+        if morphology["source"] not in {"ARCHETYPE_PRESET", "CUSTOM"}:
+            _fail("brief.subject.morphology.source", "must be ARCHETYPE_PRESET or CUSTOM")
+        cues = _list(morphology.get("construction_cues"), "brief.subject.morphology.construction_cues")
+        if not 1 <= len(cues) <= 4:
+            _fail("brief.subject.morphology.construction_cues", "must contain 1–4 strings")
+        for index, cue in enumerate(cues):
+            _string(cue, f"brief.subject.morphology.construction_cues[{index}]")
     if subject.get("origin_mode") == "ARCHIVE_ARTIFACT" and subject.get("render_treatment") == "PALETTE_ASSIMILATED":
         _fail("brief.subject.render_treatment", "archive artifacts cannot use PALETTE_ASSIMILATED")
     for key in ("composition_sentence", "title_zone", "object_slot", "support_zones", "collision_rule", "crop_rule", "release_zone"):

@@ -141,6 +141,15 @@ def _subject(content: dict[str, Any], manifest: dict[str, Any]) -> dict[str, Any
         ),
         "morphology": {
             "id": manifest.get("speculative_morphology", "NOT_APPLICABLE"),
+            "name": manifest.get("speculative_morphology_name", manifest.get("speculative_morphology", "NOT_APPLICABLE")),
+            "source": manifest.get(
+                "speculative_morphology_source",
+                "ARCHETYPE_PRESET" if manifest.get("speculative_morphology") not in (None, "NOT_APPLICABLE") else "NOT_APPLICABLE",
+            ),
+            "shape_ancestry": manifest.get(
+                "speculative_morphology_shape_ancestry",
+                manifest.get("speculative_morphology_silhouette", "NOT_APPLICABLE"),
+            ),
             "definition": manifest.get("speculative_morphology_definition", "NOT_APPLICABLE"),
             "silhouette": manifest.get("speculative_morphology_silhouette", "NOT_APPLICABLE"),
             "exaggeration": manifest.get("speculative_morphology_exaggeration", "NOT_APPLICABLE"),

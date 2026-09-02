@@ -1,12 +1,19 @@
 {
-  "schema_version": 1,
-  "selection_rule": "Resolve one morphology only for SPECULATIVE_OBJECT, after the hypothetical function and object family are known. Begin from a retro-future geometric archetype, then integrate the function into that volume. Never begin from a present-day product and merely round its corners.",
+  "schema_version": 2,
+  "system_mode": "OPEN_COMPOSABLE",
+  "selection_rule": "Resolve one complete morphology specification only for SPECULATIVE_OBJECT, after the hypothetical function and object family are known. Use a catalog archetype when it fits, or define CUSTOM_COMPOSED from the content and function. The catalog entries are optional starting points, not a whitelist. Never begin from a present-day product and merely round its corners.",
+  "custom_contract": {
+    "id": "CUSTOM_COMPOSED",
+    "description": "A content-derived morphology invented or composed for the specific hypothetical function. It may use an unfamiliar ancestry or combine several continuous volumes; it is not required to resemble any catalog archetype.",
+    "required_fields": ["name", "idea", "shape_ancestry", "silhouette", "exaggeration", "aperture_rule", "construction_cues", "material_direction"],
+    "rule": "Describe one memorable outer silhouette before small parts, exaggerate one proportion or spatial relationship, integrate openings and 2–4 purpose-bearing parts into the form, and preserve the global retro-future character. Do not use CUSTOM_COMPOSED as permission for vague blobs or contemporary concept products."
+  },
   "global_contract": {
     "form_ancestry": "Streamline Moderne, postwar coachbuilding, mid-century space-age illustration, bubble canopies, molded fiberglass, and optimistic world-fair futurism—not contemporary EV, smartphone, appliance, or cold minimal-product language.",
     "construction_order": [
-      "choose one dominant geometric body: sphere, ovoid, teardrop, inflated spindle, or softly rising monolith",
+      "invent or compose one dominant continuous volume before detailing; sphere, ovoid, teardrop, inflated spindle, toroidal ribbon, joined lobe, shell, arch, and soft monolith are examples rather than limits",
       "exaggerate one proportion so the silhouette is memorable before small details appear",
-      "integrate one transparent canopy, aperture, or observation opening into the dominant volume",
+      "integrate one rounded opening, canopy, lens, cavity, threshold, or other function-bearing negative space into the dominant volume when the function calls for it",
       "add only 1–3 function-bearing seams, supports, fins, docking bands, wheel shrouds, or sensor openings that follow the same curvature"
     ],
     "required_character": [
@@ -21,13 +28,14 @@
       "a current car, appliance, laptop, speaker, robot, or phone with rounded corners",
       "faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance",
       "black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism",
-      "generic matte ceramic blob with no silhouette exaggeration, canopy, aperture, or functional construction logic",
+      "generic matte ceramic blob with no silhouette exaggeration, functional opening, or construction logic",
       "photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light"
     ]
   },
   "morphologies": [
     {
       "id": "BUBBLE_CAPSULE",
+      "role": "OPTIONAL_ARCHETYPE",
       "name": "Bubble capsule",
       "idea": "An inhabited or instrumented sphere/ovoid whose transparent dome is a major part of the silhouette.",
       "silhouette": "one near-spherical or egg-shaped body with a large convex glass canopy or rounded portal occupying roughly one-third to two-thirds of the visible front or upper volume",
@@ -39,6 +47,7 @@
     },
     {
       "id": "STREAMLINE_POD",
+      "role": "OPTIONAL_ARCHETYPE",
       "name": "Streamline pod",
       "idea": "A motion object designed from a water droplet, seed, or airfoil rather than from an existing vehicle category.",
       "silhouette": "one swelling rounded nose flowing into an elongated teardrop, torpedo, or tadpole tail with uninterrupted aerodynamic curvature",
@@ -50,6 +59,7 @@
     },
     {
       "id": "BIOMORPHIC_APPARATUS",
+      "role": "OPTIONAL_ARCHETYPE",
       "name": "Biomorphic apparatus",
       "idea": "A functional device that feels grown, inflated, or softly molded while retaining one readable purpose.",
       "silhouette": "one asymmetrical inflated body, joined lobes, or soft shell whose convex surfaces flow continuously around a contained core",
@@ -61,6 +71,7 @@
     },
     {
       "id": "SOFT_VERTICAL_INFRASTRUCTURE",
+      "role": "OPTIONAL_ARCHETYPE",
       "name": "Soft vertical infrastructure",
       "idea": "Architecture or transit equipment expressed as elongated rounded fins, arches, and pod-like thresholds rather than glass-box modernism.",
       "silhouette": "one or more tall softly tapered monoliths, rounded fins, inflated arches, or pod thresholds sharing the same continuous radius language",
