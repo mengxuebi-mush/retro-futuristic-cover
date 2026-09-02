@@ -1,0 +1,69 @@
+{
+  "experiment": "compound-set-ab",
+  "objective": "Distinguish generator variance from missing COMPOUND_SET instruction propagation.",
+  "branch": "exp/compound-set-ab",
+  "base_commit": "7c6f7ec979f3142c21f8e2fcb983bd8f84bb5012",
+  "source_brief": "evals/visual/subject-assembly-stress/briefs/compound-set.brief.json",
+  "controlled_axes": [
+    "carrier",
+    "canvas",
+    "designed copy",
+    "layout",
+    "focal event",
+    "subject origin",
+    "object family",
+    "speculative function",
+    "custom morphology",
+    "render treatment",
+    "scale role",
+    "screen state",
+    "palette",
+    "active hues",
+    "gradient topology",
+    "type mode",
+    "style reference"
+  ],
+  "independent_variable": "Variant B appends an explicit three-member plan, shared-mass relation, observability test, and anti-collapse instruction; Variant A uses the current compiler output unchanged.",
+  "variants": [
+    {
+      "id": "A_CURRENT_COMPILER",
+      "image": "examples/v3-tests/compound-set-ab/a-current-compiler.png",
+      "prompt_record": "prompts/variant-a.md",
+      "traceable_object_count": 1,
+      "compound_set_observable": false,
+      "subject_mass_unified": true,
+      "title_first_at_25_percent": true,
+      "copy_inventory": "PASS — seven locked strings, once each",
+      "delivery": "PASS — opaque 1080x1440 PNG",
+      "color_contract": "FAIL — independent apricot/coral field appears despite warm-ivory + pale-pistachio lock"
+    },
+    {
+      "id": "B_EXPLICIT_MEMBER_PLAN",
+      "image": "examples/v3-tests/compound-set-ab/b-explicit-mass-rule.png",
+      "prompt_record": "prompts/variant-b-delta.md",
+      "traceable_object_count": 3,
+      "compound_set_observable": true,
+      "subject_mass_unified": true,
+      "title_first_at_25_percent": true,
+      "copy_inventory": "PASS — seven locked strings, once each",
+      "delivery": "PASS — opaque 1080x1440 PNG",
+      "color_contract": "FAIL — independent apricot/orange field appears despite warm-ivory + pale-pistachio lock"
+    }
+  ],
+  "code_evidence": {
+    "manifest_contains_subject_assembly_count": true,
+    "manifest_contains_subject_mass_rule": true,
+    "compiled_brief_contains_subject_mass_rule": true,
+    "generator_instruction_serializes_subject_assembly_count": false,
+    "generator_instruction_serializes_subject_mass_rule": false,
+    "generation_content_schema_supports_assembly_members": false
+  },
+  "diagnosis": "The failure is primarily an instruction-model gap. The compiler preserves the abstract mass rule in structured JSON but drops it from generator_instruction, while the content model has no member plan that resolves a COMPOUND_SET into two or three complete objects. The singular morphology language then wins and produces one loop with one cabin. Explicit member resolution changes the assembly outcome without changing the visual system.",
+  "not_supported_by_this_test": [
+    "Restricting future-object morphology to fixed archetypes",
+    "Changing the ASYMMETRIC_COUNTERWEIGHT composition contract",
+    "Hard-coding toroidal, crescent, or oval members into the global grammar",
+    "Treating the shared apricot color leak as an assembly failure"
+  ],
+  "recommended_next_change": "Add a generic assembly member plan to the generation-content/brief path for multi-object modes, and serialize subject_assembly_count plus subject_mass_rule into generator_instruction. Validate that COMPOUND_SET names 2–3 complete member roles and rejects over-fusion, without hard-coding the test objects."
+}
