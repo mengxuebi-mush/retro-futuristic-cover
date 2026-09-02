@@ -1,0 +1,11 @@
+{
+  "case_id": "prompt-exchange",
+  "hypothetical_function": "Two makers exchange prompts across a shared threshold and suspended conversation room.",
+  "object_family": "FUTURE_HABITAT_CAPSULE",
+  "morphology": "CUSTOM_COMPOSED / Hinged arch dialogue",
+  "exaggerated_proportion": "One asymmetrical arch shoulder is unusually long and thin while the inhabited oval chamber remains deep and low.",
+  "aperture": "The broad inner horseshoe opening is the entry and conversation threshold; the chamber has one convex observation window.",
+  "purpose_bearing_parts": ["warm-metal hinge collar", "upholstered shared bench", "rounded docking foot", "suspended oval room"],
+  "materials": "apricot lacquered fiberglass, lavender resin, smoke-tinted convex glass, warm brass, cream upholstery",
+  "modern_cues_rejected": ["current vehicle cabin", "flat screen slab", "aggressive supercar geometry", "LED strip", "automotive advertising"]
+}

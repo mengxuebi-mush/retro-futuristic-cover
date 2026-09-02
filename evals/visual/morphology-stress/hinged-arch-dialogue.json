@@ -1,0 +1,14 @@
+{
+  "name": "Hinged arch dialogue",
+  "idea": "A quiet pair-building habitat that faces two makers across a shared threshold, derived from an asymmetrical vaulted arch and counterweighted hinge rather than a capsule or vehicle.",
+  "shape_ancestry": "one inflated asymmetrical horseshoe grows from a postwar exhibition arch, with a low counterweight lobe and a suspended oval room nested inside the span",
+  "silhouette": "a wide uneven arch leans over one open threshold, with one short rounded foot and one long lifted shoulder creating a clear sideways balance at thumbnail size",
+  "exaggeration": "make the lifted shoulder unusually long and thin while keeping the inhabited oval chamber unusually deep and low",
+  "aperture_rule": "the broad inner horseshoe opening is the entry and conversation threshold; add one small convex observation window inside the chamber, never a flat screen slab",
+  "construction_cues": [
+    "one warm-metal hinge collar marks the shoulder's pivot",
+    "one upholstered shared bench bridges the low inner chamber",
+    "one rounded docking foot anchors the arch to the ground plane"
+  ],
+  "material_direction": "apricot lacquered fiberglass arch, pale lavender resin chamber, smoke-tinted convex glass, warm brass hinge collar, cream upholstery, and soft editorial daylight"
+}

@@ -1,0 +1,11 @@
+{
+  "case_id": "model-review",
+  "hypothetical_function": "A small group reviews rapid models in a sequence of shared viewing bays around one table.",
+  "object_family": "FUTURE_HABITAT_CAPSULE",
+  "morphology": "CUSTOM_COMPOSED / Accordion threshold review",
+  "exaggerated_proportion": "The final crescent bay is much larger than the two rear vaults, making its open threshold the focal spatial event.",
+  "aperture": "One deep crescent threshold and two smaller rounded sight openings run along the folded spine.",
+  "purpose_bearing_parts": ["continuous warm-metal spine", "circular review table", "three upholstered ledges", "enlarged crescent bay"],
+  "materials": "soft sage enamel ribbon, warm ivory molded shell, blush resin apertures, amber trim, cream upholstery",
+  "modern_cues_rejected": ["rectangular windows", "laptop/device silhouette", "cold minimal architecture", "black glass band", "generic ceramic blob"]
+}
