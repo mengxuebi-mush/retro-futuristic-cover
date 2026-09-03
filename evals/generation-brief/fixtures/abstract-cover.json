@@ -3,5 +3,15 @@
   "text_contract": "THREE_ELEMENT_COVER",
   "final_title": "Make Space for Better Ideas",
   "category_label": "IDEA",
-  "micro_subtitle": "QUIET OVER LOUD"
+  "micro_subtitle": "QUIET OVER LOUD",
+  "concept_contract": {
+    "message_anchor": "better ideas need protected cognitive space",
+    "subject_behavior": "a compressed field opens into one calm, expanding interval",
+    "visible_evidence": [
+      "one clearly widening negative-space opening",
+      "small visual noise displaced toward the perimeter"
+    ],
+    "semantic_direction": "compression releases into openness",
+    "must_not_imply": ["crowding", "generic decorative motion"]
+  }
 }

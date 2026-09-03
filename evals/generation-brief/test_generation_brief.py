@@ -65,6 +65,43 @@ def test_three_element_abstract() -> None:
     assert brief["background"]["full_bleed_opaque"] is True
 
 
+def test_concept_contract_reaches_prompt_and_negative_constraints() -> None:
+    manifest = select_manifest(
+        "--carrier", "SOCIAL_COVER", "--layout-family", "TYPE_DOMINANT_FIELD",
+        "--subject-origin-mode", "ABSTRACT_FORM", "--subject-assembly", "SINGLE_OBJECT",
+        "--focal-event", "NEGATIVE_SPACE_CUT",
+    )
+    content = json.loads((FIXTURES / "abstract-cover.json").read_text(encoding="utf-8"))
+    brief = json.loads(compile_content(content, manifest).stdout)
+    concept = content["concept_contract"]
+    assert brief["concept_contract"] == concept
+    assert concept["message_anchor"] in brief["generator_instruction"]
+    assert concept["subject_behavior"] in brief["generator_instruction"]
+    assert all(item in brief["generator_instruction"] for item in concept["visible_evidence"])
+    assert all(
+        f"Do not visually imply {item}." in brief["negative_constraints"]
+        for item in concept["must_not_imply"]
+    )
+
+
+def test_concept_contract_rejects_missing_or_ambiguous_evidence() -> None:
+    manifest = select_manifest(
+        "--carrier", "SOCIAL_COVER", "--layout-family", "TYPE_DOMINANT_FIELD",
+        "--subject-origin-mode", "ABSTRACT_FORM", "--subject-assembly", "SINGLE_OBJECT",
+    )
+    content = json.loads((FIXTURES / "abstract-cover.json").read_text(encoding="utf-8"))
+    content.pop("concept_contract")
+    result = compile_content(content, manifest, expect=2)
+    assert "concept_contract" in result.stderr
+
+    content = json.loads((FIXTURES / "abstract-cover.json").read_text(encoding="utf-8"))
+    content["concept_contract"]["must_not_imply"] = [
+        content["concept_contract"]["visible_evidence"][0]
+    ]
+    result = compile_content(content, manifest, expect=2)
+    assert "cannot also be listed" in result.stderr
+
+
 def test_short_title_and_long_exact_subtitle_compile_as_typography_contract() -> None:
     manifest = select_manifest(
         "--carrier", "SOCIAL_COVER", "--layout-family", "TYPE_DOMINANT_FIELD",
@@ -358,6 +395,8 @@ def test_invalid_inputs_are_rejected() -> None:
 def main() -> int:
     for test in (
         test_three_element_abstract,
+        test_concept_contract_reaches_prompt_and_negative_constraints,
+        test_concept_contract_rejects_missing_or_ambiguous_evidence,
         test_short_title_and_long_exact_subtitle_compile_as_typography_contract,
         test_long_copy_is_rejected_when_mislabeled_as_micro_subtitle,
         test_generation_call_requires_style_and_supplied_image_references,
@@ -371,7 +410,7 @@ def main() -> int:
         test_invalid_inputs_are_rejected,
     ):
         test()
-    print("PASS: 12 generation-brief fixture groups")
+    print("PASS: 14 generation-brief fixture groups")
     return 0
 
 

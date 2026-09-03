@@ -34,6 +34,38 @@ def typography_v2_document() -> dict:
     return document
 
 
+def concept_v3_document(origin: str = "ABSTRACT_FORM") -> dict:
+    document = typography_v2_document()
+    document["schema_version"] = 3
+    document["subject_origin_mode"] = origin
+    document["concept_contract"] = {
+        "message_anchor": "iteration makes unfinished work converge",
+        "subject_behavior": "one continuous loop returns with a visibly more resolved edge",
+        "visible_evidence": ["a closed return path", "progressively sharper successive segments"],
+        "semantic_direction": "cyclical movement toward completion",
+        "must_not_imply": ["decline", "generic guidance"],
+    }
+    document["visual_review"].update({
+        "concept_evidence_visible": {
+            "status": "PASS",
+            "evidence": "The return path and progressive edge change are both visible without reading the subtitle.",
+        },
+        "semantic_direction_consistent": {
+            "status": "PASS",
+            "evidence": "The sequence becomes more resolved rather than shrinking or declining.",
+        },
+        "subject_function_legible": {
+            "status": "PASS" if origin == "SPECULATIVE_OBJECT" else "NOT_APPLICABLE",
+            "evidence": "The invented object's operation is visible." if origin == "SPECULATIVE_OBJECT" else "This subject is not a speculative object.",
+        },
+        "generic_metaphor_rejected": {
+            "status": "PASS",
+            "evidence": "The changing return path is specific to iteration rather than a generic beacon or future symbol.",
+        },
+    })
+    return document
+
+
 class VisualVerdictHarnessTests(unittest.TestCase):
     def test_passing_fixture_is_accepted(self) -> None:
         result, messages = validate_document(load_fixture("valid-pass.json"), FIXTURES / "valid-pass.json")
@@ -111,6 +143,62 @@ class VisualVerdictHarnessTests(unittest.TestCase):
         result, messages = validate_document(document, FIXTURES / "typography-failure.json")
         self.assertEqual(result, "ARTWORK_FAILURE")
         self.assertIn("typography: support_legibility failed", messages)
+
+    def test_schema_v3_requires_and_accepts_concept_evidence(self) -> None:
+        document = concept_v3_document()
+        result, messages = validate_document(document, FIXTURES / "concept-pass.json")
+        self.assertEqual(result, "PASS")
+        self.assertEqual(messages, [])
+
+        document["visual_review"].pop("concept_evidence_visible")
+        result, messages = validate_document(document, FIXTURES / "concept-missing.json")
+        self.assertEqual(result, "INVALID_DOCUMENT")
+        self.assertTrue(any("concept_evidence_visible" in message for message in messages))
+
+    def test_schema_v3_semantic_contradiction_forces_regeneration(self) -> None:
+        document = concept_v3_document()
+        document["visual_review"]["semantic_direction_consistent"] = {
+            "status": "FAIL",
+            "evidence": "The bars descend while the message promises growth.",
+        }
+        document["hard_verdict"] = "FAIL"
+        document["repair_mode"] = "REGENERATE"
+        document["verdict"] = "REGENERATE"
+        document["root_cause_class"] = "CONCEPT_FIDELITY"
+        result, messages = validate_document(document, FIXTURES / "concept-direction-failure.json")
+        self.assertEqual(result, "ARTWORK_FAILURE")
+        self.assertIn("concept fidelity: semantic_direction_consistent failed", messages)
+
+    def test_schema_v3_speculative_object_requires_visible_function(self) -> None:
+        document = concept_v3_document("SPECULATIVE_OBJECT")
+        document["visual_review"]["subject_function_legible"] = {
+            "status": "NOT_APPLICABLE",
+            "evidence": "The machine is attractive but its operation is not visible.",
+        }
+        document["hard_verdict"] = "FAIL"
+        document["repair_mode"] = "REGENERATE"
+        document["verdict"] = "REGENERATE"
+        document["root_cause_class"] = "CONCEPT_FIDELITY"
+        result, messages = validate_document(document, FIXTURES / "concept-function-failure.json")
+        self.assertEqual(result, "ARTWORK_FAILURE")
+        self.assertIn(
+            "concept fidelity: subject_function_legible must be PASS for SPECULATIVE_OBJECT",
+            messages,
+        )
+
+    def test_schema_v3_rejects_generic_metaphor(self) -> None:
+        document = concept_v3_document()
+        document["visual_review"]["generic_metaphor_rejected"] = {
+            "status": "FAIL",
+            "evidence": "A generic beacon suggests guidance but not the headline's specific transformation.",
+        }
+        document["hard_verdict"] = "FAIL"
+        document["repair_mode"] = "REGENERATE"
+        document["verdict"] = "REGENERATE"
+        document["root_cause_class"] = "CONCEPT_FIDELITY"
+        result, messages = validate_document(document, FIXTURES / "concept-generic-failure.json")
+        self.assertEqual(result, "ARTWORK_FAILURE")
+        self.assertIn("concept fidelity: generic_metaphor_rejected failed", messages)
 
     def test_unavailable_proof_can_be_recorded_as_invalid_input(self) -> None:
         document = copy.deepcopy(load_fixture("valid-pass.json"))

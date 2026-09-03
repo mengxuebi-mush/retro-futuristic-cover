@@ -4,6 +4,16 @@
   "final_title": "When Machines Learned to Wait",
   "category_label": "INSIGHT",
   "micro_subtitle": "ARCHIVE AS EVIDENCE",
+  "concept_contract": {
+    "message_anchor": "an early machine holds a state of patient readiness",
+    "subject_behavior": "a dormant historical terminal preserves one sparse waiting signal",
+    "visible_evidence": [
+      "one restrained phosphor signal inside an otherwise quiet screen",
+      "the complete period terminal remains visibly inactive"
+    ],
+    "semantic_direction": "activity pauses without disappearing",
+    "must_not_imply": ["declining performance", "a modern productivity dashboard"]
+  },
   "poster_support_elements": [
     {"text": "1978 TERMINAL STUDY", "role": "classification", "anchor": "title axis", "factual": true},
     {"text": "COMPUTING ARCHIVE", "role": "organization", "anchor": "object tangent", "factual": true}

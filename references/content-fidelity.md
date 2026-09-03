@@ -67,6 +67,19 @@ Reject a candidate unless all answers are `YES`:
 
 If a candidate fails, rewrite the title before generating an image. Never rely on `CATEGORY_LABEL`, `MICRO_SUBTITLE`, or `SUPPORTING_DECK` to restore essential meaning removed from `FINAL_TITLE`.
 
+## Natural-language role gate
+
+Run this gate only for copy drafted or rephrased by the agent. An exact user-supplied cover title remains locked and must not be rewritten merely because another phrase sounds smoother.
+
+Reject agent-derived copy unless all answers are `YES`:
+
+1. Does the title sound idiomatic when spoken by a fluent writer rather than compressed by a word-count target?
+2. Is `FINAL_TITLE` the strongest and clearest claim, instead of leaving the more useful proposition in the subtitle?
+3. Does the supporting line add a method, consequence, contrast, or emotional turn rather than restating the title?
+4. Does `CATEGORY_LABEL` contribute classification without needlessly repeating a prominent title word?
+
+When the subtitle contains the stronger proposition, consider promoting it before locking the inventory. When the category repeats the title, select another semantically accurate label from the approved whitelist. Preserve source fidelity throughout; smoother language is not permission to make a stronger unsupported claim.
+
 ## Example
 
 ```text

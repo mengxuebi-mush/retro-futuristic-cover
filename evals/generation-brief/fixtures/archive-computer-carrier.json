@@ -4,6 +4,16 @@
   "final_title": "The Interface Before the Interface",
   "category_label": "DESIGN",
   "micro_subtitle": "HISTORY IN THE MACHINE",
+  "concept_contract": {
+    "message_anchor": "physical computing interfaces preceded today's interface conventions",
+    "subject_behavior": "the archive computer exposes its controls, screen, and chassis as one readable interaction system",
+    "visible_evidence": [
+      "period controls visibly connected to the screen",
+      "the screen carries one factual support element rather than decorative UI"
+    ],
+    "semantic_direction": "historical mechanism becomes present-day evidence",
+    "must_not_imply": ["a contemporary desktop mockup", "generic nostalgia"]
+  },
   "poster_support_elements": [
     {"text": "RSVP · BUILDERS-SD.EXAMPLE", "role": "event support", "anchor": "screen carrier", "factual": true},
     {"text": "ARCHIVE COMPUTER / 1978", "role": "classification", "anchor": "object tangent", "factual": true}

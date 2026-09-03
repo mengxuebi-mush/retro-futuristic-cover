@@ -8,7 +8,8 @@
     "canvas",
     "text_contract",
     "final_title",
-    "category_label"
+    "category_label",
+    "concept_contract"
   ],
   "properties": {
     "canvas": {
@@ -70,6 +71,7 @@
     },
     "intrinsic_artifact_text_policy": {"type": "string", "minLength": 1},
     "screen_carrier_element": {"type": "string", "minLength": 1},
+    "concept_contract": {"$ref": "#/$defs/conceptContract"},
     "assembly_plan": {
       "oneOf": [
         {"$ref": "#/$defs/compoundSetPlan"},
@@ -83,6 +85,30 @@
     {"required": ["deck"], "not": {"required": ["micro_subtitle"]}}
   ],
   "$defs": {
+    "conceptContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["message_anchor", "subject_behavior", "visible_evidence", "semantic_direction", "must_not_imply"],
+      "properties": {
+        "message_anchor": {"type": "string", "minLength": 1},
+        "subject_behavior": {"type": "string", "minLength": 1},
+        "visible_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "semantic_direction": {"type": "string", "minLength": 1},
+        "must_not_imply": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
     "assemblyMember": {
       "type": "object",
       "additionalProperties": false,

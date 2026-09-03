@@ -12,6 +12,7 @@
     "designed_text_inventory",
     "designed_text_count",
     "typography_contract",
+    "concept_contract",
     "composition",
     "subject",
     "palette",
@@ -39,6 +40,7 @@
       "type": "object",
       "required": ["mode", "title", "category_label", "supporting_copy", "cluster", "thumbnail_rule"]
     },
+    "concept_contract": {"$ref": "generation-content.schema.json#/$defs/conceptContract"},
     "composition": {"type": "object"},
     "subject": {
       "type": "object",

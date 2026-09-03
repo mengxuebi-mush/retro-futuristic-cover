@@ -265,13 +265,30 @@ def _palette(manifest: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _negative_constraints(manifest: dict[str, Any], subject: dict[str, Any], carrier: dict[str, Any]) -> list[str]:
+def _concept_instruction(concept: dict[str, Any]) -> str:
+    return (
+        f'Concept contract: communicate {_quote(concept["message_anchor"])} through visible subject behavior '
+        f'{_quote(concept["subject_behavior"])}. Required visible evidence: '
+        f'{"; ".join(concept["visible_evidence"])}. Semantic direction: '
+        f'{_quote(concept["semantic_direction"])}. This evidence must remain understandable from the subject and '
+        'background without relying on the subtitle. Do not substitute a generic symbol whose only rationale is '
+        'future, guidance, progress, or possibility.'
+    )
+
+
+def _negative_constraints(
+    manifest: dict[str, Any],
+    subject: dict[str, Any],
+    carrier: dict[str, Any],
+    concept: dict[str, Any],
+) -> list[str]:
     constraints = [
         *carrier["forbidden_signals"],
         *manifest["layout_failure_signals"],
         "No designed letters, words, numbers, logos, watermarks, pseudo-text, or copy outside the locked inventory.",
         "Keep the title first at thumbnail size and preserve the title glyph clear zone.",
         "Unify visible objects through the planned spatial relation while preserving the required assembly count; do not create unrelated equal-weight hero objects.",
+        *[f"Do not visually imply {reading}." for reading in concept["must_not_imply"]],
     ]
     if subject["origin_mode"] == "ABSTRACT_FORM":
         constraints.append("Keep the abstract form non-referential; no fake controls, interface, product seams, or invented labels.")
@@ -329,6 +346,7 @@ def _generator_instruction(brief: dict[str, Any]) -> str:
     subject = brief["subject"]
     palette = brief["palette"]
     background = brief["background"]
+    concept = brief["concept_contract"]
     typography = brief["typography_contract"]
     title = typography["title"]
     category = typography["category_label"]
@@ -338,6 +356,7 @@ def _generator_instruction(brief: dict[str, Any]) -> str:
         background["requirement"],
         f'Carrier {brief["carrier_contract"]["id"]}; canvas {brief["canvas"]["width"]}x{brief["canvas"]["height"]} ({brief["canvas"]["ratio"]}); text contract {brief["text_contract"]}.',
         "Render exactly these designed text elements once each: " + "; ".join(text_lines) + ". No other designed copy.",
+        _concept_instruction(concept),
         (
             f'Typography: {typography["mode"]}; FINAL_TITLE has {title["visible_glyph_count"]} visible glyphs and must form the first visual mass in {title["zone"]}; '
             f'target {title["width_percent"][0]}–{title["width_percent"][1]}% of canvas width and {title["height_percent"][0]}–{title["height_percent"][1]}% of canvas height across {title["line_count"][0]}–{title["line_count"][1]} line(s); '
@@ -381,6 +400,7 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
     subject = _subject(content, manifest)
     typography = _typography_contract(content, manifest)
     generation_call = _generation_call(content, manifest)
+    concept = content["concept_contract"]
     brief: dict[str, Any] = {
         "brief_version": 1,
         "canvas": content["canvas"],
@@ -389,6 +409,7 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
         "designed_text_inventory": inventory,
         "designed_text_count": len(inventory),
         "typography_contract": typography,
+        "concept_contract": concept,
         "composition": _composition(manifest),
         "subject": subject,
         "palette": _palette(manifest),
@@ -402,7 +423,7 @@ def compile_brief(content_input: Any, manifest_input: Any) -> dict[str, Any]:
         "negative_constraints": [],
         "opaque_full_bleed_background_requirement": BACKGROUND_REQUIREMENT,
     }
-    brief["negative_constraints"] = _negative_constraints(manifest, subject, carrier)
+    brief["negative_constraints"] = _negative_constraints(manifest, subject, carrier, concept)
     brief["generator_instruction"] = _generator_instruction(brief)
     return validate_brief(brief)
 

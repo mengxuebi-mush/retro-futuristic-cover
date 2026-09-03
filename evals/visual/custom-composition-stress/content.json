@@ -9,6 +9,16 @@
   "final_title": "VIBE CODING WORKSHOP",
   "category_label": "BUILD",
   "micro_subtitle": "PROMPT. PROTOTYPE. SHIP.",
+  "concept_contract": {
+    "message_anchor": "vibe coding turns prompts into testable shared prototypes",
+    "subject_behavior": "a continuous work loop gathers two builders around one active prototyping cavity",
+    "visible_evidence": [
+      "one complete return path connecting prompt and prototype activity",
+      "two work positions visibly oriented toward the same shared surface"
+    ],
+    "semantic_direction": "an idea cycles through making and returns as evidence",
+    "must_not_imply": ["passive consumption", "a generic luxury vehicle"]
+  },
   "poster_support_elements": [
     {
       "text": "SAT • OCT 24 • 10 AM–1 PM",

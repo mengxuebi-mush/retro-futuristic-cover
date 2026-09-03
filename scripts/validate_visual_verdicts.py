@@ -12,6 +12,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from verify_image import inspect_image  # noqa: E402
+from validate_generation_brief import ValidationError, validate_concept_contract  # noqa: E402
 
 
 EXIT_OK = 0
@@ -251,6 +252,12 @@ def _visual_checks(document: dict[str, Any], errors: list[str], hard_failures: l
     )
     if document.get("schema_version") == 2:
         required += ("title_footprint", "title_weight_contrast", "support_legibility", "text_cluster_cohesion")
+    if document.get("schema_version") == 3:
+        required += (
+            "title_footprint", "title_weight_contrast", "support_legibility", "text_cluster_cohesion",
+            "concept_evidence_visible", "semantic_direction_consistent", "subject_function_legible",
+            "generic_metaphor_rejected",
+        )
     _required(review, required, "visual_review", errors)
     for key in ("full_size", "thumbnail_25_percent", "subject_origin_recognition", "subject_mass_unity", "release_zone_visibility", "support_copy_structural_attachment"):
         item = review.get(key)
@@ -262,7 +269,7 @@ def _visual_checks(document: dict[str, Any], errors: list[str], hard_failures: l
                 suffix = "failed" if item.get("status") == "FAIL" else "was not reviewed"
                 hard_failures.append(f"visual review: {key} {suffix}")
 
-    if document.get("schema_version") == 2:
+    if document.get("schema_version") in {2, 3}:
         for key in ("title_footprint", "title_weight_contrast", "support_legibility", "text_cluster_cohesion"):
             item = review.get(key)
             _evidence(item, f"visual_review.{key}", errors)
@@ -271,6 +278,27 @@ def _visual_checks(document: dict[str, Any], errors: list[str], hard_failures: l
             elif _is_dict(item) and item.get("status") != "PASS":
                 suffix = "failed" if item.get("status") == "FAIL" else "was not reviewed"
                 hard_failures.append(f"typography: {key} {suffix}")
+
+    if document.get("schema_version") == 3:
+        for key in ("concept_evidence_visible", "semantic_direction_consistent", "generic_metaphor_rejected"):
+            item = review.get(key)
+            _evidence(item, f"visual_review.{key}", errors)
+            if _is_dict(item) and item.get("status") not in STATUS_VALUES:
+                errors.append(f"visual_review.{key}.status: invalid status")
+            elif _is_dict(item) and item.get("status") != "PASS":
+                suffix = "failed" if item.get("status") == "FAIL" else "was not reviewed"
+                hard_failures.append(f"concept fidelity: {key} {suffix}")
+
+        function = review.get("subject_function_legible")
+        _evidence(function, "visual_review.subject_function_legible", errors)
+        if _is_dict(function) and function.get("status") not in STATUS_VALUES:
+            errors.append("visual_review.subject_function_legible.status: invalid status")
+        elif _is_dict(function):
+            expected = "PASS" if document.get("subject_origin_mode") == "SPECULATIVE_OBJECT" else "NOT_APPLICABLE"
+            if function.get("status") != expected:
+                hard_failures.append(
+                    f"concept fidelity: subject_function_legible must be {expected} for {document.get('subject_origin_mode')}"
+                )
 
     background = review.get("background_coverage")
     if not _is_dict(background):
@@ -355,8 +383,8 @@ def validate_document(document: Any, source: Path) -> tuple[str, list[str]]:
         "document",
         errors,
     )
-    if document.get("schema_version") not in {1, 2}:
-        errors.append("schema_version: expected integer 1 or 2")
+    if document.get("schema_version") not in {1, 2, 3}:
+        errors.append("schema_version: expected integer 1, 2, or 3")
     if document.get("version") not in {"V1", "V2", "V3"}:
         errors.append("version: expected V1, V2, or V3")
     proof = document.get("proof")
@@ -377,6 +405,16 @@ def validate_document(document: Any, source: Path) -> tuple[str, list[str]]:
                     errors.append("proof.canvas.ratio: does not match canvas dimensions")
     if document.get("subject_assembly") not in {"SINGLE_OBJECT", "COMPOUND_SET", "PRIMARY_SATELLITES", "REPEATED_FAMILY"}:
         errors.append("subject_assembly: invalid controlled value")
+    if document.get("schema_version") == 3:
+        _required(document, ("subject_origin_mode", "concept_contract"), "document", errors)
+        if document.get("subject_origin_mode") not in {
+            "ABSTRACT_FORM", "ARCHIVE_ARTIFACT", "SPECULATIVE_OBJECT", "NOT_APPLICABLE_SUPPLIED_IMAGE"
+        }:
+            errors.append("subject_origin_mode: invalid controlled value")
+        try:
+            validate_concept_contract(document.get("concept_contract"), "concept_contract")
+        except ValidationError as error:
+            errors.append(str(error))
     if document.get("screen_state") not in {"NOT_APPLICABLE", "DORMANT", "SIGNAL", "CARRIER"}:
         errors.append("screen_state: invalid controlled value")
     if document.get("screen_state") == "CARRIER":
@@ -391,7 +429,7 @@ def validate_document(document: Any, source: Path) -> tuple[str, list[str]]:
         errors.append("repair_mode: invalid controlled value")
     if document.get("verdict") not in VERDICT_VALUES:
         errors.append("verdict: invalid controlled value")
-    if document.get("root_cause_class") not in {"NONE", "DELIVERY", "BACKGROUND_COVERAGE", "TEXT_INVENTORY", "TITLE_HIERARCHY", "TYPOGRAPHY", "SCREEN_DUPLICATION", "SUBJECT_MASS", "LAYOUT", "SUBJECT_ORIGIN", "SUPPORT_ATTACHMENT", "OTHER"}:
+    if document.get("root_cause_class") not in {"NONE", "DELIVERY", "BACKGROUND_COVERAGE", "TEXT_INVENTORY", "TITLE_HIERARCHY", "TYPOGRAPHY", "SCREEN_DUPLICATION", "SUBJECT_MASS", "LAYOUT", "SUBJECT_ORIGIN", "CONCEPT_FIDELITY", "SUPPORT_ATTACHMENT", "OTHER"}:
         errors.append("root_cause_class: invalid controlled value")
 
     _machine_checks(document, source, errors, hard_failures)

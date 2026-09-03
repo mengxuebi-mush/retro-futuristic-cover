@@ -156,6 +156,31 @@ def _assembly_member(value: Any, path: str) -> dict[str, str]:
     return result
 
 
+def validate_concept_contract(value: Any, path: str = "content.concept_contract") -> dict[str, Any]:
+    """Validate message-to-image evidence without prescribing morphology."""
+    if not isinstance(value, dict):
+        _fail(path, "must be an object")
+    evidence_values = _list(value.get("visible_evidence"), f"{path}.visible_evidence")
+    if not 1 <= len(evidence_values) <= 3:
+        _fail(f"{path}.visible_evidence", "must contain 1–3 observable cues")
+    evidence = [_string(item, f"{path}.visible_evidence[{index}]") for index, item in enumerate(evidence_values)]
+    _assert_unique(evidence, f"{path}.visible_evidence")
+    forbidden_values = _list(value.get("must_not_imply"), f"{path}.must_not_imply")
+    if not 1 <= len(forbidden_values) <= 4:
+        _fail(f"{path}.must_not_imply", "must contain 1–4 contradictory or generic readings")
+    forbidden = [_string(item, f"{path}.must_not_imply[{index}]") for index, item in enumerate(forbidden_values)]
+    _assert_unique(forbidden, f"{path}.must_not_imply")
+    if {_normalized(item) for item in evidence} & {_normalized(item) for item in forbidden}:
+        _fail(path, "visible evidence cannot also be listed as a forbidden reading")
+    return {
+        "message_anchor": _string(value.get("message_anchor"), f"{path}.message_anchor"),
+        "subject_behavior": _string(value.get("subject_behavior"), f"{path}.subject_behavior"),
+        "visible_evidence": evidence,
+        "semantic_direction": _string(value.get("semantic_direction"), f"{path}.semantic_direction"),
+        "must_not_imply": forbidden,
+    }
+
+
 def validate_assembly_plan(value: Any, path: str = "content.assembly_plan") -> dict[str, Any]:
     """Validate a mode-aware plan without prescribing concrete object morphology."""
     if not isinstance(value, dict):
@@ -246,6 +271,9 @@ def validate_content(content: Any) -> dict[str, Any]:
         "text_contract": contract,
         "final_title": title,
         "category_label": category,
+        "concept_contract": validate_concept_contract(
+            _require(content, "concept_contract", "content")
+        ),
         "supporting_copy": subtitle,
         "supporting_copy_role": supporting_copy_role,
         "poster_support_elements": support,
@@ -442,6 +470,12 @@ def validate_brief(brief: Any) -> dict[str, Any]:
         _fail("brief.typography_contract.category_label.full_size_min_x_height_percent", "must be at least 1%")
     _string(typography["cluster"].get("rule"), "brief.typography_contract.cluster.rule")
     _string(typography["thumbnail_rule"], "brief.typography_contract.thumbnail_rule")
+
+    normalized_concept = validate_concept_contract(
+        brief["concept_contract"], "brief.concept_contract"
+    )
+    if normalized_concept != brief["concept_contract"]:
+        _fail("brief.concept_contract", "must preserve the normalized locked concept contract")
 
     background = brief["background"]
     if not isinstance(background, dict):
