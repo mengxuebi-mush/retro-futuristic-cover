@@ -1,0 +1,154 @@
+{
+  "experiment": "digital-media-gallery-remaining-layouts",
+  "objective": "Produce one availability proof for each remaining Composition Contract using content that exposes its intended spatial logic.",
+  "reliability_claim": "NONE — one proof per layout is availability evidence, not repeatability evidence.",
+  "theme": "Digital Media Gallery",
+  "content": {
+    "social_title": "DIGITAL MEDIA GALLERY",
+    "category": "DESIGN",
+    "micro_subtitle": "ART AFTER THE SCREEN",
+    "information_axis_test_copy": [
+      "COMPOSITION PROOF • INFORMATION AXIS",
+      "SOURCE MODE • ARCHIVE MEDIA DEVICE",
+      "TITLE FIRST • SUPPORT SECOND",
+      "INTERNAL TEST • ONE SUBJECT MASS"
+    ]
+  },
+  "source_photo": {
+    "filename": "IMG_3769.jpeg",
+    "role": "user-supplied IMAGE_MASK_FIELD source",
+    "generation_copy": "/private/tmp/digital-media-gallery-source.png",
+    "original_modified": false,
+    "required_identity_anchors": [
+      "main woman and recognizable face",
+      "white floral dress and pose",
+      "dense green leaves and palm fronds",
+      "warm outdoor gallery/lantern context"
+    ],
+    "authentic_sign_text_policy": "retain as subordinate intrinsic image detail; do not rewrite or count as designed copy"
+  },
+  "cases": [
+    {
+      "id": "FRAME_THRESHOLD",
+      "proof": "examples/v3-tests/composition-isolation/frame-threshold.png",
+      "manifest": "evals/visual/composition-isolation/frame-threshold.manifest.json",
+      "carrier": "SOCIAL_COVER",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + FRAME_THRESHOLD + THRESHOLD_ENTRY + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — 3 locked strings observed once; no extra designed copy",
+        "first_reading_event": "PASS — title is first at full size and thumbnail",
+        "opening_and_entry_direction": "PASS — one rounded opening and one inward entry direction remain obvious",
+        "object_identity": "PASS — one archive media device occupies the threshold",
+        "support_attachment": "PASS — micro-subtitle follows the lower threshold edge",
+        "thumbnail_verdict": "PASS",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "A single rounded arch contains and crops one period media device; the title enters the opening from the left while the upper field remains quiet.",
+      "interpretation": "The proof reads as an entry system rather than a decorative frame or UI card. A rounded archival subject makes the threshold especially easy to recognize."
+    },
+    {
+      "id": "RHYTHMIC_FIELD",
+      "proof": "examples/v3-tests/composition-isolation/rhythmic-field.png",
+      "manifest": "evals/visual/composition-isolation/rhythmic-field.manifest.json",
+      "carrier": "SOCIAL_COVER",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "composition_sentence": "TITLE_MASS + REPEATED_FAMILY + REPEAT_ON_PATH + RHYTHM_VARIATION + RELEASE_ZONE + OPEN_TITLE_BAND",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — 3 locked strings observed once; no extra designed copy",
+        "first_reading_event": "PASS — title owns the open top band at full size and thumbnail",
+        "family_unity": "PASS — four same-family signal instruments read as one repeated path",
+        "primary_instance": "PASS — one large lower-right instance owns focal scale",
+        "release_zone": "PASS — upper title band remains open and a soft horizon provides release",
+        "thumbnail_verdict": "PASS — family rhythm survives without becoming wallpaper",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "Three smaller spherical signal instruments recede toward one larger lower-right instrument along a diagonal path; the title remains in a protected upper band.",
+      "interpretation": "The repeated family and primary-instance hierarchy are clear. The proof depends on explicit scale variation; equal-size repeats would likely lose the contract."
+    },
+    {
+      "id": "IMAGE_MASK_FIELD",
+      "proof": "examples/v3-tests/composition-isolation/image-mask-field.png",
+      "manifest": "evals/visual/composition-isolation/image-mask-field.manifest.json",
+      "carrier": "PHOTO_COVER",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + IMAGE_MASK + NEGATIVE_SPACE_CUT + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — 3 designed strings observed once; authentic photographed sign lettering remains intrinsic image detail",
+        "first_reading_event": "PASS — title is first while the image remains identifiable",
+        "identity_anchors": "PASS — woman, face/body silhouette, green foliage, and warm lantern context remain visible",
+        "mask_behavior": "PASS — one pale shaped cut holds the title without covering the face or key leaf mass",
+        "thumbnail_verdict": "PASS — title and person remain identifiable at approximately 25%",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "The provided photo remains the single image field; a pale curved mask occupies the upper-left foliage/sky area, while the woman and dense green plants remain photographic and unobscured.",
+      "interpretation": "This is a strong IMAGE_MASK_FIELD proof because the title occupies a low-detail cut and the image's identity anchors survive. Generalization still depends on supplied-image fidelity."
+    },
+    {
+      "id": "INFORMATION_AXIS",
+      "proof": "examples/v3-tests/composition-isolation/information-axis.png",
+      "manifest": "evals/visual/composition-isolation/information-axis.manifest.json",
+      "carrier": "EDITORIAL_POSTER",
+      "text_contract": "EDITORIAL_POSTER_5_TO_7",
+      "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + INFORMATION_RULE + CONTOUR_LOCK + RELEASE_ZONE + SHARED_ALIGNMENT",
+      "hard_verdict": "PASS",
+      "aesthetic_preference": "PASS",
+      "machine_checks": {
+        "file_exists": true,
+        "format": "PNG",
+        "dimensions": [1080, 1440],
+        "ratio": "3:4",
+        "opaque": true,
+        "background_corners_and_perimeter": "PASS"
+      },
+      "visual_checks": {
+        "designed_text_inventory": "PASS — all 7 locked test strings observed once; no extra designed copy",
+        "first_reading_event": "PASS — title is first at full size and thumbnail",
+        "information_axis": "PASS — title, support copy, and archive device share one vertical rule",
+        "support_hierarchy": "PASS — support cluster remains subordinate to title",
+        "release_zone": "PASS — open right field remains comparatively quiet",
+        "thumbnail_verdict": "PASS — title first, information axis second, support collapses coherently",
+        "layout_failure_signals": "NONE_OBSERVED"
+      },
+      "observed": "A single vertical rule carries the category, deck, four test-metadata strings, and footer while one archive media device attaches to the lower rule; the title spans the top as the dominant block.",
+      "interpretation": "The layout successfully turns support copy into a structural skeleton. The support strings are explicitly test metadata rather than invented public event facts."
+    }
+  ],
+  "summary": {
+    "all_four_proofs_selected": true,
+    "all_four_machine_delivery_checks_passed": true,
+    "all_four_thumbnail_verdicts_passed": true,
+    "repeated_failure_classes": [],
+    "reliability_next_step": "Repeat each layout across multiple seeds and content instances before making grammar changes."
+  }
+}

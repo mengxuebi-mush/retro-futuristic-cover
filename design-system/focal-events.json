@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "selection_rule": "Select exactly one focal event. Every other visual layer either supports it or releases it.",
+  "focal_events": [
+    {
+      "id": "DECISIVE_EDGE_CROP",
+      "name": "Decisive edge crop",
+      "definition": "One object or image fragment is enlarged and cropped by one or more canvas edges.",
+      "title_behavior": "title aligns to the crop or occupies the open counter-space; do not shrink the title to preserve the object",
+      "release_zone": "the broad region opposite the cropped mass",
+      "thumbnail_test": "the cropped object is identifiable before reading the subtitle"
+    },
+    {
+      "id": "TITLE_CONTOUR_TENSION",
+      "name": "Title / contour tension",
+      "definition": "The title approaches, splits around, or tracks one outer contour of the primary form.",
+      "title_behavior": "glyph silhouettes remain clear; only soft low-contrast atmosphere may pass behind glyphs",
+      "release_zone": "the quiet side of the form and any unused space beside short title lines",
+      "thumbnail_test": "title reads as one dominant block, not scattered labels"
+    },
+    {
+      "id": "SINGLE_SCALE_ANOMALY",
+      "name": "Single scale anomaly",
+      "definition": "One element is intentionally much larger or smaller than expected, creating the memorable event.",
+      "title_behavior": "support type becomes quiet; no second oversized object or display treatment",
+      "release_zone": "one large low-information field around the scale anomaly",
+      "thumbnail_test": "the scale relationship is visible at 25% size"
+    },
+    {
+      "id": "REPEATED_RHYTHM",
+      "name": "Repeated object rhythm",
+      "definition": "One object family repeats at varied scale, crop, or angle while one instance owns the focal scale.",
+      "title_behavior": "title lives in a clear open band and touches at most one object contour",
+      "release_zone": "a visibly quieter band with no extra copies or pseudo-data",
+      "thumbnail_test": "the image reads as one family, not a decorative pattern"
+    },
+    {
+      "id": "PORTAL_ENTRY",
+      "name": "Portal entry",
+      "definition": "A title or object is visually drawn toward one opening, threshold, or framed counter-shape.",
+      "title_behavior": "use a shared centerline or tangent; prohibit orbit lines and repeated rings",
+      "release_zone": "inside or beside the opening, kept soft behind the text",
+      "thumbnail_test": "the opening reads as a directional relationship, not a glowing tunnel"
+    },
+    {
+      "id": "NEGATIVE_SPACE_CUT",
+      "name": "Negative-space cut",
+      "definition": "A pale panel, atmospheric cutout, or exposed field enters the primary mass and creates a shaped quiet zone.",
+      "title_behavior": "place only the approved text elements in the cut; never turn it into a UI card",
+      "release_zone": "the cut itself or the field it opens",
+      "thumbnail_test": "the quiet shape is visible when the text is mentally removed"
+    }
+  ]
+}

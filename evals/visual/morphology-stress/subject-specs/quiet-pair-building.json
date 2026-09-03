@@ -1,0 +1,11 @@
+{
+  "case_id": "quiet-pair-building",
+  "hypothetical_function": "Two collaborators build quietly in a shared suspended hammock shelter.",
+  "object_family": "FUTURE_HABITAT_CAPSULE",
+  "morphology": "CUSTOM_COMPOSED / Braided hammock pair",
+  "exaggerated_proportion": "The upper crossing rib is much larger than the lower cradle, and the central oval cavity is deliberately oversized.",
+  "aperture": "The central oval cavity is the shared entry and work aperture; a small rounded skylight follows the upper rib.",
+  "purpose_bearing_parts": ["woven tension band", "deep upholstered hammock", "rounded docking shoe", "amber resin skylight"],
+  "materials": "blush and mineral-blue lacquered ribs, amber resin, warm chrome, caramel upholstery",
+  "modern_cues_rejected": ["enclosing pod wall", "flat windshield", "exposed wheels", "touchscreen surface", "cold gray-white product render"]
+}

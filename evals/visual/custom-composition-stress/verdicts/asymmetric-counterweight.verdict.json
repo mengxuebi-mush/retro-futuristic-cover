@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "version": "V3",
+  "proof": {
+    "path": "examples/v3-tests/custom-composition-stress/asymmetric-counterweight.png",
+    "manifest_path": "evals/visual/custom-composition-stress/asymmetric-counterweight.manifest.json",
+    "carrier": "EDITORIAL_POSTER",
+    "canvas": {
+      "width": 1080,
+      "height": 1440,
+      "ratio": "3:4"
+    },
+    "layout_family": "ASYMMETRIC_COUNTERWEIGHT"
+  },
+  "subject_assembly": "SINGLE_OBJECT",
+  "screen_state": "NOT_APPLICABLE",
+  "machine_checks": {
+    "file_exists": true,
+    "format": {
+      "expected": "PNG",
+      "actual": "PNG",
+      "pass": true
+    },
+    "dimensions": {
+      "expected": {
+        "width": 1080,
+        "height": 1440
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1440
+      },
+      "pass": true
+    },
+    "ratio": {
+      "expected": "3:4",
+      "actual": "1080:1440",
+      "pass": true
+    },
+    "opacity": {
+      "opaque": true,
+      "has_alpha": false,
+      "pass": true
+    }
+  },
+  "copy": {
+    "contract": "EDITORIAL_POSTER_5_TO_7",
+    "locked": [
+      {
+        "role": "FINAL_TITLE",
+        "text": "VIBE CODING WORKSHOP",
+        "location": "external"
+      },
+      {
+        "role": "CATEGORY_LABEL",
+        "text": "BUILD",
+        "location": "external"
+      },
+      {
+        "role": "MICRO_SUBTITLE",
+        "text": "PROMPT. PROTOTYPE. SHIP.",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "SAT • OCT 24 • 10 AM–1 PM",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "SIGNAL GARAGE • BARRIO LOGAN",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "HANDS-ON • LAPTOP REQUIRED",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "FREE • RSVP REQUIRED",
+        "location": "external"
+      }
+    ],
+    "observed": [
+      {
+        "text": "VIBE CODING WORKSHOP",
+        "role": "FINAL_TITLE",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "BUILD",
+        "role": "CATEGORY_LABEL",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "PROMPT. PROTOTYPE. SHIP.",
+        "role": "MICRO_SUBTITLE",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "SAT • OCT 24 • 10 AM–1 PM",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "SIGNAL GARAGE • BARRIO LOGAN",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "HANDS-ON • LAPTOP REQUIRED",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "FREE • RSVP REQUIRED",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      }
+    ],
+    "intrinsic_artifact_text": [],
+    "duplicates": [],
+    "extra": []
+  },
+  "visual_review": {
+    "full_size": {
+      "status": "PASS",
+      "evidence": "The toroidal loop is a large upper-right counterweight cropped by the top and right edges; exact seven-string copy is legible."
+    },
+    "thumbnail_25_percent": {
+      "status": "PASS",
+      "evidence": "The title reads first and the unequal loop-versus-title relationship remains visible at 25%."
+    },
+    "background_coverage": {
+      "status": "PASS",
+      "corners": {
+        "top_left": "PASS",
+        "top_right": "PASS",
+        "bottom_left": "PASS",
+        "bottom_right": "PASS"
+      },
+      "perimeter": "PASS",
+      "evidence": "Continuous powder-sky to warm-ivory EDGE_BLOOM covers all four corners and the full perimeter."
+    },
+    "first_reading_event": {
+      "value": "TITLE",
+      "evidence": "VIBE CODING WORKSHOP is the immediate first read in the lower-left counter-space."
+    },
+    "hierarchy": {
+      "title": "PASS",
+      "subject": "PASS",
+      "support": "PASS",
+      "evidence": "Title leads; the cropped toroidal subject counterweights it; support copy is subordinate."
+    },
+    "subject_origin_recognition": {
+      "status": "PASS",
+      "evidence": "The continuous loop, open center, suspended cabin, two bridges, and curved seam remain recognizable."
+    },
+    "subject_mass_unity": {
+      "status": "PASS",
+      "evidence": "The loop and suspended cabin read as one coherent single subject mass."
+    },
+    "release_zone_visibility": {
+      "status": "PASS",
+      "evidence": "The quiet low-information field remains visible in the lower-left title counter-space and opposite the object."
+    },
+    "support_copy_structural_attachment": {
+      "status": "PASS",
+      "evidence": "Date/time, location, requirements, and access copy align to the title axis, docking tangent, and opposite perimeter."
+    },
+    "screen_state_compliance": {
+      "status": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "evidence": "No screen state is selected for this future habitat capsule."
+    },
+    "layout_failure_signals": {
+      "observed": [],
+      "evidence": "The object is intentionally side-biased and edge-cropped; no detached left-title/right-object split is observed."
+    }
+  },
+  "hard_verdict": "PASS",
+  "repair_mode": "NONE",
+  "verdict": "PASS",
+  "root_cause_class": "NONE",
+  "aesthetic_preference": {
+    "rating": "PREFERRED",
+    "evidence": "The contract-specific spatial logic is clear while the shared morphology and palette remain coherent."
+  },
+  "case": "asymmetric-counterweight",
+  "hypothetical_function": "Two builders prototype together around a suspended shared worktable.",
+  "morphology": "CUSTOM_COMPOSED / Toroidal ribbon commons"
+}

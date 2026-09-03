@@ -1,0 +1,73 @@
+{
+  "schema_version": 3,
+  "system": "retro-futuristic-cover",
+  "default_carrier": "SOCIAL_COVER",
+  "text_policy": "CARRIER_SPECIFIC",
+  "carriers": [
+    {
+      "id": "SOCIAL_COVER",
+      "name": "Social cover",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "use_for": ["Xiaohongshu image note", "X post", "article cover"],
+      "ratios": ["3:4", "4:5", "16:9", "1:1", "3:1"],
+      "critical_signals": ["screen-native crop", "one immediate title tier", "thumbnail-readable focal event"],
+      "forbidden_signals": ["book binding", "mockup frame", "fake platform UI"],
+      "safe_margin": "platform preset safe zone",
+      "title_priority": "dominant; preserve exact three-element text budget",
+      "object_scale": "medium to large; readable at thumbnail size",
+      "crop_behavior": "one decisive edge crop or one intentional counter-space placement"
+    },
+    {
+      "id": "EDITORIAL_POSTER",
+      "name": "Editorial wall poster",
+      "text_contract": "EDITORIAL_POSTER_5_TO_7",
+      "use_for": ["cultural poster", "event poster", "concept poster"],
+      "ratios": ["3:4", "2:3", "4:5"],
+      "critical_signals": ["flat front-facing page", "visible poster edge or mounting logic", "strong off-center hierarchy"],
+      "forbidden_signals": ["phone frame", "floating UI card", "even template symmetry"],
+      "safe_margin": "5–9% of page width unless the poster crop is intentionally aggressive",
+      "title_priority": "dominant; supporting information stays subordinate and attaches to the title axis, frame, object tangent, perspective line, mask, or perimeter",
+      "object_scale": "large; 35–75% of the short edge",
+      "crop_behavior": "allow decisive crop at one or more edges"
+    },
+    {
+      "id": "PHOTO_COVER",
+      "name": "Photo-led cover",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "use_for": ["portrait cover", "scene cover", "photo essay opener"],
+      "ratios": ["3:4", "4:5", "1:1"],
+      "critical_signals": ["recognizable subject", "screened or transformed image treatment", "crop that preserves identity anchors"],
+      "forbidden_signals": ["full-color lifestyle photo", "generic stock-photo pose", "detached headline-left/photo-right split"],
+      "safe_margin": "platform or editorial preset safe zone",
+      "title_priority": "dominant but may enter or lock tightly to the image field",
+      "object_scale": "image field 45–80% of the page or a deliberate fragment",
+      "crop_behavior": "preserve 2–4 identity anchors; crop one nonessential region"
+    },
+    {
+      "id": "PACKAGING_FACE",
+      "name": "Packaging face",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "use_for": ["box front", "label face", "sticker", "sleeve front"],
+      "ratios": ["3:4", "1:1", "4:5"],
+      "critical_signals": ["seam, fold, label boundary, or die-cut implication", "product-scale focal object", "front-facing flat artwork"],
+      "forbidden_signals": ["floating poster sheet", "invented ingredient panel", "barcode, QR code, or fake certification"],
+      "safe_margin": "keep all three approved text elements inside the face-safe area",
+      "title_priority": "dominant; no invented packaging facts",
+      "object_scale": "one object or object cluster at 30–70% of the face",
+      "crop_behavior": "use label boundary or seam as structure, not as a UI card"
+    },
+    {
+      "id": "RECORD_SLEEVE",
+      "name": "Record or playlist sleeve",
+      "text_contract": "THREE_ELEMENT_COVER",
+      "use_for": ["music cover", "audio visual", "playlist sleeve"],
+      "ratios": ["1:1"],
+      "critical_signals": ["square sleeve geometry", "one strong image or typographic event", "quiet metadata-like micro-subtitle"],
+      "forbidden_signals": ["poster date hierarchy", "fake artist name", "track list or label logo"],
+      "safe_margin": "8% of canvas width",
+      "title_priority": "dominant; typography may become the primary object",
+      "object_scale": "one large object or title-object relationship",
+      "crop_behavior": "allow square-edge crop or one off-center object"
+    }
+  ]
+}

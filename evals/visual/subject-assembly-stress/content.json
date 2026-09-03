@@ -1,0 +1,55 @@
+{
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4",
+    "platform": "EDITORIAL_POSTER"
+  },
+  "text_contract": "EDITORIAL_POSTER_5_TO_7",
+  "final_title": "COLLECTIVE TOOLS LAB",
+  "category_label": "BUILD",
+  "micro_subtitle": "ONE SYSTEM. MANY HANDS.",
+  "concept_contract": {
+    "message_anchor": "many makers configure one shared prototyping system",
+    "subject_behavior": "separately countable modules connect through one visible collaborative work relation",
+    "visible_evidence": [
+      "each complete module remains individually traceable",
+      "all modules visibly connect to one shared working path or cavity"
+    ],
+    "semantic_direction": "independent contributions converge into one usable system",
+    "must_not_imply": ["one fused solitary object", "several unrelated hero products"]
+  },
+  "poster_support_elements": [
+    {
+      "text": "SAT • NOV 14 • 1–4 PM",
+      "role": "event date and time",
+      "source": "user-provided event details",
+      "factual": true
+    },
+    {
+      "text": "COMMONS LAB • NORTH PARK",
+      "role": "event location",
+      "source": "user-provided event details",
+      "factual": true
+    },
+    {
+      "text": "LIVE PROTOTYPES • TEAM DEMOS",
+      "role": "event program",
+      "source": "user-provided event details",
+      "factual": true
+    },
+    {
+      "text": "FREE • RSVP REQUIRED",
+      "role": "access and registration",
+      "source": "user-provided event details",
+      "factual": true
+    }
+  ],
+  "speculative_function": "A modular collaborative prototyping system that lets many makers configure one shared work habitat from toroidal modules.",
+  "purpose_bearing_parts": [
+    "continuous toroidal work loop",
+    "suspended shared prototyping cavity",
+    "soft docking bridges that join modules",
+    "curved maintenance and power seam"
+  ]
+}

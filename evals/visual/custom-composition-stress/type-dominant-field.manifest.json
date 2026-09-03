@@ -1,0 +1,261 @@
+{
+  "manifest_version": 4,
+  "text_contract": "EDITORIAL_POSTER_5_TO_7",
+  "design_signature": "EDITORIAL_POSTER:TYPE_DOMINANT_FIELD:SPECULATIVE_OBJECT:PALETTE_ASSIMILATED:INTEGRATED_HERO:SINGLE_OBJECT:FUTURE_HABITAT_CAPSULE:CUSTOM_COMPOSED:NOT_APPLICABLE:SINGLE_SCALE_ANOMALY:P01_POWDER_SIGNAL:DUAL_FIELD:C01_EDGE_BLOOM:HERO_OBJECT",
+  "carrier_id": "EDITORIAL_POSTER",
+  "carrier": "Editorial wall poster",
+  "carrier_signals": [
+    "flat front-facing page",
+    "visible poster edge or mounting logic",
+    "strong off-center hierarchy"
+  ],
+  "layout_family_id": "TYPE_DOMINANT_FIELD",
+  "layout_family": "Type Dominant Field",
+  "layout_select_when": "The phrase, claim, or title is the primary visual subject and the physical subject is optional or subordinate.",
+  "layout_dominant_mass": "title is the unmistakable largest mass",
+  "layout_attention_contract": {
+    "title_percent": [
+      66,
+      80
+    ],
+    "subject_percent": [
+      10,
+      22
+    ],
+    "support_percent": [
+      6,
+      10
+    ]
+  },
+  "layout_allowed_subject_assemblies": [
+    "SINGLE_OBJECT"
+  ],
+  "layout_allowed_scale_roles": [
+    "FIELD_STRUCTURE",
+    "INTEGRATED_HERO",
+    "CENTERPIECE_ARTIFACT",
+    "SPECIMEN_ANCHOR"
+  ],
+  "layout_required_operators": [
+    "TYPE_OWNS_FIELD",
+    "SHARED_ALIGNMENT"
+  ],
+  "layout_optional_operators": [
+    "SCALE_CONTRAST",
+    "CONTOUR_LOCK",
+    "NEGATIVE_SPACE_CUT",
+    "PERIMETER_LOCK"
+  ],
+  "layout_forbidden_relationships": [
+    "multi-object hero cluster",
+    "object equal to title weight",
+    "several independent typographic events"
+  ],
+  "layout_subject_area_percent": [
+    6,
+    24
+  ],
+  "layout_release_area_percent": [
+    24,
+    46
+  ],
+  "layout_title_zone": "a central, side, or vertical block occupying the primary field",
+  "layout_object_slot": "one small-to-medium counterweight at a title edge, corner, baseline, or internal counter-space",
+  "layout_collision_rule": "the subject interrupts one title edge or occupies unused line-shaped space; it never becomes a second hero",
+  "layout_support_zones": [
+    "title baseline",
+    "outer perimeter",
+    "small counterweight tangent"
+  ],
+  "layout_crop_rule": "crop type only when the remaining word is immediately inferable; crop the subject only to support the same typographic event",
+  "layout_required_structure": [
+    "one oversized title block",
+    "one subordinate physical or atmospheric interruption",
+    "one broad release field"
+  ],
+  "layout_failure_signals": [
+    "title and object have equal weight",
+    "small polite title",
+    "decorative object cluster",
+    "cropped word is no longer inferable"
+  ],
+  "layout_thumbnail_test": "the title shape is the first and largest recognizable event",
+  "composition_primitives": [
+    "TITLE_MASS",
+    "SUBJECT_MASS",
+    "SUPPORT_SYSTEM",
+    "RELEASE_ZONE"
+  ],
+  "subject_assembly": "SINGLE_OBJECT",
+  "subject_assembly_count": "one coherent subject, object, image field, or abstract field",
+  "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+  "composition_operators": [
+    {
+      "id": "TYPE_OWNS_FIELD",
+      "category": "PRIMARY_RELATION",
+      "definition": "Let the title control the main field while the physical subject acts only as a subordinate interruption."
+    },
+    {
+      "id": "SHARED_ALIGNMENT",
+      "category": "SUPPORT_ALIGNMENT",
+      "definition": "Attach at least three major or support elements to one shared edge, axis, baseline, or curvature."
+    },
+    {
+      "id": "SCALE_CONTRAST",
+      "category": "FOCAL_OPERATION",
+      "definition": "Make one element intentionally much larger or smaller than expected without creating a second focal event."
+    }
+  ],
+  "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + TYPE_OWNS_FIELD + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT",
+  "subject_origin_mode": "SPECULATIVE_OBJECT",
+  "subject_origin_definition": "An invented, apparently functional object imagined through optimistic streamline-era futurism: a rounded, exaggerated volume with coherent construction logic and a small set of purpose-bearing parts.",
+  "subject_identity_contract": [
+    "name one hypothetical function before defining the form",
+    "resolve one complete SPECULATIVE_MORPHOLOGY before detailing: use an optional catalog archetype or a content-derived CUSTOM_COMPOSED specification",
+    "define one memorable continuous silhouette or coherent family of joined volumes; catalog shapes such as bubbles, pods, biomorphic shells, and soft monoliths are examples rather than limits",
+    "exaggerate one proportion or spatial relationship before adding details",
+    "lock 2–4 purpose-bearing parts such as bubble canopy, rounded aperture, lens, cavity, threshold, docking seam, integrated support, shrouded wheel, keel, grip, mount, sensor, or status window",
+    "make every secondary part follow the dominant curvature; use no scattered controls or decorative technology noise",
+    "prefer colored enamel, molded fiberglass, creamy lacquer, translucent resin, bubble glass, warm metal trim, and optional upholstery over cold gray-white minimalism",
+    "do not use fake brands, invented readable labels, present-day product baselines, faceted EV styling, black glass bands, full-width LED strips, or generic AI product-render details"
+  ],
+  "render_treatment": "PALETTE_ASSIMILATED",
+  "render_treatment_definition": "Build the form or invented device from the active palette so its body, light, shadow, haze, and gradient read as one continuous color system.",
+  "render_color_rule": "Object color derives from ACTIVE_HUES and their tints; no unrelated local product color is introduced.",
+  "scale_role": "INTEGRATED_HERO",
+  "scale_role_scale": "28–55% of the short edge",
+  "scale_role_behavior": "The subject and title share primary attention through counter-space, tangent, or one common axis.",
+  "source_asset_mode": "NONE",
+  "image_role": "NONE",
+  "object_family_id": "FUTURE_HABITAT_CAPSULE",
+  "object_family": "Future habitat capsule",
+  "speculative_morphology": "CUSTOM_COMPOSED",
+  "speculative_morphology_source": "CUSTOM",
+  "speculative_morphology_name": "Toroidal ribbon commons",
+  "speculative_morphology_shape_ancestry": "one inflated toroidal ribbon folds around a pearl-like inhabited cavity, combining a continuous loop, suspended inner volume, and open center",
+  "speculative_morphology_definition": "A collaborative prototyping habitat that lets two builders work around a suspended shared workspace, derived from a continuous loop rather than a pod, vehicle, or room with softened corners.",
+  "speculative_morphology_silhouette": "a broad soft loop sweeps upward and around one smaller hanging cabin, leaving a large intentional opening that makes the object recognizable at thumbnail size",
+  "speculative_morphology_exaggeration": "make the enclosing loop dramatically wider than the cabin and stretch its upper arc into a buoyant directional gesture",
+  "speculative_morphology_aperture_rule": "treat the loop's open center and one convex cabin window as integrated functional negative spaces; use no flat windshield or black display band",
+  "speculative_morphology_construction_cues": [
+    "two warm docking bridges suspend the cabin from the enclosing loop",
+    "one continuous maintenance seam follows the loop curvature",
+    "one softly glowing underside cavity explains lift without exposed contemporary propulsion hardware"
+  ],
+  "speculative_morphology_material_direction": "powder-blue molded fiberglass, softly tinted bubble glass, warm brushed-metal bridge details, cream upholstery, and gentle illustrated surface grain",
+  "speculative_global_form_ancestry": "Streamline Moderne, postwar coachbuilding, mid-century space-age illustration, bubble canopies, molded fiberglass, and optimistic world-fair futurism—not contemporary EV, smartphone, appliance, or cold minimal-product language.",
+  "speculative_global_construction_order": [
+    "invent or compose one dominant continuous volume before detailing; sphere, ovoid, teardrop, inflated spindle, toroidal ribbon, joined lobe, shell, arch, and soft monolith are examples rather than limits",
+    "exaggerate one proportion so the silhouette is memorable before small details appear",
+    "integrate one rounded opening, canopy, lens, cavity, threshold, or other function-bearing negative space into the dominant volume when the function calls for it",
+    "add only 1–3 function-bearing seams, supports, fins, docking bands, wheel shrouds, or sensor openings that follow the same curvature"
+  ],
+  "speculative_global_required_character": [
+    "continuous convex curves and generous radii dominate the outer silhouette",
+    "the object feels rounded, buoyant, aerodynamic, and slightly theatrical rather than optimized by current industrial-design convention",
+    "glazing is volumetric bubble glass or a rounded portal, never a flat black screen slab",
+    "materials feel warm and tactile: colored enamel, molded fiberglass, creamy lacquer, translucent resin, warm chrome trim, amber or smoke-tinted glass, and optional upholstered interior",
+    "rendering may be sculptural, illustrated, model-like, or softly surreal; realism is subordinate to silhouette clarity, warmth, and imaginative exaggeration",
+    "one or two seams may explain opening, docking, suspension, or maintenance; decorative control noise is absent"
+  ],
+  "speculative_global_hard_failures": [
+    "a current car, appliance, laptop, speaker, robot, or phone with rounded corners",
+    "faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance",
+    "black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism",
+    "generic matte ceramic blob with no silhouette exaggeration, functional opening, or construction logic",
+    "photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light"
+  ],
+  "screen_state": "NOT_APPLICABLE",
+  "screen_state_definition": "The selected subject has no generated screen behavior.",
+  "screen_content_role": "NONE",
+  "screen_content_source": "NONE",
+  "screen_display_language": "NOT_APPLICABLE",
+  "screen_copy_element": "NONE",
+  "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+  "screen_text_rule": "No screen copy.",
+  "screen_attention_rule": "No screen attention tier.",
+  "screen_instance_rule": "no generated screen behavior",
+  "intrinsic_artifact_text_policy": "NOT_APPLICABLE",
+  "focal_event_id": "SINGLE_SCALE_ANOMALY",
+  "focal_event": "One element is intentionally much larger or smaller than expected, creating the memorable event.",
+  "release_zone": "one large low-information field around the scale anomaly",
+  "focal_event_thumbnail_test": "the scale relationship is visible at 25% size",
+  "palette": "Powder Signal",
+  "palette_id": "P01_POWDER_SIGNAL",
+  "palette_family": "Powder Signal",
+  "color_complexity": "DUAL_FIELD",
+  "active_hues": [
+    "powder sky",
+    "warm ivory"
+  ],
+  "derived_tints": "derive pale, mid, and soft-deep tones only from the active hues",
+  "area_hierarchy": "dominant hue 70–80%; companion hue 20–30%; never 50/50",
+  "saturation_rule": "allow only one saturation focus; render all other hues as softened fields, haze, or translucent layers",
+  "tonal_regime": "HIGH_KEY_AIRY",
+  "harmony_mode": "ANALOGOUS",
+  "coral_role": "ABSENT",
+  "composition_id": "C01_EDGE_BLOOM",
+  "focal_mode": "HERO_OBJECT",
+  "gradient_topology": "EDGE_BLOOM",
+  "gradient_direction": "one oversized color field blooms inward from an off-canvas edge",
+  "primary_form_role": "HERO_OBJECT",
+  "primary_form": "one continuous toroidal ribbon folds around a suspended pearl-like cabin, leaving a large open center; retain two warm docking bridges, curved maintenance seam, convex cabin window, and underside lift cavity",
+  "primary_form_placement": "authoritative layout object slot: one small-to-medium counterweight at a title edge, corner, baseline, or internal counter-space; adapt the object's preferred placement cue (small suspended or horizon pod) inside that slot rather than replacing it; use the locked title relationship: support copy aligns to the docking seam; apply crop rule: crop type only when the remaining word is immediately inferable; crop the subject only to support the same typographic event; apply scale role INTEGRATED_HERO: The subject and title share primary attention through counter-space, tangent, or one common axis.; resolve SUBJECT_ASSEMBLY SINGLE_OBJECT: Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+  "hero_object": {
+    "id": "FUTURE_HABITAT_CAPSULE",
+    "family": "SPECULATIVE_OBJECT",
+    "geometry": "one continuous toroidal ribbon enclosing a suspended inhabited cabin and open center",
+    "material": "powder-blue molded fiberglass, softly tinted bubble glass, warm brushed-metal bridge details, cream upholstery, and gentle illustrated surface grain",
+    "lighting": "soft environmental daylight or hazy editorial studio light; reveal glass curvature and interior warmth without cinematic spacecraft lighting",
+    "scale": "28–55% of the short edge",
+    "placement": "authoritative layout object slot: one small-to-medium counterweight at a title edge, corner, baseline, or internal counter-space; adapt the object's preferred placement cue (small suspended or horizon pod) inside that slot rather than replacing it; use the locked title relationship: support copy aligns to the docking seam; apply crop rule: crop type only when the remaining word is immediately inferable; crop the subject only to support the same typographic event; apply scale role INTEGRATED_HERO: The subject and title share primary attention through counter-space, tangent, or one common axis.; resolve SUBJECT_ASSEMBLY SINGLE_OBJECT: Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+    "title_relationship": "use the object's selected placement and keep its identity anchors outside the title clear zone",
+    "identity_anchors": [
+      "continuous toroidal ribbon",
+      "large open center",
+      "suspended cabin with convex window",
+      "two docking bridges and curved seam"
+    ],
+    "visual_behavior": "make the open center, suspended cabin, and toroidal ancestry legible at thumbnail size",
+    "function_requirement": "Two builders prototype together around a suspended shared worktable.",
+    "speculative_morphology": "CUSTOM_COMPOSED",
+    "morphology_source": "CUSTOM",
+    "morphology_name": "Toroidal ribbon commons",
+    "morphology_shape_ancestry": "one inflated toroidal ribbon folds around a pearl-like inhabited cavity, combining a continuous loop, suspended inner volume, and open center",
+    "morphology_idea": "A collaborative prototyping habitat that lets two builders work around a suspended shared workspace, derived from a continuous loop rather than a pod, vehicle, or room with softened corners.",
+    "morphology_silhouette": "a broad soft loop sweeps upward and around one smaller hanging cabin, leaving a large intentional opening that makes the object recognizable at thumbnail size",
+    "morphology_exaggeration": "make the enclosing loop dramatically wider than the cabin and stretch its upper arc into a buoyant directional gesture",
+    "morphology_aperture_rule": "treat the loop's open center and one convex cabin window as integrated functional negative spaces; use no flat windshield or black display band",
+    "morphology_construction_cues": [
+      "two warm docking bridges suspend the cabin from the enclosing loop",
+      "one continuous maintenance seam follows the loop curvature",
+      "one softly glowing underside cavity explains lift without exposed contemporary propulsion hardware"
+    ],
+    "morphology_material_direction": "powder-blue molded fiberglass, softly tinted bubble glass, warm brushed-metal bridge details, cream upholstery, and gentle illustrated surface grain",
+    "screen_state": "NOT_APPLICABLE",
+    "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+    "screen_text_rule": "No screen copy.",
+    "screen_instance_rule": "no generated screen behavior",
+    "role_scale_rule": "The subject and title share primary attention through counter-space, tangent, or one common axis. The object owns the focal scale; supporting accents remain flat and subordinate.",
+    "subject_assembly": "SINGLE_OBJECT",
+    "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract."
+  },
+  "title_zone": "lower-left",
+  "spatial_assignment": "obey the layout collision rule: the subject interrupts one title edge or occupies unused line-shaped space; it never becomes a second hero Distribute visual weight before establishing alignment; do not concentrate the title, hero, and decorative axis on one side unless the opposite region has a clear compositional role",
+  "title_clear_zone": "the union of visible title glyph silhouettes plus a calm buffer of about 4% of canvas width; the primary form's solid silhouette, luminous core, and highest-contrast edge must stay outside it; soft low-contrast atmosphere may pass behind only when glyph edges and thumbnail readability remain crisp",
+  "primary_form_clearance": "CATEGORY_LABEL outlines, ANCHOR, ECHO, and decorative lines must not cross the primary form's core contour, highest-contrast region, or visual center; place them along an outer edge, tangent, or extended axis instead",
+  "collision_resolution": "preserve approved wording and readable title scale; use balanced reflow when suitable, otherwise translate or modestly scale the primary form; never preserve centered placement at the cost of glyph clearance",
+  "editorial_device": "NONE",
+  "panel_text_role": "NONE",
+  "detail_roles": {
+    "anchor": "1 focal corner brackets instance",
+    "bridge": "one tangent curve",
+    "echo": "1 much smaller corner brackets echo instance(s)"
+  },
+  "detail_limits": "one accent language plus at most one hairline bridge; accents under 2% combined canvas area",
+  "type_mode": "CJK_SOFT_HUMANIST",
+  "detail_grammar": "one ANCHOR, zero or one BRIDGE, and one or two ECHO instances using one returned accent language",
+  "font_mode": "CJK_SOFT_HUMANIST",
+  "label_treatment": "thin outlined pill",
+  "alignment_system": "first distribute visual weight across complementary regions, then align at least three of title, hero or atmospheric form, panel, label, bridge, and accents through a shared edge, axis, tangent, baseline, or curvature; the relationship may span the canvas and must not stack all high-information elements in one region"
+}

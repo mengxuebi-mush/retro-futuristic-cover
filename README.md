@@ -2,6 +2,8 @@
 
 A ChatGPT/Codex Skill that turns an article, draft, topic, or sentence into one finished retro-futuristic editorial social-media cover.
 
+> **V2 alpha status:** `main` remains the stable V1 release. The `next` branch contains the carrier-aware V2 visual system and is intentionally pre-release while its composition grammar is being validated across controlled visual regression batches. Do not treat `next` as production-ready yet.
+
 The Skill preserves the semantic identity of an existing article title, rephrases it only when needed for cover readability, and generates a polished cover with seamless soft gradients, diffuse light, fine grain, readable typography, generous negative space, and restrained geometric accents. When no title exists, it derives a faithful title from the source.
 
 ## Examples
@@ -21,9 +23,10 @@ Generated covers across portrait and landscape formats, Chinese and English typo
 - Adaptive tonal regimes and monochromatic, analogous, duotone, or tri-color harmony modes
 - Controlled coral roles so warm coral may lead, accent, or disappear across outputs
 - One dominant, highly readable headline
+- Compiled short-, standard-, and long-title typography contracts with measurable footprint and legibility targets
 - Source-title fidelity with locked subject, use-case, promise, meaningful-count, audience, and proper-noun anchors
 - Content-aware title modes for titled articles, utility/list content, and thesis-led essays
-- Minimal category label and micro-subtitle
+- Minimal category label plus either a short micro-subtitle or a readable one- to two-line supporting deck
 - Small randomized stars, triangles, rhombi, dots, rings, or corner brackets
 - Rotating arches, portals, flowing chromatic shapes, perspective planes, curved surfaces, and flattened orbs
 - An editorial alignment system connecting labels, type, structural lines, and micro-accents
@@ -32,11 +35,27 @@ Generated covers across portrait and landscape formats, Chinese and English typo
 - A persistent coordinated design deck that rotates palettes, gradient flow, focal mode, hero or atmospheric form, type mode, labels, and accents while excluding recent selections
 - Readable article-cover typography: balanced three-line X headlines, regular-to-medium optical weight, relaxed display leading, and a roughly 28–34% tight visible-glyph height for longer landscape titles
 - A hard-compliance gate followed by a poster-integration critique of the actual rendered pixels
+- Mandatory style-reference propagation and schema-version-2 per-image visual verdicts for multi-variant requests
 - Targeted local editing for isolated flaws and fresh regeneration for structural failures
 - At most three private versions, with only the final passing cover shown
 - Deterministic verification of output format, dimensions, and aspect ratio
 - No cyberpunk neon, dense collage, experimental type, or text-heavy layouts
 - No generic “high-contrast Didone + glowing planet + orbit + sparkle” AI-poster combination
+
+## V2 alpha architecture
+
+The `next` branch expands the Skill from a cover recipe into a catalog-first visual system:
+
+- 5 carrier contracts and carrier-specific text inventories
+- 8 Composition Contracts with explicit title zones, object slots, collision rules, crop behavior, release zones, and thumbnail tests
+- 3 compiled title modes, 2 supporting-copy modes, and one enforced typographic-cluster contract
+- 4 subject assemblies and 18 composition operators
+- 3 subject origins: abstract form, archive artifact, and speculative object
+- 13 object families, 4 optional retro-future morphology archetypes, and an open `CUSTOM_COMPOSED` path
+- conditional archive-computer screen states
+- machine-readable compatibility rules, manifest schema, selector evals, and proof-image validation
+
+The current V2 readiness work is visual rather than catalog expansion: controlled composition isolation, assembly and morphology coverage, gradient-topology stress testing, and a representative golden regression set.
 
 ## Platform presets
 
@@ -68,6 +87,26 @@ git clone https://github.com/mengxuebi-mush/retro-futuristic-cover.git ~/.codex/
 
 For another compatible agent environment, copy or clone the repository into that environment's Skills directory. Start a new task after installation so the Skill is loaded.
 
+To inspect the V2 alpha explicitly, clone the `next` branch into a separate test location rather than replacing a stable V1 installation:
+
+```bash
+git clone --branch next https://github.com/mengxuebi-mush/retro-futuristic-cover.git retro-futuristic-cover-v2-alpha
+```
+
+## Development and validation
+
+Use `next` for V2 alpha work and keep `main` releasable. Run the complete dependency-free validation set before committing:
+
+```bash
+python3 scripts/validate_catalog_v2.py
+python3 scripts/validate_evals_v2.py
+python3 evals/generation-brief/test_generation_brief.py
+python3 -m unittest evals.visual.test_validate_visual_verdicts
+python3 scripts/verify_examples.py
+```
+
+The same checks run in GitHub Actions. Visual proofs still require pixel-level review for exact text inventory, title-first hierarchy, Composition Contract fidelity, subject identity or function, and thumbnail behavior.
+
 ## Use
 
 Provide an article, topic, draft, or sentence and ask for a social-media cover. For example:
@@ -77,6 +116,8 @@ Use Retro Futuristic Cover to turn this article into an X post cover.
 ```
 
 The Skill generates one final cover by default. It privately critiques and improves the result, and does not expose intermediate images, prompts, or internal verdicts unless requested.
+
+For speculative future objects, the four bundled morphologies are optional starting points. When the content implies a new form, the Skill can write a temporary JSON specification matching `design-system/custom-morphology.schema.json` and select it with `--speculative-morphology CUSTOM_COMPOSED --custom-morphology-file <path>`.
 
 ## License
 

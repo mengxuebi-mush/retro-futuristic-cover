@@ -1,4 +1,4 @@
 interface:
   display_name: "Retro Futuristic Cover"
-  short_description: "Create polished retro-futuristic editorial covers"
-  default_prompt: "Use $retro-futuristic-cover to reduce this article to a short title and generate a polished cover with one category label and one micro-subtitle."
+  short_description: "Create structured retro-futurist covers and posters"
+  default_prompt: "Use $retro-futuristic-cover to turn this topic into a carrier-aware retro-futurist cover using an abstract form, archive artifact, or speculative future object."

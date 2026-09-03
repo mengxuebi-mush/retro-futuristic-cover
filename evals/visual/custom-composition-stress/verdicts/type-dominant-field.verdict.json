@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "version": "V3",
+  "proof": {
+    "path": "examples/v3-tests/custom-composition-stress/type-dominant-field.png",
+    "manifest_path": "evals/visual/custom-composition-stress/type-dominant-field.manifest.json",
+    "carrier": "EDITORIAL_POSTER",
+    "canvas": {
+      "width": 1080,
+      "height": 1440,
+      "ratio": "3:4"
+    },
+    "layout_family": "TYPE_DOMINANT_FIELD"
+  },
+  "subject_assembly": "SINGLE_OBJECT",
+  "screen_state": "NOT_APPLICABLE",
+  "machine_checks": {
+    "file_exists": true,
+    "format": {
+      "expected": "PNG",
+      "actual": "PNG",
+      "pass": true
+    },
+    "dimensions": {
+      "expected": {
+        "width": 1080,
+        "height": 1440
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1440
+      },
+      "pass": true
+    },
+    "ratio": {
+      "expected": "3:4",
+      "actual": "1080:1440",
+      "pass": true
+    },
+    "opacity": {
+      "opaque": true,
+      "has_alpha": false,
+      "pass": true
+    }
+  },
+  "copy": {
+    "contract": "EDITORIAL_POSTER_5_TO_7",
+    "locked": [
+      {
+        "role": "FINAL_TITLE",
+        "text": "VIBE CODING WORKSHOP",
+        "location": "external"
+      },
+      {
+        "role": "CATEGORY_LABEL",
+        "text": "BUILD",
+        "location": "external"
+      },
+      {
+        "role": "MICRO_SUBTITLE",
+        "text": "PROMPT. PROTOTYPE. SHIP.",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "SAT • OCT 24 • 10 AM–1 PM",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "SIGNAL GARAGE • BARRIO LOGAN",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "HANDS-ON • LAPTOP REQUIRED",
+        "location": "external"
+      },
+      {
+        "role": "SUPPORT_ELEMENT",
+        "text": "FREE • RSVP REQUIRED",
+        "location": "external"
+      }
+    ],
+    "observed": [
+      {
+        "text": "VIBE CODING WORKSHOP",
+        "role": "FINAL_TITLE",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "BUILD",
+        "role": "CATEGORY_LABEL",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "PROMPT. PROTOTYPE. SHIP.",
+        "role": "MICRO_SUBTITLE",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "SAT • OCT 24 • 10 AM–1 PM",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "SIGNAL GARAGE • BARRIO LOGAN",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "HANDS-ON • LAPTOP REQUIRED",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      },
+      {
+        "text": "FREE • RSVP REQUIRED",
+        "role": "SUPPORT_ELEMENT",
+        "count": 1,
+        "locations": [
+          "external"
+        ]
+      }
+    ],
+    "intrinsic_artifact_text": [],
+    "duplicates": [],
+    "extra": []
+  },
+  "visual_review": {
+    "full_size": {
+      "status": "PASS",
+      "evidence": "The three-line title owns the left field while a smaller toroidal counterweight occupies the lower-right; exact copy is legible."
+    },
+    "thumbnail_25_percent": {
+      "status": "PASS",
+      "evidence": "The title shape is the first and largest recognizable event; the loop remains a subordinate but identifiable interruption at 25%."
+    },
+    "background_coverage": {
+      "status": "PASS",
+      "corners": {
+        "top_left": "PASS",
+        "top_right": "PASS",
+        "bottom_left": "PASS",
+        "bottom_right": "PASS"
+      },
+      "perimeter": "PASS",
+      "evidence": "Continuous powder-sky to warm-ivory EDGE_BLOOM covers all four corners and the full perimeter."
+    },
+    "first_reading_event": {
+      "value": "TITLE",
+      "evidence": "VIBE CODING WORKSHOP is unmistakably the first and largest reading event."
+    },
+    "hierarchy": {
+      "title": "PASS",
+      "subject": "PASS",
+      "support": "PASS",
+      "evidence": "Title owns the field; the toroidal object is subordinate; deck and support remain quiet on the title baseline/perimeter."
+    },
+    "subject_origin_recognition": {
+      "status": "PASS",
+      "evidence": "The smaller toroidal object still exposes its open center, suspended cabin, bridges, and loop ancestry."
+    },
+    "subject_mass_unity": {
+      "status": "PASS",
+      "evidence": "The loop and suspended cabin read as one coherent single subject mass."
+    },
+    "release_zone_visibility": {
+      "status": "PASS",
+      "evidence": "A broad low-information field separates the oversized type from the lower-right subject."
+    },
+    "support_copy_structural_attachment": {
+      "status": "PASS",
+      "evidence": "Deck and support copy stay attached to the title baseline and one lower perimeter rule."
+    },
+    "screen_state_compliance": {
+      "status": "NOT_APPLICABLE",
+      "state": "NOT_APPLICABLE",
+      "evidence": "No screen state is selected for this future habitat capsule."
+    },
+    "layout_failure_signals": {
+      "observed": [],
+      "evidence": "The object does not equal the title, no object cluster is present, and no word is cropped or made inferable-only."
+    }
+  },
+  "hard_verdict": "PASS",
+  "repair_mode": "NONE",
+  "verdict": "PASS",
+  "root_cause_class": "NONE",
+  "aesthetic_preference": {
+    "rating": "PREFERRED",
+    "evidence": "The contract-specific spatial logic is clear while the shared morphology and palette remain coherent."
+  },
+  "case": "type-dominant-field",
+  "hypothetical_function": "Two builders prototype together around a suspended shared worktable.",
+  "morphology": "CUSTOM_COMPOSED / Toroidal ribbon commons"
+}

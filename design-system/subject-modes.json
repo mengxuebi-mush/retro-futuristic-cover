@@ -1,0 +1,116 @@
+{
+  "schema_version": 5,
+  "selection_rule": "Select the subject by provenance before choosing its rendering treatment or scale role. The three visual subject modes are abstract form, archive artifact, and speculative object; supplied photographs are an input-source override rather than a fourth visual style.",
+  "subject_origin_modes": [
+    {
+      "id": "ABSTRACT_FORM",
+      "name": "Abstract form",
+      "definition": "A non-referential shape or atmospheric structure with no stable product identity or implied real-world provenance.",
+      "recognition_test": "A viewer cannot reliably name what machine or product it is, and removing decorative details does not erase a functional identity.",
+      "identity_contract": [
+        "lock one silhouette or field behavior",
+        "lock one spatial action such as portal, fold, drift, bloom, or repetition",
+        "do not add buttons, screens, labels, handles, or seams merely to make the form look technological"
+      ],
+      "allowed_render_treatments": ["PALETTE_ASSIMILATED"],
+      "allowed_scale_roles": ["FIELD_STRUCTURE", "MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "REPEATED_FIELD"],
+      "object_catalog_required": false
+    },
+    {
+      "id": "ARCHIVE_ARTIFACT",
+      "name": "Archive artifact",
+      "definition": "A recognizable object from the real technological past, treated as historical evidence rather than redesigned as a generic future prop.",
+      "recognition_test": "Its era, product category, and at least 2–4 defining parts remain recognizable after grading, cropping, and grain are applied.",
+      "identity_contract": [
+        "preserve original proportions and 2–4 category-defining parts",
+        "retain readable distinctions between materials such as aged plastic, glass, metal, rubber, paper, and screen",
+        "allow environmental tint and print grain, but do not recolor or smooth the artifact until its historical provenance disappears",
+        "preserve authentic labels or interface text when identity-bearing and non-dominant; never invent replacement labels"
+      ],
+      "allowed_render_treatments": ["FAITHFUL_RETAINED", "ENVIRONMENT_GRADED"],
+      "allowed_scale_roles": ["MONUMENTAL_FRAGMENT", "CENTERPIECE_ARTIFACT", "SPECIMEN_ANCHOR", "REPEATED_FIELD"],
+      "object_catalog_required": true
+    },
+    {
+      "id": "SPECULATIVE_OBJECT",
+      "name": "Speculative object",
+      "definition": "An invented, apparently functional object imagined through optimistic streamline-era futurism: a rounded, exaggerated volume with coherent construction logic and a small set of purpose-bearing parts.",
+      "recognition_test": "The object performs one plausible action and has a memorable, rounded, exaggerated silhouette whose construction grows from that function. Its shape may be invented or composed beyond the catalog archetypes, but it cannot be explained as a current product with its corners rounded.",
+      "identity_contract": [
+        "name one hypothetical function before defining the form",
+        "resolve one complete SPECULATIVE_MORPHOLOGY before detailing: use an optional catalog archetype or a content-derived CUSTOM_COMPOSED specification",
+        "define one memorable continuous silhouette or coherent family of joined volumes; catalog shapes such as bubbles, pods, biomorphic shells, and soft monoliths are examples rather than limits",
+        "exaggerate one proportion or spatial relationship before adding details",
+        "lock 2–4 purpose-bearing parts such as bubble canopy, rounded aperture, lens, cavity, threshold, docking seam, integrated support, shrouded wheel, keel, grip, mount, sensor, or status window",
+        "make every secondary part follow the dominant curvature; use no scattered controls or decorative technology noise",
+        "prefer colored enamel, molded fiberglass, creamy lacquer, translucent resin, bubble glass, warm metal trim, and optional upholstery over cold gray-white minimalism",
+        "do not use fake brands, invented readable labels, present-day product baselines, faceted EV styling, black glass bands, full-width LED strips, or generic AI product-render details"
+      ],
+      "allowed_render_treatments": ["PALETTE_ASSIMILATED", "ENVIRONMENT_GRADED"],
+      "allowed_scale_roles": ["MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "CENTERPIECE_ARTIFACT", "SPECIMEN_ANCHOR", "REPEATED_FIELD"],
+      "object_catalog_required": true
+    }
+  ],
+  "render_treatments": [
+    {
+      "id": "FAITHFUL_RETAINED",
+      "definition": "Preserve local object color, material evidence, and product separation; let the palette surround and support the subject.",
+      "color_rule": "Original local colors remain identifiable. Environmental color may appear in shadows and highlights but cannot become the object's new base color.",
+      "material_rule": "Plastic, glass, metal, rubber, screen, and paper remain visibly distinct."
+    },
+    {
+      "id": "ENVIRONMENT_GRADED",
+      "definition": "Unify the subject and poster through one global grade, atmosphere, and print surface while retaining identity anchors and material transitions.",
+      "color_rule": "A broad palette cast may affect the object, but local value and material differences must remain readable.",
+      "material_rule": "Grain, halftone, and atmosphere may unify the surface but cannot erase required identity anchors or material transitions."
+    },
+    {
+      "id": "PALETTE_ASSIMILATED",
+      "definition": "Build the form or invented device from the active palette so its body, light, shadow, haze, and gradient read as one continuous color system.",
+      "color_rule": "Object color derives from ACTIVE_HUES and their tints; no unrelated local product color is introduced.",
+      "material_rule": "Colored enamel, molded fiberglass, creamy lacquer, translucent resin or shell, warm metal trim, and diffused optical material may soften boundaries while required identity anchors stay visible. Frosted ceramic is optional, never the automatic speculative-object default."
+    }
+  ],
+  "scale_roles": [
+    {
+      "id": "FIELD_STRUCTURE",
+      "scale": "45–120% of the short edge or full-canvas atmospheric coverage",
+      "behavior": "The field supplies spatial direction rather than reading as a separate product."
+    },
+    {
+      "id": "MONUMENTAL_FRAGMENT",
+      "scale": "55–120% of the short edge",
+      "behavior": "Use decisive edge crop so the subject becomes architectural; protect a complementary title field."
+    },
+    {
+      "id": "INTEGRATED_HERO",
+      "scale": "28–55% of the short edge",
+      "behavior": "The subject and title share primary attention through counter-space, tangent, or one common axis."
+    },
+    {
+      "id": "CENTERPIECE_ARTIFACT",
+      "scale": "32–62% of the short edge",
+      "behavior": "Show the object complete or nearly complete as a central product or archival exhibit; use title and support copy to frame it."
+    },
+    {
+      "id": "SPECIMEN_ANCHOR",
+      "scale": "12–26% of the short edge",
+      "behavior": "Use a small intact object near a baseline, horizon, corner, or ground plane; add contact shadow or tangent so it does not float randomly."
+    },
+    {
+      "id": "REPEATED_FIELD",
+      "scale": "2–5 instances with one focal scale and at least two subordinate scales or crops",
+      "behavior": "Repeat one family only; preserve one dominant rhythm and one quiet release zone."
+    }
+  ],
+  "source_asset_override": {
+    "id": "SUPPLIED_IMAGE",
+    "definition": "A user-supplied portrait, scene, symbol, or object image can replace generated subject construction. Preserve its identity anchors and classify an object as ARCHIVE_ARTIFACT only when it is genuinely historical.",
+    "allowed_modes": ["NONE", "FAITHFUL_IMAGE", "ABSTRACT_SYMBOL"]
+  },
+  "intrinsic_artifact_text": {
+    "id": "INTRINSIC_ARTIFACT_TEXT",
+    "definition": "Authentic text already printed on a supplied or faithfully depicted artifact, such as key legends, screen UI, model marks, dial labels, clothing text, or packaging remnants.",
+    "policy": "It is not designed poster copy and is not automatically cropped. Preserve it when identity-bearing and safe; keep it subordinate and never replace it with invented legible text. Hide or soften it only when it competes with the title, contains sensitive or unsuitable information, or cannot be rendered faithfully. Generated SCREEN_CARRIER copy is explicitly excluded: it remains designed copy and counts toward the carrier text budget."
+  }
+}

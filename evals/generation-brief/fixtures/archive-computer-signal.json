@@ -1,0 +1,27 @@
+{
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4", "platform": "editorial wall poster"},
+  "text_contract": "EDITORIAL_POSTER_5_TO_7",
+  "final_title": "When Machines Learned to Wait",
+  "category_label": "INSIGHT",
+  "micro_subtitle": "ARCHIVE AS EVIDENCE",
+  "concept_contract": {
+    "message_anchor": "an early machine holds a state of patient readiness",
+    "subject_behavior": "a dormant historical terminal preserves one sparse waiting signal",
+    "visible_evidence": [
+      "one restrained phosphor signal inside an otherwise quiet screen",
+      "the complete period terminal remains visibly inactive"
+    ],
+    "semantic_direction": "activity pauses without disappearing",
+    "must_not_imply": ["declining performance", "a modern productivity dashboard"]
+  },
+  "poster_support_elements": [
+    {"text": "1978 TERMINAL STUDY", "role": "classification", "anchor": "title axis", "factual": true},
+    {"text": "COMPUTING ARCHIVE", "role": "organization", "anchor": "object tangent", "factual": true}
+  ],
+  "archive_identity_anchors": [
+    "period-correct monitor or terminal silhouette",
+    "keyboard, drive, cable, or pointing-device relationship",
+    "aged plastic, glass screen, and dark interface separation"
+  ],
+  "intrinsic_artifact_text_policy": "Preserve authentic model marks and subordinate screen legends only when identity-bearing and faithfully rendered."
+}

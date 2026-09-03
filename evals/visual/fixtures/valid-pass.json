@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "version": "V1",
+  "proof": {
+    "path": "examples/route-a-packaging-proof.png",
+    "manifest_path": "evals/visual/fixtures/placeholder-manifest.json",
+    "carrier": "PACKAGING_FACE",
+    "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+    "layout_family": "ASYMMETRIC_COUNTERWEIGHT"
+  },
+  "subject_assembly": "SINGLE_OBJECT",
+  "screen_state": "NOT_APPLICABLE",
+  "machine_checks": {
+    "file_exists": true,
+    "format": {"expected": "PNG", "actual": "PNG", "pass": true},
+    "dimensions": {"expected": {"width": 1080, "height": 1440}, "actual": {"width": 1080, "height": 1440}, "pass": true},
+    "ratio": {"expected": "3:4", "actual": "1080:1440", "pass": true},
+    "opacity": {"opaque": true, "has_alpha": false, "pass": true}
+  },
+  "copy": {
+    "contract": "THREE_ELEMENT_COVER",
+    "locked": [
+      {"role": "FINAL_TITLE", "text": "BUILD FOR CHANGE", "location": "external"},
+      {"role": "CATEGORY_LABEL", "text": "BUILD", "location": "external"},
+      {"role": "MICRO_SUBTITLE", "text": "IDEAS NEED ACTION", "location": "external"}
+    ],
+    "observed": [
+      {"text": "BUILD FOR CHANGE", "role": "FINAL_TITLE", "count": 1, "locations": ["external"]},
+      {"text": "BUILD", "role": "CATEGORY_LABEL", "count": 1, "locations": ["external"]},
+      {"text": "IDEAS NEED ACTION", "role": "MICRO_SUBTITLE", "count": 1, "locations": ["external"]}
+    ],
+    "intrinsic_artifact_text": [],
+    "duplicates": [],
+    "extra": []
+  },
+  "visual_review": {
+    "full_size": {"status": "PASS", "evidence": "All three designed strings are legible at full size."},
+    "thumbnail_25_percent": {"status": "PASS", "evidence": "The title remains the immediate readable message at 25%."},
+    "background_coverage": {"status": "PASS", "corners": {"top_left": "PASS", "top_right": "PASS", "bottom_left": "PASS", "bottom_right": "PASS"}, "perimeter": "PASS", "evidence": "The continuous field reaches all four corners and the complete perimeter."},
+    "first_reading_event": {"value": "TITLE", "evidence": "The dominant title is read before the object or support copy."},
+    "hierarchy": {"title": "PASS", "subject": "PASS", "support": "PASS", "evidence": "Title leads, subject follows, and support remains quiet."},
+    "subject_origin_recognition": {"status": "PASS", "evidence": "The single archive subject remains recognizable from its identity cues."},
+    "subject_mass_unity": {"status": "PASS", "evidence": "The single object forms one coherent subject mass."},
+    "release_zone_visibility": {"status": "PASS", "evidence": "The named release area remains visibly quiet."},
+    "support_copy_structural_attachment": {"status": "PASS", "evidence": "The micro-subtitle is attached to the title axis."},
+    "screen_state_compliance": {"status": "NOT_APPLICABLE", "state": "NOT_APPLICABLE", "evidence": "The selected object has no screen state."},
+    "layout_failure_signals": {"observed": [], "evidence": "No configured layout failure signal is observed."}
+  },
+  "hard_verdict": "PASS",
+  "repair_mode": "NONE",
+  "verdict": "PASS",
+  "root_cause_class": "NONE",
+  "aesthetic_preference": {"rating": "PREFERRED", "evidence": "The reviewer prefers the restrained balance, separately from compliance."}
+}

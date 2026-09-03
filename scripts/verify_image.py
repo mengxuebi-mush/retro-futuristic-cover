@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify a cover image's readable format, exact dimensions, and aspect ratio."""
+"""Verify a cover image's format, geometry, and opaque delivery contract."""
 
 from __future__ import annotations
 
@@ -10,9 +10,26 @@ import sys
 from pathlib import Path
 
 
-def png_size(data: bytes) -> tuple[int, int] | None:
-    if len(data) >= 24 and data[:8] == b"\x89PNG\r\n\x1a\n" and data[12:16] == b"IHDR":
-        return struct.unpack(">II", data[16:24])
+def png_info(data: bytes) -> tuple[int, int, bool] | None:
+    if len(data) >= 33 and data[:8] == b"\x89PNG\r\n\x1a\n" and data[12:16] == b"IHDR":
+        width, height = struct.unpack(">II", data[16:24])
+        color_type = data[25]
+        has_alpha = color_type in {4, 6}
+
+        offset = 8
+        while offset + 12 <= len(data):
+            chunk_length = struct.unpack(">I", data[offset : offset + 4])[0]
+            chunk_type = data[offset + 4 : offset + 8]
+            chunk_end = offset + 12 + chunk_length
+            if chunk_end > len(data):
+                break
+            if chunk_type == b"tRNS":
+                has_alpha = True
+            if chunk_type == b"IEND":
+                break
+            offset = chunk_end
+
+        return width, height, has_alpha
     return None
 
 
@@ -63,14 +80,14 @@ def jpeg_size(data: bytes) -> tuple[int, int] | None:
     return None
 
 
-def inspect_image(path: Path) -> tuple[str, int, int]:
+def inspect_image(path: Path) -> tuple[str, int, int, bool]:
     data = path.read_bytes()
-    dimensions = png_size(data)
-    if dimensions:
-        return "PNG", dimensions[0], dimensions[1]
+    png = png_info(data)
+    if png:
+        return "PNG", png[0], png[1], png[2]
     dimensions = jpeg_size(data)
     if dimensions:
-        return "JPEG", dimensions[0], dimensions[1]
+        return "JPEG", dimensions[0], dimensions[1], False
     raise ValueError("unsupported or unreadable image; expected PNG or JPEG")
 
 
@@ -100,6 +117,11 @@ def main() -> int:
         default="PNG",
         help="expected output format (default: PNG)",
     )
+    parser.add_argument(
+        "--allow-alpha",
+        action="store_true",
+        help="allow an alpha channel; opaque cover delivery is required by default",
+    )
     args = parser.parse_args()
 
     errors: list[str] = []
@@ -116,12 +138,13 @@ def main() -> int:
         errors.append("expected width and height must be positive")
 
     try:
-        detected_format, width, height = inspect_image(args.image)
+        detected_format, width, height, has_alpha = inspect_image(args.image)
         result["actual"] = {
             "format": detected_format,
             "width": width,
             "height": height,
             "ratio": f"{width}:{height}",
+            "has_alpha": has_alpha,
         }
         if detected_format != args.expected_format:
             errors.append(
@@ -130,6 +153,10 @@ def main() -> int:
         if width != args.width or height != args.height:
             errors.append(
                 f"dimension mismatch: expected {args.width}x{args.height}, got {width}x{height}"
+            )
+        if has_alpha and not args.allow_alpha:
+            errors.append(
+                "opacity mismatch: cover PNG contains an alpha channel or transparency chunk"
             )
 
         ratio_width, ratio_height = args.ratio or (args.width, args.height)

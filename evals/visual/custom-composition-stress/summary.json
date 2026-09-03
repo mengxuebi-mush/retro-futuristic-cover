@@ -1,0 +1,37 @@
+{
+  "experiment": "custom-composition-stress",
+  "objective": "Test whether one CUSTOM_COMPOSED future object adapts to four Composition Contracts while preserving morphology, copy, palette, and title-first hierarchy.",
+  "baseline": {"branch": "exp/custom-composition-stress", "head_contains": "d7334cf", "working_tree_initially_clean": true},
+  "carrier": {"id": "EDITORIAL_POSTER", "canvas": [1080, 1440], "ratio": "3:4", "text_contract": "EDITORIAL_POSTER_5_TO_7"},
+  "fixed_variables": {
+    "title": "VIBE CODING WORKSHOP",
+    "category": "BUILD",
+    "deck": "PROMPT. PROTOTYPE. SHIP.",
+    "support": ["SAT • OCT 24 • 10 AM–1 PM", "SIGNAL GARAGE • BARRIO LOGAN", "HANDS-ON • LAPTOP REQUIRED", "FREE • RSVP REQUIRED"],
+    "subject_origin": "SPECULATIVE_OBJECT",
+    "subject_assembly": "SINGLE_OBJECT",
+    "object_family": "FUTURE_HABITAT_CAPSULE",
+    "morphology": "CUSTOM_COMPOSED / Toroidal ribbon commons",
+    "hypothetical_function": "Two builders prototype together around a suspended shared worktable.",
+    "render_treatment": "PALETTE_ASSIMILATED",
+    "scale_role": "INTEGRATED_HERO",
+    "palette": "P01_POWDER_SIGNAL",
+    "active_hues": ["powder sky", "warm ivory"],
+    "gradient_topology": "EDGE_BLOOM",
+    "focal_event": "SINGLE_SCALE_ANOMALY",
+    "type_mode": "CJK_SOFT_HUMANIST",
+    "screen_state": "NOT_APPLICABLE"
+  },
+  "generation_policy": {"initial_generation_per_case": 1, "maximum_retries_per_case": 1, "retries_used": {"asymmetric-counterweight": 0, "centered-anchor": 0, "perspective-vector": 0, "type-dominant-field": 0}},
+  "cases": [
+    {"id": "asymmetric-counterweight", "layout": "ASYMMETRIC_COUNTERWEIGHT", "image": "examples/v3-tests/custom-composition-stress/asymmetric-counterweight.png", "verdict": "verdicts/asymmetric-counterweight.verdict.json", "result": "PASS"},
+    {"id": "centered-anchor", "layout": "CENTERED_ANCHOR", "image": "examples/v3-tests/custom-composition-stress/centered-anchor.png", "verdict": "verdicts/centered-anchor.verdict.json", "result": "PASS"},
+    {"id": "perspective-vector", "layout": "PERSPECTIVE_VECTOR", "image": "examples/v3-tests/custom-composition-stress/perspective-vector.png", "verdict": "verdicts/perspective-vector.verdict.json", "result": "PASS"},
+    {"id": "type-dominant-field", "layout": "TYPE_DOMINANT_FIELD", "image": "examples/v3-tests/custom-composition-stress/type-dominant-field.png", "verdict": "verdicts/type-dominant-field.verdict.json", "result": "PASS"}
+  ],
+  "all_four_machine_delivery_checks_passed": true,
+  "all_four_verdicts_validate_independently": true,
+  "all_four_thumbnail_verdicts_passed": true,
+  "repeated_failures": [],
+  "overall_result": "PASS"
+}

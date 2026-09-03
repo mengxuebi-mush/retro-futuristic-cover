@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "selection_rule": "Resolve SCREEN_STATE only after carrier, composition, subject assembly, and object family. Only an object family that explicitly declares supported_screen_states may activate a generated screen. SIGNAL is the default active state; CARRIER is a conditional editorial-poster state that relocates one already locked support element into the screen.",
+  "screen_states": [
+    {
+      "id": "NOT_APPLICABLE",
+      "content_role": "NONE",
+      "content_source": "NONE",
+      "display_language": "NOT_APPLICABLE",
+      "definition": "The selected subject has no generated screen behavior.",
+      "rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+      "text_rule": "No screen copy.",
+      "attention_rule": "No screen attention tier."
+    },
+    {
+      "id": "DORMANT",
+      "content_role": "NONE",
+      "content_source": "NONE",
+      "display_language": "DORMANT_GLASS",
+      "definition": "A powered-off or visually dormant period screen that preserves glass curvature and object identity.",
+      "rendering_rule": "Use deep active-hue glass, soft reflection, and material separation; avoid a broad neutral-black void.",
+      "text_rule": "No generated letters, numbers, labels, code, or pseudo-text.",
+      "attention_rule": "The screen remains materially legible but quieter than the object silhouette and title."
+    },
+    {
+      "id": "SIGNAL",
+      "content_role": "NONVERBAL_SIGNAL",
+      "content_source": "GENERATED_NONVERBAL",
+      "display_language": "PHOSPHOR_SIGNAL",
+      "definition": "A restrained powered-on screen that gives an archive device a clear sign of operation without adding poster copy.",
+      "rendering_rule": "Use one sparse low-resolution signal family, such as a waveform with one block cursor, a vector trace, or a simple geometric scope. Derive phosphor light from ACTIVE_HUES and keep emission local to the screen.",
+      "text_rule": "No readable letters, words, numbers, code, menus, icons, dashboards, or pseudo-text.",
+      "attention_rule": "The signal reads only after the title and never becomes a second hero or a second focal event."
+    },
+    {
+      "id": "CARRIER",
+      "content_role": "SUPPORT_ELEMENT",
+      "content_source": "LOCKED_DESIGNED_COPY",
+      "display_language": "LOW_RES_TERMINAL",
+      "definition": "The screen becomes a structural carrier for one already approved editorial-poster support element.",
+      "rendering_rule": "Render exactly one short locked support string in compact low-resolution monospace with faint scanlines and restrained active-hue phosphor bloom; use one or two lines only and no surrounding UI.",
+      "text_rule": "The exact string remains designed copy, counts toward the 5–7 element poster budget, appears once inside the screen, and is removed from every external location. It is never INTRINSIC_ARTIFACT_TEXT.",
+      "attention_rule": "The screen is a support tier. At 25% thumbnail size the title remains first; the screen copy may become detail but the active screen may not compete with the title."
+    }
+  ],
+  "global_rules": [
+    "Do not activate a generated screen on ABSTRACT_FORM or on an object family without explicit screen-state support.",
+    "Generated screen content is never INTRINSIC_ARTIFACT_TEXT. Authentic source-borne screen UI remains intrinsic and must not be replaced by a generated state.",
+    "For REPEATED_FAMILY, only the largest or compositionally primary instance may use SIGNAL or CARRIER; all subordinate screens remain DORMANT.",
+    "Use exactly one screen content system. Never combine signal graphics, readable copy, menus, charts, and decorative code.",
+    "Screen emission derives from ACTIVE_HUES and their tints. Do not introduce unrelated neon green, cyan, or amber by habit.",
+    "A generated screen may support the selected focal event but cannot become an additional focal event."
+  ]
+}

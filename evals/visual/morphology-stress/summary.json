@@ -1,0 +1,46 @@
+{
+  "experiment": "morphology-stress",
+  "objective": "Test whether CUSTOM_COMPOSED morphology preserves function-derived silhouette diversity under one locked editorial-poster composition.",
+  "verdict_schema": "../schema.json",
+  "carrier": {"id": "EDITORIAL_POSTER", "ratio": "3:4", "canvas": [1080, 1440], "text_contract": "EDITORIAL_POSTER_5_TO_7"},
+  "content": {
+    "title": "VIBE CODING WORKSHOP",
+    "category": "BUILD",
+    "deck": "PROMPT. PROTOTYPE. SHIP.",
+    "support": ["SAT • OCT 24 • 10 AM–1 PM", "SIGNAL GARAGE • BARRIO LOGAN", "HANDS-ON • LAPTOP REQUIRED", "FREE • RSVP REQUIRED"]
+  },
+  "fixed_variables": {
+    "layout": "ASYMMETRIC_COUNTERWEIGHT",
+    "subject_assembly": "SINGLE_OBJECT",
+    "subject_origin": "SPECULATIVE_OBJECT",
+    "object_family": "FUTURE_HABITAT_CAPSULE",
+    "palette": "P01_POWDER_SIGNAL",
+    "active_hues": ["powder sky", "warm ivory"],
+    "gradient_topology": "CENTER_OF_GRAVITY",
+    "gradient_field": "DUAL_FIELD",
+    "render_treatment": "PALETTE_ASSIMILATED",
+    "scale_role": "INTEGRATED_HERO",
+    "focal_event": "SINGLE_SCALE_ANOMALY",
+    "type_mode": "CJK_NEO_GROTESK",
+    "screen_state": "NOT_APPLICABLE",
+    "speculative_morphology": "CUSTOM_COMPOSED"
+  },
+  "cases": [
+    {"id": "collaborative-prototyping", "verdict": "verdicts/collaborative-prototyping.verdict.json", "morphology": "Toroidal ribbon commons", "function": "Two builders prototype together around a suspended shared worktable.", "archetype_comparison": "Clearly outside the four optional archetypes."},
+    {"id": "prompt-exchange", "verdict": "verdicts/prompt-exchange.verdict.json", "morphology": "Hinged arch dialogue", "function": "Two makers exchange prompts across a shared threshold and suspended conversation room.", "archetype_comparison": "Adjacent to soft vertical infrastructure and biomorphic apparatus, but not a collapse."},
+    {"id": "model-review", "verdict": "verdicts/model-review.verdict.json", "morphology": "Accordion threshold review", "function": "A small group reviews rapid models in a sequence of shared viewing bays around one table.", "archetype_comparison": "Adjacent to soft vertical infrastructure and biomorphic apparatus, but not a collapse."},
+    {"id": "quiet-pair-building", "verdict": "verdicts/quiet-pair-building.verdict.json", "morphology": "Braided hammock pair", "function": "Two collaborators build quietly in a shared suspended hammock shelter.", "archetype_comparison": "Clearly outside the four optional archetypes; nearest biomorphic neighbor without collapse.", "retry": "One palette-only retry used."}
+  ],
+  "generation_policy": {"initial_generation_per_case": 1, "maximum_retries_per_case": 1, "retries_used": {"collaborative-prototyping": 1, "prompt-exchange": 1, "model-review": 0, "quiet-pair-building": 1}, "quiet_retry_scope": "Palette correction only; morphology, copy, composition, and other locked variables preserved."},
+  "summary": {
+    "all_four_proofs_selected": true,
+    "all_four_machine_delivery_checks_passed": true,
+    "all_four_verdicts_validate_independently": true,
+    "all_four_thumbnail_verdicts_passed": true,
+    "clearly_outside_old_archetypes": ["toroidal-ribbon-commons", "braided-hammock-pair"],
+    "adjacent_without_collapse": ["hinged-arch-dialogue", "accordion-threshold-review"],
+    "archetype_collapse": "NONE_OBSERVED",
+    "repeated_failure_classes": ["Initial title hierarchy failure in collaborative-prototyping and prompt-exchange; each passed its one allowed hierarchy retry."],
+    "generator_variance": ["Quiet-pair initial generation deviated into blush/apricot and was replaced by the unused palette-only retry.", "Minor pictogram-like support marks remain in the quiet-pair proof; no extra readable copy observed.", "Model-review includes a faint contextual horizon; morphology and function remain primary."]
+  }
+}

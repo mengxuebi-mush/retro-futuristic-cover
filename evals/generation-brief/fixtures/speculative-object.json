@@ -1,0 +1,23 @@
+{
+  "canvas": {"width": 1200, "height": 675, "ratio": "16:9", "platform": "X post landscape"},
+  "text_contract": "THREE_ELEMENT_COVER",
+  "final_title": "Mobility Without the Commute",
+  "category_label": "FUTURE",
+  "micro_subtitle": "MOVE WITH LESS",
+  "concept_contract": {
+    "message_anchor": "short local movement can happen without a fixed commute",
+    "subject_behavior": "a shared pod glides quietly between nearby community stops",
+    "visible_evidence": [
+      "an exposed hover keel that visibly carries the pod above the ground",
+      "a shared bubble canopy oriented toward short neighborhood travel"
+    ],
+    "semantic_direction": "fixed commuting becomes flexible local movement",
+    "must_not_imply": ["highway speed", "a present-day electric car advertisement"]
+  },
+  "speculative_function": "A shared short-range ground-gliding pod for quiet neighborhood trips.",
+  "purpose_bearing_parts": [
+    "oversized bubble canopy for shared visibility",
+    "integrated hover keel for low-speed gliding",
+    "continuous body seam for maintenance access"
+  ]
+}

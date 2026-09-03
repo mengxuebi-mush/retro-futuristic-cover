@@ -1,0 +1,11 @@
+{
+  "case_id": "collaborative-prototyping",
+  "hypothetical_function": "Two builders prototype together around a suspended shared worktable.",
+  "object_family": "FUTURE_HABITAT_CAPSULE",
+  "morphology": "CUSTOM_COMPOSED / Toroidal ribbon commons",
+  "exaggerated_proportion": "The enclosing toroidal loop is dramatically wider than the suspended cabin and its upper arc is stretched into a buoyant gesture.",
+  "aperture": "The open loop center and convex cabin window are the functional negative spaces.",
+  "purpose_bearing_parts": ["two warm docking bridges", "continuous maintenance seam", "underside lift cavity", "suspended shared cabin"],
+  "materials": "powder-blue molded fiberglass, tinted bubble glass, warm metal, cream upholstery",
+  "modern_cues_rejected": ["car or EV stance", "flat windshield", "black display band", "wheels", "touchscreen-first controls"]
+}

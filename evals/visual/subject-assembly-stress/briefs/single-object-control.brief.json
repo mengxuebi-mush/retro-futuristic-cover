@@ -1,0 +1,245 @@
+{
+  "brief_version": 1,
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4",
+    "platform": "EDITORIAL_POSTER"
+  },
+  "carrier_contract": {
+    "id": "EDITORIAL_POSTER",
+    "name": "Editorial wall poster",
+    "text_contract": "EDITORIAL_POSTER_5_TO_7",
+    "critical_signals": [
+      "flat front-facing page",
+      "visible poster edge or mounting logic",
+      "strong off-center hierarchy"
+    ],
+    "forbidden_signals": [
+      "phone frame",
+      "floating UI card",
+      "even template symmetry"
+    ],
+    "safe_margin": "5–9% of page width unless the poster crop is intentionally aggressive",
+    "title_priority": "dominant; supporting information stays subordinate and attaches to the title axis, frame, object tangent, perspective line, mask, or perimeter",
+    "object_scale": "large; 35–75% of the short edge",
+    "crop_behavior": "allow decisive crop at one or more edges"
+  },
+  "text_contract": "EDITORIAL_POSTER_5_TO_7",
+  "designed_text_inventory": [
+    {
+      "id": "FINAL_TITLE",
+      "text": "COLLECTIVE TOOLS LAB",
+      "role": "dominant title",
+      "placement": "TITLE_ZONE"
+    },
+    {
+      "id": "CATEGORY_LABEL",
+      "text": "BUILD",
+      "role": "top category label",
+      "placement": "CATEGORY_ZONE"
+    },
+    {
+      "id": "MICRO_SUBTITLE",
+      "text": "ONE SYSTEM. MANY HANDS.",
+      "role": "quiet micro-subtitle",
+      "placement": "MICRO_ZONE"
+    },
+    {
+      "id": "POSTER_SUPPORT_01",
+      "text": "SAT • NOV 14 • 1–4 PM",
+      "role": "event date and time",
+      "placement": "title axis",
+      "source": "user-provided event details"
+    },
+    {
+      "id": "POSTER_SUPPORT_02",
+      "text": "COMMONS LAB • NORTH PARK",
+      "role": "event location",
+      "placement": "object tangent",
+      "source": "user-provided event details"
+    },
+    {
+      "id": "POSTER_SUPPORT_03",
+      "text": "LIVE PROTOTYPES • TEAM DEMOS",
+      "role": "event program",
+      "placement": "opposite perimeter",
+      "source": "user-provided event details"
+    },
+    {
+      "id": "POSTER_SUPPORT_04",
+      "text": "FREE • RSVP REQUIRED",
+      "role": "access and registration",
+      "placement": "title axis",
+      "source": "user-provided event details"
+    }
+  ],
+  "designed_text_count": 7,
+  "composition": {
+    "layout_family_id": "ASYMMETRIC_COUNTERWEIGHT",
+    "layout_family": "Asymmetric Counterweight",
+    "attention_contract": {
+      "title_percent": [
+        56,
+        70
+      ],
+      "subject_percent": [
+        22,
+        34
+      ],
+      "support_percent": [
+        6,
+        12
+      ]
+    },
+    "composition_sentence": "TITLE_MASS + SINGLE_OBJECT + COUNTERBALANCE + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT",
+    "subject_assembly": "SINGLE_OBJECT",
+    "subject_mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+    "operators": [
+      {
+        "id": "COUNTERBALANCE",
+        "category": "PRIMARY_RELATION",
+        "definition": "Place unequal title and subject masses in complementary regions joined by one shared structural cue."
+      },
+      {
+        "id": "SHARED_ALIGNMENT",
+        "category": "SUPPORT_ALIGNMENT",
+        "definition": "Attach at least three major or support elements to one shared edge, axis, baseline, or curvature."
+      },
+      {
+        "id": "SCALE_CONTRAST",
+        "category": "FOCAL_OPERATION",
+        "definition": "Make one element intentionally much larger or smaller than expected without creating a second focal event."
+      }
+    ],
+    "focal_event": {
+      "id": "SINGLE_SCALE_ANOMALY",
+      "definition": "One element is intentionally much larger or smaller than expected, creating the memorable event.",
+      "thumbnail_test": "the scale relationship is visible at 25% size"
+    },
+    "title_zone": "upper-left",
+    "object_slot": "one large side-biased mass; complete or edge-cropped according to scale role",
+    "support_zones": [
+      "title axis",
+      "object tangent",
+      "opposite perimeter"
+    ],
+    "collision_rule": "title and subject share one edge, tangent, or shaped counter-space; they do not float as unrelated halves",
+    "crop_rule": "crop one or two outer edges when the subject exceeds 36% of the canvas; protect 2–4 identity anchors",
+    "release_zone": "one large low-information field around the scale anomaly",
+    "failure_signals": [
+      "safe headline-left complete-object-right split",
+      "equal title and subject weight",
+      "small centered subject",
+      "metadata floating without an anchor"
+    ],
+    "thumbnail_test": "title reads first and the unequal counterweight relationship is visible before details"
+  },
+  "subject": {
+    "origin_mode": "SPECULATIVE_OBJECT",
+    "origin_definition": "An invented, apparently functional object imagined through optimistic streamline-era futurism: a rounded, exaggerated volume with coherent construction logic and a small set of purpose-bearing parts.",
+    "assembly": "SINGLE_OBJECT",
+    "mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+    "render_treatment": "PALETTE_ASSIMILATED",
+    "render_definition": "Build the form or invented device from the active palette so its body, light, shadow, haze, and gradient read as one continuous color system.",
+    "color_rule": "Object color derives from ACTIVE_HUES and their tints; no unrelated local product color is introduced.",
+    "scale_role": "INTEGRATED_HERO",
+    "scale": "28–55% of the short edge",
+    "scale_behavior": "The subject and title share primary attention through counter-space, tangent, or one common axis.",
+    "object_family_id": "FUTURE_HABITAT_CAPSULE",
+    "object_family": "Future habitat capsule",
+    "function": "A modular collaborative prototyping system that lets many makers configure one shared work habitat from toroidal modules.",
+    "purpose_bearing_parts": [
+      "continuous toroidal work loop",
+      "suspended shared prototyping cavity",
+      "soft docking bridges that join modules",
+      "curved maintenance and power seam"
+    ],
+    "archive_identity_anchors": [],
+    "intrinsic_artifact_text_policy": "NOT_APPLICABLE",
+    "morphology": {
+      "id": "CUSTOM_COMPOSED",
+      "name": "Toroidal ribbon commons",
+      "source": "CUSTOM",
+      "shape_ancestry": "one inflated toroidal ribbon folds around a pearl-like inhabited cavity, combining a continuous loop, suspended inner volume, and open center",
+      "definition": "A collaborative prototyping habitat that lets two builders work around a suspended shared workspace, derived from a continuous loop rather than a pod, vehicle, or room with softened corners.",
+      "silhouette": "a broad soft loop sweeps upward and around one smaller hanging cabin, leaving a large intentional opening that makes the object recognizable at thumbnail size",
+      "exaggeration": "make the enclosing loop dramatically wider than the cabin and stretch its upper arc into a buoyant directional gesture",
+      "aperture_rule": "treat the loop's open center and one convex cabin window as integrated functional negative spaces; use no flat windshield or black display band",
+      "construction_cues": [
+        "two warm docking bridges suspend the cabin from the enclosing loop",
+        "one continuous maintenance seam follows the loop curvature",
+        "one softly glowing underside cavity explains lift without exposed contemporary propulsion hardware"
+      ],
+      "material_direction": "pale-pistachio molded fiberglass, softly warm-ivory-tinted bubble glass, restrained warm-metal bridge details, warm-ivory upholstery, and gentle illustrated surface grain",
+      "hard_failures": [
+        "a current car, appliance, laptop, speaker, robot, or phone with rounded corners",
+        "faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance",
+        "black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism",
+        "generic matte ceramic blob with no silhouette exaggeration, functional opening, or construction logic",
+        "photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light"
+      ]
+    },
+    "screen_state": "NOT_APPLICABLE",
+    "screen_content_role": "NONE",
+    "screen_content_source": "NONE",
+    "screen_display_language": "NOT_APPLICABLE",
+    "screen_copy_element": "NONE",
+    "screen_rendering_rule": "Do not add a display, interface, glow, or control surface merely to make the subject look technological.",
+    "screen_text_rule": "No screen copy.",
+    "screen_instance_rule": "no generated screen behavior"
+  },
+  "palette": {
+    "id": "P03_PISTACHIO_FUTURE",
+    "family": "Pistachio Future",
+    "color_complexity": "DUAL_FIELD",
+    "active_hues": [
+      "warm ivory",
+      "pale pistachio"
+    ],
+    "derived_tints": "derive pale, mid, and soft-deep tones only from the active hues",
+    "area_hierarchy": "dominant hue 70–80%; companion hue 20–30%; never 50/50",
+    "tonal_regime": "MID_TONE_EDITORIAL",
+    "harmony_mode": "ANALOGOUS",
+    "coral_role": "ABSENT",
+    "gradient_topology": "DIAGONAL_DRIFT",
+    "gradient_direction": "two broad fields cross diagonally through a long intermediate blend",
+    "focal_mode": "HERO_OBJECT",
+    "primary_form": "one inhabitable bubble, egg, joined-lobe pod, or rounded vertical capsule with an opening large enough to imply occupation and one coherent support or docking system; resolve the entire silhouette through a broad soft loop sweeps upward and around one smaller hanging cabin, leaving a large intentional opening that makes the object recognizable at thumbnail size",
+    "editorial_device": "NONE",
+    "detail_roles": {
+      "anchor": "1 focal triangles instance",
+      "bridge": "NONE",
+      "echo": "1 much smaller triangles echo instance(s)"
+    },
+    "type_mode": "CJK_NEO_GROTESK",
+    "alignment_system": "first distribute visual weight across complementary regions, then align at least three of title, hero or atmospheric form, panel, label, bridge, and accents through a shared edge, axis, tangent, baseline, or curvature; the relationship may span the canvas and must not stack all high-information elements in one region"
+  },
+  "background": {
+    "id": "OPAQUE_BACKGROUND_BASE",
+    "full_bleed_opaque": true,
+    "requirement": "Render a finished, fully opaque full-bleed poster. The selected gradient is the bottommost background layer and covers 100% of the canvas behind the title, subject, negative space, and every cropped edge. No transparency or alpha anywhere.",
+    "coverage": "100% of the canvas behind every element and every cropped edge"
+  },
+  "negative_constraints": [
+    "phone frame",
+    "floating UI card",
+    "even template symmetry",
+    "safe headline-left complete-object-right split",
+    "equal title and subject weight",
+    "small centered subject",
+    "metadata floating without an anchor",
+    "No designed letters, words, numbers, logos, watermarks, pseudo-text, or copy outside the locked inventory.",
+    "Keep the title first at thumbnail size and preserve the title glyph clear zone.",
+    "Resolve all visible objects as one perceptually unified subject mass; do not create equal-weight hero objects.",
+    "Do not depict a present-day product with rounded corners, faceted contemporary vehicle surfaces, or cold minimal-product language.",
+    "No black panoramic glass band, full-width LED strip, touchscreen-first controls, RGB light, or chrome-covered body.",
+    "a current car, appliance, laptop, speaker, robot, or phone with rounded corners",
+    "faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance",
+    "black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism",
+    "generic matte ceramic blob with no silhouette exaggeration, functional opening, or construction logic",
+    "photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light"
+  ],
+  "opaque_full_bleed_background_requirement": "Render a finished, fully opaque full-bleed poster. The selected gradient is the bottommost background layer and covers 100% of the canvas behind the title, subject, negative space, and every cropped edge. No transparency or alpha anywhere.",
+  "generator_instruction": "Render a finished, fully opaque full-bleed poster. The selected gradient is the bottommost background layer and covers 100% of the canvas behind the title, subject, negative space, and every cropped edge. No transparency or alpha anywhere.\nCarrier EDITORIAL_POSTER; canvas 1080x1440 (3:4); text contract EDITORIAL_POSTER_5_TO_7.\nRender exactly these designed text elements once each: FINAL_TITLE=\"COLLECTIVE TOOLS LAB\" at TITLE_ZONE; CATEGORY_LABEL=\"BUILD\" at CATEGORY_ZONE; MICRO_SUBTITLE=\"ONE SYSTEM. MANY HANDS.\" at MICRO_ZONE; POSTER_SUPPORT_01=\"SAT • NOV 14 • 1–4 PM\" at title axis; POSTER_SUPPORT_02=\"COMMONS LAB • NORTH PARK\" at object tangent; POSTER_SUPPORT_03=\"LIVE PROTOTYPES • TEAM DEMOS\" at opposite perimeter; POSTER_SUPPORT_04=\"FREE • RSVP REQUIRED\" at title axis. No other designed copy.\nComposition: TITLE_MASS + SINGLE_OBJECT + COUNTERBALANCE + SCALE_CONTRAST + RELEASE_ZONE + SHARED_ALIGNMENT; focal event SINGLE_SCALE_ANOMALY: One element is intentionally much larger or smaller than expected, creating the memorable event.; title zone upper-left; object slot one large side-biased mass; complete or edge-cropped according to scale role; support zones title axis, object tangent, opposite perimeter; collision rule title and subject share one edge, tangent, or shaped counter-space; they do not float as unrelated halves; crop rule crop one or two outer edges when the subject exceeds 36% of the canvas; protect 2–4 identity anchors; release zone one large low-information field around the scale anomaly.\nSubject: SPECULATIVE_OBJECT, assembly SINGLE_OBJECT, object family FUTURE_HABITAT_CAPSULE, treatment PALETTE_ASSIMILATED, scale INTEGRATED_HERO; function A modular collaborative prototyping system that lets many makers configure one shared work habitat from toroidal modules.; archive anchors not applicable; intrinsic artifact text policy NOT_APPLICABLE; morphology {\"id\": \"CUSTOM_COMPOSED\", \"name\": \"Toroidal ribbon commons\", \"source\": \"CUSTOM\", \"shape_ancestry\": \"one inflated toroidal ribbon folds around a pearl-like inhabited cavity, combining a continuous loop, suspended inner volume, and open center\", \"definition\": \"A collaborative prototyping habitat that lets two builders work around a suspended shared workspace, derived from a continuous loop rather than a pod, vehicle, or room with softened corners.\", \"silhouette\": \"a broad soft loop sweeps upward and around one smaller hanging cabin, leaving a large intentional opening that makes the object recognizable at thumbnail size\", \"exaggeration\": \"make the enclosing loop dramatically wider than the cabin and stretch its upper arc into a buoyant directional gesture\", \"aperture_rule\": \"treat the loop's open center and one convex cabin window as integrated functional negative spaces; use no flat windshield or black display band\", \"construction_cues\": [\"two warm docking bridges suspend the cabin from the enclosing loop\", \"one continuous maintenance seam follows the loop curvature\", \"one softly glowing underside cavity explains lift without exposed contemporary propulsion hardware\"], \"material_direction\": \"pale-pistachio molded fiberglass, softly warm-ivory-tinted bubble glass, restrained warm-metal bridge details, warm-ivory upholstery, and gentle illustrated surface grain\", \"hard_failures\": [\"a current car, appliance, laptop, speaker, robot, or phone with rounded corners\", \"faceted stealth surfaces, razor edges, angular cybertruck geometry, or aggressive contemporary supercar stance\", \"black panoramic glass bands, full-width LED strips, touchscreen-first dashboards, RGB light, holographic UI, or cold gray-white minimalism\", \"generic matte ceramic blob with no silhouette exaggeration, functional opening, or construction logic\", \"photoreal automotive advertising, cinematic road scenes, chrome covering the whole object, or hard neon rim light\"]}.\nScreen: NOT_APPLICABLE; Do not add a display, interface, glow, or control surface merely to make the subject look technological.\nPalette: Pistachio Future / DUAL_FIELD; active hues warm ivory, pale pistachio; area hierarchy dominant hue 70–80%; companion hue 20–30%; never 50/50; topology DIAGONAL_DRIFT; type mode CJK_NEO_GROTESK; focal mode HERO_OBJECT; details {\"anchor\": \"1 focal triangles instance\", \"bridge\": \"NONE\", \"echo\": \"1 much smaller triangles echo instance(s)\"}."
+}

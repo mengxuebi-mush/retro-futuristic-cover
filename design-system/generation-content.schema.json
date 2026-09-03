@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retro-futuristic-cover/v3/generation-content",
+  "title": "Locked content input for the generation brief compiler",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "canvas",
+    "text_contract",
+    "final_title",
+    "category_label",
+    "concept_contract"
+  ],
+  "properties": {
+    "canvas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "ratio"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "ratio": {"type": "string", "pattern": "^[1-9][0-9]*:[1-9][0-9]*$"},
+        "platform": {"type": "string"}
+      }
+    },
+    "text_contract": {
+      "enum": ["THREE_ELEMENT_COVER", "EDITORIAL_POSTER_5_TO_7"]
+    },
+    "final_title": {"type": "string", "minLength": 1},
+    "category_label": {"type": "string", "minLength": 1},
+    "micro_subtitle": {"type": "string", "minLength": 1},
+    "deck": {"type": "string", "minLength": 1},
+    "source_asset_paths": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "poster_support_elements": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"type": "string", "minLength": 1},
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text"],
+            "properties": {
+              "text": {"type": "string", "minLength": 1},
+              "role": {"type": "string", "minLength": 1},
+              "anchor": {"type": "string", "minLength": 1},
+              "source": {"type": "string", "minLength": 1},
+              "factual": {"type": "boolean"}
+            }
+          }
+        ]
+      }
+    },
+    "speculative_function": {"type": "string", "minLength": 1},
+    "purpose_bearing_parts": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "archive_identity_anchors": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "intrinsic_artifact_text_policy": {"type": "string", "minLength": 1},
+    "screen_carrier_element": {"type": "string", "minLength": 1},
+    "concept_contract": {"$ref": "#/$defs/conceptContract"},
+    "assembly_plan": {
+      "oneOf": [
+        {"$ref": "#/$defs/compoundSetPlan"},
+        {"$ref": "#/$defs/primarySatellitesPlan"},
+        {"$ref": "#/$defs/repeatedFamilyPlan"}
+      ]
+    }
+  },
+  "oneOf": [
+    {"required": ["micro_subtitle"], "not": {"required": ["deck"]}},
+    {"required": ["deck"], "not": {"required": ["micro_subtitle"]}}
+  ],
+  "$defs": {
+    "conceptContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["message_anchor", "subject_behavior", "visible_evidence", "semantic_direction", "must_not_imply"],
+      "properties": {
+        "message_anchor": {"type": "string", "minLength": 1},
+        "subject_behavior": {"type": "string", "minLength": 1},
+        "visible_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "semantic_direction": {"type": "string", "minLength": 1},
+        "must_not_imply": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "assemblyMember": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "form_cue"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "form_cue": {"type": "string", "minLength": 1},
+        "function": {"type": "string", "minLength": 1}
+      }
+    },
+    "compoundSetPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "members", "shared_relation", "observability_rule"],
+      "properties": {
+        "mode": {"const": "COMPOUND_SET"},
+        "members": {"type": "array", "minItems": 2, "maxItems": 3, "items": {"$ref": "#/$defs/assemblyMember"}},
+        "shared_relation": {"type": "string", "minLength": 1},
+        "observability_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "primarySatellitesPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "primary", "satellites", "shared_relation", "min_visual_weight_ratio", "observability_rule"],
+      "properties": {
+        "mode": {"const": "PRIMARY_SATELLITES"},
+        "primary": {"$ref": "#/$defs/assemblyMember"},
+        "satellites": {"type": "array", "minItems": 1, "maxItems": 2, "items": {"$ref": "#/$defs/assemblyMember"}},
+        "shared_relation": {"type": "string", "minLength": 1},
+        "min_visual_weight_ratio": {"type": "number", "minimum": 2},
+        "observability_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "repeatedFamilyPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "family_unit", "instance_count", "path", "focal_instance_rule", "shared_relation", "observability_rule"],
+      "properties": {
+        "mode": {"const": "REPEATED_FAMILY"},
+        "family_unit": {"$ref": "#/$defs/assemblyMember"},
+        "instance_count": {"type": "integer", "minimum": 2, "maximum": 5},
+        "path": {"type": "string", "minLength": 1},
+        "focal_instance_rule": {"type": "string", "minLength": 1},
+        "shared_relation": {"type": "string", "minLength": 1},
+        "observability_rule": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

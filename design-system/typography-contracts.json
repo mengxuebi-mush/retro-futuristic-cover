@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "system": "retro-futuristic-cover",
+  "short_title_max_visible_glyphs": 8,
+  "standard_title_max_visible_glyphs": 24,
+  "title_modes": {
+    "SHORT_TITLE_EXPANDED": {
+      "line_count": [1, 2],
+      "width_percent": [44, 70],
+      "height_percent": [11, 22],
+      "type_dominant_width_percent": [52, 78],
+      "weight": "medium-to-bold display weight; never light, thin, or hairline",
+      "tracking": "neutral to slightly expanded only when it increases the title silhouette",
+      "rule": "A short title must become a deliberate visual object through scale, weight, stacking, or controlled edge interaction; it must not read as a small label floating in unused space."
+    },
+    "STANDARD_TITLE_BLOCK": {
+      "line_count": [1, 3],
+      "width_percent": [46, 76],
+      "height_percent": [16, 34],
+      "weight": "regular-to-semibold editorial display weight with robust strokes",
+      "tracking": "natural tracking with balanced line lengths",
+      "rule": "Reflow for one compact title silhouette before reducing size."
+    },
+    "LONG_TITLE_STACK": {
+      "line_count": [2, 5],
+      "width_percent": [52, 82],
+      "height_percent": [24, 46],
+      "weight": "regular-to-medium editorial display weight with robust strokes",
+      "tracking": "natural tracking and semantic line breaks",
+      "rule": "Use balanced semantic line breaks; never compress the complete title into a small dense paragraph."
+    }
+  },
+  "support_modes": {
+    "MICRO_SUBTITLE": {
+      "english_words": [2, 5],
+      "han_characters": [4, 8],
+      "line_count": [1, 1],
+      "full_size_min_x_height_percent": 1.6,
+      "title_cap_height_ratio": [0.12, 0.2],
+      "rule": "Keep the phrase quiet but fully legible at full size and attach it to the title axis, baseline, mask edge, frame, or one named support zone."
+    },
+    "SUPPORTING_DECK": {
+      "english_words": [2, 14],
+      "han_characters": [4, 24],
+      "line_count": [1, 2],
+      "full_size_min_x_height_percent": 2.0,
+      "title_cap_height_ratio": [0.16, 0.28],
+      "rule": "Treat an exact longer subtitle as a readable deck, not micro-text; keep it to one or two deliberate lines attached to the title cluster."
+    }
+  },
+  "category_label": {
+    "line_count": [1, 1],
+    "full_size_min_x_height_percent": 1.3,
+    "title_cap_height_ratio": [0.09, 0.16],
+    "rule": "Keep the category subordinate but readable and place it on the same alignment system as the title cluster."
+  },
+  "global": {
+    "title_contrast_target": "at least 3:1 against every region crossing the visible glyphs",
+    "support_contrast_target": "at least 4.5:1 where feasible; never trade legibility for atmospheric subtlety",
+    "cluster_rule": "FINAL_TITLE, CATEGORY_LABEL, and MICRO_SUBTITLE or SUPPORTING_DECK must read as one typographic cluster using a shared edge, axis, baseline, frame, mask, or tangent; do not scatter the three roles into unrelated corners.",
+    "thumbnail_rule": "At 25% size the exact title is immediately readable and is the first reading event; support copy may become quiet but must remain structurally attached."
+  }
+}

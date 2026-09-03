@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "system_name": "Composition Grammar",
+  "purpose": "Turn a finite Composition Contract into a flexible spatial sentence by resolving one subject assembly, one relationship system, one focal operation, one release zone, and one support alignment.",
+  "sentence_template": "TITLE_MASS + SUBJECT_ASSEMBLY + PRIMARY_RELATION + FOCAL_OPERATION + RELEASE_ZONE + SUPPORT_ALIGNMENT",
+  "primitives": [
+    {
+      "id": "TITLE_MASS",
+      "role": "The dominant reading event and largest coherent typographic mass."
+    },
+    {
+      "id": "SUBJECT_MASS",
+      "role": "One perceptually unified subject system; it may contain one object, a compact set, a primary with satellites, or one repeated family."
+    },
+    {
+      "id": "SUPPORT_SYSTEM",
+      "role": "Category, subtitle, and carrier-allowed metadata attached to named structural anchors."
+    },
+    {
+      "id": "RELEASE_ZONE",
+      "role": "One visibly quieter region with lower contrast, detail, and information density."
+    }
+  ],
+  "global_invariants": [
+    "Resolve exactly one Composition Contract and one SUBJECT_ASSEMBLY.",
+    "Read TITLE_MASS first at thumbnail size even when SUBJECT_MASS occupies more literal canvas area.",
+    "Treat object footprint and perceptual attention as separate measurements; a monumental object may be physically larger without becoming the first reading event.",
+    "Resolve every visible object into one SUBJECT_MASS. Multiple objects must form one compact silhouette, one primary-subordinate hierarchy, or one repeated path.",
+    "Use exactly one focal event and let every energetic secondary element extend it rather than start another event.",
+    "Keep exactly one RELEASE_ZONE visibly quieter than the focal event.",
+    "Attach SUPPORT_SYSTEM to one shared edge, axis, tangent, frame, mask, vector, rhythm path, or information rule.",
+    "Do not distribute several unrelated objects, text blocks, or decorative systems at equal visual weight."
+  ],
+  "subject_assemblies": [
+    {
+      "id": "SINGLE_OBJECT",
+      "count": "one coherent subject, object, image field, or abstract field",
+      "selection_signal": "One subject carries the idea, or the source does not explicitly require a relationship among several objects.",
+      "mass_rule": "Treat the single subject as one complete, cropped, fragmented, or field-like mass according to the Composition Contract.",
+      "allowed_scale_roles": ["FIELD_STRUCTURE", "MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "CENTERPIECE_ARTIFACT", "SPECIMEN_ANCHOR"]
+    },
+    {
+      "id": "COMPOUND_SET",
+      "count": "two or three related objects",
+      "selection_signal": "The concept depends on a compact ensemble, comparison, toolkit, workstation, or supplied group whose members have comparable semantic importance.",
+      "mass_rule": "Overlap, align, or tightly space 2–3 related objects so their outer silhouette reads as one SUBJECT_MASS before individual parts are noticed.",
+      "allowed_scale_roles": ["MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "CENTERPIECE_ARTIFACT", "SPECIMEN_ANCHOR"]
+    },
+    {
+      "id": "PRIMARY_SATELLITES",
+      "count": "one primary object plus one or two subordinate companions",
+      "selection_signal": "One object is clearly primary and one or two accessories, modules, signals, or contextual companions clarify its use or era.",
+      "mass_rule": "Keep the primary object at least twice the visual weight of every satellite; bind satellites to its baseline, axis, tangent, cable, shadow, or directional path.",
+      "allowed_scale_roles": ["MONUMENTAL_FRAGMENT", "INTEGRATED_HERO", "CENTERPIECE_ARTIFACT"]
+    },
+    {
+      "id": "REPEATED_FAMILY",
+      "count": "two to five instances from one subject family",
+      "selection_signal": "The subject must read as a collection, sequence, inventory, multiplicity, or repeated signal.",
+      "mass_rule": "Repeat one family only; vary scale, crop, angle, or spacing while one instance owns the focal scale and the group follows one coherent path.",
+      "allowed_scale_roles": ["REPEATED_FIELD"]
+    }
+  ],
+  "operators": [
+    {"id": "COUNTERBALANCE", "category": "PRIMARY_RELATION", "definition": "Place unequal title and subject masses in complementary regions joined by one shared structural cue."},
+    {"id": "CENTER_ON_AXIS", "category": "PRIMARY_RELATION", "definition": "Organize title, subject, and grounding cue around one calm axial system."},
+    {"id": "FRAME_THRESHOLD", "category": "PRIMARY_RELATION", "definition": "Use one opening, boundary, or threshold to organize entry, enclosure, and title placement."},
+    {"id": "FOLLOW_VECTOR", "category": "PRIMARY_RELATION", "definition": "Place title, subject, and support information on or against one directional or vanishing vector."},
+    {"id": "REPEAT_ON_PATH", "category": "PRIMARY_RELATION", "definition": "Arrange one repeated family along one readable path or controlled grid rhythm."},
+    {"id": "TYPE_OWNS_FIELD", "category": "PRIMARY_RELATION", "definition": "Let the title control the main field while the physical subject acts only as a subordinate interruption."},
+    {"id": "IMAGE_MASK", "category": "PRIMARY_RELATION", "definition": "Use one recognizable image field and one protected mask or low-detail cut for the title."},
+    {"id": "INFORMATION_RULE", "category": "PRIMARY_RELATION", "definition": "Attach title, subject, and truthful factual support to one explicit rule, grid, or index axis."},
+    {"id": "EDGE_CROP", "category": "FOCAL_OPERATION", "definition": "Enlarge and crop one subject mass decisively at one or more canvas edges."},
+    {"id": "SCALE_CONTRAST", "category": "FOCAL_OPERATION", "definition": "Make one element intentionally much larger or smaller than expected without creating a second focal event."},
+    {"id": "CONTOUR_LOCK", "category": "FOCAL_OPERATION", "definition": "Make the title approach, split around, or track one meaningful subject contour while preserving glyph clarity."},
+    {"id": "NEGATIVE_SPACE_CUT", "category": "FOCAL_OPERATION", "definition": "Cut one shaped quiet field into the subject or atmospheric mass."},
+    {"id": "THRESHOLD_ENTRY", "category": "FOCAL_OPERATION", "definition": "Draw the title or subject toward, through, or across the contract's single opening without adding another portal system."},
+    {"id": "RHYTHM_VARIATION", "category": "FOCAL_OPERATION", "definition": "Create one memorable scale, crop, angle, or spacing variation inside an otherwise coherent repeated path."},
+    {"id": "SHARED_ALIGNMENT", "category": "SUPPORT_ALIGNMENT", "definition": "Attach at least three major or support elements to one shared edge, axis, baseline, or curvature."},
+    {"id": "TANGENT_LOCK", "category": "SUPPORT_ALIGNMENT", "definition": "Use one subject tangent as the title or support-copy alignment cue."},
+    {"id": "OPEN_TITLE_BAND", "category": "SUPPORT_ALIGNMENT", "definition": "Protect one open band or corner from subjects so title and facts remain readable."},
+    {"id": "PERIMETER_LOCK", "category": "SUPPORT_ALIGNMENT", "definition": "Attach support copy to one controlled outer perimeter or frame edge rather than scattering it."
+    }
+  ],
+  "focal_event_operator_map": {
+    "DECISIVE_EDGE_CROP": "EDGE_CROP",
+    "TITLE_CONTOUR_TENSION": "CONTOUR_LOCK",
+    "SINGLE_SCALE_ANOMALY": "SCALE_CONTRAST",
+    "REPEATED_RHYTHM": "RHYTHM_VARIATION",
+    "PORTAL_ENTRY": "THRESHOLD_ENTRY",
+    "NEGATIVE_SPACE_CUT": "NEGATIVE_SPACE_CUT"
+  },
+  "selection_flow": [
+    {"priority": 1, "when": "The user explicitly requests an assembly", "choose": "the requested assembly when the Composition Contract and scale role allow it"},
+    {"priority": 2, "when": "The content explicitly requires repetition, inventory, sequence, or multiplicity", "choose": "REPEATED_FAMILY"},
+    {"priority": 3, "when": "One subject is primary and one or two companions clarify use, function, or era", "choose": "PRIMARY_SATELLITES"},
+    {"priority": 4, "when": "Two or three related objects form a workstation, toolkit, comparison, or compact ensemble", "choose": "COMPOUND_SET"},
+    {"priority": 5, "when": "No earlier rule applies", "choose": "SINGLE_OBJECT"}
+  ],
+  "failure_signals": [
+    "several unrelated hero objects",
+    "equal visual weight across multiple objects",
+    "support copy floating without a shared structural anchor",
+    "object footprint mistaken for perceptual attention",
+    "more than one focal operation",
+    "release zone filled with decoration or pseudo-data"
+  ]
+}
